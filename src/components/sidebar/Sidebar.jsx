@@ -4,35 +4,23 @@ import './sidebar.scss';
 
 const sidebarNavItems = [
     {
-        display: 'Dashboard',
+        display: 'Draftboard',
         icon: <i className='bx bx-home'></i>,
         to: '/',
         section: ''
     },
     {
-        display: 'Getting Started',
+        display: 'Fantasy Teams',
         icon: <i className='bx bx-star'></i>,
-        to: '/started',
-        section: 'started'
+        to: '/fantasyteams',
+        section: 'fantasyteams'
     },
-    // {
-    //     display: 'Calendar',
-    //     icon: <i className='bx bx-calendar'></i>,
-    //     to: '/calendar',
-    //     section: 'calendar'
-    // },
     {
-        display: 'User',
+        display: 'Draft Setup',
         icon: <i className='bx bx-user'></i>,
-        to: '/user',
-        section: 'user'
+        to: '/setup',
+        section: 'setup'
     },
-    // {
-    //     display: 'Orders',
-    //     icon: <i className='bx bx-receipt'></i>,
-    //     to: '/order',
-    //     section: 'order'
-    // },
 ]
 
 const Sidebar = () => {
