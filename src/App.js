@@ -10,10 +10,8 @@ function App() {
             <Routes>
                 <Route path='/' element={<AppLayout />}>
                     <Route index element={<Blank />} />
-                    <Route path='/started' element={<Blank />} />
-                    <Route path='/calendar' element={<Blank />} />
-                    <Route path='/user' element={<Blank />} />
-                    <Route path='/order' element={<Blank />} />
+                    <Route path='/fantasyteams' element={<Blank />} />
+                    <Route path='/setup' element={<Blank />} />
                 </Route>
             </Routes>
         </BrowserRouter>
