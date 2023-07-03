@@ -1,11 +1,14 @@
 import '../styles/index.scss'
+import  DraftPlyrList from '../components/draft-list'
+import  DraftInfo from '../components/draft-info'
+import  DraftNews from '../components/draft-news'
 
 const Draftboard = () => {
   return (
     <div className='container'>
-      <div className='displayCol'>This is LEFT</div>
-      <div className='displayCol'>This is CENTER</div>
-      <div className='displayCol'>This is RIGHT</div>
+      <div className='displayCol'><DraftPlyrList/></div>
+      <div className='displayCol'><DraftInfo/></div>
+      <div className='displayCol'><DraftNews/></div>
     </div>
   );
 };
