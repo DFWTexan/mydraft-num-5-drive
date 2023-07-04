@@ -1,0 +1,19 @@
+.container {
+  margin:0 auto; width:100%; position: relative; height: 80px;
+}
+
+.displayCol {
+  width: 33%;
+  height: 84px;
+  left: 24px;
+  position:relative; 
+  padding: 2px;
+  display: inline-block; /* ADDED */
+}
+
+// .navBar {
+//   display: block;
+//   position: relative;
+//   width: 33%;
+//   height: 100px;
+// }
