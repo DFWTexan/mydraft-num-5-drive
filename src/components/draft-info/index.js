@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 
-import Counter from '../../features/counter/Counter';
+// import Counter from '../../features/counter/Counter';
 
 const DraftInfo = () => {
 
@@ -11,7 +11,7 @@ const DraftInfo = () => {
   return (
     <div>
       This is Draft Info (tests)
-      <Counter/>
+      {/* <Counter/> */}
     </div>
   );
 };
