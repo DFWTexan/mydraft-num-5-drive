@@ -1,11 +1,13 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ListGroup } from "reactstrap";
 
 import '../../styles/index.scss';
 import {
   fetchPlayers,
   // findTutorialsByTitle,
 } from "../../slices/players";
+import PlayerCardItem from "./playerCardItem";
 
 const DraftPlyrList = () => {
 
@@ -22,7 +24,7 @@ const DraftPlyrList = () => {
 
   return (
     <div className="list-players">
-      <ul>
+      <ListGroup>
           {players &&
             players.map((player, index) => (
               <li
@@ -32,10 +34,11 @@ const DraftPlyrList = () => {
                 // onClick={() => setActiveTutorial(tutorial, index)}
                 key={index}
               >
-                {player.firstName}
+                {/* {player.firstName} */}
+                <PlayerCardItem player={player}/>
               </li>
             ))}
-        </ul>
+        </ListGroup>
     </div>
   );
 };
