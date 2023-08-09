@@ -1,5 +1,7 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
+import '../../styles/index.scss';
 import {
   fetchPlayers,
   // findTutorialsByTitle,
@@ -19,8 +21,8 @@ const DraftPlyrList = () => {
   }, [initFetch])
 
   return (
-    <div>
-      <ul className="list-group">
+    <div className="list-players">
+      <ul>
           {players &&
             players.map((player, index) => (
               <li

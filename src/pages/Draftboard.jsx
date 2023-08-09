@@ -6,9 +6,9 @@ import  DraftNews from '../components/draft-news'
 const Draftboard = () => {
   return (
     <div className='container'>
-      <div className='displayCol'><DraftPlyrList/></div>
-      <div className='displayCol'><DraftInfo/></div>
-      <div className='displayCol'><DraftNews/></div>
+      <div className='left'><div>Filter Info.</div><DraftPlyrList/></div>
+      <div className='middle'><DraftInfo/></div>
+      <div className='right'><DraftNews/></div>
     </div>
   );
 };

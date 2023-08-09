@@ -1,0 +1,12 @@
+.list-players {
+  display: inline-block; 
+  *display: inline; 
+  zoom: 1; 
+  vertical-align: top; 
+  font-size: 12px;
+  overflow: scroll;
+  overflow-x: hidden;
+  background-color: lightblue;
+  height: 800px;
+  width: 100%;
+}
