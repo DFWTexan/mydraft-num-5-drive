@@ -1,5 +1,5 @@
 import React from "react";
-import { FormGroup, Label, ListGroupItem } from "reactstrap";
+import { FormGroup, Label } from "reactstrap";
 
 import '../../styles/index.scss';
 
@@ -11,9 +11,7 @@ const CardInfo = ({ player }) => (
 
 const PlayerCardItem = ({player}) => {
   return (
-    <ListGroupItem className='player-card-content'>
-        <CardInfo player={player}/>
-    </ListGroupItem>
+    <CardInfo player={player}/>
   );
 };
 
