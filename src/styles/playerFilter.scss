@@ -1,5 +1,40 @@
 .player-filter-content {
-  padding: 30px;
+  padding: 10px;
   align-items: center;
   text-align: center;
+}
+
+.left-filter, .middle-filter, .right-filter {
+  display: inline-block; 
+  *display: inline; 
+  zoom: 1; 
+  vertical-align: bottom; 
+  font-size: 12px;
+}
+
+.search-filter {
+  padding: 10px;
+  text-align: center;
+}
+
+.display-filter {
+  padding: 10px;
+  text-align: center;
+}
+
+.left-filter {
+  width: 33%; 
+  background: white; 
+  padding-right: 8px;
+}
+
+.middle-filter {
+  width: 33%; 
+  background: white;
+}
+
+.right-filter {
+  width: 33%; 
+  background: white;
+  padding-left: 8px;
 }
