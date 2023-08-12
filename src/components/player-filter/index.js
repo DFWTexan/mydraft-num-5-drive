@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
+import { Form, FormGroup, Input } from "reactstrap";
 
 import "../../styles/index.scss";
 import {
@@ -38,7 +39,18 @@ const PlayerFilter = () => {
 
   return (
     <>
-      <div className="search-filter">SEARCH</div>
+      <div className="search-filter">
+        <Form>
+            <FormGroup>
+              <Input
+                id="playerSearch"
+                name="search"
+                placeholder="Player Search"
+                type="search"
+              />
+            </FormGroup>
+          </Form>
+      </div>
       <div className="display-filter">INFOMATION...</div>
       <div className="player-filter-content">
         <div className="left-filter">
