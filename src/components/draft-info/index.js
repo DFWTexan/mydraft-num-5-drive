@@ -2,14 +2,13 @@ import React, { useEffect } from "react";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 // import "react-tabs/style/react-tabs.css";
 
-// import FanTeamFilter from "./fanTeam-Filter";
-import "../../styles/draftInfo.scss";
+import "../../styles/index.scss";
 
 const DraftInfo = () => {
   useEffect(() => {}, []);
 
   return (
-    <div className="container-draftInfo">
+    <div className='tab_Container_draftInfo'>
       <Tabs forceRenderTabPanel defaultIndex={1}>
         <TabList>
           <Tab>DRAFT</Tab>
@@ -24,13 +23,13 @@ const DraftInfo = () => {
               <Tab>Rosters</Tab>
             </TabList>
             <TabPanel>
-              <p>DRAFT => Selections</p>
+              <p>DRAFT = Selections</p>
             </TabPanel>
             <TabPanel>
-              <p>DRAFT => Rankings</p>
+              <p>DRAFT = Rankings</p>
             </TabPanel>
             <TabPanel>
-              <p>DRAFT => Roster</p>
+              <p>DRAFT = Roster</p>
             </TabPanel>
           </Tabs>
         </TabPanel>
@@ -42,13 +41,13 @@ const DraftInfo = () => {
               <Tab>News</Tab>
             </TabList>
             <TabPanel>
-              <p>ROSTER => Team</p>
+              <p>ROSTER = Team</p>
             </TabPanel>
             <TabPanel>
-              <p>ROSTER => Selections</p>
+              <p>ROSTER = Selections</p>
             </TabPanel>
             <TabPanel>
-              <p>ROSTER => News</p>
+              <p>ROSTER = News</p>
             </TabPanel>
           </Tabs>
         </TabPanel>
