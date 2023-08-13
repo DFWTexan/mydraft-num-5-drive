@@ -54,7 +54,7 @@ const DraftInfo = () => {
         <TabPanel>
           <Tabs forceRenderTabPanel>
             <TabList>
-              <Tab>OB</Tab>
+              <Tab>QB</Tab>
               <Tab>RB</Tab>
               <Tab>WR</Tab>
               <Tab>TE</Tab>
