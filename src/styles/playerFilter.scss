@@ -1,0 +1,64 @@
+.player-filter-content {
+  padding: 10px;
+  align-items: center;
+  text-align: center;
+}
+
+.left-filter, .middle-filter, .right-filter {
+  display: inline-block; 
+  *display: inline; 
+  zoom: 1; 
+  vertical-align: bottom; 
+  font-size: 12px;
+}
+
+.search-filter {
+  height: 40px;
+  width: 100%;
+  padding-left: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+input {
+  border: 1px solid lightgrey;
+  font-size: large;
+  border-radius: .5rem;
+  width: 100%;
+  padding: 3px;
+}
+
+input:hover {
+  border: 1px solid #a2d2ff;
+  background-color: lightgrey;
+}
+
+input[type=text]:focus  {
+  // border-color: #308efe;
+  border-color: 3px solid #308efe !important;
+}
+
+.display-filter {
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  color: white;
+  background-color: black;
+}
+
+.left-filter {
+  width: 33%; 
+  background: white; 
+  padding-right: 8px;
+}
+
+.middle-filter {
+  width: 33%; 
+  background: white;
+}
+
+.right-filter {
+  width: 33%; 
+  background: white;
+  padding-left: 8px;
+}
