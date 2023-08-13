@@ -4,7 +4,7 @@ import Select from "react-select";
 import { emfTestFanTeamValues } from '../../constants/emftest-data'
 
 const FanTeamFilter = () => {
-  const [fanTeams, setFanTeams] = useState(['MyTeam', 'EMFTest-1', 'EMFTest-2', 'EMFTest-3']);
+  const [fanTeams, setFanTeams] = useState([]);
 
   useEffect(() => {
     setFanTeams(

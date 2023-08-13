@@ -43,6 +43,7 @@ const PlayerFilter = () => {
         <Form>
             <FormGroup>
               <Input
+                // className="search_input"
                 id="playerSearch"
                 name="search"
                 placeholder="Player Search"

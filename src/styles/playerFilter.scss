@@ -15,9 +15,27 @@
 .search-filter {
   height: 40px;
   width: 100%;
-  padding-left: 15px;
+  padding-left: 5px;
   padding-top: 5px;
   padding-bottom: 5px;
+}
+
+input {
+  border: 1px solid lightgrey;
+  font-size: large;
+  border-radius: .5rem;
+  width: 100%;
+  padding: 3px;
+}
+
+input:hover {
+  border: 1px solid #a2d2ff;
+  background-color: lightgrey;
+}
+
+input[type=text]:focus  {
+  // border-color: #308efe;
+  border-color: 3px solid #308efe !important;
 }
 
 .display-filter {
