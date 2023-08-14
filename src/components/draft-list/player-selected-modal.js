@@ -15,20 +15,9 @@ import PropTypes from 'prop-types';
 import '../../styles/index.scss';
 
 const PlayerSelectedModal = ({ props , handleCloseModal}) => {
-  // const { className } = props;
   const [modal, setModal] = useState(props.isOpen);
-  // const [backdrop, setBackdrop] = useState(true);
-  // const [keyboard, setKeyboard] = useState(true);
-  // const toggle = () => {
-  //   setModal(!modal);
-  // };
   
-  console.log("==> EMFTest (PlayerSelectedModal) props: ", props.isOpen);
-
   const handleClose = () => {
-
-    console.log("==> EMFTest (handleClose) props: SET:FALSE ");
-
     setModal(!modal);
     handleCloseModal();
   };
@@ -37,7 +26,6 @@ const PlayerSelectedModal = ({ props , handleCloseModal}) => {
     <Modal
       isOpen={modal}
       toggle={handleClose}
-      // className={className}
       className="modal-dialog-centered"
       backdrop={true}
       keyboard={true}
