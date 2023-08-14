@@ -14,14 +14,15 @@ import PropTypes from 'prop-types';
 
 import '../../styles/index.scss';
 
-const PlayerSelectedModal = ({ props }, player) => {
-  const { className } = props;
+const PlayerSelectedModal = ({ props , player}) => {
+  // const { className } = props;
   const [modal, setModal] = useState(props.isOpen);
   const [backdrop, setBackdrop] = useState(true);
   const [keyboard, setKeyboard] = useState(true);
   const toggle = () => setModal(!modal);
   
-  console.log("==> EMFTest (PlayerSelectedModal): ", props.isOpen);
+  console.log("==> EMFTest (PlayerSelectedModal) props: ", props.isOpen);
+  console.log("==> EMFTest (PlayerSelectedModal) player: ", player);
 
   return (
     <Modal
@@ -32,15 +33,9 @@ const PlayerSelectedModal = ({ props }, player) => {
       backdrop={backdrop}
       keyboard={keyboard}
     >
-      <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+      <ModalHeader toggle={toggle}>{player.firstName + ' ' + player.lastName}</ModalHeader>
       <ModalBody>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        PLAYER INFORMATION...
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={toggle}>
