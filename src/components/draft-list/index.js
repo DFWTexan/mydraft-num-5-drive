@@ -14,8 +14,8 @@ const DraftPlyrList = () => {
   const players = useSelector((state) => state.players);
   const dispatch = useDispatch();
 
-  const [selectedPlayer, setSelectedPlayer] = useState();
-  const [playerSelectedModal, setPlayerSelectedModal] = useState({
+  // const [selectedPlayer, setSelectedPlayer] = useState();
+  const [openModelPlayerSelected, setOpenModalPlayerSelected] = useState({
     isOpen: false,
     player_ID: null,
   });
@@ -24,18 +24,21 @@ const DraftPlyrList = () => {
     
     console.log('===> EMFTEST (handlePlayerSelected_OpenModal): ', player);
 
-    setPlayerSelectedModal({
+    setOpenModalPlayerSelected({
       isOpen: true,
       player_ID: player.id,
     });
   };
   
-  // const handlePlayerSelected_CloseModal = (player) => {
-  //   setPlayerSelectedModal({
-  //     isOpen: false,
-  //     player_ID: null,
-  //   });
-  // };
+  const handleCloseModal = () => {
+
+    console.log('==> EMFTEST (handleCloseModal): SETTING TO FALSE...')
+
+    setOpenModalPlayerSelected({
+      isOpen: false,
+      player_ID: null,
+    });
+  };
 
   const initFetch = useCallback(() => {
     dispatch(fetchPlayers());
@@ -58,9 +61,8 @@ const DraftPlyrList = () => {
               //   "list-group-item " + (index === currentIndex ? "active" : "")
               // }
               onClick={() => {
-                setSelectedPlayer(player);
+                // setSelectedPlayer(player);
                 handlePlayerSelected_OpenModal(player);
-                
               }}
               key={index}
             >
@@ -68,12 +70,11 @@ const DraftPlyrList = () => {
             </ListGroupItem>
           ))}
       </ListGroup>
-      {playerSelectedModal.isOpen && (
+      {openModelPlayerSelected.isOpen && (
         <PlayerModal
-          props={playerSelectedModal}
-          player={selectedPlayer}
+          props={openModelPlayerSelected}
           // paymentModal={paymentModal}
-          // closePaymentModal={closePaymentModal}
+          handleCloseModal={handleCloseModal}
         />
       )}
     </div>

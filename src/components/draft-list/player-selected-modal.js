@@ -14,36 +14,45 @@ import PropTypes from 'prop-types';
 
 import '../../styles/index.scss';
 
-const PlayerSelectedModal = ({ props , player}) => {
+const PlayerSelectedModal = ({ props , handleCloseModal}) => {
   // const { className } = props;
   const [modal, setModal] = useState(props.isOpen);
-  const [backdrop, setBackdrop] = useState(true);
-  const [keyboard, setKeyboard] = useState(true);
-  const toggle = () => setModal(!modal);
+  // const [backdrop, setBackdrop] = useState(true);
+  // const [keyboard, setKeyboard] = useState(true);
+  // const toggle = () => {
+  //   setModal(!modal);
+  // };
   
   console.log("==> EMFTest (PlayerSelectedModal) props: ", props.isOpen);
-  console.log("==> EMFTest (PlayerSelectedModal) player: ", player);
+
+  const handleClose = () => {
+
+    console.log("==> EMFTest (handleClose) props: SET:FALSE ");
+
+    setModal(!modal);
+    handleCloseModal();
+  };
 
   return (
     <Modal
       isOpen={modal}
-      toggle={toggle}
+      toggle={handleClose}
       // className={className}
       className="modal-dialog-centered"
-      backdrop={backdrop}
-      keyboard={keyboard}
+      backdrop={true}
+      keyboard={true}
     >
-      <ModalHeader toggle={toggle}>{player.firstName + ' ' + player.lastName}</ModalHeader>
+      <ModalHeader toggle={handleClose}>{props.player_ID}</ModalHeader>
       <ModalBody>
         PLAYER INFORMATION...
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" onClick={toggle}>
+        <Button color="primary" onClick={handleClose}>
           Do Something
         </Button>{" "}
         <Button
           color="secondary"
-          onClick={toggle}
+          onClick={handleClose}
         >
           Cancel
         </Button>
