@@ -36,7 +36,7 @@ const PlayerSelectedModal = ({ props , handleCloseModal}) => {
       </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={handleClose}>
-          Do Something
+          Draft Player
         </Button>{" "}
         <Button
           color="secondary"
