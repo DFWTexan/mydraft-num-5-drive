@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 import PropTypes from "prop-types";
 import axios from "axios";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import "../../styles/index.scss";
 // import http from "../api/http-common";
@@ -41,8 +42,31 @@ const PlayerSelectedModal = ({ props, handleCloseModal }) => {
       backdrop={true}
       keyboard={true}
     >
-      <ModalHeader toggle={handleClose}>{props.player_ID}</ModalHeader>
-      <ModalBody>PLAYER INFORMATION - {playerData.firstName} </ModalBody>
+      <ModalHeader toggle={handleClose}>
+        {playerData.firstName + ' ' + playerData.lastName}
+        <div className="tab_Container_draftInfo"></div>
+      </ModalHeader>
+      <ModalBody>
+        <Tabs forceRenderTabPanel defaultIndex={0}>
+          <TabList>
+            <Tab>SUMMARY</Tab>
+            <Tab>NEWS</Tab>
+            <Tab>SCHEDULE</Tab>
+          </TabList>
+          <TabPanel>
+            <div>
+              <div>
+                Projections...
+              </div>
+              <div>
+                {playerData.position} DEPTH CHART
+              </div>
+            </div>
+          </TabPanel>
+          <TabPanel>PANEL: News</TabPanel>
+          <TabPanel>PANEL: Schedule</TabPanel>
+        </Tabs>{" "}
+      </ModalBody>
       <ModalFooter>
         <Button color="primary" onClick={handleClose}>
           Draft Player
