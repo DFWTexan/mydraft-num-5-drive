@@ -31,7 +31,8 @@ const findByTitle = title => {
   return http.get(`/tutorials?title=${title}`);
 };
 
-const TutorialService = {
+const PlayerService
+ = {
   getAll,
   // get,
   // create,
@@ -41,4 +42,4 @@ const TutorialService = {
   findByTitle
 };
 
-export default TutorialService;
+export default PlayerService;
