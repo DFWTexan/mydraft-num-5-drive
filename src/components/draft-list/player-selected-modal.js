@@ -17,7 +17,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../../styles/index.scss";
 // import http from "../api/http-common";
 
-const baseURL = "https://localhost:7242/api/Player/GetPlayerByID";
+const baseURL = "https://localhost:7242/api/Player/GetPlayerByID/";
 
 const PlayerSelectedModal = ({ props, handleCloseModal }) => {
   const [modal, setModal] = useState(props.isOpen);
@@ -29,7 +29,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal }) => {
   };
 
   useEffect(() => {
-    axios.get(`${baseURL}?ID=${props.player_ID}`).then((response) => {
+    axios.get(`${baseURL}${props.player_ID}`).then((response) => {
       setPlayerData(response.data);
     });
   }, [props.player_ID]);
