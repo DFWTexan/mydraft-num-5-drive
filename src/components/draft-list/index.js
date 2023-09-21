@@ -4,6 +4,9 @@ import { ListGroup, ListGroupItem } from "reactstrap";
 
 import "../../styles/index.scss";
 import {
+  fetchActiveLeague,
+} from "../../slices/league";
+import {
   fetchPlayers,
 } from "../../slices/players";
 import PlayerCardItem from "./playerCardItem";
@@ -33,6 +36,7 @@ const DraftPlyrList = () => {
   };
 
   const initFetch = useCallback(() => {
+    dispatch(fetchActiveLeague());
     dispatch(fetchPlayers());
   }, [dispatch]);
 

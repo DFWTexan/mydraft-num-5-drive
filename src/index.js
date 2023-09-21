@@ -4,7 +4,7 @@ import App from "./App";
 import { Provider } from "react-redux";
 
 import store from "./redux/store";
-// import { fetchPlayers } from "./features/players/playerSlice";
+// import { fetchActiveLeague } from "./features/players/playerSlice";
 
 // store.dispatch(fetchPlayers());
 
