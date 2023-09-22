@@ -1,19 +1,23 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { ListGroup, ListGroupItem } from "reactstrap";
 // import "react-tabs/style/react-tabs.css";
 
 import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
+import DraftPickCardItem from "./DraftSelections/DraftPickCardItem";
 
 const DraftInfo = () => {
   const activeLeague = useSelector((state) => state.activeLeague);
-  // const draftedPlayers = useSelector((state) => state.draftSelections);
+  const draftedPlayers = useSelector((state) => state.draftSelections);
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
-
-    console.log('===> EMFTEST - GOT HERE (initFetch - FetchDraftedPlayers) => \n', activeLeague);
+    console.log(
+      "===> EMFTEST - GOT HERE (initFetch - FetchDraftedPlayers) => \n",
+      activeLeague
+    );
 
     dispatch(fetchDraftedPlayers(activeLeague));
   }, [dispatch, activeLeague]);
@@ -24,7 +28,7 @@ const DraftInfo = () => {
 
   return (
     <div className="tab_Container_draftInfo">
-      <Tabs forceRenderTabPanel defaultIndex={1}>
+      <Tabs forceRenderTabPanel defaultIndex={0}>
         <TabList>
           <Tab>DRAFT</Tab>
           <Tab>ROSTER</Tab>
@@ -38,7 +42,27 @@ const DraftInfo = () => {
               <Tab>Rosters</Tab>
             </TabList>
             <TabPanel>
-              <p>DRAFT = Selections</p>
+              <div className="list-draftPicks">
+                <ListGroup>
+                  {draftedPlayers &&
+                    draftedPlayers.map((draftPick, index) => (
+                      <ListGroupItem
+                        className="draftpick-card-content"
+                        action
+                        href="#"
+                        // className={
+                        //   "list-group-item " + (index === currentIndex ? "active" : "")
+                        // }
+                        // onClick={() => {
+                        //   handlePlayerSelected_OpenModal(player);
+                        // }}
+                        key={index}
+                      >
+                        <DraftPickCardItem draftPick={draftPick} />
+                      </ListGroupItem>
+                    ))}
+                </ListGroup>
+              </div>
             </TabPanel>
             <TabPanel>
               <p>DRAFT = Rankings</p>

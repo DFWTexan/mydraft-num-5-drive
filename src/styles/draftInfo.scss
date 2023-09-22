@@ -79,3 +79,17 @@
   font-size: 1.25rem;
   text-align: center;
 }
+
+.list-draftPicks {
+  display: inline-block; 
+  *display: inline; 
+  zoom: 1; 
+  vertical-align: top; 
+  font-size: 12px;
+  overflow: auto;
+  overflow-x: hidden;
+  background-color: white;
+  height: 800px;
+  width: 100%;
+  border-style: ridge;
+}
