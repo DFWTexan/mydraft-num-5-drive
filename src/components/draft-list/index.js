@@ -9,12 +9,12 @@ import {
 import {
   fetchPlayers,
 } from "../../slices/players";
+// import { fetchDraftedPlayers } from "../../slices/draft";
 import PlayerCardItem from "./playerCardItem";
 import PlayerModal from "./player-selected-modal";
 
 const DraftPlyrList = () => {
   const players = useSelector((state) => state.players);
-  const activeLeague = useSelector((state) => state.league);
   const dispatch = useDispatch();
 
   const [openModelPlayerSelected, setOpenModalPlayerSelected] = useState({
@@ -41,8 +41,13 @@ const DraftPlyrList = () => {
     dispatch(fetchPlayers());
   }, [dispatch]);
 
+  // const draftFetch = useCallback(() => {
+  //   dispatch(fetchDraftedPlayers());
+  // }, [dispatch]);
+
   useEffect(() => {
     initFetch();
+    // draftFetch()
   }, [initFetch]);
 
   return (

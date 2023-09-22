@@ -6,8 +6,8 @@ import draftReducer from '../slices/draft';
 
 const reducer = {
   players: playerReducer
-  , league: leagueReducer
-  , draft: draftReducer
+  , activeLeague: leagueReducer
+  , draftSelections: draftReducer
 }
 
 const store = configureStore({

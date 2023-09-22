@@ -5,11 +5,11 @@ const initialState = [];
 
 export const fetchDraftedPlayers = createAsyncThunk(
   "Draft/GetDraftPicksForLeague",
-  async () => {
+  async (data) => {
 
 console.log('===> EMFTEST - GOT HERE (getDraftSelections)... ');
 
-    const res = await DraftDataService.getDraftSelections();
+    const res = await DraftDataService.getDraftSelections(data);
 
 console.log('===> EMFTEST - res: ', res.data);
 

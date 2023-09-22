@@ -1,14 +1,29 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 // import "react-tabs/style/react-tabs.css";
 
 import "../../styles/index.scss";
+import { fetchDraftedPlayers } from "../../slices/draft";
 
 const DraftInfo = () => {
-  useEffect(() => {}, []);
+  const activeLeague = useSelector((state) => state.activeLeague);
+  // const draftedPlayers = useSelector((state) => state.draftSelections);
+  const dispatch = useDispatch();
+
+  const initFetch = useCallback(() => {
+
+    console.log('===> EMFTEST - GOT HERE (initFetch - FetchDraftedPlayers) => \n', activeLeague);
+
+    dispatch(fetchDraftedPlayers(activeLeague));
+  }, [dispatch, activeLeague]);
+
+  useEffect(() => {
+    initFetch();
+  }, [initFetch]);
 
   return (
-    <div className='tab_Container_draftInfo'>
+    <div className="tab_Container_draftInfo">
       <Tabs forceRenderTabPanel defaultIndex={1}>
         <TabList>
           <Tab>DRAFT</Tab>

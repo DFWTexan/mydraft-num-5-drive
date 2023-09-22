@@ -1,10 +1,10 @@
 import http from "../api/http-common";
 
-const getDraftSelections = () => {
+const getDraftSelections = data => {
 
-console.log('===> EMFTEST - GOT HERE (getDraftSelections)... ');
+console.log('===> EMFTEST - GOT HERE (DraftService) getDraftSelections => data: \n', data);
 
-  return http.get("/Draft/GetDraftPicksForLeague");
+  return http.post("/Draft/GetDraftPicksForLeague", data);
 };
 
 // const get = id => {
