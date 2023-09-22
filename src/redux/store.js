@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit'
 
 import playerReducer from '../slices/players';
+import leagueReducer from '../slices/league';
+import draftReducer from '../slices/draft';
 
 const reducer = {
   players: playerReducer
+  , league: leagueReducer
+  , draft: draftReducer
 }
 
 const store = configureStore({

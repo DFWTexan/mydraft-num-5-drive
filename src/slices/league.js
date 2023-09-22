@@ -25,7 +25,7 @@ const leagueSlice = createSlice({
     //   state.push(action.payload);
     // },
     [fetchActiveLeague.fulfilled]: (state, action) => {
-      return [...action.payload];
+      return {...action.payload};
     },
     // [updateTutorial.fulfilled]: (state, action) => {
     //   const index = state.findIndex(tutorial => tutorial.id === action.payload.id);

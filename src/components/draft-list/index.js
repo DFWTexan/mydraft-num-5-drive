@@ -14,6 +14,7 @@ import PlayerModal from "./player-selected-modal";
 
 const DraftPlyrList = () => {
   const players = useSelector((state) => state.players);
+  const activeLeague = useSelector((state) => state.league);
   const dispatch = useDispatch();
 
   const [openModelPlayerSelected, setOpenModalPlayerSelected] = useState({
