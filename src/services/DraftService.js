@@ -4,7 +4,7 @@ const getDraftSelections = data => {
 
 console.log('===> EMFTEST - GOT HERE (DraftService) getDraftSelections => data: \n', data);
 
-  return http.post("/Draft/GetDraftPicksForLeague", data);
+  return http.put("/Draft/GetDraftPicksForLeague", data);
 };
 
 // const get = id => {

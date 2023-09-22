@@ -14,11 +14,6 @@ const DraftInfo = () => {
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
-    console.log(
-      "===> EMFTEST - GOT HERE (initFetch - FetchDraftedPlayers) => \n",
-      activeLeague
-    );
-
     dispatch(fetchDraftedPlayers(activeLeague));
   }, [dispatch, activeLeague]);
 
