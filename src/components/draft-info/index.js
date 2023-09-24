@@ -10,7 +10,7 @@ import DraftPickCardItem from "./DraftSelections/DraftPickCardItem";
 
 const DraftInfo = () => {
   const activeLeague = useSelector((state) => state.activeLeague);
-  const draftedPlayers = useSelector((state) => state.draftSelections);
+  const draftPicks = useSelector((state) => state.draftPicks);
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
@@ -39,8 +39,8 @@ const DraftInfo = () => {
             <TabPanel>
               <div className="list-draftPicks">
                 <ListGroup>
-                  {draftedPlayers &&
-                    draftedPlayers.map((draftPick, index) => (
+                  {draftPicks &&
+                    draftPicks.map((draftPick, index) => (
                       <ListGroupItem
                         className="draftpick-card-content"
                         action

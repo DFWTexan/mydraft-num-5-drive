@@ -1,9 +1,6 @@
 import http from "../api/http-common";
 
 const getAll = () => {
-
-console.log('===> EMFTEST - GOT HERE (getAll)... ');
-
   return http.get("/Player/GetPlayers");
 };
 

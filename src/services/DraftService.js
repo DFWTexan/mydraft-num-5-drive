@@ -1,9 +1,6 @@
 import http from "../api/http-common";
 
 const getDraftSelections = data => {
-
-console.log('===> EMFTEST - GOT HERE (DraftService) getDraftSelections => data: \n', data);
-
   return http.put("/Draft/GetDraftPicksForLeague", data);
 };
 

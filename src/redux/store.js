@@ -7,7 +7,7 @@ import draftReducer from '../slices/draft';
 const reducer = {
   players: playerReducer
   , activeLeague: leagueReducer
-  , draftSelections: draftReducer
+  , draftPicks: draftReducer
 }
 
 const store = configureStore({

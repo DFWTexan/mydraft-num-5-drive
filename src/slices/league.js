@@ -6,13 +6,7 @@ const initialState = {};
 export const fetchActiveLeague = createAsyncThunk(
   "League/GetActiveLeague",
   async () => {
-
-console.log('===> EMFTEST - GOT HERE (fetchActiveLeague)... ');
-
     const res = await LeagueDataService.getActiveLeague();
-
-console.log('===> EMFTEST - res: ', res.data);
-
     return res.data;
   }
 );

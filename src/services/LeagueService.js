@@ -1,9 +1,6 @@
 import http from "../api/http-common";
 
 const getActiveLeague = () => {
-
-console.log('===> EMFTEST - GOT HERE (getActiveLeague)... ');
-
   return http.get("/League/GetActiveLeague");
 };
 

@@ -14,13 +14,7 @@ const initialState = [];
 export const fetchPlayers = createAsyncThunk(
   "Player/GetPlayers",
   async () => {
-
-console.log('===> EMFTEST - GOT HERE (fetchPlayers)... ');
-
     const res = await PlayerDataService.getAll();
-
-console.log('===> EMFTEST - res: ', res.data);
-
     return res.data;
   }
 );

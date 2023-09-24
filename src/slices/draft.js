@@ -6,19 +6,13 @@ const initialState = [];
 export const fetchDraftedPlayers = createAsyncThunk(
   "Draft/GetDraftPicksForLeague",
   async (data) => {
-
-console.log('===> EMFTEST - GOT HERE (getDraftSelections)... ');
-
     const res = await DraftDataService.getDraftSelections(data);
-
-console.log('===> EMFTEST - res: ', res.data);
-
     return res.data;
   }
 );
 
 const draftSlice = createSlice({
-  name: "draftSelections",
+  name: "draftPicks",
   initialState,
   extraReducers: {
     // [createTutorial.fulfilled]: (state, action) => {
