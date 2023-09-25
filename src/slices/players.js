@@ -13,8 +13,11 @@ const initialState = [];
 
 export const fetchPlayers = createAsyncThunk(
   "Player/GetPlayers",
-  async () => {
-    const res = await PlayerDataService.getAll();
+  async (data) => {
+
+    console.log("fetchPlayers data", data);
+
+    const res = await PlayerDataService.get(data);
     return res.data;
   }
 );

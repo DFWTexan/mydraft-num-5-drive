@@ -1,21 +1,21 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { ListGroup, ListGroupItem } from "reactstrap";
 
 import "../../styles/index.scss";
-import {
-  fetchActiveLeague,
-} from "../../slices/league";
-import {
-  fetchPlayers,
-} from "../../slices/players";
+// import {
+//   fetchActiveLeague,
+// } from "../../slices/league";
+// import {
+//   fetchPlayers,
+// } from "../../slices/players";
 // import { fetchDraftedPlayers } from "../../slices/draft";
 import PlayerCardItem from "./playerCardItem";
 import PlayerModal from "./player-selected-modal";
 
 const DraftPlyrList = () => {
   const players = useSelector((state) => state.players);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const [openModelPlayerSelected, setOpenModalPlayerSelected] = useState({
     isOpen: false,
@@ -36,19 +36,19 @@ const DraftPlyrList = () => {
     });
   };
 
-  const initFetch = useCallback(() => {
-    dispatch(fetchActiveLeague());
-    dispatch(fetchPlayers());
-  }, [dispatch]);
+  // const initFetch = useCallback(() => {
+    // dispatch(fetchActiveLeague());
+    // dispatch(fetchPlayers());
+  // }, [dispatch]);
 
   // const draftFetch = useCallback(() => {
   //   dispatch(fetchDraftedPlayers());
   // }, [dispatch]);
 
-  useEffect(() => {
-    initFetch();
+  // useEffect(() => {
+    // initFetch();
     // draftFetch()
-  }, [initFetch]);
+  // }, [initFetch]);
 
   return (
     <div className="list-players">

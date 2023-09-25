@@ -1,7 +1,10 @@
 import http from "../api/http-common";
 
-const getAll = () => {
-  return http.get("/Player/GetPlayers");
+const get = data => {
+
+  console.log("PlayerService data", data);
+
+  return http.put("/Player/GetPlayers", data);
 };
 
 // const get = id => {
@@ -30,7 +33,7 @@ const findByTitle = title => {
 
 const PlayerService
  = {
-  getAll,
+  get,
   // get,
   // create,
   // update,
