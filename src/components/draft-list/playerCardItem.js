@@ -5,7 +5,7 @@ import '../../styles/index.scss';
 
 const CardInfo = ({ player }) => (
   <FormGroup>
-    <Label className="inline-check-label">{player.firstName + ' ' + player.lastName}</Label>
+    <Label className="inline-check-label">{player.firstName + ' ' + player.lastName + ' (' + player.position + ') '}</Label>
   </FormGroup>
 );
 

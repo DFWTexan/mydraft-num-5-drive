@@ -14,9 +14,6 @@ const initialState = [];
 export const fetchPlayers = createAsyncThunk(
   "Player/GetPlayers",
   async (data) => {
-
-    console.log("fetchPlayers data", data);
-
     const res = await PlayerDataService.get(data);
     return res.data;
   }

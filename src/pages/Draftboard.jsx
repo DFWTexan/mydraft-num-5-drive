@@ -14,7 +14,7 @@ import {
 } from "../slices/players";
 
 const initFilterPlayer = {
-  pointValue: 1,
+  pointValue: 'POINTS',
   positionValue: null,
   draftStatus: null,
 };
@@ -28,19 +28,19 @@ const Draftboard = () => {
       case "[pointValue]":
         setFilterPlayer((prevState) => ({
           ...prevState,
-          pointValue: filter.value.value,
+          pointValue: filter.value.label,
         }));
         break;
       case "[position]":
         setFilterPlayer((prevState) => ({
           ...prevState,
-          position: filter.value.value !== 0 ? filter.value.value : null,
+          positionValue: filter.value.value !== 0 ? filter.value.label : null,
         }));
         break;
       case "[draftStatus]":
         setFilterPlayer((prevState) => ({
           ...prevState,
-          draftStatus: filter.value.value !== 0 ? filter.value.value : null,
+          draftStatus: filter.value.value !== 0 ? filter.value.label : null,
         }));
         break;
 
@@ -53,23 +53,13 @@ const Draftboard = () => {
     dispatch(fetchActiveLeague());
 
     console.log("==> EMFTest (initFetch) filterPlayer:", filterPlayer);
-
+    
     dispatch(fetchPlayers(filterPlayer));
   }, [dispatch, filterPlayer]);
 
-  // const draftFetch = useCallback(() => {
-  //   dispatch(fetchDraftedPlayers());
-  // }, [dispatch]);
-
   useEffect(() => {
     initFetch();
-    // draftFetch()
   }, [initFetch]);
-
-  // useEffect(() => {
-  //   console.log("==> EMFTest (useEffect) filterPlayer:", filterPlayer);
-  //   dispatch(fetchActiveLeague());
-  // }, [filterPlayer]);
 
   return (
     <div className="container">

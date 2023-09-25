@@ -2,7 +2,7 @@ import http from "../api/http-common";
 
 const get = data => {
 
-  console.log("PlayerService data", data);
+console.log("data =>",data)
 
   return http.put("/Player/GetPlayers", data);
 };
