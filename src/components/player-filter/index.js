@@ -9,7 +9,7 @@ import {
   dftStatusValues,
 } from "../../constants/player-filters";
 
-const PlayerFilter = props => {
+const PlayerFilter = (props) => {
   const { handleFilterPlayer } = props;
   const [playerValues, setPlayerValues] = useState([]);
   const [positionValues, setPositionValues] = useState([]);
@@ -38,20 +38,22 @@ const PlayerFilter = props => {
     );
   }, []);
 
+  useEffect(() => {});
+
   return (
     <>
       <div className="search-filter">
         <Form>
-            <FormGroup>
-              <Input
-                // className="search_input"
-                id="playerSearch"
-                name="search"
-                placeholder="Player Search"
-                type="search"
-              />
-            </FormGroup>
-          </Form>
+          <FormGroup>
+            <Input
+              // className="search_input"
+              id="playerSearch"
+              name="search"
+              placeholder="Player Search"
+              type="search"
+            />
+          </FormGroup>
+        </Form>
       </div>
       <div className="display-filter">INFOMATION...</div>
       <div className="player-filter-content">
@@ -63,7 +65,9 @@ const PlayerFilter = props => {
             // defaaultValue={playerValues}
             defaultValue={props.pointValue}
             options={playerValues}
-            onChange={(value) => handleFilterPlayer({value: value, type:"[pointValue]"})}
+            onChange={(value) =>
+              handleFilterPlayer({ value: value, type: "[pointValue]" })
+            }
           />
         </div>
         <div className="middle-filter">
@@ -73,7 +77,9 @@ const PlayerFilter = props => {
             name="positionValueFilter_ID"
             defaultValue={props.position}
             options={positionValues}
-            onChange={(value) => handleFilterPlayer({value: value, type:"[position]"})}
+            onChange={(value) =>
+              handleFilterPlayer({ value: value, type: "[position]" })
+            }
           />
         </div>
         <div className="right-filter">
@@ -83,7 +89,9 @@ const PlayerFilter = props => {
             name="draftStatusValueFilter_ID"
             defaultValue={props.sraftStatus}
             options={draftStatusValues}
-            onChange={(value) => handleFilterPlayer({value: value, type:"[daftfStatus]"})}
+            onChange={(value) =>
+              handleFilterPlayer({ value: value, type: "[daftfStatus]" })
+            }
           />
         </div>
       </div>

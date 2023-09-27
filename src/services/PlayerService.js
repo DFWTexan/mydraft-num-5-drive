@@ -1,9 +1,6 @@
 import http from "../api/http-common";
 
 const get = data => {
-
-console.log("data =>",data)
-
   return http.put("/Player/GetPlayers", data);
 };
 

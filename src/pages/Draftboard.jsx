@@ -1,26 +1,26 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 
 import "../styles/index.scss";
 import PlayerFilter from "../components/player-filter";
 import DraftPlyrList from "../components/draft-list";
 import DraftInfo from "../components/draft-info";
 import DraftNews from "../components/draft-news";
-import {
-  fetchActiveLeague,
-} from "../slices/league";
-import {
-  fetchPlayers,
-} from "../slices/players";
+import { fetchActiveLeague } from "../slices/league";
+import { fetchPlayers } from "../slices/players";
 
-const initFilterPlayer = {
-  pointValue: 'POINTS',
+const baseURL = "https://localhost:7242/api/League/InitLeageData";
+
+const initFilterSortPlayer = {
+  pointValue: "POINTS",
   positionValue: null,
   draftStatus: null,
 };
 
 const Draftboard = () => {
-  const [filterPlayer, setFilterPlayer] = useState(initFilterPlayer);
+  const activeLeague = useSelector((state) => state.activeLeague);
+  const [filterSortPlayer, setFilterPlayer] = useState(initFilterSortPlayer);
   const dispatch = useDispatch();
 
   const handleFilterPlayer = (filter) => {
@@ -51,28 +51,29 @@ const Draftboard = () => {
 
   const initFetch = useCallback(() => {
     dispatch(fetchActiveLeague());
-
-    console.log("==> EMFTest (initFetch) filterPlayer:", filterPlayer);
-    
-    dispatch(fetchPlayers(filterPlayer));
-  }, [dispatch, filterPlayer]);
+    dispatch(fetchPlayers(filterSortPlayer));
+  }, [dispatch, filterSortPlayer]);
 
   useEffect(() => {
     initFetch();
   }, [initFetch]);
+
+  useEffect(() => {
+    axios.post(`${baseURL}`, activeLeague).then((response) => {
+      // console.log("==> EMFTest (response) response:", response);
+    });
+  }, [activeLeague]);
 
   return (
     <div className="container">
       <div className="left">
         <div>
           <PlayerFilter
-            props={filterPlayer}
+            props={filterSortPlayer}
             handleFilterPlayer={handleFilterPlayer}
           />
         </div>
-        <DraftPlyrList 
-          props={filterPlayer}
-        />
+        <DraftPlyrList props={filterSortPlayer} />
       </div>
       <div className="middle">
         <DraftInfo />
