@@ -5,7 +5,7 @@ import '../../../styles/index.scss';
 
 const CardInfo = ({ draftPick }) => (
   <FormGroup>
-    <Label className="inline-check-label">{draftPick.round + ' ' + draftPick.pickInRound}</Label>
+    <Label className="inline-check-label">{draftPick.round + '.' + draftPick.pickInRound}</Label>
   </FormGroup>
 );
 

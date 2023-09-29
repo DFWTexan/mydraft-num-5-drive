@@ -1,7 +1,8 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import { ListGroup, ListGroupItem } from "reactstrap";
+// import { ListGroup, ListGroupItem } from "reactstrap";
+import { ListItem, ListSubheader, List } from "@mui/material";
 // import "react-tabs/style/react-tabs.css";
 
 import "../../styles/index.scss";
@@ -37,7 +38,7 @@ const DraftInfo = () => {
               <Tab>Positions</Tab>
             </TabList>
             <TabPanel>
-              <div className="list-draftPicks">
+              {/* <div className="list-draftPicks">
                 <ListGroup>
                   {draftPicks &&
                     draftPicks.map((draftPick, index) => (
@@ -57,6 +58,44 @@ const DraftInfo = () => {
                       </ListGroupItem>
                     ))}
                 </ListGroup>
+              </div> */}
+              <div style={{ margin: 5 }}>
+                <List
+                  sx={{
+                    width: "100%",
+                    // maxWidth: 360,
+                    bgcolor: "background.paper",
+                    position: "relative",
+                    overflow: "auto",
+                    maxHeight: 800,
+                    "& ul": { padding: 0 },
+                  }}
+                  subheader={<ListSubheader>Round 1</ListSubheader>}
+                >
+                  {draftPicks &&
+                    (() => {
+                      let rnd = 1;
+                      return draftPicks.map((element) => {
+                        if (element.round !== rnd) {
+                          rnd = element.round;
+                          return (
+                            <>
+                              <ListSubheader>Round {rnd}</ListSubheader>
+                              <ListItem>
+                                <DraftPickCardItem draftPick={element} />
+                              </ListItem>
+                            </>
+                          );
+                        } else {
+                          return (
+                            <ListItem>
+                              <DraftPickCardItem draftPick={element} />
+                            </ListItem>
+                          );
+                        }
+                      });
+                    })()}
+                </List>
               </div>
             </TabPanel>
             <TabPanel>
