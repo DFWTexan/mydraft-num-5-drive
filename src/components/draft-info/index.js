@@ -26,15 +26,15 @@ const DraftInfo = () => {
       <Tabs forceRenderTabPanel defaultIndex={0}>
         <TabList>
           <Tab>DRAFT</Tab>
-          <Tab>ROSTER</Tab>
+          <Tab>ROSTERS</Tab>
           <Tab>DEPTH CHART</Tab>
         </TabList>
         <TabPanel>
           <Tabs forceRenderTabPanel>
             <TabList>
               <Tab>Selections</Tab>
-              <Tab>Rankings</Tab>
-              <Tab>Rosters</Tab>
+              <Tab>My Roster</Tab>
+              <Tab>Positions</Tab>
             </TabList>
             <TabPanel>
               <div className="list-draftPicks">
@@ -60,10 +60,10 @@ const DraftInfo = () => {
               </div>
             </TabPanel>
             <TabPanel>
-              <p>DRAFT = Rankings</p>
+              <p>DRAFT = Roster</p>
             </TabPanel>
             <TabPanel>
-              <p>DRAFT = Roster</p>
+              <p>DRAFT = Positions</p>
             </TabPanel>
           </Tabs>
         </TabPanel>
