@@ -1,60 +1,86 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from "react";
 import {
-    Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
-    ModalFooter,
-    // Input,
-    // Label,
-    // Form,
-    // FormGroup,
-} from 'reactstrap';
-// import PropTypes from 'prop-types';
+  Button,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  ModalFooter,
+  // Input,
+  // Label,
+  // Form,
+  // FormGroup,
+} from "reactstrap";
+import PropTypes from "prop-types";
+import axios from "axios";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
-const PlayerSelectedModal = ({props}, player) => {
-    const [modal, setModal] = useState(props.isOpen);
-    const [backdrop, setBackdrop] = useState(true);
-    const [keyboard, setKeyboard] = useState(true);
+import "../../styles/index.scss";
+// import http from "../api/http-common";
 
-console.log('==> EMFTest (PlayerSelectedModal): ', props.isOpen );
+const baseURL = "https://localhost:7242/api/Player/GetPlayerByID/";
 
-    return (
-        <Modal
-        isOpen={modal}
-        // toggle={toggle}
-        // className={className}
-        backdrop={backdrop}
-        keyboard={keyboard}
-        >
-            <ModalHeader
-            // toggle={toggle}
-            >Modal title</ModalHeader>
-            <ModalBody>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in
-                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.
-            </ModalBody>
-            <ModalFooter>
-                <Button
-                    color="primary"
-                // onClick={toggle}
-                >
-                    Do Something
-                </Button>{' '}
-                <Button
-                    color="secondary"
-                // onClick={toggle}
-                >
-                    Cancel
-                </Button>
-            </ModalFooter>
-        </Modal>
-    );
+const PlayerSelectedModal = ({ props, handleCloseModal }) => {
+  const [modal, setModal] = useState(props.isOpen);
+  const [playerData, setPlayerData] = useState({});
+
+  const handleClose = () => {
+    setModal(!modal);
+    handleCloseModal();
+  };
+
+  useEffect(() => {
+    axios.get(`${baseURL}${props.player_ID}`).then((response) => {
+      setPlayerData(response.data);
+    });
+  }, [props.player_ID]);
+
+  return (
+    <Modal
+      isOpen={modal}
+      toggle={handleClose}
+      className="modal-dialog-centered"
+      backdrop={true}
+      keyboard={true}
+    >
+      <ModalHeader toggle={handleClose}>
+        {playerData.firstName + ' ' + playerData.lastName}
+        <div className="tab_Container_draftInfo"></div>
+      </ModalHeader>
+      <ModalBody>
+        <Tabs forceRenderTabPanel defaultIndex={0}>
+          <TabList>
+            <Tab>SUMMARY</Tab>
+            <Tab>NEWS</Tab>
+            <Tab>SCHEDULE</Tab>
+          </TabList>
+          <TabPanel>
+            <div>
+              <div>
+                Projections...
+              </div>
+              <div>
+                {playerData.position} DEPTH CHART
+              </div>
+            </div>
+          </TabPanel>
+          <TabPanel>PANEL: News</TabPanel>
+          <TabPanel>PANEL: Schedule</TabPanel>
+        </Tabs>{" "}
+      </ModalBody>
+      <ModalFooter>
+        <Button color="primary" onClick={handleClose}>
+          Draft Player
+        </Button>{" "}
+        <Button color="secondary" onClick={handleClose}>
+          Cancel
+        </Button>
+      </ModalFooter>
+    </Modal>
+  );
 };
 
-export default PlayerSelectedModal; 
+PlayerSelectedModal.propTypes = {
+  className: PropTypes.string,
+};
+
+export default PlayerSelectedModal;

@@ -1,7 +1,7 @@
 import http from "../api/http-common";
 
-const get = data => {
-  return http.put("/Player/GetPlayers", data);
+const getActiveLeague = () => {
+  return http.get("/League/GetActiveLeague");
 };
 
 // const get = id => {
@@ -24,19 +24,19 @@ const get = data => {
 //   return http.delete(`/tutorials`);
 // };
 
-const findByTitle = title => {
-  return http.get(`/tutorials?title=${title}`);
-};
+// const findByTitle = title => {
+//   return http.get(`/tutorials?title=${title}`);
+// };
 
-const PlayerService
+const LeagueService
  = {
-  get,
+  getActiveLeague,
   // get,
   // create,
   // update,
   // remove,
   // removeAll,
-  findByTitle
+  // findByTitle
 };
 
-export default PlayerService;
+export default LeagueService;

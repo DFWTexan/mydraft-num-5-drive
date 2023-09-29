@@ -1,7 +1,11 @@
 import http from "../api/http-common";
 
-const get = data => {
-  return http.put("/Player/GetPlayers", data);
+const getDraftStatus = data => {
+  return http.put("/Draft/GetDraftStatus", data);
+};
+
+const getDraftSelections = data => {
+  return http.put("/Draft/GetDraftPicksForLeague", data);
 };
 
 // const get = id => {
@@ -24,19 +28,20 @@ const get = data => {
 //   return http.delete(`/tutorials`);
 // };
 
-const findByTitle = title => {
-  return http.get(`/tutorials?title=${title}`);
-};
+// const findByTitle = title => {
+//   return http.get(`/tutorials?title=${title}`);
+// };
 
-const PlayerService
+const DraftService
  = {
-  get,
+  getDraftStatus,
+  getDraftSelections,
   // get,
   // create,
   // update,
   // remove,
   // removeAll,
-  findByTitle
+  // findByTitle
 };
 
-export default PlayerService;
+export default DraftService;

@@ -1,49 +1,54 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { ListGroup, ListGroupItem } from "reactstrap";
 
 import "../../styles/index.scss";
-import {
-  fetchPlayers,
-  // findTutorialsByTitle,
-} from "../../slices/players";
+// import {
+//   fetchActiveLeague,
+// } from "../../slices/league";
+// import {
+//   fetchPlayers,
+// } from "../../slices/players";
+// import { fetchDraftedPlayers } from "../../slices/draft";
 import PlayerCardItem from "./playerCardItem";
 import PlayerModal from "./player-selected-modal";
 
 const DraftPlyrList = () => {
   const players = useSelector((state) => state.players);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const [selectedPlayer, setSelectedPlayer] = useState();
-  const [playerSelectedModal, setPlayerSelectedModal] = useState({
+  const [openModelPlayerSelected, setOpenModalPlayerSelected] = useState({
     isOpen: false,
     player_ID: null,
   });
 
   const handlePlayerSelected_OpenModal = (player) => {
-    
-    console.log('===> EMFTEST (handlePlayerSelected_OpenModal): ', player);
-
-    setPlayerSelectedModal({
+    setOpenModalPlayerSelected({
       isOpen: true,
       player_ID: player.id,
     });
   };
-  
-  // const handlePlayerSelected_CloseModal = (player) => {
-  //   setPlayerSelectedModal({
-  //     isOpen: false,
-  //     player_ID: null,
-  //   });
-  // };
 
-  const initFetch = useCallback(() => {
-    dispatch(fetchPlayers());
-  }, [dispatch]);
+  const handleCloseModal = () => {
+    setOpenModalPlayerSelected({
+      isOpen: false,
+      player_ID: null,
+    });
+  };
 
-  useEffect(() => {
-    initFetch();
-  }, [initFetch]);
+  // const initFetch = useCallback(() => {
+    // dispatch(fetchActiveLeague());
+    // dispatch(fetchPlayers());
+  // }, [dispatch]);
+
+  // const draftFetch = useCallback(() => {
+  //   dispatch(fetchDraftedPlayers());
+  // }, [dispatch]);
+
+  // useEffect(() => {
+    // initFetch();
+    // draftFetch()
+  // }, [initFetch]);
 
   return (
     <div className="list-players">
@@ -58,9 +63,7 @@ const DraftPlyrList = () => {
               //   "list-group-item " + (index === currentIndex ? "active" : "")
               // }
               onClick={() => {
-                setSelectedPlayer(player);
                 handlePlayerSelected_OpenModal(player);
-                
               }}
               key={index}
             >
@@ -68,12 +71,10 @@ const DraftPlyrList = () => {
             </ListGroupItem>
           ))}
       </ListGroup>
-      {playerSelectedModal.isOpen && (
+      {openModelPlayerSelected.isOpen && (
         <PlayerModal
-          props={playerSelectedModal}
-          player={selectedPlayer}
-          // paymentModal={paymentModal}
-          // closePaymentModal={closePaymentModal}
+          props={openModelPlayerSelected}
+          handleCloseModal={handleCloseModal}
         />
       )}
     </div>

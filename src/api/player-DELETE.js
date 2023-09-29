@@ -5,7 +5,7 @@ export default {
   getPlayers: async (params) =>
     get(`Player/GetPlayers${generateQueryString(params)}`),
   getPlayersDrafted: async (params) =>
-    get(`v1/Report/RevenueSummary${generateQueryString(params)}`),
+    get(`Player/GetPlayerByID${generateQueryString(params)}`),
   getRevenueSummaryExport: async (params) =>
     create(`v1/Report/RevenueSummaryExport`, params),
   // getPaymentReconciliationExport: async params => get(`v1/Report/PaymentReconciliationExport${generateQueryString(params)}`),

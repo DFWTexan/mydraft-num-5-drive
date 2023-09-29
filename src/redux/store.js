@@ -1,17 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-// import counterReducer from '../features/counter/counterSlice'
 import playerReducer from '../slices/players';
+import leagueReducer from '../slices/league';
+import draftStatusReducer from '../slices/draftStatus';
+import draftReducer from '../slices/draft';
 
 const reducer = {
-  players: playerReducer
+  draftStatus: draftStatusReducer
+  , players: playerReducer
+  , activeLeague: leagueReducer
+  , draftPicks: draftReducer
 }
-
-// export default configureStore({
-//   reducer: {
-//     counter: counterReducer,
-//   },
-// })
 
 const store = configureStore({
   reducer: reducer,

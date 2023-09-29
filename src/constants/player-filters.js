@@ -5,18 +5,18 @@ export const plyrValues = [
 ];
 
 export const posValues = [
-  {value: 1, label: 'ALL'},
-  {value: 2, label: 'QB'},
-  {value: 3, label: 'RB'},
-  {value: 4, label: 'WR'},
-  {value: 5, label: 'TE'},
-  {value: 6, label: 'K'},
-  {value: 7, label: 'DEF'},
-  {value: 8, label: 'KR/PR'},
+  {value: 0, label: 'ALL'},
+  {value: 1, label: 'QB'},
+  {value: 2, label: 'RB'},
+  {value: 3, label: 'WR'},
+  {value: 4, label: 'TE'},
+  {value: 5, label: 'K'},
+  {value: 6, label: 'DEF'},
+  {value: 7, label: 'KR/PR'},
 ];
 
 export const dftStatusValues = [
-  {value: 1, label: 'ALL'},
-  {value: 2, label: 'DRAFTED'},
-  {value: 3, label: 'AVAILABLE'},
+  {value: 0, label: 'ALL'},
+  {value: 1, label: 'DRAFTED'},
+  {value: 2, label: 'AVAILABLE'},
 ];
