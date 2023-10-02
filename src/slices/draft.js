@@ -3,6 +3,14 @@ import DraftDataService from "../services/DraftService";
 
 const initialState = [];
 
+// export const fetchDraftStatus = createAsyncThunk(
+//   "Draft/GetDraftStatus",
+//   async (data) => {
+//     const res = await DraftDataService.getDraftStatus(data);
+//     return res.data;
+//   }
+// );
+
 export const fetchDraftedPlayers = createAsyncThunk(
   "Draft/GetDraftPicksForLeague",
   async (data) => {
@@ -15,8 +23,8 @@ const draftSlice = createSlice({
   name: "draftPicks",
   initialState,
   extraReducers: {
-    // [createTutorial.fulfilled]: (state, action) => {
-    //   state.push(action.payload);
+    // [fetchDraftStatus.fulfilled]: (state, action) => {
+    //   return [...action.payload];
     // },
     [fetchDraftedPlayers.fulfilled]: (state, action) => {
       return [...action.payload];

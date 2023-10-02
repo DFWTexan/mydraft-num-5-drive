@@ -7,10 +7,11 @@ import PlayerFilter from "../components/player-filter";
 import DraftPlyrList from "../components/draft-list";
 import DraftInfo from "../components/draft-info";
 import DraftNews from "../components/draft-news";
+import { fetchDraftStatus } from "../slices/draftStatus";
 import { fetchActiveLeague } from "../slices/league";
 import { fetchPlayers } from "../slices/players";
 
-const baseURL = "https://localhost:7242/api/League/InitLeageData";
+const baseURL = "https://localhost:7242/api/";
 
 const initFilterSortPlayer = {
   pointValue: "POINTS",
@@ -59,10 +60,13 @@ const Draftboard = () => {
   }, [initFetch]);
 
   useEffect(() => {
-    axios.post(`${baseURL}`, activeLeague).then((response) => {
-      // console.log("==> EMFTest (response) response:", response);
-    });
-  }, [activeLeague]);
+    axios
+      .post(`${baseURL}League/InitLeageData`, activeLeague)
+      .then((response) => {
+        // console.log("==> EMFTest (response) response:", response);
+      });
+    dispatch(fetchDraftStatus());
+  }, [dispatch, activeLeague]);
 
   return (
     <div className="container">

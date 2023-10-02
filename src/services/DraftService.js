@@ -1,10 +1,10 @@
 import http from "../api/http-common";
 
-const getDraftStatus = data => {
-  return http.put("/Draft/GetDraftStatus", data);
+const getDraftStatus = (data) => {
+  return http.get("/Draft/GetDraftStatus");
 };
 
-const getDraftSelections = data => {
+const getDraftSelections = (data) => {
   return http.put("/Draft/GetDraftPicksForLeague", data);
 };
 
@@ -32,8 +32,7 @@ const getDraftSelections = data => {
 //   return http.get(`/tutorials?title=${title}`);
 // };
 
-const DraftService
- = {
+const DraftService = {
   getDraftStatus,
   getDraftSelections,
   // get,

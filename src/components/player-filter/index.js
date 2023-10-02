@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
 import { Form, FormGroup, Input } from "reactstrap";
+import { useSelector } from "react-redux";
 
 import "../../styles/index.scss";
 import {
@@ -11,6 +12,7 @@ import {
 
 const PlayerFilter = (props) => {
   const { handleFilterPlayer } = props;
+  const draftStatus = useSelector((state) => state.draftStatus);
   const [playerValues, setPlayerValues] = useState([]);
   const [positionValues, setPositionValues] = useState([]);
   const [draftStatusValues, setDraftStatusValues] = useState([]);
@@ -55,7 +57,7 @@ const PlayerFilter = (props) => {
           </FormGroup>
         </Form>
       </div>
-      <div className="display-filter">On The Clock: MyTeam | Rnd 1 | Pck 1</div>
+      <div className="display-filter">On The Clock: MyTeam | Rnd 1 | Pck {draftStatus.round}</div>
       <div className="player-filter-content">
         <div className="left-filter">
           <Select

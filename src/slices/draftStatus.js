@@ -1,12 +1,12 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import DraftDataService from "../services/DraftService";
 
-const initialState = [];
+const initialState = {};
 
 export const fetchDraftStatus = createAsyncThunk(
-  "Draft/GetDraftStatus",
-  async (data) => {
-    const res = await DraftDataService.getDraftStatus(data);
+  "DraftStatus/GetDraftStatus",
+  async () => {
+    const res = await DraftDataService.getDraftStatus();
     return res.data;
   }
 );
@@ -16,7 +16,7 @@ const draftStatusSlice = createSlice({
   initialState,
   extraReducers: {
     [fetchDraftStatus.fulfilled]: (state, action) => {
-      return [...action.payload];
+      return {...action.payload};
     },
   },
 });
