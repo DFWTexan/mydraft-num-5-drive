@@ -57,7 +57,7 @@ const PlayerFilter = (props) => {
           </FormGroup>
         </Form>
       </div>
-      <div className="display-filter">On The Clock: MyTeam | Rnd 1 | Pck {draftStatus.round}</div>
+      <div className="display-filter">On The Clock: {draftStatus.fanTeam} | Rnd 1 | Pck {draftStatus.currentPick}</div>
       <div className="player-filter-content">
         <div className="left-filter">
           <Select

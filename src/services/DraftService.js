@@ -5,12 +5,12 @@ const getDraftStatus = (data) => {
 };
 
 const getDraftSelections = (data) => {
-  return http.put("/Draft/GetDraftPicksForLeague", data);
+  return http.get("/Draft/GetDraftPicksForLeague_v2");
 };
 
-// const get = id => {
-//   return http.get(`/tutorials/${id}`);
-// };
+const GetDraftPicksByFanTeam = id => {
+  return http.get(`/Draft/GetDraftPicksByFanTeam/${id}`);
+};
 
 // const create = data => {
 //   return http.post("/tutorials", data);
@@ -35,6 +35,7 @@ const getDraftSelections = (data) => {
 const DraftService = {
   getDraftStatus,
   getDraftSelections,
+  GetDraftPicksByFanTeam,
   // get,
   // create,
   // update,

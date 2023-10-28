@@ -18,10 +18,15 @@ const initFilterSortPlayer = {
   positionValue: null,
   draftStatus: null,
 };
+// const initDraftInfoFilter = {
+//   myTeamID: null,
+//   draftInfoRosterID: null,
+// };
 
 const Draftboard = () => {
   const activeLeague = useSelector((state) => state.activeLeague);
   const [filterSortPlayer, setFilterPlayer] = useState(initFilterSortPlayer);
+  // const [draftInfoFilter, setDraftInfoFilter] = useState(initDraftInfoFilter);
   const dispatch = useDispatch();
 
   const handleFilterPlayer = (filter) => {
@@ -50,6 +55,26 @@ const Draftboard = () => {
     }
   };
 
+  // const handleFilterFanTeamRoster = (filter) => {
+  //   switch (filter.type) {
+  //     case "[myTeamID]":
+  //       setDraftInfoFilter((prevState) => ({
+  //         ...prevState,
+  //         myTeamID: filter.value.value !== 0 ? filter.value.value : null,
+  //       }));
+  //       break;
+  //     case "[draftInfoRosterID]":
+  //       setDraftInfoFilter((prevState) => ({
+  //         ...prevState,
+  //         draftInfoRosterID: filter.value.value !== 0 ? filter.value.value : null,
+  //       }));
+  //       break;
+
+  //     default:
+  //       break;
+  //   }
+  // };
+
   const initFetch = useCallback(() => {
     dispatch(fetchActiveLeague());
     dispatch(fetchPlayers(filterSortPlayer));
@@ -60,11 +85,9 @@ const Draftboard = () => {
   }, [initFetch]);
 
   useEffect(() => {
-    axios
-      .post(`${baseURL}League/InitLeageData`, activeLeague)
-      .then((response) => {
-        // console.log("==> EMFTest (response) response:", response);
-      });
+    axios.get(`${baseURL}League/InitLeageData`).then((response) => {
+      // console.log("==> EMFTest (response) response:", response);
+    });
     dispatch(fetchDraftStatus());
   }, [dispatch, activeLeague]);
 
@@ -80,7 +103,10 @@ const Draftboard = () => {
         <DraftPlyrList props={filterSortPlayer} />
       </div>
       <div className="middle">
-        <DraftInfo />
+        <DraftInfo
+          // props={draftInfoFilter}
+          // handleFilterFanTeamRoster={handleFilterFanTeamRoster}
+        />
       </div>
       <div className="right">
         <DraftNews />

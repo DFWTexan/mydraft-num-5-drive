@@ -8,15 +8,16 @@ import { ListItem, ListSubheader, List } from "@mui/material";
 import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
 import DraftPickCardItem from "./DraftSelections/DraftPickCardItem";
+import FanTeamRoseter from "./FanTeamRoster";
 
 const DraftInfo = () => {
-  const activeLeague = useSelector((state) => state.activeLeague);
+  // const activeLeague = useSelector((state) => state.activeLeague);
   const draftPicks = useSelector((state) => state.draftPicks);
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
-    dispatch(fetchDraftedPlayers(activeLeague));
-  }, [dispatch, activeLeague]);
+    dispatch(fetchDraftedPlayers());
+  }, [dispatch]);
 
   useEffect(() => {
     initFetch();
@@ -34,7 +35,7 @@ const DraftInfo = () => {
           <Tabs forceRenderTabPanel>
             <TabList>
               <Tab>Selections</Tab>
-              <Tab>My Roster</Tab>
+              <Tab>MyRoster</Tab>
               <Tab>Positions</Tab>
             </TabList>
             <TabPanel>
@@ -84,7 +85,7 @@ const DraftInfo = () => {
               </div>
             </TabPanel>
             <TabPanel>
-              <p>DRAFT = Roster</p>
+              <FanTeamRoseter MyTeam={true} />
             </TabPanel>
             <TabPanel>
               <p>DRAFT = Positions</p>
