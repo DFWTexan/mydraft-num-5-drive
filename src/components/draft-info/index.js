@@ -8,15 +8,16 @@ import { ListItem, ListSubheader, List } from "@mui/material";
 import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
 import DraftPickCardItem from "./DraftSelections/DraftPickCardItem";
+import FanTeamRoseter from "./FanTeamRoster";
 
 const DraftInfo = () => {
-  const activeLeague = useSelector((state) => state.activeLeague);
+  // const activeLeague = useSelector((state) => state.activeLeague);
   const draftPicks = useSelector((state) => state.draftPicks);
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
-    dispatch(fetchDraftedPlayers(activeLeague));
-  }, [dispatch, activeLeague]);
+    dispatch(fetchDraftedPlayers());
+  }, [dispatch]);
 
   useEffect(() => {
     initFetch();
@@ -34,31 +35,10 @@ const DraftInfo = () => {
           <Tabs forceRenderTabPanel>
             <TabList>
               <Tab>Selections</Tab>
-              <Tab>My Roster</Tab>
+              <Tab>MyRoster</Tab>
               <Tab>Positions</Tab>
             </TabList>
             <TabPanel>
-              {/* <div className="list-draftPicks">
-                <ListGroup>
-                  {draftPicks &&
-                    draftPicks.map((draftPick, index) => (
-                      <ListGroupItem
-                        className="draftpick-card-content"
-                        action
-                        href="#"
-                        // className={
-                        //   "list-group-item " + (index === currentIndex ? "active" : "")
-                        // }
-                        // onClick={() => {
-                        //   handlePlayerSelected_OpenModal(player);
-                        // }}
-                        key={index}
-                      >
-                        <DraftPickCardItem draftPick={draftPick} />
-                      </ListGroupItem>
-                    ))}
-                </ListGroup>
-              </div> */}
               <div style={{ margin: 5 }}>
                 <List
                   sx={{
@@ -70,27 +50,33 @@ const DraftInfo = () => {
                     maxHeight: 800,
                     "& ul": { padding: 0 },
                   }}
-                  subheader={<ListSubheader>Round 1</ListSubheader>}
+                  subheader={
+                    <ListSubheader style={{ background: "black", color:'white' }}>Round 1</ListSubheader>
+                  }
                 >
                   {draftPicks &&
                     (() => {
                       let rnd = 1;
-                      return draftPicks.map((element) => {
+                      return draftPicks.map((element, index) => {
                         if (element.round !== rnd) {
                           rnd = element.round;
                           return (
-                            <>
-                              <ListSubheader>Round {rnd}</ListSubheader>
+                            <React.Fragment key={index}>
+                              <ListSubheader style={{ background: "black", color:'white' }}>
+                                Round {rnd}
+                              </ListSubheader>
                               <ListItem>
                                 <DraftPickCardItem draftPick={element} />
                               </ListItem>
-                            </>
+                            </React.Fragment>
                           );
                         } else {
                           return (
-                            <ListItem>
-                              <DraftPickCardItem draftPick={element} />
-                            </ListItem>
+                            <React.Fragment key={index}>
+                              <ListItem>
+                                <DraftPickCardItem draftPick={element} />
+                              </ListItem>
+                            </React.Fragment>
                           );
                         }
                       });
@@ -99,7 +85,7 @@ const DraftInfo = () => {
               </div>
             </TabPanel>
             <TabPanel>
-              <p>DRAFT = Roster</p>
+              <FanTeamRoseter MyTeam={true} />
             </TabPanel>
             <TabPanel>
               <p>DRAFT = Positions</p>

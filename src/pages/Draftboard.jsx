@@ -7,20 +7,26 @@ import PlayerFilter from "../components/player-filter";
 import DraftPlyrList from "../components/draft-list";
 import DraftInfo from "../components/draft-info";
 import DraftNews from "../components/draft-news";
+import { fetchDraftStatus } from "../slices/draftStatus";
 import { fetchActiveLeague } from "../slices/league";
 import { fetchPlayers } from "../slices/players";
 
-const baseURL = "https://localhost:7242/api/League/InitLeageData";
+const baseURL = "https://localhost:7242/api/";
 
 const initFilterSortPlayer = {
   pointValue: "POINTS",
   positionValue: null,
   draftStatus: null,
 };
+// const initDraftInfoFilter = {
+//   myTeamID: null,
+//   draftInfoRosterID: null,
+// };
 
 const Draftboard = () => {
   const activeLeague = useSelector((state) => state.activeLeague);
   const [filterSortPlayer, setFilterPlayer] = useState(initFilterSortPlayer);
+  // const [draftInfoFilter, setDraftInfoFilter] = useState(initDraftInfoFilter);
   const dispatch = useDispatch();
 
   const handleFilterPlayer = (filter) => {
@@ -49,6 +55,26 @@ const Draftboard = () => {
     }
   };
 
+  // const handleFilterFanTeamRoster = (filter) => {
+  //   switch (filter.type) {
+  //     case "[myTeamID]":
+  //       setDraftInfoFilter((prevState) => ({
+  //         ...prevState,
+  //         myTeamID: filter.value.value !== 0 ? filter.value.value : null,
+  //       }));
+  //       break;
+  //     case "[draftInfoRosterID]":
+  //       setDraftInfoFilter((prevState) => ({
+  //         ...prevState,
+  //         draftInfoRosterID: filter.value.value !== 0 ? filter.value.value : null,
+  //       }));
+  //       break;
+
+  //     default:
+  //       break;
+  //   }
+  // };
+
   const initFetch = useCallback(() => {
     dispatch(fetchActiveLeague());
     dispatch(fetchPlayers(filterSortPlayer));
@@ -59,10 +85,11 @@ const Draftboard = () => {
   }, [initFetch]);
 
   useEffect(() => {
-    axios.post(`${baseURL}`, activeLeague).then((response) => {
+    axios.get(`${baseURL}League/InitLeageData`).then((response) => {
       // console.log("==> EMFTest (response) response:", response);
     });
-  }, [activeLeague]);
+    dispatch(fetchDraftStatus());
+  }, [dispatch, activeLeague]);
 
   return (
     <div className="container">
@@ -76,7 +103,10 @@ const Draftboard = () => {
         <DraftPlyrList props={filterSortPlayer} />
       </div>
       <div className="middle">
-        <DraftInfo />
+        <DraftInfo
+          // props={draftInfoFilter}
+          // handleFilterFanTeamRoster={handleFilterFanTeamRoster}
+        />
       </div>
       <div className="right">
         <DraftNews />

@@ -1,16 +1,16 @@
 import http from "../api/http-common";
 
-const getDraftStatus = data => {
-  return http.put("/Draft/GetDraftStatus", data);
+const getDraftStatus = (data) => {
+  return http.get("/Draft/GetDraftStatus");
 };
 
-const getDraftSelections = data => {
-  return http.put("/Draft/GetDraftPicksForLeague", data);
+const getDraftSelections = (data) => {
+  return http.get("/Draft/GetDraftPicksForLeague_v2");
 };
 
-// const get = id => {
-//   return http.get(`/tutorials/${id}`);
-// };
+const GetDraftPicksByFanTeam = id => {
+  return http.get(`/Draft/GetDraftPicksByFanTeam/${id}`);
+};
 
 // const create = data => {
 //   return http.post("/tutorials", data);
@@ -32,10 +32,10 @@ const getDraftSelections = data => {
 //   return http.get(`/tutorials?title=${title}`);
 // };
 
-const DraftService
- = {
+const DraftService = {
   getDraftStatus,
   getDraftSelections,
+  GetDraftPicksByFanTeam,
   // get,
   // create,
   // update,
