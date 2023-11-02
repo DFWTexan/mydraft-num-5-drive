@@ -1,5 +1,7 @@
+import "../styles/index.scss";
+
 const Blank = () => {
-    return <div>This is Blank page</div>;
+    return <div className="center">This is Blank page</div>;
 };
 
 export default Blank;
