@@ -1,27 +1,35 @@
 import React, { useEffect, useCallback } from "react";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import Sidebar from "../sidebar/Sidebar";
 import Login from "../login/Login";
 
 const AppLayout = () => {
   const userInfoStatus = useSelector((state) => state.userInfoStatus);
+  const navigate = useNavigate();
 
-  const sideDisplay = useCallback(() => { 
+  const sideDisplay = useCallback(() => {
     if (userInfoStatus.isLoggedIn === true) {
-      return (<Sidebar />);
+      return <Sidebar />;
     } else {
-      return (<Login />);
+      return <Login />;
     }
   }, [userInfoStatus.isLoggedIn]);
 
-  useEffect(() => {
+  const navigateToDraftboard = useCallback(() => {
+    navigate("/draftboard");
+  }, [navigate]);
 
-    console.log("==> EMFTest - (AppLayout) userInfo: \n", userInfoStatus);
-    
-    sideDisplay()
-  }, [userInfoStatus, sideDisplay]);
+  useEffect(() => {
+    if (userInfoStatus.isLoggedIn === true) {
+      sideDisplay();
+      navigateToDraftboard();
+    } else {
+      return;
+    }
+  }, [userInfoStatus, sideDisplay, navigateToDraftboard]);
 
   return (
     <div
