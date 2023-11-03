@@ -23,9 +23,13 @@ const AppLayout = () => {
   }, [navigate]);
 
   useEffect(() => {
+    const curPath = window.location.pathname.split("/")[1];
+
     if (userInfoStatus.isLoggedIn === true) {
       sideDisplay();
-      navigateToDraftboard();
+      if (curPath === "") {
+        navigateToDraftboard();
+      }
     } else {
       return;
     }
