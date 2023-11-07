@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import './sidebar.scss';
 
 const sidebarNavItems = [
+<<<<<<< Updated upstream
     {
         display: 'Draftboard',
         icon: <i className='bx bx-home'></i>,
@@ -22,6 +23,27 @@ const sidebarNavItems = [
         section: 'setup'
     },
 ]
+=======
+  {
+    display: "Draftboard",
+    icon: <i className="bx bx-home"></i>,
+    to: "/draftboard",
+    section: "draftboard",
+  },
+  // {
+  //   display: "Fantasy Teams",
+  //   icon: <i className="bx bx-star"></i>,
+  //   to: "/fantasyteams",
+  //   section: "fantasyteams",
+  // },
+  // {
+  //   display: "Draft Setup",
+  //   icon: <i className="bx bx-user"></i>,
+  //   to: "/setup",
+  //   section: "setup",
+  // },
+];
+>>>>>>> Stashed changes
 
 const Sidebar = () => {
     const [activeIndex, setActiveIndex] = useState(0);

@@ -1,34 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import React from "react";
 import { ListItem, ListSubheader, List } from "@mui/material";
 
-import DraftPickCardItem from "../DraftSelections/DraftPickCardItem";
+import DraftPickCardItem from "./DraftSelections/DraftPickCardItem";
 
-const baseURL = "https://localhost:7242/api/";
-
-const FanTeamRoseter = (props) => {
-  const activeLeague = useSelector((state) => state.activeLeague);
-  const [roster, setRoster] = useState([]);
-
-  useEffect(() => {
-
-    // console.log("==> EMFTest - (FanTeamRoseter) activeLegue -> \n", activeLeague);
-
-    const fetchFanTeamRoster = async (vMyTeam) => {
-      const response = await axios.get(
-        `${baseURL}Draft/GetDraftPicksByFanTeam/${activeLeague.id}`
-      );
-
-      console.log("==> EMFTest - (FanTeamRoseter) response.data", response.data);
-
-        setRoster(response.data);
-
-    }
-
-    fetchFanTeamRoster(props.MyTeam);
-  }, [props.MyTeam, activeLeague]);
-
+const DraftSelections = (props) => {
   return (
     <div style={{ margin: 5 }}>
       <List
@@ -42,8 +17,8 @@ const FanTeamRoseter = (props) => {
           "& ul": { padding: 0 },
         }}
         subheader={
-          <ListSubheader style={{ background: "gray", color: "white" }}>
-            Quarterback
+          <ListSubheader style={{ background: "black", color: "white" }}>
+            Round 1
           </ListSubheader>
         }
       >
@@ -80,5 +55,4 @@ const FanTeamRoseter = (props) => {
     </div>
   );
 };
-
-export default FanTeamRoseter;
+export default DraftSelections;

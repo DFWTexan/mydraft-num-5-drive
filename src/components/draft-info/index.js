@@ -1,17 +1,13 @@
 import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-// import { ListGroup, ListGroupItem } from "reactstrap";
-import { ListItem, ListSubheader, List } from "@mui/material";
-// import "react-tabs/style/react-tabs.css";
 
 import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
-import DraftPickCardItem from "./DraftSelections/DraftPickCardItem";
-import FanTeamRoseter from "./FanTeamRoster";
+import FanTeamRoster from "./FanTeamRoster";
+import DraftSelections from "./draftSelections";
 
 const DraftInfo = () => {
-  // const activeLeague = useSelector((state) => state.activeLeague);
   const draftPicks = useSelector((state) => state.draftPicks);
   const dispatch = useDispatch();
 
@@ -23,6 +19,15 @@ const DraftInfo = () => {
     initFetch();
   }, [initFetch]);
 
+<<<<<<< Updated upstream
+=======
+  const myStyle = {
+    color: "black",
+    size: "2px",
+    fontFamily: "Sans-Serif"
+  };
+
+>>>>>>> Stashed changes
   return (
     <div className="tab_Container_draftInfo">
       <Tabs forceRenderTabPanel defaultIndex={0}>
@@ -39,53 +44,10 @@ const DraftInfo = () => {
               <Tab>Positions</Tab>
             </TabList>
             <TabPanel>
-              <div style={{ margin: 5 }}>
-                <List
-                  sx={{
-                    width: "100%",
-                    // maxWidth: 360,
-                    bgcolor: "background.paper",
-                    position: "relative",
-                    overflow: "auto",
-                    maxHeight: 800,
-                    "& ul": { padding: 0 },
-                  }}
-                  subheader={
-                    <ListSubheader style={{ background: "black", color:'white' }}>Round 1</ListSubheader>
-                  }
-                >
-                  {draftPicks &&
-                    (() => {
-                      let rnd = 1;
-                      return draftPicks.map((element, index) => {
-                        if (element.round !== rnd) {
-                          rnd = element.round;
-                          return (
-                            <React.Fragment key={index}>
-                              <ListSubheader style={{ background: "black", color:'white' }}>
-                                Round {rnd}
-                              </ListSubheader>
-                              <ListItem>
-                                <DraftPickCardItem draftPick={element} />
-                              </ListItem>
-                            </React.Fragment>
-                          );
-                        } else {
-                          return (
-                            <React.Fragment key={index}>
-                              <ListItem>
-                                <DraftPickCardItem draftPick={element} />
-                              </ListItem>
-                            </React.Fragment>
-                          );
-                        }
-                      });
-                    })()}
-                </List>
-              </div>
+              <DraftSelections draftPicks={draftPicks} />
             </TabPanel>
             <TabPanel>
-              <FanTeamRoseter MyTeam={true} />
+              <FanTeamRoster MyTeam={true} />
             </TabPanel>
             <TabPanel>
               <p>DRAFT = Positions</p>

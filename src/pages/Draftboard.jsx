@@ -8,7 +8,7 @@ import DraftPlyrList from "../components/draft-list";
 import DraftInfo from "../components/draft-info";
 import DraftNews from "../components/draft-news";
 import { fetchDraftStatus } from "../slices/draftStatus";
-import { fetchActiveLeague } from "../slices/league";
+// import { fetchActiveLeague } from "../slices/league";
 import { fetchPlayers } from "../slices/players";
 
 const baseURL = "https://localhost:7242/api/";
@@ -18,10 +18,6 @@ const initFilterSortPlayer = {
   positionValue: null,
   draftStatus: null,
 };
-// const initDraftInfoFilter = {
-//   myTeamID: null,
-//   draftInfoRosterID: null,
-// };
 
 const Draftboard = () => {
   const activeLeague = useSelector((state) => state.activeLeague);
@@ -55,28 +51,8 @@ const Draftboard = () => {
     }
   };
 
-  // const handleFilterFanTeamRoster = (filter) => {
-  //   switch (filter.type) {
-  //     case "[myTeamID]":
-  //       setDraftInfoFilter((prevState) => ({
-  //         ...prevState,
-  //         myTeamID: filter.value.value !== 0 ? filter.value.value : null,
-  //       }));
-  //       break;
-  //     case "[draftInfoRosterID]":
-  //       setDraftInfoFilter((prevState) => ({
-  //         ...prevState,
-  //         draftInfoRosterID: filter.value.value !== 0 ? filter.value.value : null,
-  //       }));
-  //       break;
-
-  //     default:
-  //       break;
-  //   }
-  // };
-
   const initFetch = useCallback(() => {
-    dispatch(fetchActiveLeague());
+    // dispatch(fetchActiveLeague());
     dispatch(fetchPlayers(filterSortPlayer));
   }, [dispatch, filterSortPlayer]);
 
