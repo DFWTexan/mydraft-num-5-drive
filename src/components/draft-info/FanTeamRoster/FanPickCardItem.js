@@ -4,7 +4,7 @@ import "../../../styles/index.scss";
 
 const CardInfo = ({ draftPick }) => (
   <div className="d-flex justify-content-start">
-    {draftPick.int}  {draftPick && ("   " + draftPick.playerName != null ? draftPick.playerName : "" )}
+    {draftPick.int}  {draftPick && ("   " + draftPick.playerName)}
   </div>
 );
 
