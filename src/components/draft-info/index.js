@@ -19,6 +19,14 @@ const DraftInfo = () => {
     initFetch();
   }, [initFetch]);
 
+  const myStyle = {
+    color: "black",
+    // backgroundColor: "DodgerBlue",
+    // padding: "10px",
+    size: "2px",
+    fontFamily: "Sans-Serif"
+  };
+
 <<<<<<< Updated upstream
 =======
   const myStyle = {
@@ -39,7 +47,7 @@ const DraftInfo = () => {
         <TabPanel>
           <Tabs forceRenderTabPanel>
             <TabList>
-              <Tab>Selections</Tab>
+              <Tab style={myStyle}>Selections</Tab>
               <Tab>MyRoster</Tab>
               <Tab>Positions</Tab>
             </TabList>
