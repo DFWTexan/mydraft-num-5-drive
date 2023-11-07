@@ -10,18 +10,18 @@ const sidebarNavItems = [
         to: '/draftboard',
         section: 'draftboard'
     },
-    {
-        display: 'Fantasy Teams',
-        icon: <i className='bx bx-star'></i>,
-        to: '/fantasyteams',
-        section: 'fantasyteams'
-    },
-    {
-        display: 'Draft Setup',
-        icon: <i className='bx bx-user'></i>,
-        to: '/setup',
-        section: 'setup'
-    },
+    // {
+    //     display: 'Fantasy Teams',
+    //     icon: <i className='bx bx-star'></i>,
+    //     to: '/fantasyteams',
+    //     section: 'fantasyteams'
+    // },
+    // {
+    //     display: 'Draft Setup',
+    //     icon: <i className='bx bx-user'></i>,
+    //     to: '/setup',
+    //     section: 'setup'
+    // },
 ]
 
 const Sidebar = () => {
