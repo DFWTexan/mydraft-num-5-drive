@@ -27,15 +27,6 @@ const DraftInfo = () => {
     fontFamily: "Sans-Serif"
   };
 
-<<<<<<< Updated upstream
-=======
-  const myStyle = {
-    color: "black",
-    size: "2px",
-    fontFamily: "Sans-Serif"
-  };
-
->>>>>>> Stashed changes
   return (
     <div className="tab_Container_draftInfo">
       <Tabs forceRenderTabPanel defaultIndex={0}>
