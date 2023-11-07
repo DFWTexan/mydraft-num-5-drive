@@ -1,18 +1,11 @@
 import React from "react";
-import { Form, FormGroup, Label, Col } from "reactstrap";
 
 import "../../../styles/index.scss";
 
 const CardInfo = ({ draftPick }) => (
-  <Form>
-    <FormGroup row>
-      {draftPick && (
-        <Col sm={10}>
-          {draftPick.playerName}
-        </Col>
-      )}
-    </FormGroup>
-  </Form>
+  <div className="d-flex justify-content-start">
+    {draftPick.int}  {draftPick && ("   " + draftPick.playerName != null ? draftPick.playerName : "" )}
+  </div>
 );
 
 const FanPickCardItem = ({ draftPick }) => {
