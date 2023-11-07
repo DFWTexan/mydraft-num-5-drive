@@ -3,13 +3,13 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { ListItem, ListSubheader, List } from "@mui/material";
 
-import DraftPickCardItem from "../DraftSelections/DraftPickCardItem";
+import FanPickCardItem from "./FanPickCardItem";
 
 const baseURL = "https://localhost:7242/api/";
 
 const FanTeamRoseter = (props) => {
   const activeLeague = useSelector((state) => state.activeLeague);
-  const [roster, setRoster] = useState([]);
+  const [fanTeamRoster, setFanTeamRoster] = useState([]);
 
   useEffect(() => {
 
@@ -22,7 +22,7 @@ const FanTeamRoseter = (props) => {
 
       console.log("==> EMFTest - (FanTeamRoseter) response.data", response.data);
 
-        setRoster(response.data);
+      setFanTeamRoster(response.data);
 
     }
 
@@ -47,21 +47,21 @@ const FanTeamRoseter = (props) => {
           </ListSubheader>
         }
       >
-        {props.draftPicks &&
+        {fanTeamRoster &&
           (() => {
-            let rnd = 1;
-            return props.draftPicks.map((element, index) => {
-              if (element.round !== rnd) {
-                rnd = element.round;
+            let sortOrder = 1;
+            return fanTeamRoster.map((element, index) => {
+              if (element.sortOrder !== sortOrder) {
+                sortOrder = element.sortOrder;
                 return (
                   <React.Fragment key={index}>
                     <ListSubheader
-                      style={{ background: "black", color: "white" }}
+                      style={{ background: "gray", color: "white" }}
                     >
-                      Round {rnd}
+                      {element.positionGroup}
                     </ListSubheader>
                     <ListItem>
-                      <DraftPickCardItem draftPick={element} />
+                      <FanPickCardItem draftPick={element} />
                     </ListItem>
                   </React.Fragment>
                 );
@@ -69,7 +69,7 @@ const FanTeamRoseter = (props) => {
                 return (
                   <React.Fragment key={index}>
                     <ListItem>
-                      <DraftPickCardItem draftPick={element} />
+                      <FanPickCardItem draftPick={element} />
                     </ListItem>
                   </React.Fragment>
                 );

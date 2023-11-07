@@ -43,12 +43,7 @@ const Sidebar = () => {
 
   // change active index
   useEffect(() => {
-
-console.log('==> EMFTest (Sidebar) - location', location)
-
     const curPath = window.location.pathname.split("/")[1];
-
-    console.log('==> EMFTest (Sidebar) - curPath', curPath)
 
     const activeItem = sidebarNavItems.findIndex(
       (item) => item.section === curPath
