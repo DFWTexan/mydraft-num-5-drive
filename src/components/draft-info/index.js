@@ -5,7 +5,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
 import FanTeamRoster from "./FanTeamRoster";
-import DraftSelections from "./draftSelections";
+import DraftSelections from "../draft-info/DraftSelections";
 
 const DraftInfo = () => {
   const draftPicks = useSelector((state) => state.draftPicks);

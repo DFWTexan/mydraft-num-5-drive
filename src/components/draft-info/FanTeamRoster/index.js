@@ -1,33 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import axios from "axios";
+import React, { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { ListItem, ListSubheader, List } from "@mui/material";
 
+import { fetchFanTeamRoster } from "../../../slices/fanTeamRoster";
 import FanPickCardItem from "./FanPickCardItem";
-
-const baseURL = "https://localhost:7242/api/";
 
 const FanTeamRoseter = (props) => {
   const activeLeague = useSelector((state) => state.activeLeague);
-  const [fanTeamRoster, setFanTeamRoster] = useState([]);
+  const fanTeamRoster = useSelector((state) => state.fanTeamRoster);
+  const dispatch = useDispatch();
+
+  const initFetch = useCallback(() => {
+    dispatch(fetchFanTeamRoster(activeLeague.id));
+  }, [dispatch, activeLeague]);
 
   useEffect(() => {
-
-    // console.log("==> EMFTest - (FanTeamRoseter) activeLegue -> \n", activeLeague);
-
-    const fetchFanTeamRoster = async (vMyTeam) => {
-      const response = await axios.get(
-        `${baseURL}Draft/GetDraftPicksByFanTeam/${activeLeague.id}`
-      );
-
-      console.log("==> EMFTest - (FanTeamRoseter) response.data", response.data);
-
-      setFanTeamRoster(response.data);
-
-    }
-
-    fetchFanTeamRoster(props.MyTeam);
-  }, [props.MyTeam, activeLeague]);
+    initFetch();
+  }, [initFetch]);
 
   return (
     <div style={{ margin: 5 }}>

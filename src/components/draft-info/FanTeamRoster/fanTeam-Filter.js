@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
 
-import { emfTestFanTeamValues } from '../../constants/emftest-data'
+import { emfTestFanTeamValues } from '../../../constants/emftest-data'
 
 const FanTeamFilter = () => {
   const [fanTeams, setFanTeams] = useState([]);

@@ -3,31 +3,23 @@ import DraftDataService from "../services/DraftService";
 
 const initialState = [];
 
-// export const fetchDraftStatus = createAsyncThunk(
-//   "Draft/GetDraftStatus",
-//   async (data) => {
-//     const res = await DraftDataService.getDraftStatus(data);
-//     return res.data;
-//   }
-// );
-
-export const fetchFanTeamDraftedPlayers = createAsyncThunk(
+export const fetchFanTeamRoster = createAsyncThunk(
   "Draft/GetDraftPicksByFanTeam",
   async (data) => {
-    const res = await DraftDataService.getDraftSelections(data);
+    const res = await DraftDataService.GetDraftPicksByFanTeam(data);
     return res.data;
   }
 );
 
-const draftSlice = createSlice({
+const fanTeamRosterSlice = createSlice({
   name: "fanTeamRoster",
   initialState,
   extraReducers: {
-    [fetchFanTeamDraftedPlayers.fulfilled]: (state, action) => {
+    [fetchFanTeamRoster.fulfilled]: (state, action) => {
       return [...action.payload];
     },
   },
 });
 
-const { reducer } = draftSlice;
+const { reducer } = fanTeamRosterSlice;
 export default reducer;

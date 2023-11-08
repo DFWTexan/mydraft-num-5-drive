@@ -1,7 +1,7 @@
 import React from "react";
 import { ListItem, ListSubheader, List } from "@mui/material";
 
-import DraftPickCardItem from "./DraftSelections/DraftPickCardItem";
+import DraftPickCardItem from "./DraftPickCardItem";
 
 const DraftSelections = (props) => {
   return (
