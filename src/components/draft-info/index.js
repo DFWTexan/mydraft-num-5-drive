@@ -6,6 +6,7 @@ import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
 import FanTeamRoster from "./FanTeamRoster";
 import DraftSelections from "../draft-info/DraftSelections";
+import DraftedPositions from "../draft-info/DraftedPositions";
 
 const DraftInfo = () => {
   const draftPicks = useSelector((state) => state.draftPicks);
@@ -49,7 +50,7 @@ const DraftInfo = () => {
               <FanTeamRoster MyTeam={true} />
             </TabPanel>
             <TabPanel>
-              <p>DRAFT = Positions</p>
+              <DraftedPositions/>
             </TabPanel>
           </Tabs>
         </TabPanel>

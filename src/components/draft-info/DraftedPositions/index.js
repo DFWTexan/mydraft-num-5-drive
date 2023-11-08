@@ -1,22 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { API_URL } from "../config";
+import { fetchDraftedPlayerPositions } from "../../../slices/draftedPositions";
 
-const DraftedPositions = ({ draftedPositions }) => {
-  const [draftedPosList, setDraftedPosList] = useState([]);
+const DraftedByPositions = () => {
+  const draftedByPositions = useSelector((state) => state.draftedPositions);
+  const dispatch = useDispatch();
   
-  const draftedPositionsList = draftedPositions.map((position) => (
-    <li key={position}>{position}</li>
-  ));
+  // const draftedPositionsList = draftedByPositions.map((position) => (
+  //   <li key={position}>{position}</li>
+  // ));
 
-  useEffect(() => {}, [draftedPositions]);
+  const initFetch = useCallback(() => {
+    dispatch(fetchDraftedPlayerPositions());
+  }, [dispatch]);
+
+  useEffect(() => {
+    initFetch();
+  }, [initFetch]);
 
   return (
     <div className="drafted-positions">
       <h3>Drafted Positions</h3>
-      <ul>{draftedPositionsList}</ul>
+      {/* <ul>{draftedPositionsList}</ul> */}
     </div>
   );
 };
 
-export default DraftedPositions;
+export default DraftedByPositions;
