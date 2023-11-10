@@ -30,15 +30,10 @@ const FanTeamRoseter = (props) => {
           maxHeight: 800,
           "& ul": { padding: 0 },
         }}
-        subheader={
-          <ListSubheader style={{ background: "gray", color: "white" }}>
-            Quarterback
-          </ListSubheader>
-        }
       >
         {fanTeamRoster &&
           (() => {
-            let sortOrder = 1;
+            let sortOrder = 0;
             return fanTeamRoster.map((element, index) => {
               if (element.sortOrder !== sortOrder) {
                 sortOrder = element.sortOrder;

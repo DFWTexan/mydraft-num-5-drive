@@ -43,7 +43,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal }) => {
       keyboard={true}
     >
       <ModalHeader toggle={handleClose}>
-        {playerData.firstName + ' ' + playerData.lastName}
+        ({playerData.id}) - {playerData.firstName + ' ' + playerData.lastName}
         <div className="tab_Container_draftInfo"></div>
       </ModalHeader>
       <ModalBody>
