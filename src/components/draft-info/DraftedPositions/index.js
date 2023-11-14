@@ -6,6 +6,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
+import "../../../styles/index.scss";
 import { fetchDraftedPlayerPositions } from "../../../slices/draftedPositions";
 
 const DraftedByPositions = () => {
@@ -22,7 +23,7 @@ const DraftedByPositions = () => {
   }, [initFetch, activeLeague]);
 
   return (
-    <div>
+    <div style={{ minHeight: 780, overflow: "auto" }}>
       {/* {Object.entries(draftedByPositions).forEach(([k, v]) => {
         console.log("==> EMFTest (DraftPositions) - The key: ", k);
         console.log("=> EMFTest (DraftPositions) - The value: ", v);
@@ -32,10 +33,10 @@ const DraftedByPositions = () => {
       })} */}
       {draftedByPositions &&
         (() => {
-          let keyOrder = "";
+          let keyPosOrder = "";
           return draftedByPositions.map((element, index) => {
-            if (element.key !== keyOrder) {
-              keyOrder = element.key;
+            if (element.positionGroup !== keyPosOrder) {
+              keyPosOrder = element.positionGroup;
               return (
                 <React.Fragment key={index}>
                   <Accordion>
@@ -45,14 +46,22 @@ const DraftedByPositions = () => {
                       id="panel1a-header"
                     >
                       <Typography>
-                        {element.key} ({element.value.length})
+                        {element.positionGroup} ({element.count})
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
                       <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse malesuada lacus ex, sit amet blandit leo
-                        lobortis eget.
+                        {/* {element.roundPicks[0].map((element, index) => {
+                          return (
+                            <React.Fragment key={index}>
+                              <div className="d-flex justify-content-start">
+                                {element.round + "." + element.pickInRound}{" "}
+                                {element && "   " + element.playerName}
+                              </div>
+                            </React.Fragment>
+                          );
+                        })} */}
+                        {console.log("==> EMFTest (DraftPositions) - The element.roundPicks => \n", element.roundPicks)}
                       </Typography>
                     </AccordionDetails>
                   </Accordion>
