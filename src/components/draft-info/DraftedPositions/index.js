@@ -51,7 +51,7 @@ const DraftedByPositions = () => {
                     </AccordionSummary>
                     <AccordionDetails>
                       <Typography>
-                        {/* {element.roundPicks[0].map((element, index) => {
+                        {element.roundPicks[0][1].map((element, index) => {
                           return (
                             <React.Fragment key={index}>
                               <div className="d-flex justify-content-start">
@@ -60,8 +60,7 @@ const DraftedByPositions = () => {
                               </div>
                             </React.Fragment>
                           );
-                        })} */}
-                        {console.log("==> EMFTest (DraftPositions) - The element.roundPicks => \n", element.roundPicks)}
+                        })}
                       </Typography>
                     </AccordionDetails>
                   </Accordion>
