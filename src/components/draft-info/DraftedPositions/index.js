@@ -50,18 +50,16 @@ const DraftedByPositions = () => {
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <Typography>
-                        {element.roundPicks[0][1].map((element, index) => {
-                          return (
-                            <React.Fragment key={index}>
-                              <div className="d-flex justify-content-start">
-                                {element.round + "." + element.pickInRound}{" "}
-                                {element && "   " + element.playerName}
-                              </div>
-                            </React.Fragment>
-                          );
-                        })}
-                      </Typography>
+                      {element.roundPicks[0][1].map((element, index) => {
+                        return (
+                          <React.Fragment key={index}>
+                            <div className="d-flex justify-content-start">
+                              {element.round + "." + element.pickInRound}{" "}
+                              {element && "   " + element.playerName}
+                            </div>
+                          </React.Fragment>
+                        );
+                      })}
                     </AccordionDetails>
                   </Accordion>
                 </React.Fragment>
