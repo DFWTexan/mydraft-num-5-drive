@@ -50,36 +50,39 @@ const DraftedByPositions = () => {
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      {Object.keys(item.roundPicks[0]).map((round, roundIndex) => {
-
-console.log("==> EMFTest (DraftPositions) - The round: ", round);
-
-                        return (
-                          <React.Fragment key={roundIndex}>
-                            {/* <div className="d-flex justify-content-start">
+                      {Object.keys(item.roundPicks[0]).map(
+                        (round, roundIndex) => {
+                          return (
+                            <React.Fragment key={roundIndex}>
+                              {/* <div className="d-flex justify-content-start">
                               {element.round + "." + element.pickInRound}{" "}
                               {element && "   " + element.playerName}
                             </div> */}
-                            <li key={roundIndex}>
-                    <p>Round {round}</p>
-                    <ul>
-                      {item.roundPicks['0'][round].map((pick, pickIndex) => (
-                        <li key={pickIndex}>
-                          <p>
-                            {pick.positionGroup} - {pick.playerName} (Round {pick.round}, Pick {pick.pickInRound})
-                          </p>
-                        </li>
-                      ))}
-                    </ul>
-                  </li>
-                          </React.Fragment>
-                        );
-                      })}
+                              <li key={roundIndex}>
+                                <p>Round {round}</p>
+                                <ul>
+                                  {item.roundPicks["0"][round].map(
+                                    (pick, pickIndex) => (
+                                      <li key={pickIndex}>
+                                        <p>
+                                          {pick.positionGroup} -{" "}
+                                          {pick.playerName} (Round {pick.round},
+                                          Pick {pick.pickInRound})
+                                        </p>
+                                      </li>
+                                    )
+                                  )}
+                                </ul>
+                              </li>
+                            </React.Fragment>
+                          );
+                        }
+                      )}
                     </AccordionDetails>
                   </Accordion>
                 </React.Fragment>
               );
-            } 
+            }
             // else {
             //   return (
             //     <React.Fragment key={index}>
