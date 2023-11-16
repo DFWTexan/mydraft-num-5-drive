@@ -5,6 +5,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { ListItem, ListSubheader, List } from "@mui/material";
 
 import "../../../styles/index.scss";
 import { fetchDraftedPlayerPositions } from "../../../slices/draftedPositions";
@@ -34,6 +35,7 @@ const DraftedByPositions = () => {
       {draftedByPositions &&
         (() => {
           let keyPosOrder = "";
+          let keyRound = "";
           return draftedByPositions.map((item, index) => {
             if (item.positionGroup !== keyPosOrder) {
               keyPosOrder = item.positionGroup;
@@ -52,32 +54,44 @@ const DraftedByPositions = () => {
                     <AccordionDetails>
                       {Object.keys(item.roundPicks[0]).map(
                         (round, roundIndex) => {
-                          
                           console.log(
                             "==> EMFTest (DraftPositions) - The round: ",
                             round
                           );
-
-                          return (
-                            <React.Fragment key={roundIndex}>
-                              <li key={roundIndex}>
-                                <p>Round {round}</p>
-                                <ul>
-                                  {item.roundPicks["0"][round].map(
-                                    (pick, pickIndex) => (
-                                      <li key={pickIndex}>
-                                        <p>
-                                          {pick.positionGroup} -{" "}
-                                          {pick.playerName} (Round {pick.round},
-                                          Pick {pick.pickInRound})
-                                        </p>
-                                      </li>
-                                    )
-                                  )}
-                                </ul>
-                              </li>
-                            </React.Fragment>
-                          );
+                          if (round !== keyRound) {
+                            keyRound = round;
+                            return (
+                              <React.Fragment key={roundIndex}>
+                                {/* <li key={roundIndex}>
+                                  <p>Round {round}</p>
+                                  <ul>
+                                    {item.roundPicks["0"][round].map(
+                                      (pick, pickIndex) => (
+                                        <li key={pickIndex}>
+                                          <p>
+                                            {pick.positionGroup} -{" "}
+                                            {pick.playerName} (Round{" "}
+                                            {pick.round}, Pick{" "}
+                                            {pick.pickInRound})
+                                          </p>
+                                        </li>
+                                      )
+                                    )}
+                                  </ul>
+                                </li> */}
+                                <ListSubheader
+                                  style={{ background: "gray", color: "white" }}
+                                >
+                                  {round}
+                                </ListSubheader>
+                                {/* <ListItem>
+                                  <FanPickCardItem draftPick={element} />
+                                </ListItem> */}
+                              </React.Fragment>
+                            );
+                          } else {
+                            return null;
+                          }
                         }
                       )}
                     </AccordionDetails>
