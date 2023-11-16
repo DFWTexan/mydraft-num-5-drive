@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { ListItem, ListSubheader, List } from "@mui/material";
+import { ListItem, ListSubheader } from "@mui/material";
 
 import "../../../styles/index.scss";
 import { fetchDraftedPlayerPositions } from "../../../slices/draftedPositions";
@@ -80,47 +80,8 @@ const DraftedByPositions = () => {
                 </React.Fragment>
               );
             }
-            // else {
-            //   return (
-            //     <React.Fragment key={index}>
-            //       <Accordion>
-            //         <AccordionDetails>
-            //           <Typography>
-            //             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            //             Suspendisse malesuada lacus ex, sit amet blandit leo
-            //             lobortis eget.
-            //           </Typography>
-            //         </AccordionDetails>
-            //       </Accordion>
-            //     </React.Fragment>
-            //   );
-            // }
           });
         })()}
-      {/* <Accordion>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel2a-content"
-          id="panel2a-header"
-        >
-          <Typography>Accordion 2</Typography>
-        </AccordionSummary>
-        <AccordionDetails>
-          <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
-          </Typography>
-        </AccordionDetails>
-      </Accordion>
-      <Accordion disabled>
-        <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
-          aria-controls="panel3a-content"
-          id="panel3a-header"
-        >
-          <Typography>Disabled Accordion</Typography>
-        </AccordionSummary>
-      </Accordion> */}
     </div>
   );
 };
