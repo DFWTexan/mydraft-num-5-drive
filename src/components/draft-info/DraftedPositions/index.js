@@ -57,18 +57,17 @@ const DraftedByPositions = () => {
                                 >
                                   {round}
                                 </ListSubheader>
-                                {item.roundPicks[0][round].map( (pick, pickIndex) => { 
-
-console.log("==> EMFTest (DraftPositions) - The pick: ", pick === "" ? "null" : pick);
-
-                                  return (
-                                    <ListItem key={pickIndex}>
-                                      <DraftPickPositionCardItem
-                                        draftPick={pick}
-                                      />
-                                    </ListItem>
-                                  );
-                                })}
+                                {item.roundPicks[0][round].map(
+                                  (pick, pickIndex) => {
+                                    return (
+                                      <ListItem key={pickIndex}>
+                                        <DraftPickPositionCardItem
+                                          draftPick={pick}
+                                        />
+                                      </ListItem>
+                                    );
+                                  }
+                                )}
                               </React.Fragment>
                             );
                           } else {
