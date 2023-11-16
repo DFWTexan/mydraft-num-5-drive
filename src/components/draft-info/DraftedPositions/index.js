@@ -34,9 +34,9 @@ const DraftedByPositions = () => {
       {draftedByPositions &&
         (() => {
           let keyPosOrder = "";
-          return draftedByPositions.map((element, index) => {
-            if (element.positionGroup !== keyPosOrder) {
-              keyPosOrder = element.positionGroup;
+          return draftedByPositions.map((item, index) => {
+            if (item.positionGroup !== keyPosOrder) {
+              keyPosOrder = item.positionGroup;
               return (
                 <React.Fragment key={index}>
                   <Accordion>
@@ -46,17 +46,32 @@ const DraftedByPositions = () => {
                       id="panel1a-header"
                     >
                       <Typography>
-                        {element.positionGroup} ({element.count})
+                        {item.positionGroup} ({item.count})
                       </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      {element.roundPicks[0][1].map((element, index) => {
+                      {Object.keys(item.roundPicks[0]).map((round, roundIndex) => {
+
+console.log("==> EMFTest (DraftPositions) - The round: ", round);
+
                         return (
-                          <React.Fragment key={index}>
-                            <div className="d-flex justify-content-start">
+                          <React.Fragment key={roundIndex}>
+                            {/* <div className="d-flex justify-content-start">
                               {element.round + "." + element.pickInRound}{" "}
                               {element && "   " + element.playerName}
-                            </div>
+                            </div> */}
+                            <li key={roundIndex}>
+                    <p>Round {round}</p>
+                    <ul>
+                      {item.roundPicks['0'][round].map((pick, pickIndex) => (
+                        <li key={pickIndex}>
+                          <p>
+                            {pick.positionGroup} - {pick.playerName} (Round {pick.round}, Pick {pick.pickInRound})
+                          </p>
+                        </li>
+                      ))}
+                    </ul>
+                  </li>
                           </React.Fragment>
                         );
                       })}
@@ -64,21 +79,22 @@ const DraftedByPositions = () => {
                   </Accordion>
                 </React.Fragment>
               );
-            } else {
-              return (
-                <React.Fragment key={index}>
-                  <Accordion>
-                    <AccordionDetails>
-                      <Typography>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                        Suspendisse malesuada lacus ex, sit amet blandit leo
-                        lobortis eget.
-                      </Typography>
-                    </AccordionDetails>
-                  </Accordion>
-                </React.Fragment>
-              );
-            }
+            } 
+            // else {
+            //   return (
+            //     <React.Fragment key={index}>
+            //       <Accordion>
+            //         <AccordionDetails>
+            //           <Typography>
+            //             Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            //             Suspendisse malesuada lacus ex, sit amet blandit leo
+            //             lobortis eget.
+            //           </Typography>
+            //         </AccordionDetails>
+            //       </Accordion>
+            //     </React.Fragment>
+            //   );
+            // }
           });
         })()}
       {/* <Accordion>
