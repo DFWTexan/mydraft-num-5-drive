@@ -52,12 +52,14 @@ const DraftedByPositions = () => {
                     <AccordionDetails>
                       {Object.keys(item.roundPicks[0]).map(
                         (round, roundIndex) => {
+                          
+                          console.log(
+                            "==> EMFTest (DraftPositions) - The round: ",
+                            round
+                          );
+
                           return (
                             <React.Fragment key={roundIndex}>
-                              {/* <div className="d-flex justify-content-start">
-                              {element.round + "." + element.pickInRound}{" "}
-                              {element && "   " + element.playerName}
-                            </div> */}
                               <li key={roundIndex}>
                                 <p>Round {round}</p>
                                 <ul>
