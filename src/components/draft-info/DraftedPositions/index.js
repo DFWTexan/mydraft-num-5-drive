@@ -9,6 +9,7 @@ import { ListItem, ListSubheader, List } from "@mui/material";
 
 import "../../../styles/index.scss";
 import { fetchDraftedPlayerPositions } from "../../../slices/draftedPositions";
+import DraftPickPositionCardItem from "./DraftPickPositionCardItem";
 
 const DraftedByPositions = () => {
   const activeLeague = useSelector((state) => state.activeLeague);
@@ -25,13 +26,6 @@ const DraftedByPositions = () => {
 
   return (
     <div style={{ minHeight: 780, overflow: "auto" }}>
-      {/* {Object.entries(draftedByPositions).forEach(([k, v]) => {
-        console.log("==> EMFTest (DraftPositions) - The key: ", k);
-        console.log("=> EMFTest (DraftPositions) - The value: ", v);
-      })} */}
-      {/* {draftedByPositions.map((element, index) => {
-        console.log("==> EMFTest (DraftPositions) - The element.key: ", element.value.length);
-      })} */}
       {draftedByPositions &&
         (() => {
           let keyPosOrder = "";
@@ -54,39 +48,27 @@ const DraftedByPositions = () => {
                     <AccordionDetails>
                       {Object.keys(item.roundPicks[0]).map(
                         (round, roundIndex) => {
-                          console.log(
-                            "==> EMFTest (DraftPositions) - The round: ",
-                            round
-                          );
                           if (round !== keyRound) {
                             keyRound = round;
                             return (
                               <React.Fragment key={roundIndex}>
-                                {/* <li key={roundIndex}>
-                                  <p>Round {round}</p>
-                                  <ul>
-                                    {item.roundPicks["0"][round].map(
-                                      (pick, pickIndex) => (
-                                        <li key={pickIndex}>
-                                          <p>
-                                            {pick.positionGroup} -{" "}
-                                            {pick.playerName} (Round{" "}
-                                            {pick.round}, Pick{" "}
-                                            {pick.pickInRound})
-                                          </p>
-                                        </li>
-                                      )
-                                    )}
-                                  </ul>
-                                </li> */}
                                 <ListSubheader
                                   style={{ background: "gray", color: "white" }}
                                 >
                                   {round}
                                 </ListSubheader>
-                                {/* <ListItem>
-                                  <FanPickCardItem draftPick={element} />
-                                </ListItem> */}
+                                {item.roundPicks[0][round].map( (pick, pickIndex) => { 
+
+console.log("==> EMFTest (DraftPositions) - The pick: ", pick === "" ? "null" : pick);
+
+                                  return (
+                                    <ListItem key={pickIndex}>
+                                      <DraftPickPositionCardItem
+                                        draftPick={pick}
+                                      />
+                                    </ListItem>
+                                  );
+                                })}
                               </React.Fragment>
                             );
                           } else {
