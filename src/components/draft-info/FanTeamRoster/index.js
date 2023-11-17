@@ -1,6 +1,7 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ListItem, ListSubheader, List } from "@mui/material";
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 // import Select from "react-select";
 // import axios from "axios";
 
@@ -14,19 +15,21 @@ import TeamSelect from "./teamSelect";
 const FanTeamRoseter = (props) => {
   const activeLeague = useSelector((state) => state.activeLeague);
   const fanTeamRoster = useSelector((state) => state.fanTeamRoster);
-  const [selectOptions, setSelectOptions] = useState([]);
+  const [selectedTeam, setSelectedTeam] = useState(null);
   const dispatch = useDispatch();
 
-  const options = activeLeague.teams.map((team) => ({
-    value: team.id,
-    label: team.name,
-  }));
+  // const options = activeLeague.teams.map((team) => ({
+  //   value: team.id,
+  //   label: team.name,
+  // }));
+
+  const handleFanTeamChange = (event) => {
+    setSelectedTeam(event.target.value);
+  };
 
   const initFetch = useCallback(() => {
     dispatch(fetchFanTeamRoster(activeLeague.id));
   }, [dispatch, activeLeague]);
-
-  const handleFilterTeam = (filter) => {};
 
   // useEffect(() => {
   //   axios.get(`${API_URL}${props.player_ID}`).then((response) => {
@@ -36,27 +39,15 @@ const FanTeamRoseter = (props) => {
 
   useEffect(() => {
     initFetch();
-    setSelectOptions(options);
   }, [initFetch]);
 
   return (
     <div style={{ margin: 5 }}>
       <div>
-        {/* <Select
-          // className="input-xs no-padding"
-          classNamePrefix="react-select"
-          name="pointValFilter_ID"
-          // defaaultValue={playerValues}
-          // defaultValue={props.pointValue}
-          options={selectOptions}
-          onChange={(value) =>
-            handleFilterTeam({ value: value })
-          }
-        /> */}
         <TeamSelect
           teams={activeLeague.teams}
-          selectedTeam={props.selectedTeam}
-          setSelectedTeam={props.setSelectedTeam}
+          selectedTeam={selectedTeam}
+          setSelectedTeam={handleFanTeamChange}
         />
       </div>
       <div>

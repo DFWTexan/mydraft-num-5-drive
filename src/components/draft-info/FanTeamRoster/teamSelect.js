@@ -1,5 +1,9 @@
-import Select from "react-select";
-import ReactFlow from 'react-flow-renderer';
+import React, { useState, useEffect } from "react";
+// import Select from "react-select";
+import InputLabel from '@mui/material/InputLabel';
+import FormControl from '@mui/material/FormControl';
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 const TeamSelect = ({ teams, selectedTeam, setSelectedTeam }) => {
   const options = teams.map((team) => ({
@@ -8,16 +12,26 @@ const TeamSelect = ({ teams, selectedTeam, setSelectedTeam }) => {
   }));
 
   return (
-    <div style={{ margin: 5 }}>
-      <div>
-        <Select
-          classNamePrefix="react-select"
-          name="pointValFilter_ID"
-          options={options}
-          onChange={(value) => setSelectedTeam(value)}
-        />
+    <React.Fragment>
+      <div style={{ margin: 5, width: "100%" }}>
+        {/* <InputLabel id="fanTeamSelect-label">Fan Team</InputLabel> */}
+        <FormControl sx={{ m: 1, minWidth: 250 }} size="small">
+          <Select
+            labelId="fanTeamSelect-label"
+            id="fanTeamSelect"
+            value={selectedTeam}
+            onChange={setSelectedTeam}
+            // label="Fan Team"
+          >
+            {options.map((option, index) => (
+              <MenuItem key={index} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
       </div>
-    </div>
+    </React.Fragment>
   );
 };
 export default TeamSelect;
