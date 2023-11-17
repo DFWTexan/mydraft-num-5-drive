@@ -1,14 +1,20 @@
 .team-name {
-    font-size: 15px;
-    text-align: left;
-    padding-top: 15px;
-    padding-bottom: 15px;
-  }
+  font-size: 15px;
+  text-align: left;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
 
-  .even {
-    background-color: #f0f8ff; /* #F0F8FF color for even rows */
-  }
-  
-  .odd {
-    background-color: white; /* Default color for odd rows */
-  }
+.position-header {
+  width: 40;
+  text-align: "center";
+  padding-bottom: 15;
+}
+
+.even {
+  background-color: #f0f8ff; /* #F0F8FF color for even rows */
+}
+
+.odd {
+  background-color: white; /* Default color for odd rows */
+}

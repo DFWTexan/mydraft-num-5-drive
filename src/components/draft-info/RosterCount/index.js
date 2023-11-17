@@ -8,13 +8,13 @@ const RosterCount = (props) => {
       <table style={{ width:'100%' }}>
         <thead>
           <tr>
-            <th style={{ textAlign: 'left', paddingBottom: 15 }}>Team</th>
-            <th style={{ width: 40, textAlign: 'center', paddingBottom: 15 }}>QB</th>
-            <th style={{ width: 40, textAlign: 'center', paddingBottom: 15 }}>RB</th>
-            <th style={{ width: 40, textAlign: 'center', paddingBottom: 15 }}>WR</th>
-            <th style={{ width: 40, textAlign: 'center', paddingBottom: 15 }}>TE</th>
-            <th style={{ width: 40, textAlign: 'center', paddingBottom: 15 }}>K</th>
-            <th style={{ width: 40, textAlign: 'center', paddingBottom: 15 }}>DEF</th>
+            <th style={{ fontSize: 40, textAlign: 'left', paddingBottom: 15 }}>Team</th>
+            <th className="position-header">QB</th>
+            <th className="position-header">RB</th>
+            <th className="position-header">WR</th>
+            <th className="position-header">TE</th>
+            <th className="position-header">K</th>
+            <th className="position-header">DEF</th>
           </tr>
         </thead>
         <tbody>
