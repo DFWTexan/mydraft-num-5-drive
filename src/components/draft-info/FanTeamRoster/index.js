@@ -28,8 +28,8 @@ const FanTeamRoseter = (props) => {
   };
 
   const initFetch = useCallback(() => {
-    dispatch(fetchFanTeamRoster(activeLeague.id));
-  }, [dispatch, activeLeague]);
+    dispatch(fetchFanTeamRoster(selectedTeam));
+  }, [dispatch, selectedTeam]);
 
   // useEffect(() => {
   //   axios.get(`${API_URL}${props.player_ID}`).then((response) => {
