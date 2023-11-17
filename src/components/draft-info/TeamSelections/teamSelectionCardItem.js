@@ -9,18 +9,20 @@ const CardInfo = ({ draftPick }) => (
         <tr>
           <td>
             <table>
-              <tr>
-                <td>{draftPick.overallPick}</td>
-              </tr>
-              <td>{draftPick.round + "." + draftPick.pickInRound}</td>
+              <tbody>
+                <tr>
+                  <td>{draftPick.overallPick}</td>
+                </tr>
+                <tr>
+                  <td>{draftPick.round + "." + draftPick.pickInRound}</td>
+                </tr>
+              </tbody>
             </table>
           </td>
           <td className="player-select-card">
-            {(draftPick.player == null
-              ? "N/A"
-              : draftPick.player.firstName) + " " + (draftPick.player == null
-              ? ""
-              : draftPick.player.lastName)}
+            {(draftPick.player == null ? "N/A" : draftPick.player.firstName) +
+              " " +
+              (draftPick.player == null ? "" : draftPick.player.lastName)}
           </td>
         </tr>
       </tbody>

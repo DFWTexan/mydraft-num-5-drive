@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ListItem, ListSubheader, List } from "@mui/material";
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+// import Select, { SelectChangeEvent } from '@mui/material/Select';
 // import Select from "react-select";
 // import axios from "axios";
 
@@ -15,7 +15,7 @@ import TeamSelect from "./teamSelect";
 const FanTeamRoseter = (props) => {
   const activeLeague = useSelector((state) => state.activeLeague);
   const fanTeamRoster = useSelector((state) => state.fanTeamRoster);
-  const [selectedTeam, setSelectedTeam] = useState(null);
+  const [selectedTeam, setSelectedTeam] = useState(1);
   const dispatch = useDispatch();
 
   // const options = activeLeague.teams.map((team) => ({

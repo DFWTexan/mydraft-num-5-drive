@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 // import Select from "react-select";
-import InputLabel from '@mui/material/InputLabel';
+// import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 
 const TeamSelect = ({ teams, selectedTeam, setSelectedTeam }) => {

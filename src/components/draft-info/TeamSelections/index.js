@@ -7,14 +7,18 @@ const TeamSelections = (props) => {
   return (
     <div style={{ height: 775 }}>
       <table style={{ width: "100%" }}>
-        {props.teamSelections.map((item, index) => (
-          <tr>
-            <td>
-              {/* {item.key} */}
-              <TeamSelectionCardItem draftPick={item.value} />
-            </td>
-          </tr>
-        ))}
+        <tbody>
+          {props.teamSelections.map((item, index) => (
+            <React.Fragment key={index}>
+              <tr>
+                <td>
+                  {/* {item.key} */}
+                  <TeamSelectionCardItem draftPick={item.value} />
+                </td>
+              </tr>
+            </React.Fragment>
+          ))}
+        </tbody>
       </table>
     </div>
   );
