@@ -5,7 +5,7 @@ import TeamSelectionCardItem from "./teamSelectionCardItem";
 
 const TeamSelections = (props) => {
   return (
-    <div>
+    <div style={{ height: 775 }}>
       <table style={{ width: "100%" }}>
         {props.teamSelections.map((item, index) => (
           <tr>
