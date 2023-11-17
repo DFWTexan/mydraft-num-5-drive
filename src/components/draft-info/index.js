@@ -5,19 +5,23 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
 import { fetchFanTeamRosterCount } from "../../slices/fanTeamRosterCount";
+import { fetchFanTeamSelections } from "../../slices/fanTeamSelections";
 import FanTeamRoster from "./FanTeamRoster";
 import DraftSelections from "../draft-info/DraftSelections";
 import DraftedPositions from "../draft-info/DraftedPositions";
 import RosterCount from "../draft-info/RosterCount";
+import TeamSelections from "../draft-info/TeamSelections";
 
 const DraftInfo = () => {
   const draftPicks = useSelector((state) => state.draftPicks);
   const rosterCounts = useSelector((state) => state.fanTeamRosterCount);
+  const fanTeamSelections = useSelector((state) => state.fanTeamSelections);
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
     dispatch(fetchDraftedPlayers());
     dispatch(fetchFanTeamRosterCount());
+    dispatch(fetchFanTeamSelections(1));
   }, [dispatch]);
 
   useEffect(() => {
@@ -69,7 +73,7 @@ const DraftInfo = () => {
             <FanTeamRoster MyTeam={true} />
             </TabPanel>
             <TabPanel>
-              <p> TEAM ROSTER Selections</p>
+              <TeamSelections teamSelections={fanTeamSelections}/>
             </TabPanel>
             <TabPanel>
               <p>ROSTER = News</p>

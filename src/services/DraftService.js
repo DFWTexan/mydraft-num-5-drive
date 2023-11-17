@@ -16,9 +16,12 @@ const GetDraftPicksByPosition = (data) => {
   return http.get("/Draft/GetDraftPicksByPosition");
 };
 
-
 const GetFanTeamRosters = (data) => {
   return http.get("/Draft/GetRosterTotalPositionCount");
+};
+
+const GetFanTeamSelections = (id) => {
+  return http.get(`/Draft/GetTeamSelections/${id}`);
 };
 // const create = data => {
 //   return http.post("/tutorials", data);
@@ -46,6 +49,7 @@ const DraftService = {
   GetDraftPicksByFanTeam,
   GetDraftPicksByPosition,
   GetFanTeamRosters,
+  GetFanTeamSelections,
   // get,
   // create,
   // update,
