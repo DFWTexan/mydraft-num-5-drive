@@ -7,6 +7,7 @@ import draftStatusReducer from '../slices/draftStatus';
 import draftReducer from '../slices/draft';
 import fanTeamRosterReducer from '../slices/fanTeamRoster';
 import draftPickReducer from '../slices/draftedPositions';
+import fanTeamRosterCountReducer from '../slices/fanTeamRosterCount';
 
 const reducer = {
   userInfoStatus: userReducer
@@ -16,6 +17,7 @@ const reducer = {
   , draftPicks: draftReducer
   , fanTeamRoster: fanTeamRosterReducer
   , draftedPositions: draftPickReducer
+  , fanTeamRosterCount: fanTeamRosterCountReducer
 }
 
 const store = configureStore({

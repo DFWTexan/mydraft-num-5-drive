@@ -4,16 +4,20 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
+import { fetchFanTeamRosterCount } from "../../slices/fanTeamRosterCount";
 import FanTeamRoster from "./FanTeamRoster";
 import DraftSelections from "../draft-info/DraftSelections";
 import DraftedPositions from "../draft-info/DraftedPositions";
+import RosterCount from "../draft-info/RosterCount";
 
 const DraftInfo = () => {
   const draftPicks = useSelector((state) => state.draftPicks);
+  const rosterCounts = useSelector((state) => state.fanTeamRosterCount);
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
     dispatch(fetchDraftedPlayers());
+    dispatch(fetchFanTeamRosterCount());
   }, [dispatch]);
 
   useEffect(() => {
@@ -40,14 +44,14 @@ const DraftInfo = () => {
           <Tabs forceRenderTabPanel>
             <TabList>
               <Tab style={myStyle}>Selections</Tab>
-              <Tab>MyRoster</Tab>
+              <Tab>Rosters</Tab>
               <Tab>Positions</Tab>
             </TabList>
             <TabPanel>
               <DraftSelections draftPicks={draftPicks} />
             </TabPanel>
             <TabPanel>
-              <FanTeamRoster MyTeam={true} />
+              <RosterCount rosters={rosterCounts}/>
             </TabPanel>
             <TabPanel>
               <DraftedPositions/>
@@ -62,10 +66,10 @@ const DraftInfo = () => {
               <Tab>News</Tab>
             </TabList>
             <TabPanel>
-              <p>ROSTER = Team</p>
+            <FanTeamRoster MyTeam={true} />
             </TabPanel>
             <TabPanel>
-              <p>ROSTER = Selections</p>
+              <p> TEAM ROSTER Selections</p>
             </TabPanel>
             <TabPanel>
               <p>ROSTER = News</p>
