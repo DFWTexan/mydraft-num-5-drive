@@ -1,12 +1,14 @@
 import React from "react";
 
+import "../../../styles/index.scss";
+
 const RosterCount = (props) => {
   return (
-    <div style={{ margin: 5 }}>
+    <div style={{ margin: 5, height: 775 }}>
       <table style={{ width:'100%' }}>
         <thead>
           <tr>
-            <th>Team</th>
+            <th style={{ textAlign: 'left' }}>Team</th>
             <th>QB</th>
             <th>RB</th>
             <th>WR</th>
@@ -16,9 +18,9 @@ const RosterCount = (props) => {
           </tr>
         </thead>
         <tbody>
-          {props.rosters.map((item) => (
-            <tr key={item.key}>
-              <td>{item.key}</td>
+          {props.rosters.map((item, index) => (
+            <tr key={item.key} className={index % 2 === 0 ? 'even' : 'odd'}>
+              <td className="team-name">{item.key}</td>
               <td>{item.value.QB}</td>
               <td>{item.value.RB}</td>
               <td>{item.value.WR}</td>
