@@ -1,14 +1,12 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from "react";
 
 const DraftNews = () => {
-
-  useEffect(() => {
-
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div>
-      This is Player News (tests)
+      <div className="header-container">News HEADER...</div>
+      <div className="detail-container">News DETAIL...</div>
     </div>
   );
 };

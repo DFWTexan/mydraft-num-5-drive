@@ -51,7 +51,7 @@ const DraftPlyrList = () => {
   // }, [initFetch]);
 
   return (
-    <div className="list-players">
+    <div className="detail-container">
       <ListGroup>
         {players &&
           players.map((player, index) => (

@@ -173,3 +173,17 @@
   border-top-right-radius: 1rem;
   border: 1px inset #e4e7ea;
 }
+
+.detail-container {
+  display: inline-block; 
+  *display: inline; 
+  zoom: 1; 
+  vertical-align: top; 
+  font-size: 12px;
+  overflow: auto;
+  overflow-x: hidden;
+  background-color: white;
+  height: 800px;
+  width: 100%;
+  border-style: ridge;
+}
