@@ -1,13 +1,28 @@
 .player-select-card {
-    padding: 15px;
-    margin-left: 5px;
-    margin-right: 5px;
-    text-align: left;
-    border-style: ridge;
-    margin-bottom: 3px;
-    background-color: whitesmoke;
-    border-radius: 10px;
-    width: 100%;
-    height: 40px;
-    font-size: small;
-  }
+  padding: 15px;
+  margin-left: 2px;
+  margin-right: 5px;
+  text-align: left;
+  border-style: ridge;
+  margin-bottom: 3px;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  width: 100%;
+  height: 40px;
+  font-size: small;
+}
+
+.over-all-pick {
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.pick-round {
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  padding: 5px;
+  border-radius: 5px;
+}

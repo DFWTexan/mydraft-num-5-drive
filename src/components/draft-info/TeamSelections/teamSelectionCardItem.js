@@ -11,10 +11,10 @@ const CardInfo = ({ draftPick }) => (
             <table>
               <tbody>
                 <tr>
-                  <td>{draftPick.overallPick}</td>
+                  <td className="over-all-pick">{draftPick.overallPick}</td>
                 </tr>
                 <tr>
-                  <td>{draftPick.round + "." + draftPick.pickInRound}</td>
+                  <td className="pick-round">{draftPick.round + "." + draftPick.pickInRound}</td>
                 </tr>
               </tbody>
             </table>
