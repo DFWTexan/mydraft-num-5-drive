@@ -43,7 +43,7 @@ const PlayerFilter = (props) => {
   useEffect(() => {});
 
   return (
-    <>
+    <div className="header-container">
       <div className="search-filter">
         <Form>
           <FormGroup>
@@ -97,7 +97,7 @@ const PlayerFilter = (props) => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
