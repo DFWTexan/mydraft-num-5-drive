@@ -14,7 +14,8 @@ import TeamSelections from "../draft-info/TeamSelections";
 import ProTeamDepthChart from "./ProTeamDepthChart";
 
 const DraftInfo = () => {
-  const [deptChartPositionDisplay, setDepthChartPositionDisplay] = useState("QB");
+  const [depthChartIndex, setDepthChartIndex] = useState(0);
+  const [depthChartDisplay, setDepthChartDisplay] = useState("QB");
   const draftPicks = useSelector((state) => state.draftPicks);
   const rosterCounts = useSelector((state) => state.fanTeamRosterCount);
   const fanTeamSelections = useSelector((state) => state.fanTeamSelections);
@@ -37,6 +38,33 @@ const DraftInfo = () => {
     size: "2px",
     fontFamily: "Sans-Serif"
   };
+
+  const handleDepthChartPositionChange = (index) => {
+    setDepthChartIndex(index);
+    
+    switch (index) { 
+      case 0: { 
+        setDepthChartDisplay("QB");
+        break; 
+      } 
+      case 1: { 
+        setDepthChartDisplay("RB");
+        break; 
+      } 
+      case 2: { 
+        setDepthChartDisplay("WR");
+        break; 
+      } 
+      case 3: { 
+        setDepthChartDisplay("TE");
+        break; 
+      } 
+      case 4: { 
+        setDepthChartDisplay("PK");
+        break; 
+      } 
+    }
+   };
 
   return (
     <div className="tab_Container_draftInfo">
@@ -83,28 +111,28 @@ const DraftInfo = () => {
           </Tabs>
         </TabPanel>
         <TabPanel>
-          <Tabs forceRenderTabPanel>
+          <Tabs forceRenderTabPanel selectedIndex={depthChartIndex} onSelect={(index) => {handleDepthChartPositionChange(index)}}>
             <TabList>
-              <Tab value="QB">QB</Tab>
-              <Tab value="RB">RB</Tab>
-              <Tab value="WR">WR</Tab>
-              <Tab value="TE">TE</Tab>
-              <Tab value="PK">KR</Tab>
+              <Tab>QB</Tab>
+              <Tab>RB</Tab>
+              <Tab>WR</Tab>
+              <Tab>TE</Tab>
+              <Tab>PK</Tab>
             </TabList>
             <TabPanel>
-              <p>QB DepthChart</p>
+              <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
             </TabPanel>
             <TabPanel>
-              <p>RB DepthChart</p>
+            <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
             </TabPanel>
             <TabPanel>
-              <p>WR DepthChart</p>
+            <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
             </TabPanel>
             <TabPanel>
-              <p>TE DepthChart</p>
+            <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
             </TabPanel>
             <TabPanel>
-              <p>KR DepthChart</p>
+            <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
             </TabPanel>
           </Tabs>
         </TabPanel>
