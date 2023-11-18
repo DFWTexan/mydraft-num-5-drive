@@ -18,13 +18,13 @@ const DraftInfo = () => {
   const [depthChartDisplay, setDepthChartDisplay] = useState("QB");
   const draftPicks = useSelector((state) => state.draftPicks);
   const rosterCounts = useSelector((state) => state.fanTeamRosterCount);
-  const fanTeamSelections = useSelector((state) => state.fanTeamSelections);
+  // const fanTeamSelections = useSelector((state) => state.fanTeamSelections);
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
     dispatch(fetchDraftedPlayers());
     dispatch(fetchFanTeamRosterCount());
-  }, [dispatch, selectedTeam]);
+  }, [dispatch]);
 
   useEffect(() => {
     initFetch();

@@ -11,7 +11,7 @@ import { fetchDraftStatus } from "../slices/draftStatus";
 import { fetchActiveLeague } from "../slices/league";
 import { fetchPlayers } from "../slices/players";
 
-const baseURL = "https://localhost:7242/api/";
+import { API_URL } from "../config";
 
 const initFilterSortPlayer = {
   pointValue: "POINTS",
@@ -61,7 +61,7 @@ const Draftboard = () => {
   }, [initFetch]);
 
   useEffect(() => {
-    axios.get(`${baseURL}League/InitLeageData`).then((response) => {
+    axios.get(`${API_URL}League/InitLeageData`).then((response) => {
       // console.log("==> EMFTest (response) response:", response);
     });
     dispatch(fetchDraftStatus());
