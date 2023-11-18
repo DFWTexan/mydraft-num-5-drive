@@ -183,7 +183,9 @@
   overflow: auto;
   overflow-x: hidden;
   background-color: white;
-  height: 800px;
+  height: 50rem;
   width: 100%;
   border-style: ridge;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }

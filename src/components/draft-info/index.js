@@ -35,7 +35,7 @@ const DraftInfo = () => {
     // backgroundColor: "DodgerBlue",
     // padding: "10px",
     size: "2px",
-    fontFamily: "Sans-Serif"
+    fontFamily: "Sans-Serif",
   };
 
   const handleFanTeamChange = (event) => {
@@ -44,33 +44,33 @@ const DraftInfo = () => {
 
   const handleDepthChartPositionChange = (index) => {
     setDepthChartIndex(index);
-    
-    switch (index) { 
-      case 0: { 
+
+    switch (index) {
+      case 0: {
         setDepthChartDisplay("QB");
-        break; 
-      } 
-      case 1: { 
+        break;
+      }
+      case 1: {
         setDepthChartDisplay("RB");
-        break; 
-      } 
-      case 2: { 
+        break;
+      }
+      case 2: {
         setDepthChartDisplay("WR");
-        break; 
-      } 
-      case 3: { 
+        break;
+      }
+      case 3: {
         setDepthChartDisplay("TE");
-        break; 
-      } 
-      case 4: { 
+        break;
+      }
+      case 4: {
         setDepthChartDisplay("PK");
-        break; 
-      } 
-      default: { 
-        break; 
+        break;
+      }
+      default: {
+        break;
       }
     }
-   };
+  };
 
   return (
     <div className="tab_Container_draftInfo">
@@ -91,10 +91,10 @@ const DraftInfo = () => {
               <DraftSelections draftPicks={draftPicks} />
             </TabPanel>
             <TabPanel>
-              <RosterCount rosters={rosterCounts}/>
+              <RosterCount rosters={rosterCounts} />
             </TabPanel>
             <TabPanel>
-              <DraftedPositions/>
+              <DraftedPositions />
             </TabPanel>
           </Tabs>
         </TabPanel>
@@ -106,10 +106,17 @@ const DraftInfo = () => {
               <Tab>News</Tab>
             </TabList>
             <TabPanel>
-            <FanTeamRoster MyTeam={true} selectedTeam={selectedTeam} setSelectedTeam={handleFanTeamChange} />
+              <FanTeamRoster
+                MyTeam={true}
+                selectedTeam={selectedTeam}
+                setSelectedTeam={handleFanTeamChange}
+              />
             </TabPanel>
             <TabPanel>
-              <TeamSelections selectedTeam={selectedTeam} setSelectedTeam={handleFanTeamChange} />
+              <TeamSelections
+                selectedTeam={selectedTeam}
+                setSelectedTeam={handleFanTeamChange}
+              />
             </TabPanel>
             <TabPanel>
               <p>ROSTER = News</p>
@@ -117,7 +124,13 @@ const DraftInfo = () => {
           </Tabs>
         </TabPanel>
         <TabPanel>
-          <Tabs forceRenderTabPanel selectedIndex={depthChartIndex} onSelect={(index) => {handleDepthChartPositionChange(index)}}>
+          <Tabs
+            forceRenderTabPanel
+            selectedIndex={depthChartIndex}
+            onSelect={(index) => {
+              handleDepthChartPositionChange(index);
+            }}
+          >
             <TabList>
               <Tab>QB</Tab>
               <Tab>RB</Tab>
@@ -125,8 +138,8 @@ const DraftInfo = () => {
               <Tab>TE</Tab>
               <Tab>PK</Tab>
             </TabList>
-            <TabPanel className="panel_draftInfo">
-              <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
+            <TabPanel className="detail-container">
+              <ProTeamDepthChart positionDisplay={depthChartDisplay} />
             </TabPanel>
           </Tabs>
         </TabPanel>
