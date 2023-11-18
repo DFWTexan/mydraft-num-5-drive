@@ -20,30 +20,11 @@ const ProTeamDepthChart = (props) => {
       <tbody>
         {displayData.map((item) => (
           <tr key={item.key}>
-            <td
-              style={{
-                textAlign: "left",
-                width: 50,
-                paddingTop: 5,
-                paddingBottom: 5,
-                backgroundColor: "#F0F8FF",
-              }}
-            >
+            <td className="team_col">
               <strong>{item.key}</strong>
             </td>
             {item.value.map((player) => (
-              <td
-                style={{
-                  paddingLeft: 5,
-                  textAlign: "left",
-                  width: 75,
-                  fontSize: 15,
-                  border: 1,
-                  borderStyle: "solid",
-                  borderColor: "gray",
-                }}
-              >
-                {" "}
+              <td className="player_col">
                 {player.name}
               </td>
             ))}

@@ -8,6 +8,20 @@
   // background-color: black;
 }
 
+.panel_draftInfo {
+  display: inline-block; 
+  *display: inline; 
+  zoom: 1; 
+  vertical-align: top; 
+  font-size: 12px;
+  overflow: auto;
+  // overflow-x: hidden;
+  background-color: white;
+  height: 800px;
+  width: 100%;
+  border-style: ridge;
+}
+
 /* Tab Container */
 .Tabs {
   width: 80%;

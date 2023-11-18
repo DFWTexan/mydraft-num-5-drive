@@ -125,20 +125,8 @@ const DraftInfo = () => {
               <Tab>TE</Tab>
               <Tab>PK</Tab>
             </TabList>
-            <TabPanel>
+            <TabPanel className="panel_draftInfo">
               <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
-            </TabPanel>
-            <TabPanel>
-            <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
-            </TabPanel>
-            <TabPanel>
-            <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
-            </TabPanel>
-            <TabPanel>
-            <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
-            </TabPanel>
-            <TabPanel>
-            <ProTeamDepthChart positionDisplay={depthChartDisplay}/>
             </TabPanel>
           </Tabs>
         </TabPanel>
