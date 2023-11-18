@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
@@ -11,8 +11,10 @@ import DraftSelections from "../draft-info/DraftSelections";
 import DraftedPositions from "../draft-info/DraftedPositions";
 import RosterCount from "../draft-info/RosterCount";
 import TeamSelections from "../draft-info/TeamSelections";
+import ProTeamDepthChart from "./ProTeamDepthChart";
 
 const DraftInfo = () => {
+  const [deptChartPositionDisplay, setDepthChartPositionDisplay] = useState("QB");
   const draftPicks = useSelector((state) => state.draftPicks);
   const rosterCounts = useSelector((state) => state.fanTeamRosterCount);
   const fanTeamSelections = useSelector((state) => state.fanTeamSelections);
@@ -83,11 +85,11 @@ const DraftInfo = () => {
         <TabPanel>
           <Tabs forceRenderTabPanel>
             <TabList>
-              <Tab>QB</Tab>
-              <Tab>RB</Tab>
-              <Tab>WR</Tab>
-              <Tab>TE</Tab>
-              <Tab>KR</Tab>
+              <Tab value="QB">QB</Tab>
+              <Tab value="RB">RB</Tab>
+              <Tab value="WR">WR</Tab>
+              <Tab value="TE">TE</Tab>
+              <Tab value="PK">KR</Tab>
             </TabList>
             <TabPanel>
               <p>QB DepthChart</p>
