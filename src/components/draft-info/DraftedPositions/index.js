@@ -55,16 +55,20 @@ const DraftedByPositions = () => {
                                 <ListSubheader
                                   style={{ background: "gray", color: "white" }}
                                 >
-                                  {round}
+                                  ROUND {round}
                                 </ListSubheader>
                                 {item.roundPicks[0][round].map(
                                   (pick, pickIndex) => {
-                                    return (
+                                    return pick.length !== 0 ? (
                                       <ListItem key={pickIndex}>
                                         <DraftPickPositionCardItem
                                           draftPick={pick}
                                         />
                                       </ListItem>
+                                    ) : (
+                                      <React.Fragment key={pickIndex}>
+                                        <p>N/A</p>
+                                      </React.Fragment>
                                     );
                                   }
                                 )}
