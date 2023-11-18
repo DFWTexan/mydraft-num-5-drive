@@ -5,7 +5,6 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
 import { fetchFanTeamRosterCount } from "../../slices/fanTeamRosterCount";
-import { fetchFanTeamSelections } from "../../slices/fanTeamSelections";
 import FanTeamRoster from "./FanTeamRoster";
 import DraftSelections from "../draft-info/DraftSelections";
 import DraftedPositions from "../draft-info/DraftedPositions";
@@ -14,6 +13,7 @@ import TeamSelections from "../draft-info/TeamSelections";
 import ProTeamDepthChart from "./ProTeamDepthChart";
 
 const DraftInfo = () => {
+  const [selectedTeam, setSelectedTeam] = useState(1);
   const [depthChartIndex, setDepthChartIndex] = useState(0);
   const [depthChartDisplay, setDepthChartDisplay] = useState("QB");
   const draftPicks = useSelector((state) => state.draftPicks);
@@ -24,8 +24,7 @@ const DraftInfo = () => {
   const initFetch = useCallback(() => {
     dispatch(fetchDraftedPlayers());
     dispatch(fetchFanTeamRosterCount());
-    dispatch(fetchFanTeamSelections(1));
-  }, [dispatch]);
+  }, [dispatch, selectedTeam]);
 
   useEffect(() => {
     initFetch();
@@ -37,6 +36,10 @@ const DraftInfo = () => {
     // padding: "10px",
     size: "2px",
     fontFamily: "Sans-Serif"
+  };
+
+  const handleFanTeamChange = (event) => {
+    setSelectedTeam(event.target.value);
   };
 
   const handleDepthChartPositionChange = (index) => {
@@ -63,6 +66,9 @@ const DraftInfo = () => {
         setDepthChartDisplay("PK");
         break; 
       } 
+      default: { 
+        break; 
+      }
     }
    };
 
@@ -100,10 +106,10 @@ const DraftInfo = () => {
               <Tab>News</Tab>
             </TabList>
             <TabPanel>
-            <FanTeamRoster MyTeam={true} />
+            <FanTeamRoster MyTeam={true} selectedTeam={selectedTeam} setSelectedTeam={handleFanTeamChange} />
             </TabPanel>
             <TabPanel>
-              <TeamSelections teamSelections={fanTeamSelections}/>
+              <TeamSelections selectedTeam={selectedTeam} setSelectedTeam={handleFanTeamChange} />
             </TabPanel>
             <TabPanel>
               <p>ROSTER = News</p>

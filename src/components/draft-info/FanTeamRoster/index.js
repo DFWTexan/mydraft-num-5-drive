@@ -1,35 +1,23 @@
-import React, { useEffect, useCallback, useState } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ListItem, ListSubheader, List } from "@mui/material";
-// import Select, { SelectChangeEvent } from '@mui/material/Select';
-// import Select from "react-select";
 // import axios from "axios";
 
 import "../../../styles/index.scss";
 import { fetchFanTeamRoster } from "../../../slices/fanTeamRoster";
 import FanPickCardItem from "./FanPickCardItem";
-import TeamSelect from "./teamSelect";
+import FanTeamSelect from "../../Common/fanTeamSelect";   
 // import { API_URL } from "../../../config";
 
 
 const FanTeamRoseter = (props) => {
   const activeLeague = useSelector((state) => state.activeLeague);
   const fanTeamRoster = useSelector((state) => state.fanTeamRoster);
-  const [selectedTeam, setSelectedTeam] = useState(1);
   const dispatch = useDispatch();
 
-  // const options = activeLeague.teams.map((team) => ({
-  //   value: team.id,
-  //   label: team.name,
-  // }));
-
-  const handleFanTeamChange = (event) => {
-    setSelectedTeam(event.target.value);
-  };
-
   const initFetch = useCallback(() => {
-    dispatch(fetchFanTeamRoster(selectedTeam));
-  }, [dispatch, selectedTeam]);
+    dispatch(fetchFanTeamRoster(props.selectedTeam));
+  }, [dispatch, props.selectedTeam]);
 
   // useEffect(() => {
   //   axios.get(`${API_URL}${props.player_ID}`).then((response) => {
@@ -44,10 +32,10 @@ const FanTeamRoseter = (props) => {
   return (
     <div style={{ margin: 5 }}>
       <div>
-        <TeamSelect
+        <FanTeamSelect
           teams={activeLeague.teams}
-          selectedTeam={selectedTeam}
-          setSelectedTeam={handleFanTeamChange}
+          selectedTeam={props.selectedTeam}
+          setSelectedTeam={props.setSelectedTeam}
         />
       </div>
       <div>
