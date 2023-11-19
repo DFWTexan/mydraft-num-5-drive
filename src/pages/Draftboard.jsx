@@ -76,7 +76,7 @@ const Draftboard = () => {
             handleFilterPlayer={handleFilterPlayer}
           />
         </div>
-        <DraftPlyrList props={filterSortPlayer} />
+        <DraftPlyrList props={filterSortPlayer}/>
       </div>
       <div className="middle">
         <DraftInfo
