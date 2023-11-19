@@ -1,6 +1,6 @@
 .position-grp-header {
     font-weight: 500;
-    font-size: larger;
+    font-size: large;
 }
   
   .position-grp-detail {
@@ -17,4 +17,8 @@
     border-style: ridge;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+}
+
+.draft-position-card-item {
+  font-size: larger;
 }

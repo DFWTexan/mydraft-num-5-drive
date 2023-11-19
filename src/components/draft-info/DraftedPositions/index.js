@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
+// import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { ListItem, ListSubheader } from "@mui/material";
 
@@ -40,11 +40,9 @@ const DraftedByPositions = () => {
                   aria-controls="panel1a-content"
                   id="panel1a-header"
                 >
-                  <Typography>
-                    <div className="position-grp-header"> 
-                      {item.positionGroup} ({item.count})
-                    </div>
-                  </Typography>
+                  <div className="position-grp-header">
+                    {item.positionGroup} ({item.count})
+                  </div>
                 </AccordionSummary>
                 <AccordionDetails>
                   {Object.keys(item.roundPicks[0]).map((round, roundIndex) => {
@@ -53,7 +51,7 @@ const DraftedByPositions = () => {
                       return (
                         <React.Fragment key={roundIndex}>
                           <ListSubheader
-                            style={{ background: "gray", color: "white" }}
+                            style={{ background: "#2f353a", color: "white" }}
                           >
                             ROUND {round}
                           </ListSubheader>

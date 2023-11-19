@@ -58,7 +58,7 @@ const FanTeamRoseter = (props) => {
                   return (
                     <React.Fragment key={index}>
                       <ListSubheader
-                        style={{ background: "gray-800", color: "white" }}
+                        style={{ background: "#2f353a", color: "white" }}
                       >
                         {element.positionGroup}
                       </ListSubheader>

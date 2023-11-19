@@ -3,9 +3,9 @@ import React from "react";
 import "../../../styles/index.scss";
 
 const CardInfo = ({ draftPick }) => (
-  <div className="d-flex justify-content-start">
-    {draftPick.round + "." + draftPick.pickInRound}{" "}
-    {draftPick && "   " + draftPick.playerName}
+  <div className="draft-position-card-item">
+    <strong>{draftPick.round + "." + draftPick.pickInRound}</strong>
+    <span style={{ paddingLeft: '1rem' }}>{draftPick && "   " + draftPick.playerName}</span>
   </div>
 );
 

@@ -18,17 +18,15 @@ const ProTeamDepthChart = (props) => {
   return (
     <table>
       <tbody>
-        {displayData.map((item) => (
-          <tr key={item.key}>
-            <td className="team_col">
-              <strong>{item.key}</strong>
-            </td>
-            {item.value.map((player) => (
-              <td className="player_col">
-                {player.name}
+        {displayData.map((item, index) => (
+          <tr key={index}>
+              <td className="team_col">
+                <strong>{item.key}</strong>
               </td>
-            ))}
-          </tr>
+              {item.value.map((player) => (
+                <td className="player_col">{player.name}</td>
+              ))}
+            </tr>
         ))}
       </tbody>
     </table>
