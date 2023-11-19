@@ -68,10 +68,10 @@ const PlayerSelectedModal = ({ props, handleCloseModal }) => {
         </Tabs>{" "}
       </ModalBody>
       <ModalFooter>
-        <Button color="primary" onClick={handleClose}>
+        <Button className="button-submit" onClick={handleClose}>
           Draft Player
         </Button>{" "}
-        <Button color="secondary" onClick={handleClose}>
+        <Button className="button-cancel" onClick={handleClose}>
           Cancel
         </Button>
       </ModalFooter>

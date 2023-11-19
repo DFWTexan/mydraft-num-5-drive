@@ -19,7 +19,7 @@ const Login = () => {
     <div className="sidebar">
       <div className="sidebar__logo">User Login</div>
       <div className="sidebar___btn">
-        <Button color="secondary" onClick={handleLogin}>Log In</Button>
+        <Button className="button-login" onClick={handleLogin}>Log In</Button>
       </div>
     </div>
   );
