@@ -31,11 +31,9 @@ const DraftInfo = () => {
   }, [initFetch]);
 
   const myStyle = {
-    color: "black",
-    // backgroundColor: "DodgerBlue",
-    // padding: "10px",
-    size: "2px",
-    fontFamily: "Sans-Serif",
+    // color: "black",
+    // size: "2px",
+    // fontFamily: "Sans-Serif",
   };
 
   const handleFanTeamChange = (event) => {
