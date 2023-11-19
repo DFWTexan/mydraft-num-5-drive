@@ -1,20 +1,21 @@
 import React from "react";
 import { ListItem, ListSubheader, List } from "@mui/material";
 
+import "../../../styles/index.scss";
 import DraftPickCardItem from "./DraftPickCardItem";
 
 const DraftSelections = (props) => {
   return (
-    <div style={{ margin: 5 }}>
+    <div className="detail-container">
       <List
         sx={{
           width: "100%",
           // maxWidth: 360,
           bgcolor: "background.paper",
           position: "relative",
-          overflow: "auto",
-          maxHeight: 800,
-          "& ul": { padding: 0 },
+          // overflow: "auto",
+          // maxHeight: 800,
+          // "& ul": { padding: 0 },
         }}
         subheader={
           <ListSubheader style={{ background: "black", color: "white" }}>

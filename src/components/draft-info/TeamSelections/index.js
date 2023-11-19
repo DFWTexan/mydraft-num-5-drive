@@ -20,7 +20,7 @@ const TeamSelections = (props) => {
   }, [initFetch]);
 
   return (
-    <div style={{ height: 775 }}>
+    <div className="detail-container">
       <div>
         <FanTeamSelect
           teams={activeLeague.teams}

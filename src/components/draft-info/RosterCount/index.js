@@ -4,7 +4,7 @@ import "../../../styles/index.scss";
 
 const RosterCount = (props) => {
   return (
-    <div style={{ margin: 5, height: 775 }}>
+    <div className="detail-container">
       <table style={{ width:'100%' }}>
         <thead>
           <tr>

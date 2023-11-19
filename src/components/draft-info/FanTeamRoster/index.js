@@ -30,7 +30,7 @@ const FanTeamRoseter = (props) => {
   }, [initFetch]);
 
   return (
-    <div style={{ margin: 5 }}>
+    <div className="detail-container">
       <div>
         <FanTeamSelect
           teams={activeLeague.teams}

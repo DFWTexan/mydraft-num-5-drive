@@ -24,68 +24,66 @@ const DraftedByPositions = () => {
     initFetch();
   }, [initFetch, activeLeague]);
 
+  let keyPosOrder = "";
+  let keyRound = "";
+
   return (
-    <div style={{ minHeight: 780, overflow: "auto" }}>
-      {draftedByPositions &&
-        (() => {
-          let keyPosOrder = "";
-          let keyRound = "";
-          return draftedByPositions.map((item, index) => {
-            if (item.positionGroup !== keyPosOrder) {
-              keyPosOrder = item.positionGroup;
-              return (
-                <React.Fragment key={index}>
-                  <Accordion>
-                    <AccordionSummary
-                      expandIcon={<ExpandMoreIcon />}
-                      aria-controls="panel1a-content"
-                      id="panel1a-header"
-                    >
-                      <Typography>
-                        {item.positionGroup} ({item.count})
-                      </Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                      {Object.keys(item.roundPicks[0]).map(
-                        (round, roundIndex) => {
-                          if (round !== keyRound) {
-                            keyRound = round;
-                            return (
-                              <React.Fragment key={roundIndex}>
-                                <ListSubheader
-                                  style={{ background: "gray", color: "white" }}
-                                >
-                                  ROUND {round}
-                                </ListSubheader>
-                                {item.roundPicks[0][round].map(
-                                  (pick, pickIndex) => {
-                                    return pick.length !== 0 ? (
-                                      <ListItem key={pickIndex}>
-                                        <DraftPickPositionCardItem
-                                          draftPick={pick}
-                                        />
-                                      </ListItem>
-                                    ) : (
-                                      <React.Fragment key={pickIndex}>
-                                        <p>N/A</p>
-                                      </React.Fragment>
-                                    );
-                                  }
-                                )}
+    <div className="detail-container">
+      {draftedByPositions.map((item, index) => {
+        if (item.positionGroup !== keyPosOrder) {
+          keyPosOrder = item.positionGroup;
+          return (
+            <React.Fragment key={index}>
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography>
+                    <div className="position-grp-header"> 
+                      {item.positionGroup} ({item.count})
+                    </div>
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  {Object.keys(item.roundPicks[0]).map((round, roundIndex) => {
+                    if (round !== keyRound) {
+                      keyRound = round;
+                      return (
+                        <React.Fragment key={roundIndex}>
+                          <ListSubheader
+                            style={{ background: "gray", color: "white" }}
+                          >
+                            ROUND {round}
+                          </ListSubheader>
+                          {item.roundPicks[0][round].map((pick, pickIndex) => {
+                            return pick.length !== 0 ? (
+                              <ListItem key={pickIndex}>
+                                <DraftPickPositionCardItem draftPick={pick} />
+                              </ListItem>
+                            ) : (
+                              <React.Fragment key={pickIndex}>
+                                <div security={{ minHeight: "15px" }}>
+                                  <p>N/A</p>
+                                </div>
                               </React.Fragment>
                             );
-                          } else {
-                            return null;
-                          }
-                        }
-                      )}
-                    </AccordionDetails>
-                  </Accordion>
-                </React.Fragment>
-              );
-            }
-          });
-        })()}
+                          })}
+                        </React.Fragment>
+                      );
+                    } else {
+                      return null;
+                    }
+                  })}
+                </AccordionDetails>
+              </Accordion>
+            </React.Fragment>
+          );
+        } else {
+          return null;
+        }
+      })}
     </div>
   );
 };

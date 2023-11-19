@@ -1,0 +1,20 @@
+.position-grp-header {
+    font-weight: 500;
+    font-size: larger;
+}
+  
+  .position-grp-detail {
+    display: inline-block; 
+    *display: inline; 
+    zoom: 1; 
+    vertical-align: top; 
+    font-size: 12px;
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: white;
+    height: 50rem;
+    width: 100%;
+    border-style: ridge;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+}
