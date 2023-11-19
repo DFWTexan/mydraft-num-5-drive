@@ -8,7 +8,7 @@ const RosterCount = (props) => {
       <table style={{ width:'100%' }}>
         <thead>
           <tr>
-            <th style={{ fontSize: 40, textAlign: 'left', paddingBottom: 15 }}>Team</th>
+            <th style={{ paddingLeft: '5px', fontSize: 40, textAlign: 'left', paddingBottom: 15 }}>Team</th>
             <th className="position-header">QB</th>
             <th className="position-header">RB</th>
             <th className="position-header">WR</th>
@@ -21,12 +21,12 @@ const RosterCount = (props) => {
           {props.rosters.map((item, index) => (
             <tr key={item.key} className={index % 2 === 0 ? 'even' : 'odd'}>
               <td className="team-name">{item.key}</td>
-              <td>{item.value.QB}</td>
-              <td>{item.value.RB}</td>
-              <td>{item.value.WR}</td>
-              <td>{item.value.TE}</td>
-              <td>{item.value.K}</td>
-              <td>{item.value.DEF}</td>
+              <td className="cnt-cell">{item.value.QB}</td>
+              <td className="cnt-cell">{item.value.RB}</td>
+              <td className="cnt-cell">{item.value.WR}</td>
+              <td className="cnt-cell">{item.value.TE}</td>
+              <td className="cnt-cell">{item.value.K}</td>
+              <td className="cnt-cell">{item.value.DEF}</td>
             </tr>
           ))}
         </tbody>

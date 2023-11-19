@@ -5,9 +5,11 @@
   padding-bottom: 15px;
   font-weight: bold;
   font-size: large;
+  padding-left: 1rem;
 }
 
 .position-header {
+  font-size: large;
   width: 40;
   text-align: "center";
   padding-bottom: 15;
@@ -19,4 +21,10 @@
 
 .odd {
   background-color: white; /* Default color for odd rows */
+}
+
+.cnt-cell {
+  font-size: medium;
+  width: 40;
+  text-align: "center";
 }

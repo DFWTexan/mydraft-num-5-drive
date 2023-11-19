@@ -56,7 +56,7 @@ const DraftPlyrList = () => {
         {players &&
           players.map((player, index) => (
             <ListGroupItem
-              className="player-card-content"
+              className="draft-list-card"
               action
               href="#"
               // className={
