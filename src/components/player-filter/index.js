@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import Select from "react-select";
+import React from "react";
 import { Form, FormGroup, Input } from "reactstrap";
 import { useSelector } from "react-redux";
 
@@ -9,38 +8,15 @@ import {
   posValues,
   dftStatusValues,
 } from "../../constants/player-filters";
+import PlayerFilterSelect from "../Common/playerFilterSelect";
 
-const PlayerFilter = (props) => {
-  const { handleFilterPlayer } = props;
+const PlayerFilter = ({
+  pointValue,
+  positionValue,
+  draftStatusValue,
+  handleFilterPlayer,
+}) => {
   const draftStatus = useSelector((state) => state.draftStatus);
-  const [playerValues, setPlayerValues] = useState([]);
-  const [positionValues, setPositionValues] = useState([]);
-  const [draftStatusValues, setDraftStatusValues] = useState([]);
-
-  useEffect(() => {
-    setPlayerValues(
-      plyrValues.map((x) => ({
-        value: x.value,
-        label: x.label,
-      }))
-    );
-
-    setPositionValues(
-      posValues.map((x) => ({
-        value: x.value,
-        label: x.label,
-      }))
-    );
-
-    setDraftStatusValues(
-      dftStatusValues.map((x) => ({
-        value: x.value,
-        label: x.label,
-      }))
-    );
-  }, []);
-
-  useEffect(() => {});
 
   return (
     <div className="header-container">
@@ -57,41 +33,36 @@ const PlayerFilter = (props) => {
           </FormGroup>
         </Form>
       </div>
-      <div className="display-filter">On The Clock: {draftStatus.fanTeam} | Rnd 1 | Pck {draftStatus.currentPick}</div>
+      <div className="display-filter">
+        On The Clock: {draftStatus.fanTeam} | Rnd 1 | Pck{" "}
+        {draftStatus.currentPick}
+      </div>
       <div className="player-filter-content">
         <div className="left-filter">
-          <Select
-            // className="input-xs no-padding"
-            // classNamePrefix="react-select"
-            name="pointValFilter_ID"
-            // defaaultValue={playerValues}
-            defaultValue={props.pointValue}
-            options={playerValues}
-            onChange={(value) =>
+          <PlayerFilterSelect
+            data={plyrValues}
+            selectedItem={pointValue}
+            setSelectedItem={(value) =>
               handleFilterPlayer({ value: value, type: "[pointValue]" })
             }
           />
         </div>
         <div className="middle-filter">
-          <Select
-            // className="input-xs no-padding"
-            // classNamePrefix="react-select"
-            name="positionValueFilter_ID"
-            defaultValue={props.position}
-            options={positionValues}
-            onChange={(value) =>
-              handleFilterPlayer({ value: value, type: "[position]" })
-            }
+          <PlayerFilterSelect
+            data={posValues}
+            label={"Position"}
+            selectedItem={positionValue}
+            setSelectedItem={(value) => {
+              console.log("==> EMFTest (PlayerFilterEvent) - value", value);
+              handleFilterPlayer({ value: value, type: "[position]" });
+            }}
           />
         </div>
         <div className="right-filter">
-          <Select
-            // className="input-xs no-padding"
-            // classNamePrefix="react-select"
-            name="draftStatusValueFilter_ID"
-            defaultValue={props.sraftStatus}
-            options={draftStatusValues}
-            onChange={(value) =>
+          <PlayerFilterSelect
+            data={dftStatusValues}
+            selectedItem={draftStatusValue}
+            setSelectedItem={(value) =>
               handleFilterPlayer({ value: value, type: "[daftfStatus]" })
             }
           />

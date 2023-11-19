@@ -15,33 +15,71 @@ import { API_URL } from "../config";
 
 const initFilterSortPlayer = {
   pointValue: "POINTS",
+  pntVal: 1,
   positionValue: null,
+  posVal: 0,
   draftStatus: null,
+  drftVal: 0,
 };
 
 const Draftboard = () => {
   const activeLeague = useSelector((state) => state.activeLeague);
-  const [filterSortPlayer, setFilterPlayer] = useState(initFilterSortPlayer);
+  const [filterSortPlayer, setFilterSortPlayer] = useState(initFilterSortPlayer);
   const dispatch = useDispatch();
 
   const handleFilterPlayer = (filter) => {
+
+console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter => \n", filter);
+console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.type: ", filter.type);
+console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.value: ", filter.value);
+console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.value.target: ", filter.value.target);
+console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.value.target.value: ", filter.value.target.value);
+console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.value.target.label: ", filter.value.target.label);
+
     switch (filter.type) {
       case "[pointValue]":
-        setFilterPlayer((prevState) => ({
+        setFilterSortPlayer((prevState) => ({
           ...prevState,
-          pointValue: filter.value.label,
+          pointValue: filter.value.target.value === 1 ? "POINTS" : filter.value.target.value === 2 ? "ADP" : "VALUE",
+          pntVal: filter.value.target.value,
         }));
         break;
       case "[position]":
-        setFilterPlayer((prevState) => ({
+        let posVal = "ALL";
+        switch (filter.value.target.value) {
+          case 1:
+            posVal = "QB";
+            break;
+          case 2:
+            posVal = "RB";
+            break;
+          case 3:
+            posVal = "WR";
+            break;
+          case 4:
+            posVal = "TE";
+            break;
+          case 5:
+            posVal = "K";
+            break;
+          case 6:
+            posVal = "DEF";
+            break;
+          default:
+            posVal = "ALL";
+            break;
+        }
+        setFilterSortPlayer((prevState) => ({
           ...prevState,
-          positionValue: filter.value.value !== 0 ? filter.value.label : null,
+          positionValue: posVal !== "ALL" ? posVal : null,
+          posVal: filter.value.target.value,
         }));
         break;
       case "[draftStatus]":
-        setFilterPlayer((prevState) => ({
+        setFilterSortPlayer((prevState) => ({
           ...prevState,
-          draftStatus: filter.value.value !== 0 ? filter.value.label : null,
+          draftStatus: filter.value.target.value === 0 ? "ALL" : filter.value.target.value === 1 ? "DRAFTED" : "UNDRAFTED",
+          drftVal: filter.value.target.value,
         }));
         break;
 
@@ -51,6 +89,9 @@ const Draftboard = () => {
   };
 
   const initFetch = useCallback(() => {
+
+// console.log("==> EMFTest  - (Draftboard_initFetch) filterSortPlayer => \n", filterSortPlayer);
+
     dispatch(fetchActiveLeague());
     dispatch(fetchPlayers(filterSortPlayer));
   }, [dispatch, filterSortPlayer]);
@@ -71,7 +112,10 @@ const Draftboard = () => {
       <div className="left">
         <div>
           <PlayerFilter
-            props={filterSortPlayer}
+            // props={filterSortPlayer}
+            pointValue={filterSortPlayer.pntVal}
+            positionValue={filterSortPlayer.posVal}
+            draftStatusValue={filterSortPlayer.drftVal}
             handleFilterPlayer={handleFilterPlayer}
           />
         </div>
