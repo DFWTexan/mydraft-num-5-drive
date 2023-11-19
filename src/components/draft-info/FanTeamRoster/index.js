@@ -38,11 +38,10 @@ const FanTeamRoseter = (props) => {
           setSelectedTeam={props.setSelectedTeam}
         />
       </div>
-      <div>
+      <div style={{ padding: '.3rem' }}> 
         <List
           sx={{
             width: "100%",
-            // maxWidth: 360,
             bgcolor: "background.paper",
             position: "relative",
             overflow: "auto",
@@ -59,7 +58,7 @@ const FanTeamRoseter = (props) => {
                   return (
                     <React.Fragment key={index}>
                       <ListSubheader
-                        style={{ background: "gray", color: "white" }}
+                        style={{ background: "gray-800", color: "white" }}
                       >
                         {element.positionGroup}
                       </ListSubheader>

@@ -3,8 +3,8 @@ import React from "react";
 import "../../../styles/index.scss";
 
 const CardInfo = ({ draftPick }) => (
-  <div className="d-flex justify-content-start">
-    {draftPick.int}  {draftPick && ("   " + draftPick.playerName)}
+  <div className="fan-team-card ">
+    <strong>{draftPick.int}</strong>  {draftPick && ("   " + draftPick.playerName)}
   </div>
 );
 
