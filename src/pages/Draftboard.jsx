@@ -22,7 +22,6 @@ const initFilterSortPlayer = {
 const Draftboard = () => {
   const activeLeague = useSelector((state) => state.activeLeague);
   const [filterSortPlayer, setFilterPlayer] = useState(initFilterSortPlayer);
-  // const [draftInfoFilter, setDraftInfoFilter] = useState(initDraftInfoFilter);
   const dispatch = useDispatch();
 
   const handleFilterPlayer = (filter) => {
@@ -79,10 +78,7 @@ const Draftboard = () => {
         <DraftPlyrList props={filterSortPlayer}/>
       </div>
       <div className="middle">
-        <DraftInfo
-          // props={draftInfoFilter}
-          // handleFilterFanTeamRoster={handleFilterFanTeamRoster}
-        />
+        <DraftInfo/>
       </div>
       <div className="right">
         <DraftNews />
