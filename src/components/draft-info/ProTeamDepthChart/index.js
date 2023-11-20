@@ -23,11 +23,18 @@ const ProTeamDepthChart = (props) => {
   return (
     <>
       {isLoading ? (
-        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50rem' }}>
-        <Box sx={{ display: 'flex' }}>
-          <CircularProgress />
-        </Box>
-      </div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "50rem",
+          }}
+        >
+          <Box sx={{ display: "flex" }}>
+            <CircularProgress />
+          </Box>
+        </div>
       ) : (
         <React.Fragment>
           <table>
@@ -37,8 +44,15 @@ const ProTeamDepthChart = (props) => {
                   <td className="team_col">
                     <strong>{item.key}</strong>
                   </td>
-                  {item.value.map((player) => (
-                    <td className="player_col">{player.name}</td>
+                  {item.value.map((player, playerIndex) => (
+                    <td
+                      key={playerIndex}
+                      className={`player_col ${
+                        player.isDrafted ? "drafted" : ""
+                      }`}
+                    >
+                      {player.name}
+                    </td>
                   ))}
                 </tr>
               ))}
