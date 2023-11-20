@@ -28,19 +28,11 @@ const Draftboard = () => {
   const dispatch = useDispatch();
 
   const handleFilterPlayer = (filter) => {
-
-console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter => \n", filter);
-console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.type: ", filter.type);
-console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.value: ", filter.value);
-console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.value.target: ", filter.value.target);
-console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.value.target.value: ", filter.value.target.value);
-console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.value.target.label: ", filter.value.target.label);
-
     switch (filter.type) {
       case "[pointValue]":
         setFilterSortPlayer((prevState) => ({
           ...prevState,
-          pointValue: filter.value.target.value === 1 ? "POINTS" : filter.value.target.value === 2 ? "ADP" : "VALUE",
+          pointValue: filter.value.target.value === 1 ? "[POINTS]" : filter.value.target.value === 2 ? "[ADP]" : "[VALUE]",
           pntVal: filter.value.target.value,
         }));
         break;
@@ -78,7 +70,7 @@ console.log("==> EMFTest  - (Draftboard-handleFilterPlayer) filter.value.target.
       case "[draftStatus]":
         setFilterSortPlayer((prevState) => ({
           ...prevState,
-          draftStatus: filter.value.target.value === 0 ? "ALL" : filter.value.target.value === 1 ? "DRAFTED" : "UNDRAFTED",
+          draftStatus: filter.value.target.value === 0 ? null : filter.value.target.value === 1 ? "[DRAFTED]" : "[AVAILABLE]",
           drftVal: filter.value.target.value,
         }));
         break;

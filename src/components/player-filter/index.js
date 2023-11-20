@@ -53,7 +53,6 @@ const PlayerFilter = ({
             label={"Position"}
             selectedItem={positionValue}
             setSelectedItem={(value) => {
-              console.log("==> EMFTest (PlayerFilterEvent) - value", value);
               handleFilterPlayer({ value: value, type: "[position]" });
             }}
           />
@@ -63,7 +62,7 @@ const PlayerFilter = ({
             data={dftStatusValues}
             selectedItem={draftStatusValue}
             setSelectedItem={(value) =>
-              handleFilterPlayer({ value: value, type: "[daftfStatus]" })
+              handleFilterPlayer({ value: value, type: "[draftStatus]" })
             }
           />
         </div>
