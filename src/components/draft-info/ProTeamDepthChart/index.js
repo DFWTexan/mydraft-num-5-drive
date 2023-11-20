@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import CircularProgress from "@mui/material/CircularProgress";
+import Box from "@mui/material/Box";
 
 import "../../../styles/index.scss";
 import { API_URL } from "../../../config";
@@ -9,6 +11,7 @@ const ProTeamDepthChart = (props) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     axios
       .get(`${API_URL}Draft/GetPositionDepthChart/${props.positionDisplay}`)
       .then((response) => {
@@ -20,9 +23,11 @@ const ProTeamDepthChart = (props) => {
   return (
     <>
       {isLoading ? (
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <div className="loader-spin" />
-        </div>
+        <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '50rem' }}>
+        <Box sx={{ display: 'flex' }}>
+          <CircularProgress />
+        </Box>
+      </div>
       ) : (
         <React.Fragment>
           <table>
