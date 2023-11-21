@@ -13,7 +13,7 @@ import "../../styles/index.scss";
 import PlayerCardItem from "./playerCardItem";
 import PlayerModal from "./player-selected-modal";
 
-const DraftPlyrList = () => {
+const DraftPlyrList = ({ filterSortPlayer }) => {
   const players = useSelector((state) => state.players);
   // const dispatch = useDispatch();
 
@@ -75,6 +75,7 @@ const DraftPlyrList = () => {
         <PlayerModal
           props={openModelPlayerSelected}
           handleCloseModal={handleCloseModal}
+          filterSortPlayer={filterSortPlayer}
         />
       )}
     </div>

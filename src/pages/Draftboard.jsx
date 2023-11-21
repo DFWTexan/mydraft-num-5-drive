@@ -23,7 +23,8 @@ const initFilterSortPlayer = {
 };
 
 const Draftboard = () => {
-  const activeLeague = useSelector((state) => state.activeLeague);
+  // const activeLeague = useSelector((state) => state.activeLeague);
+  const draftStatus = useSelector((state) => state.draftStatus);
   const [filterSortPlayer, setFilterSortPlayer] = useState(initFilterSortPlayer);
   const dispatch = useDispatch();
 
@@ -81,23 +82,21 @@ const Draftboard = () => {
   };
 
   const initFetch = useCallback(() => {
-
-// console.log("==> EMFTest  - (Draftboard_initFetch) filterSortPlayer => \n", filterSortPlayer);
-
-    dispatch(fetchActiveLeague());
     dispatch(fetchPlayers(filterSortPlayer));
   }, [dispatch, filterSortPlayer]);
 
   useEffect(() => {
     initFetch();
-  }, [initFetch]);
+  }, [initFetch, draftStatus]);
 
   useEffect(() => {
-    axios.get(`${API_URL}League/InitLeageData`).then((response) => {
+    axios.get(`${API_URL}League/InitLeageData`)
+    .then((response) => {
       // console.log("==> EMFTest (response) response:", response);
+      dispatch(fetchActiveLeague());
+      dispatch(fetchDraftStatus());
     });
-    dispatch(fetchDraftStatus());
-  }, [dispatch, activeLeague]);
+  }, [dispatch]);
 
   return (
     <div className="container">
@@ -111,7 +110,7 @@ const Draftboard = () => {
             handleFilterPlayer={handleFilterPlayer}
           />
         </div>
-        <DraftPlyrList props={filterSortPlayer}/>
+        <DraftPlyrList filterSortPlayer={filterSortPlayer}/>
       </div>
       <div className="middle">
         <DraftInfo/>

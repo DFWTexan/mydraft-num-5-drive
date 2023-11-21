@@ -18,6 +18,7 @@ const DraftInfo = () => {
   const [depthChartDisplay, setDepthChartDisplay] = useState("QB");
   const draftPicks = useSelector((state) => state.draftPicks);
   const rosterCounts = useSelector((state) => state.fanTeamRosterCount);
+  const players = useSelector((state) => state.players);
   // const fanTeamSelections = useSelector((state) => state.fanTeamSelections);
   const dispatch = useDispatch();
 
@@ -28,7 +29,7 @@ const DraftInfo = () => {
 
   useEffect(() => {
     initFetch();
-  }, [initFetch]);
+  }, [initFetch, players]);
 
   const myStyle = {
     // color: "black",

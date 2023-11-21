@@ -1,38 +1,54 @@
 import React, { useState, useEffect } from "react";
-import {
-  Button,
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  // Input,
-  // Label,
-  // Form,
-  // FormGroup,
-} from "reactstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import "../../styles/index.scss";
-// import http from "../api/http-common";
+import { API_URL } from "../../config";
+import { fetchDraftStatus } from "../../slices/draftStatus";
+import { fetchPlayers } from "../../slices/players";
 
-const baseURL = "https://localhost:7242/api/Player/GetPlayerByID/";
-
-const PlayerSelectedModal = ({ props, handleCloseModal }) => {
+const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
+  const draftStatus = useSelector((state) => state.draftStatus);
   const [modal, setModal] = useState(props.isOpen);
   const [playerData, setPlayerData] = useState({});
+  const dispatch = useDispatch();
+
+  const runDispatch = () => {
+
+console.log('==> EMFTest (PlayerModal) - runDispatch');
+
+    dispatch(fetchDraftStatus());
+    dispatch(fetchPlayers(filterSortPlayer));
+  };
+
+  useEffect(() => {
+    axios
+      .get(`${API_URL}Player/GetPlayerByID/${props.player_ID}`)
+      .then((response) => {
+        setPlayerData(response.data);
+      });
+  }, [props.player_ID]);
+
+  const handleDraftPlayer = () => {
+    axios
+      .post(
+        `${API_URL}Draft/ExecuteDraftPick/${draftStatus.currentPick}/${props.player_ID}`
+      )
+      .then((response) => {
+        runDispatch();
+      });
+
+    setModal(!modal);
+    handleCloseModal();
+  };
 
   const handleClose = () => {
     setModal(!modal);
     handleCloseModal();
   };
-
-  useEffect(() => {
-    axios.get(`${baseURL}${props.player_ID}`).then((response) => {
-      setPlayerData(response.data);
-    });
-  }, [props.player_ID]);
 
   return (
     <Modal
@@ -43,7 +59,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal }) => {
       keyboard={true}
     >
       <ModalHeader toggle={handleClose}>
-        ({playerData.id}) - {playerData.firstName + ' ' + playerData.lastName}
+        ({playerData.id}) - {playerData.firstName + " " + playerData.lastName}
         <div className="tab_Container_draftInfo"></div>
       </ModalHeader>
       <ModalBody>
@@ -55,12 +71,8 @@ const PlayerSelectedModal = ({ props, handleCloseModal }) => {
           </TabList>
           <TabPanel>
             <div>
-              <div>
-                Projections...
-              </div>
-              <div>
-                {playerData.position} DEPTH CHART
-              </div>
+              <div>Projections...</div>
+              <div>{playerData.position} DEPTH CHART</div>
             </div>
           </TabPanel>
           <TabPanel>PANEL: News</TabPanel>
@@ -68,7 +80,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal }) => {
         </Tabs>{" "}
       </ModalBody>
       <ModalFooter>
-        <Button className="button-submit" onClick={handleClose}>
+        <Button className="button-submit" onClick={handleDraftPlayer}>
           Draft Player
         </Button>{" "}
         <Button className="button-cancel" onClick={handleClose}>
