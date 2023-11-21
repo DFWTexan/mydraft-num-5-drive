@@ -2,12 +2,14 @@
 // @import '../../path/to/node_modules/react-tabs/style/react-tabs.less';
 
 .tab_Container_draftInfo {
-  margin-top: .2rem;
+  // margin-top: .2rem;
   width:100%; 
   // padding: .1rem;
+  background-color: whitesmoke;
   padding-top: .5rem;
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
+  border-top-style: ridge;
 }
 
 .panel_draftInfo {
@@ -54,6 +56,7 @@
   padding-left: 0pxz;
   margin-top: .6rem;
   font-size: medium;
+  background-color: white;
 }
 
 .react-tabs__tab {

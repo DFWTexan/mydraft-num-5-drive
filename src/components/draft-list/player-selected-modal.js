@@ -17,9 +17,6 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
   const dispatch = useDispatch();
 
   const runDispatch = () => {
-
-console.log('==> EMFTest (PlayerModal) - runDispatch');
-
     dispatch(fetchDraftStatus());
     dispatch(fetchPlayers(filterSortPlayer));
   };

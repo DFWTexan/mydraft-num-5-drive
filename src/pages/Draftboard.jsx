@@ -82,12 +82,13 @@ const Draftboard = () => {
   };
 
   const initFetch = useCallback(() => {
+    dispatch(fetchDraftStatus());
     dispatch(fetchPlayers(filterSortPlayer));
   }, [dispatch, filterSortPlayer]);
 
   useEffect(() => {
     initFetch();
-  }, [initFetch, draftStatus]);
+  }, [initFetch, draftStatus.onTheClock]);
 
   useEffect(() => {
     axios.get(`${API_URL}League/InitLeageData`)
