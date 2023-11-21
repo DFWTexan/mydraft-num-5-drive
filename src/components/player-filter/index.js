@@ -34,8 +34,17 @@ const PlayerFilter = ({
         </Form>
       </div>
       <div className="display-filter">
-        On The Clock: <span style={{ paddingLeft: '.5rem', fontSize: 'larger', paddingRight: '1rem' }}>{draftStatus.fanTeamName}</span> | Rnd {draftStatus.round} | Pck{" "}
-        {draftStatus.currentPick}
+        On The Clock:{" "}
+        <span
+          style={{
+            paddingLeft: ".5rem",
+            fontSize: "larger",
+            paddingRight: "1rem",
+          }}
+        >
+          {draftStatus.fanTeamName}
+        </span>{" "}
+        | Rnd {draftStatus.currentRound} | Pck {draftStatus.currentPick}
       </div>
       <div className="player-filter-content">
         <div className="left-filter">

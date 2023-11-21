@@ -5,9 +5,8 @@
     padding: 1rem;
     margin-bottom: .1rem;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    // align-items: center;
+    flex-direction: row;
+    justify-content: safe flex-start;
     text-align: left;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -21,6 +20,8 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     }
     .draft-selection-card__title {
+        margin-left: 1rem;
+        justify-content: start;
         font-size: 16px;
         font-weight: 500;
         color: #333;
