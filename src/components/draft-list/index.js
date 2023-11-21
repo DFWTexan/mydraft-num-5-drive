@@ -51,17 +51,17 @@ const DraftPlyrList = ({ filterSortPlayer }) => {
   // }, [initFetch]);
 
   return (
-    <div className="detail-container">
+    <div className="detail-container" >
       <ListGroup>
         {players &&
           players.map((player, index) => (
             <ListGroupItem
-              className="draft-list-card"
+              // className="draft-list-card"
+              className={`draft-list-card ${
+                player.isDrafted ? "draft-list-card-variant" : ""
+              }`}
               action
               href="#"
-              // className={
-              //   "list-group-item " + (index === currentIndex ? "active" : "")
-              // }
               onClick={() => {
                 handlePlayerSelected_OpenModal(player);
               }}

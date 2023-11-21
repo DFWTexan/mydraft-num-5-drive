@@ -57,7 +57,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
     >
       <ModalHeader toggle={handleClose}>
         ({playerData.id}) - {playerData.firstName + " " + playerData.lastName}
-        <div className="tab_Container_draftInfo"></div>
+        <div>playerData.isDrafted: {playerData.isDrafted}</div>
       </ModalHeader>
       <ModalBody>
         <Tabs forceRenderTabPanel defaultIndex={0}>
@@ -77,7 +77,11 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
         </Tabs>{" "}
       </ModalBody>
       <ModalFooter>
-        <Button className="button-submit" onClick={handleDraftPlayer}>
+        <Button
+          className="button-submit"
+          disabled={playerData.isDrafted}
+          onClick={handleDraftPlayer}
+        >
           Draft Player
         </Button>{" "}
         <Button className="button-cancel" onClick={handleClose}>
