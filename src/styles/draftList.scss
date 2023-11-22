@@ -19,13 +19,14 @@
   font-size: large;
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    background-color: #F5F5F5;
   }
   &.selected {
     background-color: #f5f5f5;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   }
   &.draft-list-card-variant {
-    background-color: #dcdcdc;
+    background-color: #FFB6C1;
     border-radius: 4px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     padding: 0.1rem;
@@ -45,7 +46,7 @@
     font-size: large;
 
     &:hover {
-      background-color: #aaa; // Adjust hover color for the gray variant
+      background-color: #FFE4E1; // Adjust hover color for the gray variant
     }
   }
   .draft-selection-card__title {
@@ -84,7 +85,8 @@
 
     .draft-selection-card__rankings-table
       .draft-selection-card__rankings-header {
-      width: 3.5rem;
+      
+        width: 3.5rem;
       text-align: center;
       font-size: small;
       color: #666;
@@ -97,18 +99,6 @@
       font-size: large;
       font-weight: 800;
     }
-    // .draft-selection-card__player-position {
-    //   width: 3rem;
-    //   background-color: #fff; /* White background color */
-    //   text-align: center;
-    //   font-size: large;
-    //   font-weight: 800;
-    //   position: absolute; /* Position absolute for precise placement */
-    //   right: 1rem; /* Adjust the right value based on your layout */
-    //   top: 1rem; /* Adjust the top value based on your layout */
-    //   padding: 0.5rem; /* Add padding for better visual appearance */
-    // }
-    
     .draft-selection-card__rankings-value {
       text-align: center;
       font-size: smaller;
