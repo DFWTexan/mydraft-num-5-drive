@@ -1,0 +1,38 @@
+.draft-player-info-card__title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 8px;
+  display: flex; /* Add flex container */
+  align-items: flex-start; /* Center items vertically */
+
+  .draft-player-info-card__image {
+    width: 75px; /* Adjust the width as needed */
+    height: 75px; /* Adjust the height as needed */
+    object-fit: cover;
+    margin-right: 0.1rem; /* Add margin for spacing */
+  }
+
+  .draft-player-info-card__player-info {
+    flex: 1; /* Take up remaining space */
+  }
+  .draft-player-info-card__name {
+    margin-top: 1rem;
+    font-size: larger;
+    // margin-bottom: .2rem;
+  }
+
+  .draft-player-info-card__team {
+    font-size: medium;
+  }
+
+  .draft-player-info-card__player-position {
+    display: flex-end;
+    padding-left: 1rem;
+    margin-top: 1rem;
+    text-align: right;
+    padding-right: 1rem;
+    font-size: large;
+    font-weight: 800;
+  }
+}

@@ -3744,6 +3744,7 @@ button.close {
   overflow: hidden; }
 
 .modal {
+  border-radius: 1rem;
   position: fixed;
   top: 0;
   right: 0;
@@ -3774,7 +3775,8 @@ button.close {
 .modal-dialog-centered {
   display: flex;
   align-items: center;
-  min-height: calc(100% - (0.5rem * 2)); }
+  min-height: calc(100% - (0.5rem * 2)); 
+}
 
 .modal-content {
   position: relative;

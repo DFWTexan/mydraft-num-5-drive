@@ -10,6 +10,25 @@ import { API_URL } from "../../config";
 import { fetchDraftStatus } from "../../slices/draftStatus";
 import { fetchPlayers } from "../../slices/players";
 
+const getColorClass = (position) => {
+  switch (position) {
+    case "QB":
+      return "qb-color";
+    case "RB":
+      return "rb-color";
+    case "WR":
+      return "wr-color";
+    case "TE":
+      return "te-color";
+    case "K":
+      return "k-color";
+    case "DEF":
+      return "def-color";
+    default:
+      return ""; // Default or fallback class
+  }
+};
+
 const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
   const draftStatus = useSelector((state) => state.draftStatus);
   const [modal, setModal] = useState(props.isOpen);
@@ -56,8 +75,37 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
       keyboard={true}
     >
       <ModalHeader toggle={handleClose}>
+        <div className="draft-player-info-card__title">
+          <div style={{ margin: "1rem" }}>
+            <img
+              className="draft-player-info-card__image"
+              src={playerData.photoURL}
+              alt=""
+            />
+          </div>
+          <div className="draft-player-info-card__player-info">
+            <div className="draft-player-info-card__name">
+              {playerData.firstName} {playerData.lastName}
+            </div>
+            <div className="draft-player-info-card__team">
+              {playerData.proTeamName}
+            </div>
+            <div className="">
+              {playerData.isDrafted ? "Drafted" : "Available"}
+            </div>
+          </div>
+
+          {
+            <div
+              className={`draft-player-info-card__player-position ${getColorClass(
+                playerData.position
+              )}`}
+            >
+              {playerData.position}
+            </div>
+          }
+        </div>
         ({playerData.id}) - {playerData.firstName + " " + playerData.lastName}
-        <div>playerData.isDrafted: {playerData.isDrafted}</div>
       </ModalHeader>
       <ModalBody>
         <Tabs forceRenderTabPanel defaultIndex={0}>

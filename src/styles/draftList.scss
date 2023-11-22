@@ -19,14 +19,14 @@
   font-size: large;
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
   }
   &.selected {
     background-color: #f5f5f5;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   }
   &.draft-list-card-variant {
-    background-color: #FFB6C1;
+    background-color: #ffb6c1;
     border-radius: 4px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     padding: 0.1rem;
@@ -46,65 +46,65 @@
     font-size: large;
 
     &:hover {
-      background-color: #FFE4E1; // Adjust hover color for the gray variant
+      background-color: #ffe4e1; // Adjust hover color for the gray variant
     }
   }
-  .draft-selection-card__title {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 8px;
-    display: flex; /* Add flex container */
-    align-items: center; /* Center items vertically */
+  // .draft-selection-card__title {
+  //   font-size: 16px;
+  //   font-weight: 500;
+  //   color: #333;
+  //   margin-bottom: 8px;
+  //   display: flex; /* Add flex container */
+  //   align-items: center; /* Center items vertically */
 
-    .draft-selection-card__image {
-      width: 50px; /* Adjust the width as needed */
-      height: 50px; /* Adjust the height as needed */
-      object-fit: cover;
-      margin-right: 0.1rem; /* Add margin for spacing */
-    }
+  //   .draft-selection-card__image {
+  //     width: 50px; /* Adjust the width as needed */
+  //     height: 50px; /* Adjust the height as needed */
+  //     object-fit: cover;
+  //     margin-right: 0.1rem; /* Add margin for spacing */
+  //   }
 
-    .draft-selection-card__player-info {
-      flex: 1; /* Take up remaining space */
-    }
+  //   .draft-selection-card__player-info {
+  //     flex: 1; /* Take up remaining space */
+  //   }
 
-    .draft-selection-card__name {
-      font-size: larger;
-      margin-bottom: 8px;
-    }
+  // .draft-selection-card__name {
+  //   font-size: larger;
+  //   margin-bottom: 8px;
+  // }
 
-    .draft-selection-card__team {
-      font-size: medium;
-      color: #666;
-    }
+  // .draft-selection-card__team {
+  //   font-size: medium;
+  //   color: #666;
+  // }
 
-    .draft-selection-card__rankings {
-      font-size: medium;
-      color: #666;
-    }
+  // .draft-selection-card__rankings {
+  //   font-size: medium;
+  //   color: #666;
+  // }
 
-    .draft-selection-card__rankings-table
-      .draft-selection-card__rankings-header {
-      
-        width: 3.5rem;
-      text-align: center;
-      font-size: small;
-      color: #666;
-    }
-    .draft-selection-card__player-position {
-      display: flex-end;
-      flex-flow: row-reverse;
-      text-align: right;
-      padding-right: 1rem;
-      font-size: large;
-      font-weight: 800;
-    }
-    .draft-selection-card__rankings-value {
-      text-align: center;
-      font-size: smaller;
-      color: #666;
-    }
-  }
+  // .draft-selection-card__rankings-table
+  //   .draft-selection-card__rankings-header {
+
+  //     width: 3.5rem;
+  //   text-align: center;
+  //   font-size: small;
+  //   color: #666;
+  // }
+  // .draft-selection-card__player-position {
+  //   display: flex-end;
+  //   flex-flow: row-reverse;
+  //   text-align: right;
+  //   padding-right: 1rem;
+  //   font-size: large;
+  //   font-weight: 800;
+  // }
+  // .draft-selection-card__rankings-value {
+  //   text-align: center;
+  //   font-size: smaller;
+  //   color: #666;
+  // }
+  // }
 }
 
 // .draft-selection-card__title {
