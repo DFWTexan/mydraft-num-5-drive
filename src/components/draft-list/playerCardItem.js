@@ -42,9 +42,6 @@ const CardInfo = ({ player }) => (
           {player.position}
         </div>
       }
-      {/* <div className="draft-selection-card__player-position">
-        {player.position}
-      </div> */}
       <table className="draft-selection-card__rankings-table">
         <tbody>
           <th className="draft-selection-card__rankings-header">PTS</th>

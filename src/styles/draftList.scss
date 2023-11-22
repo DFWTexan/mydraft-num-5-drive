@@ -91,11 +91,24 @@
     }
     .draft-selection-card__player-position {
       display: flex-end;
+      flex-flow: row-reverse;
       text-align: right;
       padding-right: 1rem;
       font-size: large;
       font-weight: 800;
     }
+    // .draft-selection-card__player-position {
+    //   width: 3rem;
+    //   background-color: #fff; /* White background color */
+    //   text-align: center;
+    //   font-size: large;
+    //   font-weight: 800;
+    //   position: absolute; /* Position absolute for precise placement */
+    //   right: 1rem; /* Adjust the right value based on your layout */
+    //   top: 1rem; /* Adjust the top value based on your layout */
+    //   padding: 0.5rem; /* Add padding for better visual appearance */
+    // }
+    
     .draft-selection-card__rankings-value {
       text-align: center;
       font-size: smaller;
