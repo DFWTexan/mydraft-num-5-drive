@@ -27,7 +27,6 @@ const DraftedByPositions = () => {
   let keyPosOrder = "";
   let keyRound = "";
 
-  // Define a function to generate the background color class based on positionGroup
   const getBackgroundColorClass = (positionGroup) => {
     switch (positionGroup) {
       case "QB":
@@ -50,9 +49,7 @@ const DraftedByPositions = () => {
   return (
     <div className="detail-container">
       {draftedByPositions.map((item, index) => {
-        const backgroundColorClass = getBackgroundColorClass(
-          item.positionGroup
-        );
+        const backgroundColorClass = getBackgroundColorClass(item.positionGroup);
         if (item.positionGroup !== keyPosOrder) {
           keyPosOrder = item.positionGroup;
           return (

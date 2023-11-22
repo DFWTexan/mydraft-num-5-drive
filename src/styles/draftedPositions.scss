@@ -23,7 +23,7 @@
     font-size: 12px;
     overflow: auto;
     overflow-x: hidden;
-    background-color: white;
+    // background-color: white;
     height: 50rem;
     width: 100%;
     border-style: ridge;
@@ -46,38 +46,30 @@
 
 .background-color-1 {
   background-color: #ff0000; /* Red for QB */
-  // @extend .base-QB-background-color; 
+  // background-color: qb-background;
 }
 
 .background-color-2 {
-  background-color: #00ff00; /* Green for RB */ 
-  // @extend .base-RB-background-color; 
+  background-color: #0000ff; /* Green for RB */ 
+  // background-color: rb-background;
 }
 
 .background-color-3 {
-  background-color: #0000ff, /* Blue for WR */
-  // @extend .base-WR-background-color; 
+  background-color: #FFD700, /* Blue for WR */
+  // background-color: wr-background;
 }
 
 .background-color-4 {
-  background-color: #ffff00; /* Yellow for TE */
-  // @extend .base-TE-background-color; 
+  background-color: #2E8B57; /* Yellow for TE */
+  // background-color: te-background;
 }
 
 .background-color-5 {
-  background-color: #00ffff; /* Cyan for K */
-  // @extend .base-K-background-color; 
+  background-color: #708090; /* Cyan for K */
+  // background-color: k-background;
 }
 
 .background-color-6 {
-  background-color: #FFFAFA; /* Magenta for DEF */
-  // @extend .base-DEF-background-color; 
+  background-color: #F4A460; /* Magenta for DEF */
+  // background-color: def-background;
 }
-
-// .base-background:nth-child(5) {
-//   background-color: #ff00ff; /* Magenta */
-// }
-
-// .base-background:nth-child(6) {
-//   background-color: #ff00ff; /* Magenta */
-// }

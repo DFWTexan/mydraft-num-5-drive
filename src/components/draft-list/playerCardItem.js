@@ -2,6 +2,25 @@ import React from "react";
 
 import "../../styles/index.scss";
 
+const getColorClass = (position) => {
+  switch (position) {
+    case "QB":
+      return "qb-color";
+    case "RB":
+      return "rb-color";
+    case "WR":
+      return "wr-color";
+    case "TE":
+      return "te-color";
+    case "K":
+      return "k-color";
+    case "DEF":
+      return "def-color";
+    default:
+      return ""; // Default or fallback class
+  }
+};
+
 const CardInfo = ({ player }) => (
   <div className="draft-selection-card__title">
     <div style={{ margin: "1rem" }}>
@@ -18,7 +37,14 @@ const CardInfo = ({ player }) => (
       <div className="draft-selection-card__team">{player.teamAbbr}</div>
     </div>
     <div className="draft-selection-card__rankings">
-      <div className="draft-selection-card__player-position">{player.position}</div>
+      {
+        <div className={`draft-selection-card__player-position ${getColorClass(player.position)}`}>
+          {player.position}
+        </div>
+      }
+      {/* <div className="draft-selection-card__player-position">
+        {player.position}
+      </div> */}
       <table className="draft-selection-card__rankings-table">
         <tbody>
           <th className="draft-selection-card__rankings-header">PTS</th>

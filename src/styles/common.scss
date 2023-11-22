@@ -1,134 +1,171 @@
-.header-container {
-    display: table;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    height: 9.7rem;
-    width: 100%;
-    padding-top: 1rem;
-    background-color: aliceblue;
-    border-top-left-radius: .5rem;
-    border-top-right-radius: .5rem;
-    border: 1px inset #e4e7ea;
-    border-top-style: inset;
-  }
-  
-  .detail-container {
-    display: inline-block; 
-    *display: inline; 
-    zoom: 1; 
-    vertical-align: top; 
-    font-size: 12px;
-    overflow: auto;
-    overflow-x: hidden;
-    background-color: white;
-    height: 50rem;
-    width: 100%;
-    border-style: ridge;
-    border-bottom-left-radius: .5rem;
-    border-bottom-right-radius: .5rem;
-  }
+$base-qb-color: #ff0000;
+$base-rb-color: #0000ff;
+$base-wr-color: #FFD700;
+$base-te-color: #2E8B57;
+$base-k-color: #708090;
+$base-def-color: #F4A460;
 
-  .button-login {
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 0.5rem 0.5rem;
-    cursor: pointer;
-    border-radius: 0.5rem;
-  } 
+.qb-color {
+  // color: #ff0000; /* Red for QB */
+  color: $base-qb-color;
+}
 
-  // .button-submit {
-  //   background-color: #4CAF50;
-  //   border: none;
-  //   color: white;
-  //   padding: 0.5rem 1rem;
-  //   text-align: center;
-  //   text-decoration: none;
-  //   display: inline-block;
-  //   font-size: 1rem;
-  //   margin: 0.5rem 0.5rem;
-  //   cursor: pointer;
-  //   border-radius: 0.5rem;
-  // }
-  .button-submit {
-    background-color: #4caf50;
-    border: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 0.5rem 0.5rem;
-    cursor: pointer;
-    border-radius: 0.5rem;
-  
-    &:disabled {
-      background-color: #cccccc;
-      color: #666666;
-      cursor: not-allowed;
-    }
-  
-    &:not(:disabled) {
-      background-color: #4caf50;
-      color: white;
-      cursor: pointer;
-  
-      &:hover {
-        background-color: #45a049;
-      }
-    }
-  }
+.rb-color {
+  // color: #00ff00; /* Green for RB */
+  color: $base-rb-color;
+}
 
-  .button-cancel {
-    background-color: #f44336;
-    border: none;
-    color: white;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-    margin: 0.5rem 0.5rem;
-    cursor: pointer;
-    border-radius: 0.5rem;
-  }
+.wr-color {
+  // color: #0000ff; /* Blue for WR */
+  color: $base-wr-color;
+}
 
-  $base-QB-background: #ff0000;
-  $base-RB-background: #00ff00;
-  $base-WR-background: #0000ff;
-  $base-TE-background: #ffff00;
-  $base-K-background: #ff00ff;
-  $base-DEF-background: #FFFAFA;
+.te-color {
+  // color: #ffff00; /* Yellow for TE */
+  color: $base-te-color;
+}
 
-  /* Define a base color class */
-.base-QB-background-color {
-  background-color: $base-QB-background; /* Default text color */
+.k-color {
+  // color: #00ffff; /* Cyan for K */
+  color: $base-k-color;
 }
-.base-RB-background-color {
-  background-color: $base-RB-background; /* Default text color */
+
+.def-color {
+  // color: #fffafa; /* Magenta for DEF */
+  color: $base-def-color;
 }
-.base-WR-background-color {
-  background-color: $base-WR-background; /* Default text color */
+
+$base-qb-background: #ff0000;
+$base-rb-background: #0000ff;
+$base-wr-background: #FFD700;
+$base-te-background: #2E8B57;
+$base-k-background: #708090;
+$base-def-background: #fffafa;
+
+/* Define a base color class */
+.qb-background {
+  background-color: $base-qb-background; /* Default text color */
 }
-.base-TE-background-color {
-  background-color: $base-TE-background; /* Default text color */
+.rb-background {
+  background-color: $base-rb-background; /* Default text color */
 }
-.base-K-background-color {
-  background-color: $base-K-background; /* Default text color */
+.wr-background {
+  background-color: $base-wr-background; /* Default text color */
 }
-.base-DEF-background-color {
-  background-color: $base-DEF-background; /* Default text color */
+.te-background {
+  background-color: $base-te-background; /* Default text color */
+}
+.k-background {
+  background-color: $base-k-background; /* Default text color */
+}
+.def-background {
+  background-color: $base-def-background; /* Default text color */
 }
 /* Define a base background color class */
 .base-background {
   background-color: #fff; /* Default background color */
+}
+
+.header-container {
+  display: table;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  height: 9.7rem;
+  width: 100%;
+  padding-top: 1rem;
+  background-color: aliceblue;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+  border: 1px inset #e4e7ea;
+  border-top-style: inset;
+}
+
+.detail-container {
+  display: inline-block;
+  *display: inline;
+  zoom: 1;
+  vertical-align: top;
+  font-size: 12px;
+  overflow: auto;
+  overflow-x: hidden;
+  background-color: white;
+  height: 50rem;
+  width: 100%;
+  border-style: ridge;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
+.button-login {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0.5rem 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+// .button-submit {
+//   background-color: #4CAF50;
+//   border: none;
+//   color: white;
+//   padding: 0.5rem 1rem;
+//   text-align: center;
+//   text-decoration: none;
+//   display: inline-block;
+//   font-size: 1rem;
+//   margin: 0.5rem 0.5rem;
+//   cursor: pointer;
+//   border-radius: 0.5rem;
+// }
+.button-submit {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0.5rem 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled) {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
+}
+
+.button-cancel {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1rem;
+  margin: 0.5rem 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
 }
 
 /* Additional styles for consistency */
@@ -149,5 +186,3 @@
 //   @extend .base-border;
 //   @extend .base-shadow;
 // }
-
-  
