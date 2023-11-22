@@ -17,6 +17,27 @@ const CardInfo = ({ player }) => (
       </div>
       <div className="draft-selection-card__team">{player.teamAbbr}</div>
     </div>
+    <div className="draft-selection-card__rankings">
+      <div className="draft-selection-card__player-position">{player.position}</div>
+      <table className="draft-selection-card__rankings-table">
+        <tbody>
+          <th className="draft-selection-card__rankings-header">PTS</th>
+          <th className="draft-selection-card__rankings-header">AAV</th>
+          <th className="draft-selection-card__rankings-header">ADP</th>
+          <tr>
+            <td className="draft-selection-card__rankings-value">
+              {player.pointsVal}
+            </td>
+            <td className="draft-selection-card__rankings-value">
+              {player.aavPoints}
+            </td>
+            <td className="draft-selection-card__rankings-value">
+              {player.adpPoints}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 );
 

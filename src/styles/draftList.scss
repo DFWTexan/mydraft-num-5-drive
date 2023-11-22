@@ -2,7 +2,7 @@
   background-color: #f0f8ff;
   border-radius: 4px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-  padding: .1rem;
+  padding: 0.1rem;
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,7 @@
   margin-left: 1rem;
   margin-right: 2rem;
   border-radius: 1rem;
-  padding-left: .2rem;
+  padding-left: 0.2rem;
   font-size: large;
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
@@ -25,10 +25,10 @@
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
   }
   &.draft-list-card-variant {
-    background-color: #DCDCDC;
+    background-color: #dcdcdc;
     border-radius: 4px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-    padding: .1rem;
+    padding: 0.1rem;
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
@@ -41,7 +41,7 @@
     margin-left: 1rem;
     margin-right: 2rem;
     border-radius: 1rem;
-    padding-left: .2rem;
+    padding-left: 0.2rem;
     font-size: large;
 
     &:hover {
@@ -55,29 +55,53 @@
     margin-bottom: 8px;
     display: flex; /* Add flex container */
     align-items: center; /* Center items vertically */
-  
+
     .draft-selection-card__image {
       width: 50px; /* Adjust the width as needed */
       height: 50px; /* Adjust the height as needed */
       object-fit: cover;
-      margin-right: .1rem; /* Add margin for spacing */
+      margin-right: 0.1rem; /* Add margin for spacing */
     }
-  
+
     .draft-selection-card__player-info {
       flex: 1; /* Take up remaining space */
     }
-  
+
     .draft-selection-card__name {
       font-size: larger;
       margin-bottom: 8px;
     }
-  
+
     .draft-selection-card__team {
       font-size: medium;
       color: #666;
     }
+
+    .draft-selection-card__rankings {
+      font-size: medium;
+      color: #666;
+    }
+
+    .draft-selection-card__rankings-table
+      .draft-selection-card__rankings-header {
+      width: 3.5rem;
+      text-align: center;
+      font-size: small;
+      color: #666;
+    }
+    .draft-selection-card__player-position {
+      display: flex-end;
+      text-align: right;
+      padding-right: 1rem;
+      font-size: large;
+      color: #666;
+    }
+    .draft-selection-card__rankings-value {
+      text-align: center;
+      font-size: smaller;
+      color: #666;
+    }
   }
-  
 }
 
 // .draft-selection-card__title {
