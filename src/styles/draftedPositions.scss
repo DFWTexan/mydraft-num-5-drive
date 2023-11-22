@@ -1,6 +1,18 @@
+@import 'common.scss';
+
 .position-grp-header {
-    font-weight: 500;
-    font-size: large;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center; /* Vertically center items */
+  font-weight: 500;
+  font-size: large;
+}
+
+.position-grp-count {
+  padding-left: .7rem;
+  align-content: baseline;
+  font-weight: 500;
+  font-size: large;
 }
   
   .position-grp-detail {
@@ -22,3 +34,50 @@
 .draft-position-card-item {
   font-size: larger;
 }
+
+/* Define a base class */
+.base-background {
+  /* Add common styles here */
+  padding: 10px;
+  border-radius: 5px;
+  width: 3rem;
+  border: 1px solid gray;
+}
+
+.background-color-1 {
+  background-color: #ff0000; /* Red for QB */
+  // @extend .base-QB-background-color; 
+}
+
+.background-color-2 {
+  background-color: #00ff00; /* Green for RB */ 
+  // @extend .base-RB-background-color; 
+}
+
+.background-color-3 {
+  background-color: #0000ff, /* Blue for WR */
+  // @extend .base-WR-background-color; 
+}
+
+.background-color-4 {
+  background-color: #ffff00; /* Yellow for TE */
+  // @extend .base-TE-background-color; 
+}
+
+.background-color-5 {
+  background-color: #00ffff; /* Cyan for K */
+  // @extend .base-K-background-color; 
+}
+
+.background-color-6 {
+  background-color: #FFFAFA; /* Magenta for DEF */
+  // @extend .base-DEF-background-color; 
+}
+
+// .base-background:nth-child(5) {
+//   background-color: #ff00ff; /* Magenta */
+// }
+
+// .base-background:nth-child(6) {
+//   background-color: #ff00ff; /* Magenta */
+// }

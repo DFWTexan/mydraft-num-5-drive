@@ -27,9 +27,32 @@ const DraftedByPositions = () => {
   let keyPosOrder = "";
   let keyRound = "";
 
+  // Define a function to generate the background color class based on positionGroup
+  const getBackgroundColorClass = (positionGroup) => {
+    switch (positionGroup) {
+      case "QB":
+        return "background-color-1";
+      case "RB":
+        return "background-color-2";
+      case "WR":
+        return "background-color-3";
+      case "TE":
+        return "background-color-4";
+      case "K":
+        return "background-color-5";
+      case "DEF":
+        return "background-color-6";
+      default:
+        return ""; // Default or fallback class
+    }
+  };
+
   return (
     <div className="detail-container">
       {draftedByPositions.map((item, index) => {
+        const backgroundColorClass = getBackgroundColorClass(
+          item.positionGroup
+        );
         if (item.positionGroup !== keyPosOrder) {
           keyPosOrder = item.positionGroup;
           return (
@@ -41,7 +64,10 @@ const DraftedByPositions = () => {
                   id="panel1a-header"
                 >
                   <div className="position-grp-header">
-                    {item.positionGroup} ({item.count})
+                    <div className={`base-background ${backgroundColorClass}`}>
+                      {item.positionGroup}
+                    </div>
+                    <div className="position-grp-count">({item.count})</div>
                   </div>
                 </AccordionSummary>
                 <AccordionDetails>

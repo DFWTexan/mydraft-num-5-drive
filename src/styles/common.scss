@@ -99,4 +99,55 @@
     cursor: pointer;
     border-radius: 0.5rem;
   }
+
+  $base-QB-background: #ff0000;
+  $base-RB-background: #00ff00;
+  $base-WR-background: #0000ff;
+  $base-TE-background: #ffff00;
+  $base-K-background: #ff00ff;
+  $base-DEF-background: #FFFAFA;
+
+  /* Define a base color class */
+.base-QB-background-color {
+  background-color: $base-QB-background; /* Default text color */
+}
+.base-RB-background-color {
+  background-color: $base-RB-background; /* Default text color */
+}
+.base-WR-background-color {
+  background-color: $base-WR-background; /* Default text color */
+}
+.base-TE-background-color {
+  background-color: $base-TE-background; /* Default text color */
+}
+.base-K-background-color {
+  background-color: $base-K-background; /* Default text color */
+}
+.base-DEF-background-color {
+  background-color: $base-DEF-background; /* Default text color */
+}
+/* Define a base background color class */
+.base-background {
+  background-color: #fff; /* Default background color */
+}
+
+/* Additional styles for consistency */
+.base-border {
+  border: 1px solid #ccc; /* Default border color */
+}
+
+.base-shadow {
+  box-shadow: 2px 2px 5px #aaa; /* Default box shadow color */
+}
+
+/* Usage example */
+// .my-element {
+//   /* Apply the base color, background color, border, and shadow */
+//   /* You can choose to use one or more of these classes based on your needs */
+//   @extend .base-color;
+//   @extend .base-background;
+//   @extend .base-border;
+//   @extend .base-shadow;
+// }
+
   
