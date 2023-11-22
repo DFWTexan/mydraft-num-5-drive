@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import PlaceholderComponent from '../placeholder-component';
+import PlaceholderComponent from './PlaceholderComponent';
 
-const ProTeamInfoHeader = () => {
+const YourComponent = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -33,4 +33,4 @@ const ProTeamInfoHeader = () => {
   );
 };
 
-export default ProTeamInfoHeader;
+export default YourComponent;

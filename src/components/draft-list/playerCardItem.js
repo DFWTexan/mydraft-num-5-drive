@@ -38,15 +38,21 @@ const CardInfo = ({ player }) => (
     </div>
     <div className="draft-selection-card__rankings">
       {
-        <div className={`draft-selection-card__player-position ${getColorClass(player.position)}`}>
+        <div
+          className={`draft-selection-card__player-position ${getColorClass(player.position)}`}
+        >
           {player.position}
         </div>
       }
       <table className="draft-selection-card__rankings-table">
+        <thead>
+          <tr>
+            <th className="draft-selection-card__rankings-header">PTS</th>
+            <th className="draft-selection-card__rankings-header">AAV</th>
+            <th className="draft-selection-card__rankings-header">ADP</th>
+          </tr>
+        </thead>
         <tbody>
-          <th className="draft-selection-card__rankings-header">PTS</th>
-          <th className="draft-selection-card__rankings-header">AAV</th>
-          <th className="draft-selection-card__rankings-header">ADP</th>
           <tr>
             <td className="draft-selection-card__rankings-value">
               {player.pointsVal}
