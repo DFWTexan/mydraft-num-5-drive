@@ -27,29 +27,32 @@ const ProTeamInfo = () => {
             <Tab>INJURIES</Tab>
           </TabList>
           <div className="proteam-filter-content">
-          <React.Fragment>
-            <div style={{ width: "100%" }}>
-              {/* <InputLabel id="playerFilterSelect-label">{label}</InputLabel> */}
-              <FormControl sx={{ minWidth: 200 }} size={"small"}>
-                <Select
-                  labelId="proTeamSelect-label"
-                  id="proTeamSelect"
-                  value={selectedItem}
-                  onChange={setSelectedItem}
-                >
-                  {data.map((option, index) => {
-                    return (
-                      <MenuItem key={index} value={option.value}>
-                        {option.label}
-                      </MenuItem>
-                    );
-                  })}
-                </Select>
-              </FormControl>
+            <div className="display-proteam-info-filter">
+              <React.Fragment>
+                <div style={{ width: "100%" }}>
+                  {/* <InputLabel id="playerFilterSelect-label">{label}</InputLabel> */}
+                  <FormControl sx={{ minWidth: 200 }} size={"small"}>
+                    <Select
+                      labelId="proTeamSelect-label"
+                      id="proTeamSelect"
+                      value={selectedItem}
+                      onChange={(value) => {
+                        setSelectedItem(value.target.value);
+                      }}
+                    >
+                      {data.map((option, index) => {
+                        return (
+                          <MenuItem key={index} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        );
+                      })}
+                    </Select>
+                  </FormControl>
+                </div>
+              </React.Fragment>
             </div>
-          </React.Fragment>
           </div>
-          
         </div>
         <div className="detail-container">
           <TabPanel>
