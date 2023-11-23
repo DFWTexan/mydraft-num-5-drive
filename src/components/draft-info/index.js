@@ -74,55 +74,83 @@ const DraftInfo = () => {
   return (
     <div className="tab_Container_draftInfo">
       <Tabs forceRenderTabPanel defaultIndex={0}>
-        <TabList>
+        <TabList> {/* -- This is the tab list for [ DRAFT / ROSTER / DEPTH CHART ] -- */}
           <Tab>DRAFT</Tab>
           <Tab>ROSTERS</Tab>
           <Tab>DEPTH CHART</Tab>
         </TabList>
-        <TabPanel>
+        <TabPanel>  {/* -- This is the tab panel for the [DRAFT] -- */}
           <Tabs forceRenderTabPanel>
-            <TabList>
-              <Tab style={myStyle}>Selections</Tab>
-              <Tab>Rosters</Tab>
-              <Tab>Positions</Tab>
-            </TabList>
-            <TabPanel>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  width: "80%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <TabList> {/* -- This is the tab list for [ Selections / Rosters / Positions ] -- */}
+                  <Tab style={myStyle}>Selections</Tab>
+                  <Tab>Rosters</Tab>
+                  <Tab>Positions</Tab>
+                </TabList>
+              </div>
+            </div>
+
+            
+            <TabPanel>  {/* -- This is the tab panel for the draft - Selections -- */}
               <DraftSelections draftPicks={draftPicks} />
             </TabPanel>
-            <TabPanel>
+            <TabPanel>  {/* -- This is the tab panel for the draft - Rosters -- */}
               <RosterCount rosters={rosterCounts} />
             </TabPanel>
-            <TabPanel>
+            <TabPanel>  {/* -- This is the tab panel for the draft - Positions -- */}
               <DraftedPositions />
             </TabPanel>
+
+
           </Tabs>
         </TabPanel>
-        <TabPanel>
+        <TabPanel>  {/* -- This is the tab panel for the [ROSTERS] -- */}
           <Tabs forceRenderTabPanel>
-            <TabList>
-              <Tab>Team</Tab>
-              <Tab>Selections</Tab>
-              <Tab>News</Tab>
-            </TabList>
-            <TabPanel>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  width: "80%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <TabList> {/* -- This is the tab list for [ Team / Selections / News ] -- */}
+                  <Tab>Team</Tab>
+                  <Tab>Selections</Tab>
+                  <Tab>News</Tab>
+                </TabList>
+              </div>
+            </div>
+
+
+            <TabPanel> {/* -- This is the tab panel for the fan team roster -- */}
               <FanTeamRoster
                 MyTeam={true}
                 selectedTeam={selectedTeam}
                 setSelectedTeam={handleFanTeamChange}
               />
             </TabPanel>
-            <TabPanel>
+            <TabPanel>  {/* -- This is the tab panel for the fan team selections -- */}
               <TeamSelections
                 selectedTeam={selectedTeam}
                 setSelectedTeam={handleFanTeamChange}
               />
             </TabPanel>
-            <TabPanel>
+            <TabPanel>  {/* -- This is the tab panel for the fan team news -- */}
               <p>ROSTER = News</p>
             </TabPanel>
+
+            
           </Tabs>
         </TabPanel>
-        <TabPanel>
+        <TabPanel>  {/* -- This is the tab panel for the [DEPTH CHART] -- */}
           <Tabs
             forceRenderTabPanel
             selectedIndex={depthChartIndex}
@@ -130,27 +158,37 @@ const DraftInfo = () => {
               handleDepthChartPositionChange(index);
             }}
           >
-            <TabList>
-              <Tab>QB</Tab>
-              <Tab>RB</Tab>
-              <Tab>WR</Tab>
-              <Tab>TE</Tab>
-              <Tab>PK</Tab>
-            </TabList>
+            <div style={{ display: "flex", justifyContent: "center" }}>
+              <div
+                style={{
+                  width: "80%",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                <TabList> {/* -- This is the tab list for the depth chart - [ QB / RB / WR / TE / PK ] -- */}
+                  <Tab>QB</Tab>
+                  <Tab>RB</Tab>
+                  <Tab>WR</Tab>
+                  <Tab>TE</Tab>
+                  <Tab>PK</Tab>
+                </TabList>
+              </div>
+            </div>
             <div className="detail-container">
-              <TabPanel>
+              <TabPanel>  {/* -- This is the tab panel for the depth chart - QB -- */}
                 <ProTeamDepthChart positionDisplay={depthChartDisplay} />
               </TabPanel>
-              <TabPanel>
+              <TabPanel>   {/* -- This is the tab panel for the depth chart - RB -- */}
                 <ProTeamDepthChart positionDisplay={depthChartDisplay} />
               </TabPanel>
-              <TabPanel>
+              <TabPanel>  {/* -- This is the tab panel for the depth chart - WR -- */}
                 <ProTeamDepthChart positionDisplay={depthChartDisplay} />
               </TabPanel>
-              <TabPanel>
+              <TabPanel>  {/* -- This is the tab panel for the depth chart - TE -- */}
                 <ProTeamDepthChart positionDisplay={depthChartDisplay} />
               </TabPanel>
-              <TabPanel>
+              <TabPanel>  {/* -- This is the tab panel for the depth chart - PK -- */}
                 <ProTeamDepthChart positionDisplay={depthChartDisplay} />
               </TabPanel>
             </div>
