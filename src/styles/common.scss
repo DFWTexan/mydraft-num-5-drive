@@ -1,9 +1,9 @@
 $base-qb-color: #ff0000;
 $base-rb-color: #0000ff;
-$base-wr-color: #FFD700;
+$base-wr-color: #F4A460;
 $base-te-color: #2E8B57;
 $base-k-color: #708090;
-$base-def-color: #F4A460;
+$base-def-color: #6A5ACD; 
 
 .qb-color {
   // color: #ff0000; /* Red for QB */
@@ -40,26 +40,32 @@ $base-rb-background: #0000ff;
 $base-wr-background: #FFD700;
 $base-te-background: #2E8B57;
 $base-k-background: #708090;
-$base-def-background: #fffafa;
+$base-def-background: #F4A460;
 
 /* Define a base color class */
 .qb-background {
-  background-color: $base-qb-background; /* Default text color */
+  background-color: #ff0000;
+  // background-color: $base-qb-background; /* Default text color */
 }
 .rb-background {
-  background-color: $base-rb-background; /* Default text color */
+  background-color: #0000ff;
+  // background-color: $base-rb-background; /* Default text color */
 }
 .wr-background {
-  background-color: $base-wr-background; /* Default text color */
+  background-color: #FFD700;
+  // background-color: $base-wr-background; /* Default text color */
 }
 .te-background {
-  background-color: $base-te-background; /* Default text color */
+  background-color: #2E8B57;
+  // background-color: $base-te-background; /* Default text color */
 }
 .k-background {
-  background-color: $base-k-background; /* Default text color */
+  background-color: #708090;
+  // background-color: $base-k-background; /* Default text color */
 }
 .def-background {
-  background-color: $base-def-background; /* Default text color */
+  background-color: #fffafa;
+  // background-color: $base-def-background; /* Default text color */
 }
 /* Define a base background color class */
 .base-background {

@@ -12,6 +12,23 @@ import RosterCount from "../draft-info/RosterCount";
 import TeamSelections from "../draft-info/TeamSelections";
 import ProTeamDepthChart from "./ProTeamDepthChart";
 
+// const getTabBackgroundColor = (index) => {
+//   switch (index) {
+//     case 0:
+//       return background-color-qb;
+//     case 1:
+//       return background-color-rb;
+//     case 2:
+//       return background-color-wr;
+//     case 3:
+//       return background-color-te;
+//     case 4:
+//       return background-color-k;
+//     default:
+//       return background-color-def;
+//   }
+// };
+
 const DraftInfo = () => {
   const [selectedTeam, setSelectedTeam] = useState(1);
   const [depthChartIndex, setDepthChartIndex] = useState(0);
@@ -192,6 +209,11 @@ const DraftInfo = () => {
                   <TabList>
                     {" "}
                     {/* -- This is the tab list for the depth chart - [ QB / RB / WR / TE / PK ] -- */}
+                    {/* <Tab style={{ backgroundColor: getTabBackgroundColor(0) }}>QB</Tab>
+                    <Tab style={{ backgroundColor: getTabBackgroundColor(1) }}>RB</Tab>
+                    <Tab style={{ backgroundColor: getTabBackgroundColor(2) }}>WR</Tab>
+                    <Tab style={{ backgroundColor: getTabBackgroundColor(3) }}>TE</Tab>
+                    <Tab style={{ backgroundColor: getTabBackgroundColor(4) }}>PK</Tab> */}
                     <Tab>QB</Tab>
                     <Tab>RB</Tab>
                     <Tab>WR</Tab>
