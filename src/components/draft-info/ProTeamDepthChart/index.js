@@ -7,9 +7,9 @@ import "../../../styles/index.scss";
 import { API_URL } from "../../../config";
 
 const ProTeamDepthChart = (props) => {
-  const [displayData, setDisplayData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
+  const [displayData, setDisplayData] = useState([]);
+  
   useEffect(() => {
     setIsLoading(true);
     axios
