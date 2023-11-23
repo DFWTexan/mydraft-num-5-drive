@@ -2,9 +2,7 @@
 // @import '../../path/to/node_modules/react-tabs/style/react-tabs.less';
 
 .tab_Container_draftInfo {
-  // margin-top: .2rem;
   width:100%; 
-  // padding: .1rem;
   background-color: whitesmoke;
   padding-top: .1rem;
   border-top-left-radius: .5rem;
@@ -19,10 +17,6 @@
   vertical-align: top; 
   font-size: 12px;
   overflow: auto;
-  // overflow-x: hidden;
-  // background-color: white;
-  // height: 800px;
-  // width: 100%;
   border-style: ridge;
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
@@ -34,11 +28,9 @@
   height: auto;
   min-height: 400px;
   background: white;
-  // margin: 2.5rem auto 1.5rem;
   padding: 2rem 1rem;
   color: #e8f0f2;
   border-radius: 1rem;
-  // font-size: large;
 }
 
 .react-tabs {
@@ -106,16 +98,3 @@
   text-align: center;
 }
 
-// .list-draftPicks {
-//   display: inline-block; 
-//   *display: inline; 
-//   zoom: 1; 
-//   vertical-align: top; 
-//   font-size: 15px;
-//   overflow: auto;
-//   overflow-x: hidden;
-//   background-color: white;
-//   height: 800px;
-//   width: 100%;
-//   border-style: ridge;
-// }
