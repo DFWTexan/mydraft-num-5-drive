@@ -9,7 +9,7 @@ import { API_URL } from "../../config";
 
 const ProTeamInfo = () => {
   const [data, setData] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(1);
+  const [selectedItem, setSelectedItem] = useState(0);
 
   useEffect(() => {
     axios.get(`${API_URL}Draft/ProTeamList`).then((response) => {
@@ -18,19 +18,19 @@ const ProTeamInfo = () => {
   }, []);
 
   return (
-    <div >
+    <div>
       <Tabs>
-        
         <div className="header-container">
-        <TabList>
-          <Tab>NEWS</Tab>
-          <Tab>SCHEDULE</Tab>
-          <Tab>INJURIES</Tab>
-        </TabList>
+          <TabList>
+            <Tab>NEWS</Tab>
+            <Tab>SCHEDULE</Tab>
+            <Tab>INJURIES</Tab>
+          </TabList>
+          <div className="proteam-filter-content">
           <React.Fragment>
             <div style={{ width: "100%" }}>
               {/* <InputLabel id="playerFilterSelect-label">{label}</InputLabel> */}
-              <FormControl sx={{ minWidth: 125 }} size={"small"}>
+              <FormControl sx={{ minWidth: 200 }} size={"small"}>
                 <Select
                   labelId="proTeamSelect-label"
                   id="proTeamSelect"
@@ -38,7 +38,6 @@ const ProTeamInfo = () => {
                   onChange={setSelectedItem}
                 >
                   {data.map((option, index) => {
-                    // console.log("==>  EMFTest (ProTeam-Header) - option", option);
                     return (
                       <MenuItem key={index} value={option.value}>
                         {option.label}
@@ -49,6 +48,8 @@ const ProTeamInfo = () => {
               </FormControl>
             </div>
           </React.Fragment>
+          </div>
+          
         </div>
         <div className="detail-container">
           <TabPanel>
