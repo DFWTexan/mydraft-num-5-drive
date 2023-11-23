@@ -8,12 +8,12 @@ import axios from "axios";
 import { API_URL } from "../../config";
 
 const ProTeamInfo = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState([{ value: 0, label: "Loading..." }]);
   const [selectedItem, setSelectedItem] = useState(0);
 
   useEffect(() => {
     axios.get(`${API_URL}Draft/ProTeamList`).then((response) => {
-      setData(response.data);
+      setData([{ value: 0, label: "Select Team" }, ...response.data]);
     });
   }, []);
 
