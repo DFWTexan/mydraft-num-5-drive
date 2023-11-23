@@ -6,10 +6,10 @@
   width:100%; 
   // padding: .1rem;
   background-color: whitesmoke;
-  padding-top: .5rem;
+  padding-top: .1rem;
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
-  border-top-style: ridge;
+  border-top-style: inset;
 }
 
 .panel_draftInfo {
@@ -34,7 +34,7 @@
   height: auto;
   min-height: 400px;
   background: white;
-  margin: 2.5rem auto 1.5rem;
+  // margin: 2.5rem auto 1.5rem;
   padding: 2rem 1rem;
   color: #e8f0f2;
   border-radius: 1rem;
@@ -47,7 +47,7 @@
 
 .react-tabs__tab-list {
   width: 90%;
-  margin: 0 auto .7rem;
+  margin: 0 auto .5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
