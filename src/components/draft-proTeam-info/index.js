@@ -6,6 +6,9 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import axios from "axios";
 
 import { API_URL } from "../../config";
+import ProTeamNews from "./proTeamNews";
+import ProTeamSchedule from "./proTeamSchedule";
+import ProTeamInjuries from "./proTeamInjuries";
 
 const ProTeamInfo = () => {
   const [data, setData] = useState([{ value: 0, label: "Loading..." }]);
@@ -56,13 +59,13 @@ const ProTeamInfo = () => {
         </div>
         <div className="detail-container">
           <TabPanel>
-            <p>ProTeam - News</p>
+            <ProTeamNews teamID={selectedItem} />
           </TabPanel>
           <TabPanel>
-            <p>ProTeam - Schedule</p>
+            <ProTeamSchedule teamID={selectedItem} />
           </TabPanel>
           <TabPanel>
-            <p>ProTeam - Injuries</p>
+            <ProTeamInjuries teamID={selectedItem} />
           </TabPanel>
         </div>
       </Tabs>
