@@ -27,22 +27,13 @@ const Login = () => {
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
 
-    // dispatch(loginUser({}));
-    // dispatch(fetchActiveLeague());
-
     dispatch(login({ username, password }))
       .unwrap()
       .then(() => {
-
-// console.log('==> EMFTest (login.jsx) handleLogin() dispatch(login({ username, password }))');
-
         dispatch(loginUser({}));
         dispatch(fetchActiveLeague());
-        // navigate("/draftboard");
-        // window.location.reload();
       })
       .catch(() => {
-        // dispatch(fetchActiveLeague());
         setIsLoading(false);
       });
   };

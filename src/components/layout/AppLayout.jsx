@@ -25,8 +25,6 @@ const AppLayout = () => {
     } else {
       return;
     }
-
-    
   }, [userInfoStatus.isLoggedIn]);
 
   useEffect(() => {
