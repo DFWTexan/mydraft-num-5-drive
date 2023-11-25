@@ -1,5 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit'
 
+import authReducer from '../slices/auth';
+import messageReducer from '../slices/message';
 import userReducer from '../slices/user';
 import playerReducer from '../slices/players';
 import leagueReducer from '../slices/league';
@@ -11,7 +13,9 @@ import fanTeamRosterCountReducer from '../slices/fanTeamRosterCount';
 import fanTeamSelectionsReducer from '../slices/fanTeamSelections';
 
 const reducer = {
-  userInfoStatus: userReducer
+  auth: authReducer
+  , message: messageReducer
+  , userInfoStatus: userReducer
   , draftStatus: draftStatusReducer
   , players: playerReducer
   , activeLeague: leagueReducer

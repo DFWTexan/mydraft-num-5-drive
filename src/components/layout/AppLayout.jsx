@@ -1,14 +1,14 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useCallback } from "react";
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 import Sidebar from "../sidebar/Sidebar";
 import Login from "../login/Login";
 
 const AppLayout = () => {
   const userInfoStatus = useSelector((state) => state.userInfoStatus);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const sideDisplay = useCallback(() => {
     if (userInfoStatus.isLoggedIn === true) {
@@ -18,22 +18,22 @@ const AppLayout = () => {
     }
   }, [userInfoStatus.isLoggedIn]);
 
-  const navigateToDraftboard = useCallback(() => {
-    navigate("/draftboard");
-  }, [navigate]);
+  // const navigateToDraftboard = useCallback(() => {
+  //   navigate("/draftboard");
+  // }, [navigate]);
 
-  useEffect(() => {
-    const curPath = window.location.pathname.split("/")[1];
+  // useEffect(() => {
+  //   const curPath = window.location.pathname.split("/")[1];
 
-    if (userInfoStatus.isLoggedIn === true) {
-      sideDisplay();
-      if (curPath === "") {
-        navigateToDraftboard();
-      }
-    } else {
-      return;
-    }
-  }, [userInfoStatus, sideDisplay, navigateToDraftboard]);
+  //   if (userInfoStatus.isLoggedIn === true) {
+  //     sideDisplay();
+  //     if (curPath === "") {
+  //       navigateToDraftboard();
+  //     }
+  //   } else {
+  //     return;
+  //   }
+  // }, [userInfoStatus, sideDisplay, navigateToDraftboard]);
 
   return (
     <div
