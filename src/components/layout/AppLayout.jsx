@@ -7,32 +7,32 @@ import Sidebar from "../sidebar/Sidebar";
 import Login from "../login/Login";
 
 const AppLayout = () => {
-  const authUser = useSelector((state) => state.auth);
-  // const userInfoStatus = useSelector((state) => state.userInfoStatus);
+  // const authUser = useSelector((state) => state.auth);
+  const userInfoStatus = useSelector((state) => state.userInfoStatus);
   const navigate = useNavigate();
 
   const sideDisplay = useCallback(() => {
-    if (authUser.isLoggedIn === true) {
+    if (userInfoStatus.isLoggedIn === true) {
       return <Sidebar />;
     } else {
       return <Login />;
     }
-  }, [authUser.isLoggedIn]);
+  }, [userInfoStatus.isLoggedIn]);
 
   const navigateToDraftboard = useCallback(() => {
-    if (authUser.isLoggedIn === true) {
+    if (userInfoStatus.isLoggedIn === true) {
       navigate("/draftboard");
     } else {
       return;
     }
 
     
-  }, [authUser.isLoggedIn]);
+  }, [userInfoStatus.isLoggedIn]);
 
   useEffect(() => {
     const curPath = window.location.pathname.split("/")[1];
 
-    if (authUser.isLoggedIn === true) {
+    if (userInfoStatus.isLoggedIn === true) {
       sideDisplay();
       if (curPath === "") {
         navigateToDraftboard();
@@ -40,7 +40,7 @@ const AppLayout = () => {
     } else {
       return;
     }
-  }, [authUser.isLoggedIn, sideDisplay, navigateToDraftboard]);
+  }, [userInfoStatus.isLoggedIn, sideDisplay, navigateToDraftboard]);
 
   return (
     <div
