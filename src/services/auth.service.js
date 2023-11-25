@@ -5,7 +5,7 @@ import { API_URL } from "../config";
 // const API_URL = "http://localhost:8080/api/auth/";
 
 const register = (username, email, password) => {
-  return axios.post(API_URL + "/Authenticate/register", {
+  return axios.post(API_URL + "Authenticate/register", {
     username,
     email,
     password,
@@ -13,8 +13,12 @@ const register = (username, email, password) => {
 };
 
 const login = (username, password) => {
+
+console.log("==> EMFTest (authService) - login username: ", username);
+console.log("==> EMFTest (authService) - login password: ", password);
+
   return axios
-    .post(API_URL + "/Authenticate/login", {
+    .post(API_URL + "Authenticate/login", {
       username,
       password,
     })

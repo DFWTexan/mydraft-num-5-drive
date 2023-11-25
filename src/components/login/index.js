@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
-// import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 import "./login.scss";
 import { login } from "../../slices/auth";
 import { clearMessage } from "../../slices/message";
-import { loginUser } from "../../slices/user";
+// import { loginUser } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
 
-const Login = () => {
-  // let navigate = useNavigate();
+const UserLogin = () => {
+  let navigate = useNavigate();
   const [loginRegisterToggle, setLoginRegisterToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const { isLoggedIn } = useSelector((state) => state.auth);
+  const { isLoggedIn } = useSelector((state) => state.auth);
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
 
@@ -25,20 +25,20 @@ const Login = () => {
     setIsLoading(true);
 
     let username = document.getElementById("username").value;
+    // let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
     // dispatch(loginUser({}));
     // dispatch(fetchActiveLeague());
 
     dispatch(login({ username, password }))
-      // .unwrap()
+      .unwrap()
       .then(() => {
 
 console.log('==> EMFTest (login.jsx) handleLogin() dispatch(login({ username, password }))');
 
-        dispatch(loginUser({}));
-        dispatch(fetchActiveLeague());
-        // navigate("/draftboard");
+        // dispatch(fetchActiveLeague());
+        navigate("/draftboard");
         // window.location.reload();
       })
       .catch(() => {
@@ -47,9 +47,9 @@ console.log('==> EMFTest (login.jsx) handleLogin() dispatch(login({ username, pa
       });
   };
 
-  // if (isLoggedIn) {
-  //   return <Navigate to="/draftboard" />;
-  // }
+  if (isLoggedIn) {
+    return <Navigate to="/draftboard" />;
+  }
 
   return (
     <div className="sidebar">
@@ -166,4 +166,4 @@ console.log('==> EMFTest (login.jsx) handleLogin() dispatch(login({ username, pa
   );
 };
 
-export default Login;
+export default UserLogin;

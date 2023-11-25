@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+// import { Navigate } from 'react-router-dom';
 import axios from "axios";
 
 import "../styles/index.scss";
@@ -23,6 +24,7 @@ const initFilterSortPlayer = {
 };
 
 const Draftboard = () => {
+  // const { user: currentUser } = useSelector((state) => state.auth);
   // const activeLeague = useSelector((state) => state.activeLeague);
   const draftStatus = useSelector((state) => state.draftStatus);
   const [filterSortPlayer, setFilterSortPlayer] = useState(initFilterSortPlayer);
@@ -98,6 +100,10 @@ const Draftboard = () => {
       dispatch(fetchDraftStatus());
     });
   }, [dispatch]);
+
+  // if (!currentUser) {
+  //   return <Navigate to="/" />;
+  // }
 
   return (
     <div className="container">
