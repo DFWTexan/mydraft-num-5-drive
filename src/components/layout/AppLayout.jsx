@@ -27,7 +27,7 @@ const AppLayout = () => {
     }
 
     
-  }, [navigate]);
+  }, [authUser.isLoggedIn]);
 
   useEffect(() => {
     const curPath = window.location.pathname.split("/")[1];

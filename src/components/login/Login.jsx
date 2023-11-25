@@ -31,10 +31,10 @@ const Login = () => {
     // dispatch(fetchActiveLeague());
 
     dispatch(login({ username, password }))
-      // .unwrap()
+      .unwrap()
       .then(() => {
 
-console.log('==> EMFTest (login.jsx) handleLogin() dispatch(login({ username, password }))');
+// console.log('==> EMFTest (login.jsx) handleLogin() dispatch(login({ username, password }))');
 
         dispatch(loginUser({}));
         dispatch(fetchActiveLeague());

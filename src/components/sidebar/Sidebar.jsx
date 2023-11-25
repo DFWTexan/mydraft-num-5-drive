@@ -31,16 +31,28 @@ const Sidebar = () => {
   const indicatorRef = useRef();
   const location = useLocation();
 
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     const sidebarItem = sidebarRef.current.querySelector(
+  //       ".sidebar__menu__item"
+  //     );
+      
+  //     indicatorRef.current.style.height = `${sidebarItem.clientHeight}px`;
+  //     setStepHeight(sidebarItem.clientHeight);
+  //   }, 50);
+  // }, []);
   useEffect(() => {
     setTimeout(() => {
-      const sidebarItem = sidebarRef.current.querySelector(
-        ".sidebar__menu__item"
-      );
-      
-      indicatorRef.current.style.height = `${sidebarItem.clientHeight}px`;
-      setStepHeight(sidebarItem.clientHeight);
+      if (sidebarRef.current) {
+        const sidebarItem = sidebarRef.current.querySelector(".sidebar__menu__item");
+        if (sidebarItem) {
+          indicatorRef.current.style.height = `${sidebarItem.clientHeight}px`;
+          setStepHeight(sidebarItem.clientHeight);
+        }
+      }
     }, 50);
   }, []);
+  
 
   // change active index
   useEffect(() => {
