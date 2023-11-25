@@ -104,13 +104,14 @@ const Sidebar = () => {
           justifyContent: "center",
           height: "100%",
           alignContent: "center",
+          paddingTop: "20px",
         }}
       >
         <div className="sidebar__footer__item">
           {/* <i className="bx bx-log-out"></i>
           <span>Logout</span> */}
-          <Button className="button-login" onClick={handleLogOut}>
-            Login
+          <Button className="button-logout" onClick={handleLogOut}>
+            Log Out
           </Button>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 // import { Navigate, useNavigate } from "react-router-dom";
 
 import "./login.scss";
-import { login } from "../../slices/auth";
+import { login, register } from "../../slices/auth";
 import { clearMessage } from "../../slices/message";
 import { loginUser } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
@@ -45,7 +45,7 @@ const Login = () => {
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
-    dispatch(login({ username, email, password }))
+    dispatch(register({ username, email, password }))
       .unwrap()
       .then(() => {
         dispatch(loginUser({}));
