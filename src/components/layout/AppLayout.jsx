@@ -25,7 +25,7 @@ const AppLayout = () => {
     } else {
       return;
     }
-  }, [userInfoStatus.isLoggedIn]);
+  }, [userInfoStatus.isLoggedIn, navigate]);
 
   useEffect(() => {
     const curPath = window.location.pathname.split("/")[1];

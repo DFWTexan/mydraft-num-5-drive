@@ -38,6 +38,24 @@ const Login = () => {
       });
   };
 
+  const handleRegister = () => {  
+    setIsLoading(true);
+
+    let username = document.getElementById("username").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
+
+    dispatch(login({ username, email, password }))
+      .unwrap()
+      .then(() => {
+        dispatch(loginUser({}));
+        dispatch(fetchActiveLeague());
+      })
+      .catch(() => {
+        setIsLoading(false);
+      });
+  };
+
   // if (isLoggedIn) {
   //   return <Navigate to="/draftboard" />;
   // }
@@ -119,7 +137,7 @@ const Login = () => {
             </div>
             <div>
               {loginRegisterToggle ? (
-                <Button className="button-login" onClick={handleLogin}>
+                <Button className="button-login" onClick={handleRegister}>
                   Register
                 </Button>
               ) : (

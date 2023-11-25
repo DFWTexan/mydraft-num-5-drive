@@ -1,28 +1,29 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { Button } from "reactstrap";
 
 import "./sidebar.scss";
 
 const sidebarNavItems = [
-    {
-        display: 'Draftboard',
-        icon: <i className='bx bx-home'></i>,
-        to: '/draftboard',
-        section: 'draftboard'
-    },
-    // {
-    //     display: 'Fantasy Teams',
-    //     icon: <i className='bx bx-star'></i>,
-    //     to: '/fantasyteams',
-    //     section: 'fantasyteams'
-    // },
-    // {
-    //     display: 'Draft Setup',
-    //     icon: <i className='bx bx-user'></i>,
-    //     to: '/setup',
-    //     section: 'setup'
-    // },
-]
+  {
+    display: "Draftboard",
+    icon: <i className="bx bx-home"></i>,
+    to: "/draftboard",
+    section: "draftboard",
+  },
+  // {
+  //     display: 'Fantasy Teams',
+  //     icon: <i className='bx bx-star'></i>,
+  //     to: '/fantasyteams',
+  //     section: 'fantasyteams'
+  // },
+  // {
+  //     display: 'Draft Setup',
+  //     icon: <i className='bx bx-user'></i>,
+  //     to: '/setup',
+  //     section: 'setup'
+  // },
+];
 
 const Sidebar = () => {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -31,12 +32,16 @@ const Sidebar = () => {
   const indicatorRef = useRef();
   const location = useLocation();
 
+  const handleLogOut = () => {
+    window.location.href = "/";
+  };
+
   // useEffect(() => {
   //   setTimeout(() => {
   //     const sidebarItem = sidebarRef.current.querySelector(
   //       ".sidebar__menu__item"
   //     );
-      
+
   //     indicatorRef.current.style.height = `${sidebarItem.clientHeight}px`;
   //     setStepHeight(sidebarItem.clientHeight);
   //   }, 50);
@@ -44,7 +49,9 @@ const Sidebar = () => {
   useEffect(() => {
     setTimeout(() => {
       if (sidebarRef.current) {
-        const sidebarItem = sidebarRef.current.querySelector(".sidebar__menu__item");
+        const sidebarItem = sidebarRef.current.querySelector(
+          ".sidebar__menu__item"
+        );
         if (sidebarItem) {
           indicatorRef.current.style.height = `${sidebarItem.clientHeight}px`;
           setStepHeight(sidebarItem.clientHeight);
@@ -52,7 +59,6 @@ const Sidebar = () => {
       }
     }, 50);
   }, []);
-  
 
   // change active index
   useEffect(() => {
@@ -91,6 +97,22 @@ const Sidebar = () => {
             </div>
           </Link>
         ))}
+      </div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          height: "100%",
+          alignContent: "center",
+        }}
+      >
+        <div className="sidebar__footer__item">
+          {/* <i className="bx bx-log-out"></i>
+          <span>Logout</span> */}
+          <Button className="button-login" onClick={handleLogOut}>
+            Login
+          </Button>
+        </div>
       </div>
     </div>
   );
