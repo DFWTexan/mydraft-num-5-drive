@@ -31,7 +31,7 @@ const Login = () => {
       .unwrap()
       .then(() => {
         dispatch(loginUser({}));
-        dispatch(fetchActiveLeague());
+        dispatch(fetchActiveLeague(1));
       })
       .catch(() => {
         setIsLoading(false);
@@ -49,7 +49,7 @@ const Login = () => {
       .unwrap()
       .then(() => {
         dispatch(loginUser({}));
-        dispatch(fetchActiveLeague());
+        dispatch(fetchActiveLeague(1));
       })
       .catch(() => {
         setIsLoading(false);
