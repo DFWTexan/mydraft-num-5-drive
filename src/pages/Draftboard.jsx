@@ -9,7 +9,7 @@ import DraftPlyrList from "../components/draft-list";
 import DraftInfo from "../components/draft-info";
 import ProTeamInfo from "../components/draft-proTeam-info";
 import { fetchDraftStatus } from "../slices/draftStatus";
-// import { fetchActiveLeague } from "../slices/league";
+import { fetchActiveLeague } from "../slices/league";
 import { fetchPlayers } from "../slices/players";
 
 // import { API_URL } from "../config";
@@ -84,6 +84,7 @@ const Draftboard = () => {
   };
 
   const initFetch = useCallback(() => {
+    dispatch(fetchActiveLeague());
     dispatch(fetchDraftStatus());
     dispatch(fetchPlayers(filterSortPlayer));
   }, [dispatch, filterSortPlayer]);
