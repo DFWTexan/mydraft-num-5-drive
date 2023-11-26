@@ -13,7 +13,7 @@ const Login = () => {
   // let navigate = useNavigate();
   const [loginRegisterToggle, setLoginRegisterToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const { isLoggedIn } = useSelector((state) => state.auth);
+  // const { token } = useSelector((state) => state.auth.user);
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
 
@@ -30,7 +30,7 @@ const Login = () => {
     dispatch(login({ username, password }))
       .unwrap()
       .then(() => {
-        dispatch(loginUser({}));
+        dispatch(loginUser());
         dispatch(fetchActiveLeague(1));
       })
       .catch(() => {
@@ -48,7 +48,7 @@ const Login = () => {
     dispatch(register({ username, email, password }))
       .unwrap()
       .then(() => {
-        dispatch(loginUser({}));
+        dispatch(loginUser());
         dispatch(fetchActiveLeague(1));
       })
       .catch(() => {

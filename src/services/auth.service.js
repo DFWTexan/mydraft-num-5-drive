@@ -21,6 +21,9 @@ const login = (username, password) => {
     })
     .then((response) => {
       if (response.data.accessToken) {
+
+console.log('==> EMFTest (auth.service) - response.data.accessToken: \n', response.data.accessToken);
+
         localStorage.setItem("user", JSON.stringify(response.data));
       }
 

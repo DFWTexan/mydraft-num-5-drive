@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 // import { Navigate } from 'react-router-dom';
-import axios from "axios";
+// import axios from "axios";
 
 import "../styles/index.scss";
 import PlayerFilter from "../components/player-filter";
@@ -9,10 +9,10 @@ import DraftPlyrList from "../components/draft-list";
 import DraftInfo from "../components/draft-info";
 import ProTeamInfo from "../components/draft-proTeam-info";
 import { fetchDraftStatus } from "../slices/draftStatus";
-import { fetchActiveLeague } from "../slices/league";
+// import { fetchActiveLeague } from "../slices/league";
 import { fetchPlayers } from "../slices/players";
 
-import { API_URL } from "../config";
+// import { API_URL } from "../config";
 
 const initFilterSortPlayer = {
   pointValue: "POINTS",
@@ -92,14 +92,14 @@ const Draftboard = () => {
     initFetch();
   }, [initFetch, draftStatus.onTheClock]);
 
-  useEffect(() => {
-    axios.get(`${API_URL}League/InitLeageData`)
-    .then((response) => {
-      // console.log("==> EMFTest (response) response:", response);
-      dispatch(fetchActiveLeague());
-      dispatch(fetchDraftStatus());
-    });
-  }, [dispatch]);
+  // useEffect(() => {
+  //   axios.get(`${API_URL}League/InitLeageData`)
+  //   .then((response) => {
+  //     // console.log("==> EMFTest (response) response:", response);
+  //     dispatch(fetchActiveLeague());
+  //     dispatch(fetchDraftStatus());
+  //   });
+  // }, [dispatch]);
 
   // if (!currentUser) {
   //   return <Navigate to="/" />;

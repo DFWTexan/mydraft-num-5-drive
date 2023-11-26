@@ -5,8 +5,8 @@ const initialState = {};
 
 export const fetchActiveLeague = createAsyncThunk(
   "League/GetActiveLeague",
-  async (id) => {
-    const res = await LeagueDataService.getActiveLeague(id);
+  async () => {
+    const res = await LeagueDataService.getActiveLeague();
     return res.data;
   }
 );
