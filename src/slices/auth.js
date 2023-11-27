@@ -31,8 +31,6 @@ export const login = createAsyncThunk(
     try {
       const data = await AuthService.login(username, password);
 
-console.log('==> EMFTest (authSlice) - data: \n', data);
-
       localStorage.setItem("user", JSON.stringify(data)); // Store the user in localStorage
       return { user: data };
     } catch (error) {

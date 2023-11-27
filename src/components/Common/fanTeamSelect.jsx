@@ -4,10 +4,18 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 
 const FanTeamSelect = ({ teams, selectedTeam, setSelectedTeam, label, minWidth, margin, size }) => {
-  const options = teams.map((team) => ({
-    value: team.id,
-    label: team.name,
-  }));
+  // const options = teams.map((team) => ({
+  //   value: team.id,
+  //   label: team.name,
+  // }));
+  const options = [
+    { value: 0, label: "Select Team" },
+    ...teams.map((team) => ({
+      value: team.id,
+      label: team.name,
+    })),
+  ];
+  
 
   return (
     <React.Fragment>

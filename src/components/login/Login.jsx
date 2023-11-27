@@ -13,7 +13,6 @@ const Login = () => {
   // let navigate = useNavigate();
   const [loginRegisterToggle, setLoginRegisterToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  // const { token } = useSelector((state) => state.auth.user);
   const { message } = useSelector((state) => state.message);
   const dispatch = useDispatch();
 

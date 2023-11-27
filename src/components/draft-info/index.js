@@ -30,7 +30,7 @@ import ProTeamDepthChart from "./ProTeamDepthChart";
 // };
 
 const DraftInfo = () => {
-  const [selectedTeam, setSelectedTeam] = useState(1);
+  const [selectedTeam, setSelectedTeam] = useState(0);
   const [depthChartIndex, setDepthChartIndex] = useState(0);
   const [depthChartDisplay, setDepthChartDisplay] = useState("QB");
   const draftPicks = useSelector((state) => state.draftPicks);

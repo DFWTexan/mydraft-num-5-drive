@@ -1,8 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import UserServiceService from "../services/UserService";
-// import {  useSelector } from "react-redux";
-
-// const getToken = () => localStorage.getItem("user"); // ? JSON.parse(localStorage.getItem("user")).accessToken : null;
 
 const getToken = () => {
   let userObject = JSON.parse(localStorage.getItem("user")); // Retrieve the user object from local storage
