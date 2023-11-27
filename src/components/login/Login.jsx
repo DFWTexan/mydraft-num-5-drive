@@ -14,7 +14,30 @@ const Login = () => {
   const [loginRegisterToggle, setLoginRegisterToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { message } = useSelector((state) => state.message);
+  //-- State for managing the password and confirm password values
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
+    useState(true);
   const dispatch = useDispatch();
+
+  // Effect to check if the register button should be enabled
+  useEffect(() => {
+    if (password.length >= 8 && password === confirmPassword) {
+      setIsRegisterButtonDisabled(false);
+    } else {
+      setIsRegisterButtonDisabled(true);
+    }
+  }, [password, confirmPassword]);
+
+  // Handlers for input changes
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+
+  const handleConfirmPasswordChange = (e) => {
+    setConfirmPassword(e.target.value);
+  };
 
   useEffect(() => {
     dispatch(clearMessage());
@@ -37,7 +60,7 @@ const Login = () => {
       });
   };
 
-  const handleRegister = () => {  
+  const handleRegister = () => {
     setIsLoading(true);
 
     let username = document.getElementById("username").value;
@@ -55,6 +78,13 @@ const Login = () => {
       });
   };
 
+  const myStyle = {
+    fontSize: ".8rem",
+    padding: ".5rem",
+    // color: "black",
+    // size: "2px",
+    // fontFamily: "Sans-Serif",
+  };
   // if (isLoggedIn) {
   //   return <Navigate to="/draftboard" />;
   // }
@@ -72,7 +102,7 @@ const Login = () => {
             <div>Welcome to</div>
             <div
               style={{
-                color: '#308efe',
+                color: "#308efe",
                 fontSize: "2rem",
                 fontWeight: 600,
                 marginBottom: "2rem",
@@ -93,6 +123,7 @@ const Login = () => {
                   >
                     <Label for="username">User name</Label>
                     <Input
+                      style={myStyle}
                       type="input"
                       name="username"
                       id="username"
@@ -109,6 +140,7 @@ const Login = () => {
                     >
                       <Label for="email">Email</Label>
                       <Input
+                        style={myStyle}
                         type="email"
                         name="email"
                         id="email"
@@ -125,22 +157,53 @@ const Login = () => {
                   >
                     <Label for="password">Password</Label>
                     <Input
+                      style={myStyle}
                       type="password"
                       name="password"
                       id="password"
                       placeholder="Password"
+                      value={password}
+                      onChange={handlePasswordChange}
                     />
                   </div>
+                  {loginRegisterToggle && (
+                  <div
+                    style={{
+                      fontSize: "1.1rem",
+                      fontWeight: 550,
+                      marginBottom: "1rem",
+                    }}
+                  >
+                    <Label for="password">Confirm Password</Label>
+                    <Input
+                      style={myStyle}
+                      type="password"
+                      name="password"
+                      id="confrimpassword"
+                      placeholder="Retype Password"
+                      value={confirmPassword}
+                      onChange={handleConfirmPasswordChange}
+                    />
+                  </div>)}
                 </FormGroup>
               </Form>
             </div>
             <div>
               {loginRegisterToggle ? (
-                <Button className="button-login" onClick={handleRegister}>
+                <Button
+                  id="btnRegister"
+                  className="button-login"
+                  onClick={handleRegister}
+                  disabled={isRegisterButtonDisabled}
+                >
                   Register
                 </Button>
               ) : (
-                <Button className="button-login" onClick={handleLogin}>
+                <Button
+                  id="btnLogin"
+                  className="button-login"
+                  onClick={handleLogin}
+                >
                   Login
                 </Button>
               )}
@@ -164,7 +227,7 @@ const Login = () => {
       </div>
 
       {message && (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div style={{ display: "flex", justifyContent: "center" }}>
           <div className="alert alert-danger" role="alert">
             {message}
           </div>
