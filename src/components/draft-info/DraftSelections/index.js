@@ -1,12 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { ListItem, ListSubheader, List } from "@mui/material";
+import { ListItemButton, ListSubheader, List } from "@mui/material";
 
 import "../../../styles/index.scss";
 import DraftPickCardItem from "./DraftPickCardItem";
+import PlayerModal from "../../Common/player-selected-modal";
 
 const DraftSelections = (props) => {
   const draftStatus = useSelector((state) => state.draftStatus);
+
+  const [openModelPlayerSelected, setOpenModalPlayerSelected] = useState({
+    isOpen: false,
+    player_ID: null,
+  });
+
+  const handlePlayerSelected_OpenModal = (player) => {
+    setOpenModalPlayerSelected({
+      isOpen: true,
+      player_ID: player.playerID,
+    });
+  };
+
+  const handleCloseModal = () => {
+    setOpenModalPlayerSelected({
+      isOpen: false,
+      player_ID: null,
+    });
+  };
 
   return (
     <div className="detail-container">
@@ -36,31 +56,44 @@ const DraftSelections = (props) => {
                     >
                       Round {rnd}
                     </ListSubheader>
-                    <ListItem>
+                    <ListItemButton
+                      href="#"
+                      onClick={() => handlePlayerSelected_OpenModal(element)}
+                    >
                       <DraftPickCardItem
                         draftPick={element}
                         otcID={draftStatus.onTheClock}
                         currentPick={draftStatus.currentPick}
                       />
-                    </ListItem>
+                    </ListItemButton>
                   </React.Fragment>
                 );
               } else {
                 return (
                   <React.Fragment key={index}>
-                    <ListItem>
+                    <ListItemButton
+                    href="#"
+                    onClick={() => handlePlayerSelected_OpenModal(element)}
+                    >
                       <DraftPickCardItem
                         draftPick={element}
                         otcID={draftStatus.onTheClock}
                         currentPick={draftStatus.currentPick}
                       />
-                    </ListItem>
+                    </ListItemButton>
                   </React.Fragment>
                 );
               }
             });
           })()}
       </List>
+      {openModelPlayerSelected.isOpen && (
+        <PlayerModal
+          props={openModelPlayerSelected}
+          handleCloseModal={handleCloseModal}
+          // filterSortPlayer={filterSortPlayer}
+        />
+      )}
     </div>
   );
 };

@@ -4,7 +4,7 @@ import { ListGroup, ListGroupItem } from "reactstrap";
 
 import "../../styles/index.scss";
 import PlayerCardItem from "./playerCardItem";
-import PlayerModal from "./player-selected-modal";
+import PlayerModal from "../Common/player-selected-modal";
 
 const DraftPlyrList = ({ searchTerm, filterSortPlayer }) => {
   const players = useSelector((state) => state.players);
@@ -21,7 +21,7 @@ const DraftPlyrList = ({ searchTerm, filterSortPlayer }) => {
   const handlePlayerSelected_OpenModal = (player) => {
     setOpenModalPlayerSelected({
       isOpen: true,
-      player_ID: player.id,
+      player_ID: player.playerID,
     });
   };
 
@@ -52,14 +52,26 @@ const DraftPlyrList = ({ searchTerm, filterSortPlayer }) => {
             </ListGroupItem>
           ))
         ) : (
-          <ListGroupItem><div style={{ paddingTop: '2rem', fontSize: '2rem', color: '#CD5C5C', display: 'flex', justifyContent: 'center' }}>No Players Found</div></ListGroupItem>
+          <ListGroupItem>
+            <div
+              style={{
+                paddingTop: "2rem",
+                fontSize: "2rem",
+                color: "#CD5C5C",
+                display: "flex",
+                justifyContent: "center",
+              }}
+            >
+              No Players Found
+            </div>
+          </ListGroupItem>
         )}
       </ListGroup>
       {openModelPlayerSelected.isOpen && (
         <PlayerModal
           props={openModelPlayerSelected}
           handleCloseModal={handleCloseModal}
-          filterSortPlayer={filterSortPlayer}
+          // filterSortPlayer={filterSortPlayer}
         />
       )}
     </div>

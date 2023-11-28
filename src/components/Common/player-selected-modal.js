@@ -8,7 +8,7 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "../../styles/index.scss";
 import { API_URL } from "../../config";
 import { fetchDraftStatus } from "../../slices/draftStatus";
-import { fetchPlayers } from "../../slices/players";
+// import { fetchPlayers } from "../../slices/players";
 
 const getColorClass = (position) => {
   switch (position) {
@@ -37,7 +37,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
 
   const runDispatch = () => {
     dispatch(fetchDraftStatus());
-    dispatch(fetchPlayers(filterSortPlayer));
+    // dispatch(fetchPlayers(filterSortPlayer));
   };
 
   useEffect(() => {
