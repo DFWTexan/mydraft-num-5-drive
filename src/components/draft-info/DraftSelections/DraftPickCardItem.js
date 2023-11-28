@@ -2,6 +2,25 @@ import React from "react";
 
 import "../../../styles/index.scss";
 
+const getColorClass = (position) => {
+  switch (position) {
+    case "QB":
+      return "qb-color";
+    case "RB":
+      return "rb-color";
+    case "WR":
+      return "wr-color";
+    case "TE":
+      return "te-color";
+    case "K":
+      return "k-color";
+    case "DEF":
+      return "def-color";
+    default:
+      return ""; // Default or fallback class
+  }
+};
+
 const CardInfo = ({ draftPick, otcID, currentPick }) => {
   const className = draftPick.isMyTeamPick
     ? "draft-selection-card-my-team-pick"
@@ -13,20 +32,34 @@ const CardInfo = ({ draftPick, otcID, currentPick }) => {
 
   return (
     <div className={className}>
-      <span style={{ fontSize: '1.2rem', fontWeight: 'bold' }}>{draftPick.round + "." + draftPick.pickInRound}</span>
+      <span style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+        {draftPick.round + "." + draftPick.pickInRound}
+      </span>
       <div className="draft-selection-card__title">
         {draftPick.player ? (
-          <span>
-            {draftPick.player.firstName +
-              " " +
-              draftPick.player.lastName +
-              " - " +
-              draftPick.player.position}
-          </span>
+          <div>
+            <span>
+              {draftPick.player.firstName +
+                " " +
+                draftPick.player.lastName +
+                " - "}
+            </span>
+            <span  className={` ${getColorClass(
+                draftPick.player.position
+              )}`}>{draftPick.player.position}</span>
+          </div>
         ) : draftPick.overallPick === currentPick ? (
           <div>
-            <span style={{ color: '#FF0000', fontWeight: 'lighter' }}>On the Clock:</span>
-            <span style={{  paddingLeft: '.5rem', fontSize: "1.3rem", fontWeight: "600" }}>
+            <span style={{ color: "#FF0000", fontWeight: "lighter" }}>
+              On the Clock:
+            </span>
+            <span
+              style={{
+                paddingLeft: ".5rem",
+                fontSize: "1.3rem",
+                fontWeight: "600",
+              }}
+            >
               {draftPick.fanTeamName}
             </span>
           </div>
