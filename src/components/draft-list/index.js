@@ -15,8 +15,8 @@ const DraftPlyrList = ({ searchTerm, filterSortPlayer }) => {
   });
 
   const filteredPlayers = players.filter((player) =>
-  player.fullName.toLowerCase().includes(searchTerm.toLowerCase())
-);
+    player.fullName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handlePlayerSelected_OpenModal = (player) => {
     setOpenModalPlayerSelected({
@@ -33,9 +33,9 @@ const DraftPlyrList = ({ searchTerm, filterSortPlayer }) => {
   };
 
   return (
-    <div className="detail-container" >
+    <div className="detail-container">
       <ListGroup>
-        {filteredPlayers &&
+        {filteredPlayers.length > 0 ? (
           filteredPlayers.map((player, index) => (
             <ListGroupItem
               className={`draft-list-card ${
@@ -50,7 +50,10 @@ const DraftPlyrList = ({ searchTerm, filterSortPlayer }) => {
             >
               <PlayerCardItem player={player} />
             </ListGroupItem>
-          ))}
+          ))
+        ) : (
+          <ListGroupItem><div style={{ paddingTop: '2rem', fontSize: '2rem', color: '#CD5C5C', display: 'flex', justifyContent: 'center' }}>No Players Found</div></ListGroupItem>
+        )}
       </ListGroup>
       {openModelPlayerSelected.isOpen && (
         <PlayerModal

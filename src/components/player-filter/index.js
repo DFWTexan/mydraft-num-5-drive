@@ -26,7 +26,7 @@ const PlayerFilter = ({
         <Form>
           <FormGroup>
             <Input
-              // className="search_input"
+              style={{ fontSize: ".9rem", padding: ".5rem" }}
               id="playerSearch"
               name="search"
               placeholder="Player Search"
