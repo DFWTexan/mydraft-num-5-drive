@@ -28,6 +28,14 @@ const DraftSelections = (props) => {
     });
   };
 
+  const isDrafted = (draftPick) => {
+    if (!draftPick.player) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   return (
     <div className="detail-container">
       <List
@@ -58,6 +66,7 @@ const DraftSelections = (props) => {
                     </ListSubheader>
                     <ListItemButton
                       href="#"
+                      disabled={isDrafted(element)}
                       onClick={() => handlePlayerSelected_OpenModal(element)}
                     >
                       <DraftPickCardItem
@@ -72,8 +81,9 @@ const DraftSelections = (props) => {
                 return (
                   <React.Fragment key={index}>
                     <ListItemButton
-                    href="#"
-                    onClick={() => handlePlayerSelected_OpenModal(element)}
+                      href="#"
+                      disabled={isDrafted(element)}
+                      onClick={() => handlePlayerSelected_OpenModal(element)}
                     >
                       <DraftPickCardItem
                         draftPick={element}

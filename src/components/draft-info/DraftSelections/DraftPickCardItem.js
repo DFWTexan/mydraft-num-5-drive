@@ -31,7 +31,7 @@ const CardInfo = ({ draftPick, otcID, currentPick }) => {
             </span>
           </div>
         ) : (
-          <span style={{ color: "#D3D3D3" }}>{draftPick.fanTeamName}</span>
+          <span style={{ color: "#778899" }}>{draftPick.fanTeamName}</span>
         )}
       </div>
     </div>
