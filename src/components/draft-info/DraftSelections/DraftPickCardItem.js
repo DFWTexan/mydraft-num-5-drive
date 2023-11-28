@@ -2,23 +2,35 @@ import React from "react";
 
 import "../../../styles/index.scss";
 
-const CardInfo = ({ draftPick }) => (
-  <div className="draft-selection-card">
-    {draftPick.round + "." + draftPick.pickInRound}{" "}
-    <div className="draft-selection-card__title">
-      {draftPick.player &&
-        "   " +
-          draftPick.player.firstName +
-          " " +
-          draftPick.player.lastName +
-          " - " +
-          draftPick.player.position}
-    </div>
-  </div>
-);
+const CardInfo = ({ draftPick, otcID, currentPick }) => {
+  const className = draftPick.isMyTeamPick
+    ? "draft-selection-card-my-team-pick"
+    : draftPick.teamID === otcID
+    ? draftPick.overallPick === currentPick 
+    ? "draft-selection-card-on-the-clock"
+    : "draft-selection-card"
+    : "draft-selection-card";
 
-const DraftPickCardItem = ({ draftPick }) => {
-  return <CardInfo draftPick={draftPick} />;
+  return (
+    <div className={className}>
+      {draftPick.round + "." + draftPick.pickInRound}{" "}
+      <div className="draft-selection-card__title">
+        {draftPick.player &&
+          "   " +
+            draftPick.player.firstName +
+            " " +
+            draftPick.player.lastName +
+            " - " +
+            draftPick.player.position}
+      </div>
+    </div>
+  );
+};
+
+const DraftPickCardItem = ({ draftPick, otcID, currentPick }) => {
+  return (
+    <CardInfo draftPick={draftPick} otcID={otcID} currentPick={currentPick} />
+  );
 };
 
 export default DraftPickCardItem;

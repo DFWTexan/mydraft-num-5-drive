@@ -1,16 +1,19 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { ListItem, ListSubheader, List } from "@mui/material";
 
 import "../../../styles/index.scss";
 import DraftPickCardItem from "./DraftPickCardItem";
 
 const DraftSelections = (props) => {
+  const draftStatus = useSelector((state) => state.draftStatus);
+
   return (
     <div className="detail-container">
       <List
         sx={{
           width: "100%",
-          padding: '.5rem',
+          padding: ".5rem",
           bgcolor: "background.paper",
           position: "relative",
         }}
@@ -34,7 +37,11 @@ const DraftSelections = (props) => {
                       Round {rnd}
                     </ListSubheader>
                     <ListItem>
-                      <DraftPickCardItem draftPick={element} />
+                      <DraftPickCardItem
+                        draftPick={element}
+                        otcID={draftStatus.onTheClock}
+                        currentPick={draftStatus.currentPick}
+                      />
                     </ListItem>
                   </React.Fragment>
                 );
@@ -42,7 +49,11 @@ const DraftSelections = (props) => {
                 return (
                   <React.Fragment key={index}>
                     <ListItem>
-                      <DraftPickCardItem draftPick={element} />
+                      <DraftPickCardItem
+                        draftPick={element}
+                        otcID={draftStatus.onTheClock}
+                        currentPick={draftStatus.currentPick}
+                      />
                     </ListItem>
                   </React.Fragment>
                 );

@@ -5,6 +5,7 @@ import { Form, FormGroup, Label, Button, Input } from "reactstrap";
 
 import "./login.scss";
 import { login, register } from "../../slices/auth";
+import { setMessage } from "../../slices/message";
 import { clearMessage } from "../../slices/message";
 import { loginUser } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
@@ -17,8 +18,7 @@ const Login = () => {
   //-- State for managing the password and confirm password values
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
-    useState(true);
+  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] = useState(true);
   const dispatch = useDispatch();
 
   // Effect to check if the register button should be enabled
@@ -45,6 +45,7 @@ const Login = () => {
 
   const handleLogin = () => {
     setIsLoading(true);
+    dispatch(setMessage("Loading Draft...", ""));
 
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -57,6 +58,7 @@ const Login = () => {
       })
       .catch(() => {
         setIsLoading(false);
+        dispatch(clearMessage());
       });
   };
 
@@ -227,7 +229,7 @@ const Login = () => {
       </div>
 
       {message && (
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <div style={{ paddingTop: "2rem", display: "flex", justifyContent: "center" }}>
           <div className="alert alert-danger" role="alert">
             {message}
           </div>
