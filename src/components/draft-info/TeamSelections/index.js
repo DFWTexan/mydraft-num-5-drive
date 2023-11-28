@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import "../../../styles/index.scss";
 import { fetchFanTeamSelections } from "../../../slices/fanTeamSelections";
-import FanTeamSelect from "../../Common/fanTeamSelect";  
+import FanTeamSelect from "../../Common/fanTeamSelect";
 import TeamSelectionCardItem from "./teamSelectionCardItem";
 
 const TeamSelections = (props) => {
@@ -28,20 +28,26 @@ const TeamSelections = (props) => {
           setSelectedTeam={props.setSelectedTeam}
         />
       </div>
-      <table style={{ width: "100%" }}>
-        <tbody>
-          {teamSelections.map((item, index) => (
-            <React.Fragment key={index}>
-              <tr>
-                <td>
-                  {/* {item.key} */}
-                  <TeamSelectionCardItem draftPick={item.value} />
-                </td>
-              </tr>
-            </React.Fragment>
-          ))}
-        </tbody>
-      </table>
+      {teamSelections.length === 0 ? (
+        <div style={{ fontSize: '1rem', paddingTop: '2rem' }}>
+          <p>Select a Team to see Draft Results.</p>
+        </div>
+      ) : (
+        <table style={{ width: "100%" }}>
+          <tbody>
+            {teamSelections.map((item, index) => (
+              <React.Fragment key={index}>
+                <tr>
+                  <td>
+                    {/* {item.key} */}
+                    <TeamSelectionCardItem draftPick={item.value} />
+                  </td>
+                </tr>
+              </React.Fragment>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };

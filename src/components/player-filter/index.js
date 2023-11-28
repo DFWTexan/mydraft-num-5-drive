@@ -11,6 +11,8 @@ import {
 import PlayerFilterSelect from "../Common/playerFilterSelect";
 
 const PlayerFilter = ({
+  searchTerm,
+  handleSearch,
   pointValue,
   positionValue,
   draftStatusValue,
@@ -29,6 +31,8 @@ const PlayerFilter = ({
               name="search"
               placeholder="Player Search"
               type="search"
+              value={searchTerm}
+              onChange={handleSearch}
             />
           </FormGroup>
         </Form>

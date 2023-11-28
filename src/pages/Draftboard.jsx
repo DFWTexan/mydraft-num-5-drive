@@ -26,16 +26,26 @@ const initFilterSortPlayer = {
 const Draftboard = () => {
   // const { user: currentUser } = useSelector((state) => state.auth);
   // const activeLeague = useSelector((state) => state.activeLeague);
+  const [searchTerm, setSearchTerm] = useState("");
   const draftStatus = useSelector((state) => state.draftStatus);
   const [filterSortPlayer, setFilterSortPlayer] = useState(initFilterSortPlayer);
   const dispatch = useDispatch();
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
 
   const handleFilterPlayer = (filter) => {
     switch (filter.type) {
       case "[pointValue]":
         setFilterSortPlayer((prevState) => ({
           ...prevState,
-          pointValue: filter.value.target.value === 1 ? "[POINTS]" : filter.value.target.value === 2 ? "[ADP]" : "[VALUE]",
+          pointValue:
+            filter.value.target.value === 1
+              ? "[POINTS]"
+              : filter.value.target.value === 2
+              ? "[ADP]"
+              : "[VALUE]",
           pntVal: filter.value.target.value,
         }));
         break;
@@ -73,7 +83,12 @@ const Draftboard = () => {
       case "[draftStatus]":
         setFilterSortPlayer((prevState) => ({
           ...prevState,
-          draftStatus: filter.value.target.value === 0 ? null : filter.value.target.value === 1 ? "[DRAFTED]" : "[AVAILABLE]",
+          draftStatus:
+            filter.value.target.value === 0
+              ? null
+              : filter.value.target.value === 1
+              ? "[DRAFTED]"
+              : "[AVAILABLE]",
           drftVal: filter.value.target.value,
         }));
         break;
@@ -112,16 +127,20 @@ const Draftboard = () => {
         <div>
           <PlayerFilter
             // props={filterSortPlayer}
+            searchTerm={searchTerm}
+            handleSearch={handleSearch}
             pointValue={filterSortPlayer.pntVal}
             positionValue={filterSortPlayer.posVal}
             draftStatusValue={filterSortPlayer.drftVal}
             handleFilterPlayer={handleFilterPlayer}
           />
         </div>
-        <DraftPlyrList filterSortPlayer={filterSortPlayer}/>
+        <DraftPlyrList 
+          searchTerm={searchTerm}
+            filterSortPlayer={filterSortPlayer} />
       </div>
       <div className="middle">
-        <DraftInfo/>
+        <DraftInfo />
       </div>
       <div className="right">
         <ProTeamInfo />

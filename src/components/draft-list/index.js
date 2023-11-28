@@ -6,13 +6,17 @@ import "../../styles/index.scss";
 import PlayerCardItem from "./playerCardItem";
 import PlayerModal from "./player-selected-modal";
 
-const DraftPlyrList = ({ filterSortPlayer }) => {
+const DraftPlyrList = ({ searchTerm, filterSortPlayer }) => {
   const players = useSelector((state) => state.players);
 
   const [openModelPlayerSelected, setOpenModalPlayerSelected] = useState({
     isOpen: false,
     player_ID: null,
   });
+
+  const filteredPlayers = players.filter((player) =>
+  player.fullName.toLowerCase().includes(searchTerm.toLowerCase())
+);
 
   const handlePlayerSelected_OpenModal = (player) => {
     setOpenModalPlayerSelected({
@@ -31,8 +35,8 @@ const DraftPlyrList = ({ filterSortPlayer }) => {
   return (
     <div className="detail-container" >
       <ListGroup>
-        {players &&
-          players.map((player, index) => (
+        {filteredPlayers &&
+          filteredPlayers.map((player, index) => (
             <ListGroupItem
               className={`draft-list-card ${
                 player.isDrafted ? "draft-list-card-variant" : ""
