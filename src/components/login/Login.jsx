@@ -68,7 +68,8 @@ const Login = () => {
       })
       .catch(() => {
         setIsLoading(false);
-        // dispatch(clearMessage());
+        setPassword("");
+        setConfirmPassword("");
       });
   };
 
@@ -87,6 +88,8 @@ const Login = () => {
       })
       .catch(() => {
         setIsLoading(false);
+        setPassword("");
+        setConfirmPassword("");
       });
   };
 
