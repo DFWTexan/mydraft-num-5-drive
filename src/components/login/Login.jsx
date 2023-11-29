@@ -17,23 +17,15 @@ const Login = () => {
   const { status, message } = useSelector((state) => state.message);
   //-- State for managing the password and confirm password values
   const [password, setPassword] = useState("");
+  const [passwordValidated, setPasswordValidated] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
-    useState(true);
+  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] = useState(true);
   const dispatch = useDispatch();
 
-  // Effect to check if the register button should be enabled
-  useEffect(() => {
-    if (password.length >= 8 && password === confirmPassword) {
-      setIsRegisterButtonDisabled(false);
-    } else {
-      setIsRegisterButtonDisabled(true);
-    }
-  }, [password, confirmPassword]);
-
   // Handlers for input changes
-  const handlePasswordChange = (e) => {
+  const handleRegistrationPasswordChange = (e) => {
     setPassword(e.target.value);
+    handleRegistrationPasswordValidation(e);
   };
 
   const handleConfirmPasswordChange = (e) => {
@@ -43,6 +35,19 @@ const Login = () => {
   useEffect(() => {
     dispatch(clearMessage());
   }, [dispatch]);
+
+  ///write handle to enforce 8 character password with 1 number and 1 special character
+  const handleRegistrationPasswordValidation = (e) => {
+    let password = e.target.value;
+    let passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    if (passwordRegex.test(password)) {
+      setPasswordValidated(true);
+      dispatch(clearMessage());
+    } else {
+      setPasswordValidated(false);
+      dispatch(setMessage({ status: "WARN", message: "Password must be at least 8 characters with 1 number and 1 special character" }));
+    }
+  };
 
   const handleLogin = () => {
     setIsLoading(true);
@@ -81,12 +86,18 @@ const Login = () => {
       });
   };
 
+  // Effect to check if the register button should be enabled
+  useEffect(() => {
+    if (password.length >= 8 && password === confirmPassword) {
+      setIsRegisterButtonDisabled(false);
+    } else {
+      setIsRegisterButtonDisabled(true);
+    }
+  }, [password, confirmPassword]);
+
   const myStyle = {
     fontSize: ".8rem",
     padding: ".5rem",
-    // color: "black",
-    // size: "2px",
-    // fontFamily: "Sans-Serif",
   };
   // if (isLoggedIn) {
   //   return <Navigate to="/draftboard" />;
@@ -151,25 +162,48 @@ const Login = () => {
                       />
                     </div>
                   )}
-                  <div
-                    style={{
-                      fontSize: "1.1rem",
-                      fontWeight: 550,
-                      marginBottom: "1rem",
-                    }}
-                  >
-                    <Label for="password">Password</Label>
-                    <Input
-                      style={myStyle}
-                      type="password"
-                      name="password"
-                      id="password"
-                      placeholder="Password"
-                      value={password}
-                      onChange={handlePasswordChange}
-                    />
-                  </div>
-                  {loginRegisterToggle && (
+
+                  {loginRegisterToggle ? (
+                    <>
+                      <div
+                        style={{
+                          fontSize: "1.1rem",
+                          fontWeight: 550,
+                          marginBottom: "1rem",
+                        }}
+                      >
+                        <Label for="password">Password</Label>
+                        <Input
+                          style={myStyle}
+                          type="password"
+                          name="password"
+                          id="RegistrationPassword"
+                          placeholder="Password"
+                          value={password}
+                          onChange={handleRegistrationPasswordChange}
+                        />
+                      </div>
+                      <div
+                        style={{
+                          fontSize: "1.1rem",
+                          fontWeight: 550,
+                          marginBottom: "1rem",
+                        }}
+                      >
+                        <Label for="password">Confirm Password</Label>
+                        <Input
+                          style={myStyle}
+                          type="password"
+                          name="password"
+                          id="confrimpassword"
+                          placeholder="Retype Password"
+                          disabled={!passwordValidated}
+                          value={confirmPassword}
+                          onChange={handleConfirmPasswordChange}
+                        />
+                      </div>
+                    </>
+                  ) : (
                     <div
                       style={{
                         fontSize: "1.1rem",
@@ -177,15 +211,15 @@ const Login = () => {
                         marginBottom: "1rem",
                       }}
                     >
-                      <Label for="password">Confirm Password</Label>
+                      <Label for="password">Password</Label>
                       <Input
                         style={myStyle}
                         type="password"
                         name="password"
-                        id="confrimpassword"
-                        placeholder="Retype Password"
-                        value={confirmPassword}
-                        onChange={handleConfirmPasswordChange}
+                        id="LoginPassword"
+                        placeholder="Password"
+                        value={password}
+                        // onChange={handlePasswordChange}
                       />
                     </div>
                   )}
@@ -240,11 +274,15 @@ const Login = () => {
         >
           <div
             className={
-              status === "failed" || status === 400 || status === 401
+              status === "FAILED" || status === 400 || status === 401
                 ? "alert alert-danger"
-                : status === "info"
+                : status === "INFO"
                 ? "alert alert-info"
-                : ""
+                : status === "WARN"
+                ? "alert alert-warning"
+                : status === "SUCCESS"
+                ? "alert alert-success"
+                : "alert alert-success"
             }
             role="alert"
           >

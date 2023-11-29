@@ -12,6 +12,21 @@
   margin-bottom: 20px;
   border: 1px solid transparent;
   border-radius: 4px;
+  margin: .5rem;
+}
+
+/* Alert Success */
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+
+/* Alert Warning */
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
 }
 
 /* Alert Danger */
