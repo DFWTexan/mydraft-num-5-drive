@@ -13,12 +13,23 @@ export const register = createAsyncThunk(
       thunkAPI.dispatch(setMessage(response.data));
       return response.data;
     } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+      // const message =
+      //   (error.response &&
+      //     error.response.data &&
+      //     error.response.data.message) ||
+      //   error.message ||
+      //   error.toString();
+      // thunkAPI.dispatch(setMessage(message));
+      let message = {
+        status: "ERROR",
+        message: "An error occurred."
+      };
+
+      message = {
+        ...message,
+        status: error.response.data.status, 
+        message: error.response.data.message
+      };
       thunkAPI.dispatch(setMessage(message));
       return thunkAPI.rejectWithValue();
     }
@@ -42,7 +53,7 @@ export const login = createAsyncThunk(
       //   error.toString();
       // thunkAPI.dispatch(setMessage(message));
       let message = {
-        status: "Error",
+        status: "ERROR",
         message: "An error occurred."
       };
 

@@ -77,7 +77,7 @@ const Login = () => {
 
     let username = document.getElementById("UserName").value;
     let email = document.getElementById("Email").value;
-    let password = document.getElementById("Password").value;
+    let password = document.getElementById("RegistrationPassword").value;
 
     dispatch(register({ username, email, password }))
       .unwrap()
@@ -112,7 +112,7 @@ const Login = () => {
       {/* <div className="sidebar__logo">Demo Login</div> */}
       <div className="sidebar___btn">
         {isLoading ? (
-          <div style={{ display: "flex", justifyContent: "center" }}>
+          <div style={{ paddingTop: "5rem", display: "flex", justifyContent: "center" }}>
             <div className="loader" />
           </div>
         ) : (
@@ -282,7 +282,7 @@ const Login = () => {
         >
           <div
             className={
-              status === "FAILED" || status === 400 || status === 401
+              status === "ERROR" || status === "FAILED" || status === 400 || status === 401 || status === 403 || status === 404 || status === 500
                 ? "alert alert-danger"
                 : status === "INFO"
                 ? "alert alert-info"
