@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import { Button } from "reactstrap";
 
 import "./sidebar.scss";
+import { logout } from "../../slices/auth";
 
 const sidebarNavItems = [
   {
@@ -31,8 +33,10 @@ const Sidebar = () => {
   const sidebarRef = useRef();
   const indicatorRef = useRef();
   const location = useLocation();
+  const dispatch = useDispatch();
 
   const handleLogOut = () => {
+    dispatch(logout());
     window.location.href = "/";
   };
 

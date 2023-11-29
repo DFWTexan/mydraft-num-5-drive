@@ -14,11 +14,12 @@ const Login = () => {
   // let navigate = useNavigate();
   const [loginRegisterToggle, setLoginRegisterToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { message } = useSelector((state) => state.message);
+  const { status, message } = useSelector((state) => state.message);
   //-- State for managing the password and confirm password values
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] = useState(true);
+  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
+    useState(true);
   const dispatch = useDispatch();
 
   // Effect to check if the register button should be enabled
@@ -45,7 +46,7 @@ const Login = () => {
 
   const handleLogin = () => {
     setIsLoading(true);
-    dispatch(setMessage("Loading Draft...", ""));
+    dispatch(setMessage({ status: "info", message: "Logging in..." }));
 
     let username = document.getElementById("username").value;
     let password = document.getElementById("password").value;
@@ -58,7 +59,7 @@ const Login = () => {
       })
       .catch(() => {
         setIsLoading(false);
-        dispatch(clearMessage());
+        // dispatch(clearMessage());
       });
   };
 
@@ -169,24 +170,25 @@ const Login = () => {
                     />
                   </div>
                   {loginRegisterToggle && (
-                  <div
-                    style={{
-                      fontSize: "1.1rem",
-                      fontWeight: 550,
-                      marginBottom: "1rem",
-                    }}
-                  >
-                    <Label for="password">Confirm Password</Label>
-                    <Input
-                      style={myStyle}
-                      type="password"
-                      name="password"
-                      id="confrimpassword"
-                      placeholder="Retype Password"
-                      value={confirmPassword}
-                      onChange={handleConfirmPasswordChange}
-                    />
-                  </div>)}
+                    <div
+                      style={{
+                        fontSize: "1.1rem",
+                        fontWeight: 550,
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      <Label for="password">Confirm Password</Label>
+                      <Input
+                        style={myStyle}
+                        type="password"
+                        name="password"
+                        id="confrimpassword"
+                        placeholder="Retype Password"
+                        value={confirmPassword}
+                        onChange={handleConfirmPasswordChange}
+                      />
+                    </div>
+                  )}
                 </FormGroup>
               </Form>
             </div>
@@ -229,8 +231,23 @@ const Login = () => {
       </div>
 
       {message && (
-        <div style={{ paddingTop: "2rem", display: "flex", justifyContent: "center" }}>
-          <div className="alert alert-danger" role="alert">
+        <div
+          style={{
+            paddingTop: "2rem",
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <div
+            className={
+              status === "failed" || status === 400 || status === 401
+                ? "alert alert-danger"
+                : status === "info"
+                ? "alert alert-info"
+                : ""
+            }
+            role="alert"
+          >
             {message}
           </div>
         </div>

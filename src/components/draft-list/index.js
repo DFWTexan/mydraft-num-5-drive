@@ -53,17 +53,30 @@ const DraftPlyrList = ({ searchTerm, filterSortPlayer }) => {
           ))
         ) : (
           <ListGroupItem>
-            <div
-              style={{
-                paddingTop: "2rem",
-                fontSize: "2rem",
-                color: "#CD5C5C",
-                display: "flex",
-                justifyContent: "center",
-              }}
-            >
-              No Players Found
-            </div>
+            {searchTerm.length > 0 ? (
+              <div
+                style={{
+                  paddingTop: "2rem",
+                  fontSize: "2rem",
+                  color: "#CD5C5C",
+                  display: "flex",
+                  justifyContent: "center",
+                }}
+              >
+                No Players Found
+              </div>
+            ) : (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  height: "70vh",
+                }}
+              >
+                <div className="loader" />
+              </div>
+            )}
           </ListGroupItem>
         )}
       </ListGroup>

@@ -10,7 +10,7 @@ export const register = createAsyncThunk(
   async ({ username, email, password }, thunkAPI) => {
     try {
       const response = await AuthService.register(username, email, password);
-      thunkAPI.dispatch(setMessage(response.data.message));
+      thunkAPI.dispatch(setMessage(response.data));
       return response.data;
     } catch (error) {
       const message =
@@ -34,12 +34,31 @@ export const login = createAsyncThunk(
       localStorage.setItem("user", JSON.stringify(data)); // Store the user in localStorage
       return { user: data };
     } catch (error) {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+      // const message =
+      //   (error.response &&
+      //     error.response.data &&
+      //     error.response.data.message) ||
+      //   error.message ||
+      //   error.toString();
+      // thunkAPI.dispatch(setMessage(message));
+      let message = {
+        status: "Error",
+        message: "An error occurred."
+      };
+
+      // Check for the specific structure of the error response and update the message object accordingly
+      if (error.response && error.response.data) {
+        message = {
+          ...message,
+          status: error.response.data.status || "Error",
+          message: error.response.data.message || "Username or password is incorrect."
+        };
+      } else {
+        message = {
+          ...message,
+          message: error.message || error.toString()
+        };
+      }
       thunkAPI.dispatch(setMessage(message));
       return thunkAPI.rejectWithValue();
     }
