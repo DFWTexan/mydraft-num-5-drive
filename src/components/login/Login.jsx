@@ -253,11 +253,14 @@ const Login = () => {
             <div style={{ marginTop: "1rem" }}>
               <Button
                 style={{
+                  fontSize: "1.5rem",
+                  fontWeight: "lighter",
                   background: "transparent",
                   padding: ".5rem",
-                  fontSize: ".8rem",
                   borderRadius: "5px",
                   border: "1px solid #fff",
+                  color: "#8B008B",
+                  cursor: "pointer",
                 }}
                 onClick={() => setLoginRegisterToggle(!loginRegisterToggle)}
               >
