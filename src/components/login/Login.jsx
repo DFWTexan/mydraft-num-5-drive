@@ -109,7 +109,7 @@ const Login = () => {
 
   return (
     <div className="sidebar">
-      <div className="sidebar__logo">User Login</div>
+      {/* <div className="sidebar__logo">Demo Login</div> */}
       <div className="sidebar___btn">
         {isLoading ? (
           <div style={{ display: "flex", justifyContent: "center" }}>
@@ -117,9 +117,10 @@ const Login = () => {
           </div>
         ) : (
           <div>
-            <div>Welcome to</div>
+            <div style={{ paddingTop: '2rem', fontSize: '1.3rem' }}>Welcome to</div>
             <div
               style={{
+                paddingTop: "2rem",
                 color: "#308efe",
                 fontSize: "2rem",
                 fontWeight: 600,
@@ -127,7 +128,7 @@ const Login = () => {
               }}
             >
               {" "}
-              My Fantasy Draft
+              MyFantasy Draft
             </div>
             <div style={{ textAlign: "left" }}>
               <Form>
