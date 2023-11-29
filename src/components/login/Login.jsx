@@ -23,6 +23,10 @@ const Login = () => {
   const dispatch = useDispatch();
 
   // Handlers for input changes
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+  };
+  
   const handleRegistrationPasswordChange = (e) => {
     setPassword(e.target.value);
     handleRegistrationPasswordValidation(e);
@@ -51,10 +55,10 @@ const Login = () => {
 
   const handleLogin = () => {
     setIsLoading(true);
-    dispatch(setMessage({ status: "info", message: "Logging in..." }));
+    dispatch(setMessage({ status: "INFO", message: "Logging in..." }));
 
-    let username = document.getElementById("username").value;
-    let password = document.getElementById("password").value;
+    let username = document.getElementById("UserName").value;
+    let password = document.getElementById("LoginPassword").value;
 
     dispatch(login({ username, password }))
       .unwrap()
@@ -71,9 +75,9 @@ const Login = () => {
   const handleRegister = () => {
     setIsLoading(true);
 
-    let username = document.getElementById("username").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+    let username = document.getElementById("UserName").value;
+    let email = document.getElementById("Email").value;
+    let password = document.getElementById("Password").value;
 
     dispatch(register({ username, email, password }))
       .unwrap()
@@ -135,12 +139,12 @@ const Login = () => {
                       marginBottom: "1rem",
                     }}
                   >
-                    <Label for="username">User name</Label>
+                    <Label for="UserName">User name</Label>
                     <Input
                       style={myStyle}
                       type="input"
-                      name="username"
-                      id="username"
+                      name="UserName"
+                      id="UserName"
                       placeholder="User Name"
                     />
                   </div>
@@ -152,12 +156,12 @@ const Login = () => {
                         marginBottom: "1rem",
                       }}
                     >
-                      <Label for="email">Email</Label>
+                      <Label for="Email">Email</Label>
                       <Input
                         style={myStyle}
                         type="email"
-                        name="email"
-                        id="email"
+                        name="Email"
+                        id="Email"
                         placeholder="Email"
                       />
                     </div>
@@ -172,11 +176,11 @@ const Login = () => {
                           marginBottom: "1rem",
                         }}
                       >
-                        <Label for="password">Password</Label>
+                        <Label for="RegistrationPassword">Password</Label>
                         <Input
                           style={myStyle}
                           type="password"
-                          name="password"
+                          name="RegistrationPassword"
                           id="RegistrationPassword"
                           placeholder="Password"
                           value={password}
@@ -190,12 +194,12 @@ const Login = () => {
                           marginBottom: "1rem",
                         }}
                       >
-                        <Label for="password">Confirm Password</Label>
+                        <Label for="ConfrimPassword">Confirm Password</Label>
                         <Input
                           style={myStyle}
                           type="password"
-                          name="password"
-                          id="confrimpassword"
+                          name="ConfrimPassword"
+                          id="ConfrimPassword"
                           placeholder="Retype Password"
                           disabled={!passwordValidated}
                           value={confirmPassword}
@@ -211,15 +215,15 @@ const Login = () => {
                         marginBottom: "1rem",
                       }}
                     >
-                      <Label for="password">Password</Label>
+                      <Label for="LoginPassword">Password</Label>
                       <Input
                         style={myStyle}
                         type="password"
-                        name="password"
+                        name="LoginPassword"
                         id="LoginPassword"
                         placeholder="Password"
                         value={password}
-                        // onChange={handlePasswordChange}
+                        onChange={handlePasswordChange}
                       />
                     </div>
                   )}
