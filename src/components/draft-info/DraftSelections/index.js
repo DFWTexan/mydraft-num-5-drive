@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { ListItemButton, ListSubheader, List } from "@mui/material";
 
@@ -8,6 +8,7 @@ import PlayerModal from "../../Common/player-selected-modal";
 
 const DraftSelections = (props) => {
   const draftStatus = useSelector((state) => state.draftStatus);
+  const currentItemRef = useRef(null);
 
   const [openModelPlayerSelected, setOpenModalPlayerSelected] = useState({
     isOpen: false,
@@ -27,6 +28,16 @@ const DraftSelections = (props) => {
       player_ID: null,
     });
   };
+
+  useEffect(() => {
+    // Scroll the current item into view
+    if (currentItemRef.current) {
+      currentItemRef.current.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+      });
+    }
+  }, [draftStatus.currentPick]);
 
   const isDrafted = (draftPick) => {
     if (!draftPick.player) {
@@ -55,6 +66,12 @@ const DraftSelections = (props) => {
           (() => {
             let rnd = 1;
             return props.draftPicks.map((element, index) => {
+              const isCurrentPick =
+                element.overallPick === draftStatus.currentPick;
+              const listItemProps = isCurrentPick
+                ? { ref: currentItemRef }
+                : {};
+
               if (element.round !== rnd) {
                 rnd = element.round;
                 return (
@@ -65,6 +82,7 @@ const DraftSelections = (props) => {
                       Round {rnd}
                     </ListSubheader>
                     <ListItemButton
+                      {...listItemProps}
                       href="#"
                       disabled={isDrafted(element)}
                       onClick={() => handlePlayerSelected_OpenModal(element)}
@@ -81,6 +99,7 @@ const DraftSelections = (props) => {
                 return (
                   <React.Fragment key={index}>
                     <ListItemButton
+                      {...listItemProps}
                       href="#"
                       disabled={isDrafted(element)}
                       onClick={() => handlePlayerSelected_OpenModal(element)}
