@@ -2,12 +2,16 @@ import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "reactstrap";
-import FormControl from '@mui/material/FormControl';
+import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import axios from "axios";
 
 import "./sidebar.scss";
+import { API_URL } from "../../config";
 import { logout } from "../../slices/auth";
+import { fetchActiveLeague } from "../../slices/league";
+import { fetchDraftStatus } from "../../slices/draftStatus";
 
 const sidebarNavItems = [
   {
@@ -41,9 +45,31 @@ const Sidebar = () => {
   const location = useLocation();
   const dispatch = useDispatch();
 
+  const runDispatch = () => {
+    dispatch(fetchActiveLeague());
+    dispatch(fetchDraftStatus());
+  };
+
   const handleLogOut = () => {
     dispatch(logout());
     window.location.href = "/";
+  };
+
+  const handleLeagueChange = (event) => {
+    const leagueId = event.target.value;
+    setSelectedLeague(leagueId);
+    axios
+      .get(`${API_URL}League/ChangeActiveLeague/${leagueId}`)
+      .then((res) => {
+        // dispatch({
+        //   type: "SET_ACTIVE_LEAGUE",
+        //   payload: res.data,
+        // });
+        runDispatch();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   // useEffect(() => {
@@ -86,15 +112,12 @@ const Sidebar = () => {
       <div className="sidebar__logo">MyDraft</div>
       <div className="sidebar__menu__item">
         <div>
-          <FormControl
-            sx={{ m: 1, minWidth: 250 }}
-            size={"small"}
-          >
+          <FormControl sx={{ m: 1, minWidth: 250 }} size={"small"}>
             <Select
               labelId="LeagueSelect-label"
               id="LeagueSelect"
               value={selectedLeague}
-              onChange={setSelectedLeague}
+              onChange={(event) => handleLeagueChange(event)}
             >
               {userLeagues.map((option, index) => (
                 <MenuItem key={index} value={option.value}>
