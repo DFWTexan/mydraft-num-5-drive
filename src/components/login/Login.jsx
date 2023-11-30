@@ -19,14 +19,15 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [passwordValidated, setPasswordValidated] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] = useState(true);
+  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
+    useState(true);
   const dispatch = useDispatch();
 
   // Handlers for input changes
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
-  
+
   const handleRegistrationPasswordChange = (e) => {
     setPassword(e.target.value);
     handleRegistrationPasswordValidation(e);
@@ -49,7 +50,13 @@ const Login = () => {
       dispatch(clearMessage());
     } else {
       setPasswordValidated(false);
-      dispatch(setMessage({ status: "WARN", message: "Password must be at least 8 characters with 1 number and 1 special character" }));
+      dispatch(
+        setMessage({
+          status: "WARN",
+          message:
+            "Password must be at least 8 characters with 1 number and 1 special character",
+        })
+      );
     }
   };
 
@@ -83,8 +90,17 @@ const Login = () => {
     dispatch(register({ username, email, password }))
       .unwrap()
       .then(() => {
-        dispatch(loginUser());
-        dispatch(fetchActiveLeague(1));
+        dispatch(login({ username, password }))
+          .unwrap()
+          .then(() => {
+            dispatch(loginUser());
+            dispatch(fetchActiveLeague(1));
+          })
+          .catch(() => {
+            setIsLoading(false);
+            setPassword("");
+            setConfirmPassword("");
+          });
       })
       .catch(() => {
         setIsLoading(false);
@@ -115,12 +131,20 @@ const Login = () => {
       {/* <div className="sidebar__logo">Demo Login</div> */}
       <div className="sidebar___btn">
         {isLoading ? (
-          <div style={{ paddingTop: "5rem", display: "flex", justifyContent: "center" }}>
+          <div
+            style={{
+              paddingTop: "5rem",
+              display: "flex",
+              justifyContent: "center",
+            }}
+          >
             <div className="loader" />
           </div>
         ) : (
           <div>
-            <div style={{ paddingTop: '2rem', fontSize: '1.3rem' }}>Welcome to</div>
+            <div style={{ paddingTop: "2rem", fontSize: "1.3rem" }}>
+              Welcome to
+            </div>
             <div
               style={{
                 paddingTop: "2rem",
@@ -285,7 +309,13 @@ const Login = () => {
         >
           <div
             className={
-              status === "ERROR" || status === "FAILED" || status === 400 || status === 401 || status === 403 || status === 404 || status === 500
+              status === "ERROR" ||
+              status === "FAILED" ||
+              status === 400 ||
+              status === 401 ||
+              status === 403 ||
+              status === 404 ||
+              status === 500
                 ? "alert alert-danger"
                 : status === "INFO"
                 ? "alert alert-info"
