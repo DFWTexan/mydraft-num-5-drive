@@ -1,7 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Button } from "reactstrap";
+import FormControl from '@mui/material/FormControl';
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 import "./sidebar.scss";
 import { logout } from "../../slices/auth";
@@ -28,6 +31,9 @@ const sidebarNavItems = [
 ];
 
 const Sidebar = () => {
+  const { userLeagues } = useSelector((state) => state.userInfoStatus);
+  const { id } = useSelector((state) => state.activeLeague);
+  const [selectedLeague, setSelectedLeague] = useState(id);
   const [activeIndex, setActiveIndex] = useState(0);
   const [stepHeight, setStepHeight] = useState(0);
   const sidebarRef = useRef();
@@ -78,7 +84,27 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">MyDraft</div>
-
+      <div className="sidebar__menu__item">
+        <div>
+          <FormControl
+            sx={{ m: 1, minWidth: 250 }}
+            size={"small"}
+          >
+            <Select
+              labelId="LeagueSelect-label"
+              id="LeagueSelect"
+              value={selectedLeague}
+              onChange={setSelectedLeague}
+            >
+              {userLeagues.map((option, index) => (
+                <MenuItem key={index} value={option.value}>
+                  {option.label}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </div>
+      </div>
       <div ref={sidebarRef} className="sidebar__menu">
         <div
           ref={indicatorRef}
