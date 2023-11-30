@@ -156,7 +156,7 @@ const Sidebar = () => {
                 activeIndex === index ? "active" : ""
               }`}
             >
-              <div className="sidebar__menu__item__icon">{item.icon}</div>
+              <span class="material-symbols-outlined dashboard-icon">space_dashboard</span>
               <div className="sidebar__menu__item__text">{item.display}</div>
             </div>
           </Link>

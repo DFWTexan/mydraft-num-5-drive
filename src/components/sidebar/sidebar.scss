@@ -56,21 +56,21 @@
 }
 
 .link-button {
-    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-    color: #008000;
-    font-size: 2rem;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  color: #008000;
+  font-size: 2rem;
+  border-radius: 5rem;
+  border-color: white;
+  border-style: none;
+  border-width: 0.1rem;
+
+  background-color: white;
+  &:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 5rem;
-    border-color: white;
-        border-style: none;
-        border-width: 0.1rem;
-    
-    background-color: white;
-    &:hover {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-        border-radius: 5rem;
-        // border-style: inset;
-        // background-color: #008000;
-    }
+    // border-style: inset;
+    // background-color: #008000;
+  }
 }
 
 .material-symbols-outlined {
@@ -85,3 +85,13 @@
     // background-color: #008000;
   }
 }
+
+.add-icon {
+    color: #008000; /* This is the color for add_circle */
+}
+
+.dashboard-icon {
+    color: #FFFFFF; /* This is the color for space_dashboard */
+    padding-right: 1rem;
+}
+
