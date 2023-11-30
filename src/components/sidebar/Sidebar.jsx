@@ -72,6 +72,10 @@ const Sidebar = () => {
       });
   };
 
+  const handleAddLeague = () => {
+    console.log("==> EMFTest (Sidebar) - HandleAddLeague: GOT HERE...");
+  };
+
   // useEffect(() => {
   //   setTimeout(() => {
   //     const sidebarItem = sidebarRef.current.querySelector(
@@ -111,8 +115,8 @@ const Sidebar = () => {
     <div className="sidebar">
       <div className="sidebar__logo">MyDraft</div>
       <div className="sidebar__menu__item">
-        <div>
-          <FormControl sx={{ m: 1, minWidth: 250 }} size={"small"}>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <FormControl sx={{ m: 1, minWidth: 200 }} size={"small"}>
             <Select
               labelId="LeagueSelect-label"
               id="LeagueSelect"
@@ -126,6 +130,13 @@ const Sidebar = () => {
               ))}
             </Select>
           </FormControl>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <button onClick={handleAddLeague} className="link-button">
+              <div style={{ display: "flex", alignItems: "center" }}>
+                <span className="material-symbols-outlined">add_circle</span>
+              </div>
+            </button>
+          </div>
         </div>
       </div>
       <div ref={sidebarRef} className="sidebar__menu">
