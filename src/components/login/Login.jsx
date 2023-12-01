@@ -105,6 +105,10 @@ const Login = () => {
       });
   };
 
+  const handleSendEmail = () => {
+
+  };
+  
   useEffect(() => {
     if (password.length >= 8 && password === confirmPassword) {
       setIsRegisterButtonDisabled(false);
@@ -205,6 +209,19 @@ const Login = () => {
                         id="ForgotEmail"
                         placeholder="Email"
                       />
+                      <div
+                        style={{
+                          paddingTop: "1rem",
+                          fontWeight: "lighter",
+                          fontSize: "1rem",
+                          textAlign: "center",
+                        }}
+                      >
+                        <p>
+                          An email will be sent to registraton email for
+                          Password Reset.
+                        </p>
+                      </div>
                     </div>
                   )}
 
@@ -326,13 +343,25 @@ const Login = () => {
                   Register
                 </Button>
               ) : (
-                <Button
-                  id="btnLogin"
-                  className="button-login"
-                  onClick={handleLogin}
-                >
-                  Login
-                </Button>
+                <>
+                  {forgotToggle ? (
+                    <Button
+                      id="btnSendEmail"
+                      className="button-login"
+                      onClick={handleSendEmail}
+                    >
+                      Send Email
+                    </Button>
+                  ) : (
+                    <Button
+                      id="btnLogin"
+                      className="button-login"
+                      onClick={handleLogin}
+                    >
+                      Login
+                    </Button>
+                  )}
+                </>
               )}
             </div>
             <div style={{ marginTop: "1rem" }}>
