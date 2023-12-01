@@ -43,16 +43,16 @@ const Sidebar = () => {
   const [stepHeight, setStepHeight] = useState(0);
   const sidebarRef = useRef();
   const indicatorRef = useRef();
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
 
   const runDispatch = () => {
-    dispatch(fetchActiveLeague())
-      .unwrap()
-      .then(() => {
-        // setSelectedLeaguaeID(id);
+    dispatch(fetchActiveLeague()).then(() => {
+      dispatch(fetchDraftStatus()).then(() => {
+        setIsLoading(false);
       });
-    dispatch(fetchDraftStatus());
+    });
   };
 
   const handleLogOut = () => {
@@ -78,8 +78,25 @@ const Sidebar = () => {
   };
 
   const handleAddLeague = () => {
+    setIsLoading(true);
     axios
       .get(`${API_URL}League/CreateLeague/`)
+      .then((res) => {
+        dispatch(userInfoStatus())
+          .unwrap()
+          .then(() => {
+            runDispatch();
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const handleDeleteLeague = () => {
+    setIsLoading(true);
+    axios
+      .get(`${API_URL}League/DeleteLeague/${selectedLeagueID}`)
       .then((res) => {
         dispatch(userInfoStatus())
           .unwrap()
@@ -134,8 +151,29 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">MyDraft</div>
-      <div className="sidebar__menu__item">
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div className="sidebar__menu">
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            paddingBottom: "1rem",
+          }}
+        >
+          <div style={{ display: "flex", alignContent: "center" }}>
+            <button className="link-button" onClick={handleDeleteLeague}>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  paddingLeft: ".5rem",
+                }}
+              >
+                <span className="material-symbols-outlined delete-icon">
+                  delete
+                </span>
+              </div>
+            </button>
+          </div>
           <FormControl sx={{ m: 1, minWidth: 200 }} size={"small"}>
             <Select
               labelId="LeagueSelect-label"
@@ -150,12 +188,39 @@ const Sidebar = () => {
               ))}
             </Select>
           </FormControl>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <button onClick={handleAddLeague} className="link-button">
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span className="material-symbols-outlined">add_circle</span>
+          <div
+            style={{
+              display: "flex",
+              alignContent: "center",
+              paddingRight: ".5rem",
+            }}
+          >
+            {isLoading ? (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "flex-end",
+                  paddingLeft: ".5rem",
+                  paddingRight: "1.6rem",
+                }}
+              >
+                <div id="loader" className="loader_adding">
+                  Loading...
+                </div>
               </div>
-            </button>
+            ) : (
+              <button className="link-button" onClick={handleAddLeague}>
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    paddingRight: ".5rem",
+                  }}
+                >
+                  <span className="material-symbols-outlined">add_circle</span>
+                </div>
+              </button>
+            )}
           </div>
         </div>
       </div>
