@@ -11,12 +11,14 @@ import { fetchActiveLeague } from "../../slices/league";
 
 const Login = () => {
   const [loginRegisterToggle, setLoginRegisterToggle] = useState(false);
+  const [forgotToggle, setforgotToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { status, message } = useSelector((state) => state.message);
   const [password, setPassword] = useState("");
   const [passwordValidated, setPasswordValidated] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] = useState(true);
+  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
+    useState(true);
   const dispatch = useDispatch();
 
   const handlePasswordChange = (e) => {
@@ -115,7 +117,7 @@ const Login = () => {
     fontSize: ".8rem",
     padding: ".5rem",
   };
-  
+
   return (
     <div className="sidebar">
       <div className="sidebar___btn">
@@ -242,6 +244,23 @@ const Login = () => {
                         value={password}
                         onChange={handlePasswordChange}
                       />
+                      <Button
+                        style={{
+                          fontSize: ".8rem",
+                          fontWeight: "lighter",
+                          background: "transparent",
+                          padding: ".5rem",
+                          borderRadius: "5px",
+                          border: "1px solid #fff",
+                          color: "#8B008B",
+                          cursor: "pointer",
+                        }}
+                        onClick={() =>
+                          setforgotToggle(!forgotToggle)
+                        }
+                      >
+                        Forgot UserName or Password?
+                      </Button>
                     </div>
                   )}
                 </FormGroup>
