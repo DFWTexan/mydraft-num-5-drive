@@ -98,6 +98,10 @@
     color: #FFFFFF; /* This is the color for space_dashboard */
     padding-right: 1rem;
 }
+
+// .loading-icon {
+//   color: #308efe; /* This is the color for add_circle */
+// }
 //--------------------------------------------------------------//
 
 //-- Spinner
@@ -112,7 +116,7 @@
   // padding-left: .5rem;
 }
 .loader_adding {
-  color: #008000;
+  color: #308efe;
   text-indent: -9999em;
   // margin: 88px auto;
   position: relative;
