@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
-// import { Navigate, useNavigate } from "react-router-dom";
 
 import "./login.scss";
 import { login, register } from "../../slices/auth";
@@ -11,19 +10,15 @@ import { userInfoStatus } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
 
 const Login = () => {
-  // let navigate = useNavigate();
   const [loginRegisterToggle, setLoginRegisterToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { status, message } = useSelector((state) => state.message);
-  //-- State for managing the password and confirm password values
   const [password, setPassword] = useState("");
   const [passwordValidated, setPasswordValidated] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
-    useState(true);
+  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] = useState(true);
   const dispatch = useDispatch();
 
-  // Handlers for input changes
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -41,7 +36,6 @@ const Login = () => {
     dispatch(clearMessage());
   }, [dispatch]);
 
-  ///write handle to enforce 8 character password with 1 number and 1 special character
   const handleRegistrationPasswordValidation = (e) => {
     let password = e.target.value;
     let passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
@@ -109,7 +103,6 @@ const Login = () => {
       });
   };
 
-  // Effect to check if the register button should be enabled
   useEffect(() => {
     if (password.length >= 8 && password === confirmPassword) {
       setIsRegisterButtonDisabled(false);
@@ -122,13 +115,9 @@ const Login = () => {
     fontSize: ".8rem",
     padding: ".5rem",
   };
-  // if (isLoggedIn) {
-  //   return <Navigate to="/draftboard" />;
-  // }
-
+  
   return (
     <div className="sidebar">
-      {/* <div className="sidebar__logo">Demo Login</div> */}
       <div className="sidebar___btn">
         {isLoading ? (
           <div
