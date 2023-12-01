@@ -27,12 +27,12 @@ const initialState = {
 //   }
 // );
 
-export const loginUser = createAsyncThunk(
+export const userInfoStatus = createAsyncThunk(
   "User/UserInfoStatus",
   async (_, { rejectWithValue }) => {
     try {
       const token = getToken(); // Retrieve the token
-      const res = await UserServiceService.userLogin({ // Removed the data parameter
+      const res = await UserServiceService.UserInfoStatus({ // Removed the data parameter
         headers: {
           Authorization: `Bearer ${token}` // Include the token in the request headers
         }
@@ -48,7 +48,7 @@ const userLoginSlice = createSlice({
   name: "userInfoStatus",
   initialState,
   extraReducers: {
-    [loginUser.fulfilled]: (state, action) => {
+    [userInfoStatus.fulfilled]: (state, action) => {
       return { ...action.payload };
     },
     // [updateTutorial.fulfilled]: (state, action) => {

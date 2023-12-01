@@ -1,6 +1,6 @@
 import http from "../api/http-common";
 
-const userLogin = (data) => {
+const UserInfoStatus = (data) => {
   return http.get("/User/UserInfoStatus", data);
 };
 
@@ -33,7 +33,7 @@ const userLogin = (data) => {
 // };
 
 const UserService = {
-  userLogin,
+  UserInfoStatus,
   // getDraftSelections,
   // GetDraftPicksByFanTeam,
   // get,

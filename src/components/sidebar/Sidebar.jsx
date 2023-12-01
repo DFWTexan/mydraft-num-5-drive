@@ -10,6 +10,7 @@ import axios from "axios";
 import "./sidebar.scss";
 import { API_URL } from "../../config";
 import { logout } from "../../slices/auth";
+import { userInfoStatus } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
 import { fetchDraftStatus } from "../../slices/draftStatus";
 
@@ -73,8 +74,23 @@ const Sidebar = () => {
   };
 
   const handleAddLeague = () => {
-    console.log("==> EMFTest (Sidebar) - HandleAddLeague: GOT HERE...");
+    axios
+      .get(`${API_URL}League/CreateLeague/`)
+      .then((res) => {
+        dispatch(userInfoStatus())
+        .unwrap()
+        .then(() => {
+          runDispatch();
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
+
+  useEffect(() => {
+    setSelectedLeague(id);
+  }, [id]);
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -156,7 +172,9 @@ const Sidebar = () => {
                 activeIndex === index ? "active" : ""
               }`}
             >
-              <span className="material-symbols-outlined dashboard-icon">space_dashboard</span>
+              <span className="material-symbols-outlined dashboard-icon">
+                space_dashboard
+              </span>
               <div className="sidebar__menu__item__text">{item.display}</div>
             </div>
           </Link>

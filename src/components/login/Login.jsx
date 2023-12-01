@@ -7,7 +7,7 @@ import "./login.scss";
 import { login, register } from "../../slices/auth";
 import { setMessage } from "../../slices/message";
 import { clearMessage } from "../../slices/message";
-import { loginUser } from "../../slices/user";
+import { userInfoStatus } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
 
 const Login = () => {
@@ -70,7 +70,7 @@ const Login = () => {
     dispatch(login({ username, password }))
       .unwrap()
       .then(() => {
-        dispatch(loginUser());
+        dispatch(userInfoStatus());
         dispatch(fetchActiveLeague(1));
       })
       .catch(() => {
@@ -93,7 +93,7 @@ const Login = () => {
         dispatch(login({ username, password }))
           .unwrap()
           .then(() => {
-            dispatch(loginUser());
+            dispatch(userInfoStatus());
             dispatch(fetchActiveLeague(1));
           })
           .catch(() => {
