@@ -158,14 +158,18 @@ const Login = () => {
                       marginBottom: "1rem",
                     }}
                   >
-                    <Label for="UserName">User name</Label>
-                    <Input
-                      style={myStyle}
-                      type="input"
-                      name="UserName"
-                      id="UserName"
-                      placeholder="User Name"
-                    />
+                    {!forgotToggle && (
+                      <>
+                        <Label for="UserName">User name</Label>
+                        <Input
+                          style={myStyle}
+                          type="input"
+                          name="UserName"
+                          id="UserName"
+                          placeholder="User Name"
+                        />
+                      </>
+                    )}
                   </div>
                   {loginRegisterToggle && (
                     <div
@@ -181,6 +185,24 @@ const Login = () => {
                         type="email"
                         name="Email"
                         id="Email"
+                        placeholder="Email"
+                      />
+                    </div>
+                  )}
+                  {forgotToggle && (
+                    <div
+                      style={{
+                        fontSize: "1.1rem",
+                        fontWeight: 550,
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      <Label for="ForgotEmail">Enter Registration Email</Label>
+                      <Input
+                        style={myStyle}
+                        type="email"
+                        name="ForgotEmail"
+                        id="ForgotEmail"
                         placeholder="Email"
                       />
                     </div>
@@ -234,33 +256,60 @@ const Login = () => {
                         marginBottom: "1rem",
                       }}
                     >
-                      <Label for="LoginPassword">Password</Label>
-                      <Input
-                        style={myStyle}
-                        type="password"
-                        name="LoginPassword"
-                        id="LoginPassword"
-                        placeholder="Password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                      />
-                      <Button
-                        style={{
-                          fontSize: ".8rem",
-                          fontWeight: "lighter",
-                          background: "transparent",
-                          padding: ".5rem",
-                          borderRadius: "5px",
-                          border: "1px solid #fff",
-                          color: "#8B008B",
-                          cursor: "pointer",
-                        }}
-                        onClick={() =>
-                          setforgotToggle(!forgotToggle)
-                        }
-                      >
-                        Forgot UserName or Password?
-                      </Button>
+                      {!forgotToggle && (
+                        <>
+                          <Label for="LoginPassword">Password</Label>
+                          <Input
+                            style={myStyle}
+                            type="password"
+                            name="LoginPassword"
+                            id="LoginPassword"
+                            placeholder="Password"
+                            value={password}
+                            onChange={handlePasswordChange}
+                          />
+                        </>
+                      )}
+
+                      {/* <> */}
+                      {forgotToggle ? (
+                        <div
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <Button
+                            style={{
+                              fontSize: ".8rem",
+                              fontWeight: "lighter",
+                              background: "transparent",
+                              padding: ".5rem",
+                              borderRadius: "5px",
+                              border: "1px solid #fff",
+                              color: "#8B008B",
+                              cursor: "pointer",
+                            }}
+                            onClick={() => setforgotToggle(!forgotToggle)}
+                          >
+                            Back
+                          </Button>
+                        </div>
+                      ) : (
+                        <Button
+                          style={{
+                            fontSize: ".8rem",
+                            fontWeight: "lighter",
+                            background: "transparent",
+                            padding: ".5rem",
+                            borderRadius: "5px",
+                            border: "1px solid #fff",
+                            color: "#8B008B",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => setforgotToggle(!forgotToggle)}
+                        >
+                          Forgot UserName or Password?
+                        </Button>
+                      )}
+                      {/* </> */}
                     </div>
                   )}
                 </FormGroup>
