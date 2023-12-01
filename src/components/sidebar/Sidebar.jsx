@@ -43,16 +43,16 @@ const Sidebar = () => {
   const [stepHeight, setStepHeight] = useState(0);
   const sidebarRef = useRef();
   const indicatorRef = useRef();
+  const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const dispatch = useDispatch();
 
   const runDispatch = () => {
-    dispatch(fetchActiveLeague())
-      .unwrap()
-      .then(() => {
-        // setSelectedLeaguaeID(id);
+    dispatch(fetchActiveLeague()).then(() => {
+      dispatch(fetchDraftStatus()).then(() => {
+        setIsLoading(false);
       });
-    dispatch(fetchDraftStatus());
+    });
   };
 
   const handleLogOut = () => {
@@ -78,6 +78,7 @@ const Sidebar = () => {
   };
 
   const handleAddLeague = () => {
+    setIsLoading(true);
     axios
       .get(`${API_URL}League/CreateLeague/`)
       .then((res) => {
@@ -150,12 +151,18 @@ const Sidebar = () => {
               ))}
             </Select>
           </FormControl>
-          <div style={{ display: "flex", alignItems: "center" }}>
-            <button onClick={handleAddLeague} className="link-button">
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <span className="material-symbols-outlined">add_circle</span>
+          <div style={{ display: "flex", alignContent: "center" }}>
+            {isLoading ? (
+              <div style={{ paddingLeft: '1rem', display: "flex", alignItems: "flex-end" }}>
+                <div id="loader" className="loader_adding">Loading...</div>
               </div>
-            </button>
+            ) : (
+              <button onClick={handleAddLeague} className="link-button">
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <span className="material-symbols-outlined">add_circle</span>
+                </div>
+              </button>
+            )}
           </div>
         </div>
       </div>
