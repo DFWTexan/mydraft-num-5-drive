@@ -38,7 +38,7 @@ const sidebarNavItems = [
 const Sidebar = () => {
   const { userLeagues } = useSelector((state) => state.userInfoStatus);
   const { id } = useSelector((state) => state.activeLeague);
-  const [selectedLeague, setSelectedLeague] = useState(id);
+  const [selectedLeagueID, setSelectedLeagueID] = useState(id);
   const [activeIndex, setActiveIndex] = useState(0);
   const [stepHeight, setStepHeight] = useState(0);
   const sidebarRef = useRef();
@@ -47,7 +47,11 @@ const Sidebar = () => {
   const dispatch = useDispatch();
 
   const runDispatch = () => {
-    dispatch(fetchActiveLeague());
+    dispatch(fetchActiveLeague())
+      .unwrap()
+      .then(() => {
+        // setSelectedLeaguaeID(id);
+      });
     dispatch(fetchDraftStatus());
   };
 
@@ -58,7 +62,7 @@ const Sidebar = () => {
 
   const handleLeagueChange = (event) => {
     const leagueId = event.target.value;
-    setSelectedLeague(leagueId);
+    setSelectedLeagueID(leagueId);
     axios
       .get(`${API_URL}League/ChangeActiveLeague/${leagueId}`)
       .then((res) => {
@@ -78,10 +82,10 @@ const Sidebar = () => {
       .get(`${API_URL}League/CreateLeague/`)
       .then((res) => {
         dispatch(userInfoStatus())
-        .unwrap()
-        .then(() => {
-          runDispatch();
-        });
+          .unwrap()
+          .then(() => {
+            runDispatch();
+          });
       })
       .catch((err) => {
         console.log(err);
@@ -89,8 +93,8 @@ const Sidebar = () => {
   };
 
   useEffect(() => {
-    setSelectedLeague(id);
-  }, [id]);
+    setSelectedLeagueID(id);
+  }, [userLeagues, id]);
 
   // useEffect(() => {
   //   setTimeout(() => {
@@ -136,7 +140,7 @@ const Sidebar = () => {
             <Select
               labelId="LeagueSelect-label"
               id="LeagueSelect"
-              value={selectedLeague}
+              value={selectedLeagueID}
               onChange={(event) => handleLeagueChange(event)}
             >
               {userLeagues.map((option, index) => (
