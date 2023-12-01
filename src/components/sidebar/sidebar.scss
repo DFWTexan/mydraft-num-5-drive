@@ -73,6 +73,7 @@
   }
 }
 
+//-- Google Material Icons
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   color: #008000;
@@ -81,9 +82,12 @@
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 5rem;
-    // border-style: inset;
-    // background-color: #008000;
   }
+}
+
+.delete-icon {
+  color: #000000; /* This is the color for delete-trash */
+  padding-left: .5rem;
 }
 
 .add-icon {
@@ -94,6 +98,7 @@
     color: #FFFFFF; /* This is the color for space_dashboard */
     padding-right: 1rem;
 }
+//--------------------------------------------------------------//
 
 //-- Spinner
 .loader_adding,

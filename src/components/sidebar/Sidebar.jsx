@@ -93,6 +93,22 @@ const Sidebar = () => {
       });
   };
 
+const handleDeleteLeague = () => { 
+  setIsLoading(true);
+  axios
+    .get(`${API_URL}League/DeleteLeague/${selectedLeagueID}`)
+    .then((res) => {
+      dispatch(userInfoStatus())
+        .unwrap()
+        .then(() => {
+          runDispatch();
+        });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
   useEffect(() => {
     setSelectedLeagueID(id);
   }, [userLeagues, id]);
@@ -135,8 +151,15 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="sidebar__logo">MyDraft</div>
-      <div className="sidebar__menu__item">
-        <div style={{ display: "flex", justifyContent: "space-between" }}>
+      <div className="sidebar__menu">
+        <div style={{ display: "flex", justifyContent: "space-between", paddingBottom: '1rem' }}>
+          <div style={{ display: "flex", alignContent: "center", }}>
+            <button className="link-button" onClick={handleDeleteLeague}>
+              <div style={{ display: "flex", alignItems: "center", paddingLeft: '.5rem' }}>
+                <span className="material-symbols-outlined delete-icon">delete</span>
+              </div>
+            </button>
+          </div>
           <FormControl sx={{ m: 1, minWidth: 200 }} size={"small"}>
             <Select
               labelId="LeagueSelect-label"
@@ -153,12 +176,20 @@ const Sidebar = () => {
           </FormControl>
           <div style={{ display: "flex", alignContent: "center" }}>
             {isLoading ? (
-              <div style={{ paddingLeft: '1rem', display: "flex", alignItems: "flex-end" }}>
-                <div id="loader" className="loader_adding">Loading...</div>
+              <div
+                style={{
+                  paddingLeft: "1rem",
+                  display: "flex",
+                  alignItems: "flex-end",
+                }}
+              >
+                <div id="loader" className="loader_adding">
+                  Loading...
+                </div>
               </div>
             ) : (
-              <button onClick={handleAddLeague} className="link-button">
-                <div style={{ display: "flex", alignItems: "center" }}>
+              <button className="link-button" onClick={handleAddLeague}>
+                <div style={{ display: "flex", alignItems: "center", paddingRight: '.5rem' }}>
                   <span className="material-symbols-outlined">add_circle</span>
                 </div>
               </button>
