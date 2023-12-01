@@ -108,7 +108,7 @@ const Login = () => {
   const handleSendEmail = () => {
 
   };
-  
+
   useEffect(() => {
     if (password.length >= 8 && password === confirmPassword) {
       setIsRegisterButtonDisabled(false);
@@ -193,7 +193,7 @@ const Login = () => {
                       />
                     </div>
                   )}
-                  {forgotToggle && (
+                  {forgotToggle && !loginRegisterToggle && (
                     <div
                       style={{
                         fontSize: "1.1rem",
