@@ -1,7 +1,7 @@
 import http from "../api/http-common";
 
 const get = data => {
-  return http.put("/Player/GetPlayers", data);
+  return http.put("Player/GetPlayers", data);
 };
 
 // const get = id => {
@@ -25,7 +25,7 @@ const get = data => {
 // };
 
 const findByTitle = title => {
-  return http.get(`/tutorials?title=${title}`);
+  return http.get(`tutorials?title=${title}`);
 };
 
 const PlayerService

@@ -6,7 +6,7 @@ import axios from "axios";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import "../../styles/index.scss";
-import { API_URL } from "../../config";
+// import { API_URL } from "../../config";
 import { fetchDraftStatus } from "../../slices/draftStatus";
 // import { fetchPlayers } from "../../slices/players";
 
@@ -42,7 +42,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
 
   useEffect(() => {
     axios
-      .get(`${API_URL}Player/GetPlayerByID/${props.player_ID}`)
+      .get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Player/GetPlayerByID/${props.player_ID}`)
       .then((response) => {
         setPlayerData(response.data);
       });
@@ -51,7 +51,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
   const handleDraftPlayer = () => {
     axios
       .post(
-        `${API_URL}Draft/ExecuteDraftPick/${draftStatus.currentPick}/${props.player_ID}`
+        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/ExecuteDraftPick/${draftStatus.currentPick}/${props.player_ID}`
       )
       .then((response) => {
         runDispatch();

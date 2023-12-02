@@ -4,7 +4,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import Box from "@mui/material/Box";
 
 import "../../../styles/index.scss";
-import { API_URL } from "../../../config";
+// import { API_URL } from "../../../config";
 
 const ProTeamDepthChart = (props) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +13,7 @@ const ProTeamDepthChart = (props) => {
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`${API_URL}Draft/GetPositionDepthChart/${props.positionDisplay}`)
+      .get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/GetPositionDepthChart/${props.positionDisplay}`)
       .then((response) => {
         setDisplayData(response.data);
         setIsLoading(false);
