@@ -62,7 +62,7 @@
   border-radius: 5rem;
   border-color: white;
   border-style: none;
-  border-width: 0.1rem;
+  // border-width: 0.1rem;
 
   background-color: white;
   &:hover {
@@ -73,6 +73,7 @@
   }
 }
 
+//-- Google Material Icons
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   color: #008000;
@@ -81,9 +82,12 @@
   &:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     border-radius: 5rem;
-    // border-style: inset;
-    // background-color: #008000;
   }
+}
+
+.delete-icon {
+  color: #000000; /* This is the color for delete-trash */
+  padding-left: .5rem;
 }
 
 .add-icon {
@@ -95,3 +99,69 @@
     padding-right: 1rem;
 }
 
+// .loading-icon {
+//   color: #308efe; /* This is the color for add_circle */
+// }
+//--------------------------------------------------------------//
+
+//-- Spinner
+.loader_adding,
+.loader_adding:before,
+.loader_adding:after {
+  background: #ffffff;
+  -webkit-animation: load1 1s infinite ease-in-out;
+  animation: load1 1s infinite ease-in-out;
+  width: 1em;
+  height: 4em;
+  // padding-left: .5rem;
+}
+.loader_adding {
+  color: #308efe;
+  text-indent: -9999em;
+  // margin: 88px auto;
+  position: relative;
+  font-size: 5px;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader_adding:before,
+.loader_adding:after {
+  position: absolute;
+  top: 0;
+  content: '';
+}
+.loader_adding:before {
+  left: -1.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader_adding:after {
+  left: 1.5em;
+}
+@-webkit-keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}
+@keyframes load1 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 0;
+    height: 4em;
+  }
+  40% {
+    box-shadow: 0 -2em;
+    height: 5em;
+  }
+}

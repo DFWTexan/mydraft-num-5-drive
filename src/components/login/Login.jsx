@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
-// import { Navigate, useNavigate } from "react-router-dom";
 
 import "./login.scss";
 import { login, register } from "../../slices/auth";
@@ -11,11 +10,10 @@ import { userInfoStatus } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
 
 const Login = () => {
-  // let navigate = useNavigate();
   const [loginRegisterToggle, setLoginRegisterToggle] = useState(false);
+  const [forgotToggle, setforgotToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { status, message } = useSelector((state) => state.message);
-  //-- State for managing the password and confirm password values
   const [password, setPassword] = useState("");
   const [passwordValidated, setPasswordValidated] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -23,7 +21,6 @@ const Login = () => {
     useState(true);
   const dispatch = useDispatch();
 
-  // Handlers for input changes
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
@@ -41,7 +38,6 @@ const Login = () => {
     dispatch(clearMessage());
   }, [dispatch]);
 
-  ///write handle to enforce 8 character password with 1 number and 1 special character
   const handleRegistrationPasswordValidation = (e) => {
     let password = e.target.value;
     let passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
@@ -109,7 +105,10 @@ const Login = () => {
       });
   };
 
-  // Effect to check if the register button should be enabled
+  const handleSendEmail = () => {
+
+  };
+
   useEffect(() => {
     if (password.length >= 8 && password === confirmPassword) {
       setIsRegisterButtonDisabled(false);
@@ -122,13 +121,9 @@ const Login = () => {
     fontSize: ".8rem",
     padding: ".5rem",
   };
-  // if (isLoggedIn) {
-  //   return <Navigate to="/draftboard" />;
-  // }
 
   return (
     <div className="sidebar">
-      {/* <div className="sidebar__logo">Demo Login</div> */}
       <div className="sidebar___btn">
         {isLoading ? (
           <div
@@ -167,14 +162,18 @@ const Login = () => {
                       marginBottom: "1rem",
                     }}
                   >
-                    <Label for="UserName">User name</Label>
-                    <Input
-                      style={myStyle}
-                      type="input"
-                      name="UserName"
-                      id="UserName"
-                      placeholder="User Name"
-                    />
+                    {!forgotToggle && (
+                      <>
+                        <Label for="UserName">User name</Label>
+                        <Input
+                          style={myStyle}
+                          type="input"
+                          name="UserName"
+                          id="UserName"
+                          placeholder="User Name"
+                        />
+                      </>
+                    )}
                   </div>
                   {loginRegisterToggle && (
                     <div
@@ -192,6 +191,37 @@ const Login = () => {
                         id="Email"
                         placeholder="Email"
                       />
+                    </div>
+                  )}
+                  {forgotToggle && !loginRegisterToggle && (
+                    <div
+                      style={{
+                        fontSize: "1.1rem",
+                        fontWeight: 550,
+                        marginBottom: "1rem",
+                      }}
+                    >
+                      <Label for="ForgotEmail">Enter Registration Email</Label>
+                      <Input
+                        style={myStyle}
+                        type="email"
+                        name="ForgotEmail"
+                        id="ForgotEmail"
+                        placeholder="Email"
+                      />
+                      <div
+                        style={{
+                          paddingTop: "1rem",
+                          fontWeight: "lighter",
+                          fontSize: "1rem",
+                          textAlign: "center",
+                        }}
+                      >
+                        <p>
+                          An email will be sent to registraton email for
+                          Password Reset.
+                        </p>
+                      </div>
                     </div>
                   )}
 
@@ -243,16 +273,60 @@ const Login = () => {
                         marginBottom: "1rem",
                       }}
                     >
-                      <Label for="LoginPassword">Password</Label>
-                      <Input
-                        style={myStyle}
-                        type="password"
-                        name="LoginPassword"
-                        id="LoginPassword"
-                        placeholder="Password"
-                        value={password}
-                        onChange={handlePasswordChange}
-                      />
+                      {!forgotToggle && (
+                        <>
+                          <Label for="LoginPassword">Password</Label>
+                          <Input
+                            style={myStyle}
+                            type="password"
+                            name="LoginPassword"
+                            id="LoginPassword"
+                            placeholder="Password"
+                            value={password}
+                            onChange={handlePasswordChange}
+                          />
+                        </>
+                      )}
+
+                      {/* <> */}
+                      {forgotToggle ? (
+                        <div
+                          style={{ display: "flex", justifyContent: "center" }}
+                        >
+                          <Button
+                            style={{
+                              fontSize: ".8rem",
+                              fontWeight: "lighter",
+                              background: "transparent",
+                              padding: ".5rem",
+                              borderRadius: "5px",
+                              border: "1px solid #fff",
+                              color: "#8B008B",
+                              cursor: "pointer",
+                            }}
+                            onClick={() => setforgotToggle(!forgotToggle)}
+                          >
+                            Back
+                          </Button>
+                        </div>
+                      ) : (
+                        <Button
+                          style={{
+                            fontSize: ".8rem",
+                            fontWeight: "lighter",
+                            background: "transparent",
+                            padding: ".5rem",
+                            borderRadius: "5px",
+                            border: "1px solid #fff",
+                            color: "#8B008B",
+                            cursor: "pointer",
+                          }}
+                          onClick={() => setforgotToggle(!forgotToggle)}
+                        >
+                          Forgot UserName or Password?
+                        </Button>
+                      )}
+                      {/* </> */}
                     </div>
                   )}
                 </FormGroup>
@@ -269,13 +343,25 @@ const Login = () => {
                   Register
                 </Button>
               ) : (
-                <Button
-                  id="btnLogin"
-                  className="button-login"
-                  onClick={handleLogin}
-                >
-                  Login
-                </Button>
+                <>
+                  {forgotToggle ? (
+                    <Button
+                      id="btnSendEmail"
+                      className="button-login"
+                      onClick={handleSendEmail}
+                    >
+                      Send Email
+                    </Button>
+                  ) : (
+                    <Button
+                      id="btnLogin"
+                      className="button-login"
+                      onClick={handleLogin}
+                    >
+                      Login
+                    </Button>
+                  )}
+                </>
               )}
             </div>
             <div style={{ marginTop: "1rem" }}>
