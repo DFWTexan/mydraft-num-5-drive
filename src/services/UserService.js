@@ -1,7 +1,7 @@
 import http from "../api/http-common";
 
 const UserInfoStatus = (data) => {
-  return http.get("/User/UserInfoStatus", data);
+  return http.get("User/UserInfoStatus", data);
 };
 
 // const getDraftSelections = (data) => {

@@ -5,7 +5,7 @@ import MenuItem from "@mui/material/MenuItem";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import axios from "axios";
 
-import { API_URL } from "../../config";
+// import { API_URL } from "../../config";
 import ProTeamNews from "./proTeamNews";
 import ProTeamSchedule from "./proTeamSchedule";
 import ProTeamInjuries from "./proTeamInjuries";
@@ -15,7 +15,7 @@ const ProTeamInfo = () => {
   const [selectedItem, setSelectedItem] = useState(0);
 
   useEffect(() => {
-    axios.get(`${API_URL}Draft/ProTeamList`).then((response) => {
+    axios.get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/ProTeamList`).then((response) => {
       setData([{ value: 0, label: "Select Team" }, ...response.data]);
     });
   }, []);

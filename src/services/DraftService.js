@@ -1,27 +1,27 @@
 import http from "../api/http-common";
 
 const getDraftStatus = (data) => {
-  return http.get("/Draft/GetDraftStatus");
+  return http.get("Draft/GetDraftStatus");
 };
 
 const getDraftSelections = (data) => {
-  return http.get("/Draft/GetDraftPicksForLeague_v2");
+  return http.get("Draft/GetDraftPicksForLeague_v2");
 };
 
 const GetDraftPicksByFanTeam = (id) => {
-  return http.get(`/Draft/GetDraftPicksByFanTeam/${id}`);
+  return http.get(`Draft/GetDraftPicksByFanTeam/${id}`);
 };
 
 const GetDraftPicksByPosition = (data) => {
-  return http.get("/Draft/GetDraftPicksByPosition");
+  return http.get("Draft/GetDraftPicksByPosition");
 };
 
 const GetFanTeamRosters = (data) => {
-  return http.get("/Draft/GetRosterTotalPositionCount");
+  return http.get("Draft/GetRosterTotalPositionCount");
 };
 
 const GetFanTeamSelections = (id) => {
-  return http.get(`/Draft/GetTeamSelections/${id}`);
+  return http.get(`Draft/GetTeamSelections/${id}`);
 };
 // const create = data => {
 //   return http.post("/tutorials", data);

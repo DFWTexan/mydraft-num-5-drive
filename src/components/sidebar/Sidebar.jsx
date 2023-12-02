@@ -8,7 +8,7 @@ import MenuItem from "@mui/material/MenuItem";
 import axios from "axios";
 
 import "./sidebar.scss";
-import { API_URL } from "../../config";
+// import { API_URL } from "../../config";
 import { logout } from "../../slices/auth";
 import { userInfoStatus } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
@@ -64,7 +64,7 @@ const Sidebar = () => {
     const leagueId = event.target.value;
     setSelectedLeagueID(leagueId);
     axios
-      .get(`${API_URL}League/ChangeActiveLeague/${leagueId}`)
+      .get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}League/ChangeActiveLeague/${leagueId}`)
       .then((res) => {
         // dispatch({
         //   type: "SET_ACTIVE_LEAGUE",
@@ -80,7 +80,7 @@ const Sidebar = () => {
   const handleAddLeague = () => {
     setIsLoading(true);
     axios
-      .get(`${API_URL}League/CreateLeague/`)
+      .get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}League/CreateLeague/`)
       .then((res) => {
         dispatch(userInfoStatus())
           .unwrap()
@@ -96,7 +96,7 @@ const Sidebar = () => {
   const handleDeleteLeague = () => {
     setIsLoading(true);
     axios
-      .get(`${API_URL}League/DeleteLeague/${selectedLeagueID}`)
+      .get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}League/DeleteLeague/${selectedLeagueID}`)
       .then((res) => {
         dispatch(userInfoStatus())
           .unwrap()

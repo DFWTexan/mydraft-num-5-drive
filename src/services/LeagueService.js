@@ -1,7 +1,7 @@
 import http from "../api/http-common";
 
 const getActiveLeague = () => {
-  return http.get("/League/GetActiveLeague/");   
+  return http.get("League/GetActiveLeague/");   
 };
 
 // const get = id => {
