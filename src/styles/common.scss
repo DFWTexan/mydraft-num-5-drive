@@ -145,6 +145,22 @@ $base-def-background: #F4A460;
   margin: 0.5rem 0.5rem;
   cursor: pointer;
   border-radius: 0.5rem;
+  
+  &:disabled {
+    background-color: #cccccc;
+    color: #666666;
+    cursor: not-allowed;
+  }
+
+  &:not(:disabled) {
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #45a049;
+    }
+  }
 }
 
 .button-submit {

@@ -15,15 +15,26 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { status, message } = useSelector((state) => state.message);
   const [password, setPassword] = useState("");
-  const [passwordValidated, setPasswordValidated] = useState(false);
+  const [isPasswordValidated, setIsPasswordValidated] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [isNewPasswordValidated, setIsNewPasswordValidated] = useState(false);
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
+  const [isCodeValid, setIsCodeValid] = useState(false);
   const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
+    useState(true);
+  const [isResetPssWrdButtonDisabled, setIsResetPssWrdButtonDisabled] =
     useState(true);
   const [isEmailSent, setIsEmailSent] = useState(false);
   const dispatch = useDispatch();
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
+  };
+
+  const handleNewPasswordChange = (e) => {
+    setNewPassword(e.target.value);
+    handleNewPasswordValidation(e);
   };
 
   const handleRegistrationPasswordChange = (e) => {
@@ -35,6 +46,10 @@ const Login = () => {
     setConfirmPassword(e.target.value);
   };
 
+  const handleConfirmNewPasswordChange = (e) => {
+    setConfirmNewPassword(e.target.value);
+  };
+
   useEffect(() => {
     dispatch(clearMessage());
   }, [dispatch]);
@@ -43,15 +58,34 @@ const Login = () => {
     let password = e.target.value;
     let passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
     if (passwordRegex.test(password)) {
-      setPasswordValidated(true);
+      setIsPasswordValidated(true);
       dispatch(clearMessage());
     } else {
-      setPasswordValidated(false);
+      setIsPasswordValidated(false);
       dispatch(
         setMessage({
           status: "WARN",
           message:
             "Password must be at least 8 characters with 1 number and 1 special character",
+        })
+      );
+    }
+  };
+
+  const handleNewPasswordValidation = (e) => {
+    let newPassword = e.target.value;
+    let newPasswordRegex =
+      /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+    if (newPasswordRegex.test(newPassword)) {
+      setIsNewPasswordValidated(true);
+      dispatch(clearMessage());
+    } else {
+      setIsNewPasswordValidated(false);
+      dispatch(
+        setMessage({
+          status: "WARN",
+          message:
+            "New Password must be at least 8 characters with 1 number and 1 special character",
         })
       );
     }
@@ -106,7 +140,11 @@ const Login = () => {
       });
   };
 
-  const handleSendEmail = () => {};
+  const handleSendEmail = () => {
+    setIsEmailSent(true);
+  };
+
+  const handCodeFromEmailChange = (e) => {};
 
   useEffect(() => {
     if (password.length >= 8 && password === confirmPassword) {
@@ -115,6 +153,14 @@ const Login = () => {
       setIsRegisterButtonDisabled(true);
     }
   }, [password, confirmPassword]);
+
+  useEffect(() => {
+    if (newPassword.length >= 8 && newPassword === confirmNewPassword) {
+      setIsResetPssWrdButtonDisabled(false);
+    } else {
+      setIsResetPssWrdButtonDisabled(true);
+    }
+  }, [newPassword, confirmNewPassword]);
 
   const myStyle = {
     fontSize: ".8rem",
@@ -193,35 +239,101 @@ const Login = () => {
                     </div>
                   )}
                   {forgotToggle && !loginRegisterToggle && (
-                    <div
-                      style={{
-                        fontSize: "1.1rem",
-                        fontWeight: 550,
-                        marginBottom: "1rem",
-                      }}
-                    >
-                      <Label for="ForgotEmail">Enter Registration Email</Label>
-                      <Input
-                        style={myStyle}
-                        type="email"
-                        name="ForgotEmail"
-                        id="ForgotEmail"
-                        placeholder="Email"
-                      />
-                      <div
-                        style={{
-                          paddingTop: "1rem",
-                          fontWeight: "lighter",
-                          fontSize: "1rem",
-                          textAlign: "center",
-                        }}
-                      >
-                        <p>
-                          An email will be sent to registraton email for
-                          Password Reset.
-                        </p>
-                      </div>
-                    </div>
+                    <>
+                      {!isEmailSent ? (
+                        <div
+                          style={{
+                            fontSize: "1.1rem",
+                            fontWeight: 550,
+                            marginBottom: "1rem",
+                          }}
+                        >
+                          <Label for="ForgotEmail">
+                            Enter Registration Email
+                          </Label>
+                          <Input
+                            style={myStyle}
+                            type="email"
+                            name="ForgotEmail"
+                            id="ForgotEmail"
+                            placeholder="Email"
+                          />
+                          <div
+                            style={{
+                              paddingTop: "1rem",
+                              fontWeight: "lighter",
+                              fontSize: "1rem",
+                              textAlign: "center",
+                            }}
+                          >
+                            <p>
+                              An email will be sent to registraton email for
+                              Password Reset.
+                            </p>
+                          </div>
+                        </div>
+                      ) : (
+                        <div>
+                          <div
+                            style={{
+                              fontSize: "1.1rem",
+                              fontWeight: 550,
+                              marginBottom: "1rem",
+                            }}
+                          >
+                            {/* <Label for="UserName">Code From Email</Label> */}
+                            <Input
+                              style={myStyle}
+                              type="input"
+                              name="CodeFromEmail"
+                              id="CodeFromEmail"
+                              placeholder="Enter Code From Email"
+                              onChange={handCodeFromEmailChange}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              fontSize: "1.1rem",
+                              fontWeight: 550,
+                              marginBottom: "1rem",
+                            }}
+                          >
+                            <Label for="NewPassword">New Password</Label>
+                            <Input
+                              style={myStyle}
+                              type="password"
+                              name="NewPassword"
+                              id="NewPassword"
+                              placeholder="New Password"
+                              value={newPassword}
+                              disabled={!isCodeValid}
+                              onChange={handleNewPasswordChange}
+                            />
+                          </div>
+                          <div
+                            style={{
+                              fontSize: "1.1rem",
+                              fontWeight: 550,
+                              marginBottom: "1rem",
+                            }}
+                          >
+                            <Label for="ConfrimNewPassword">
+                              Confirm New Password
+                            </Label>
+                            <Input
+                              style={myStyle}
+                              type="password"
+                              name="ConfrimNewPassword"
+                              id="ConfrimNewPassword"
+                              placeholder="Retype New Password"
+                              disabled={!isNewPasswordValidated}
+                              value={confirmNewPassword}
+                              onChange={handleConfirmNewPasswordChange}
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </>
                   )}
 
                   {loginRegisterToggle ? (
@@ -258,7 +370,7 @@ const Login = () => {
                           name="ConfrimPassword"
                           id="ConfrimPassword"
                           placeholder="Retype Password"
-                          disabled={!passwordValidated}
+                          disabled={!isPasswordValidated}
                           value={confirmPassword}
                           onChange={handleConfirmPasswordChange}
                         />
@@ -344,13 +456,33 @@ const Login = () => {
               ) : (
                 <>
                   {forgotToggle ? (
-                    <Button
-                      id="btnSendEmail"
-                      className="button-login"
-                      onClick={handleSendEmail}
-                    >
-                      Send Email
-                    </Button>
+                    <>
+                      {!isEmailSent ? (
+                        <Button
+                          id="btnSendEmail"
+                          className="button-login"
+                          onClick={handleSendEmail}
+                        >
+                          Send Email
+                        </Button>
+                      ) : (
+                        <Button
+                          id="btnSendEmail"
+                          className="button-login"
+                          disabled={isResetPssWrdButtonDisabled}
+                          onClick={handleSendEmail}
+                        >
+                          Reset Password
+                        </Button>
+                      )}
+                      {/* <Button
+                        id="btnSendEmail"
+                        className="button-login"
+                        onClick={handleSendEmail}
+                      >
+                        Send Email
+                      </Button> */}
+                    </>
                   ) : (
                     <Button
                       id="btnLogin"
