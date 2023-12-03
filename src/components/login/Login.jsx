@@ -95,7 +95,7 @@ const Login = () => {
     setIsLoading(true);
     dispatch(setMessage({ status: "INFO", message: "Logging in..." }));
 
-    let username = document.getElementById("UserName").value;
+    let username = document.getElementById("UserLoginName").value;
     let password = document.getElementById("LoginPassword").value;
 
     dispatch(login({ username, password }))
@@ -113,8 +113,9 @@ const Login = () => {
 
   const handleRegister = () => {
     setIsLoading(true);
+    dispatch(setMessage({ status: "INFO", message: "Registration in progress..." }));
 
-    let username = document.getElementById("UserName").value;
+    let username = document.getElementById("UserRegistrationName").value;
     let email = document.getElementById("Email").value;
     let password = document.getElementById("RegistrationPassword").value;
 
@@ -144,7 +145,23 @@ const Login = () => {
     setIsEmailSent(true);
   };
 
-  const handCodeFromEmailChange = (e) => {};
+  const handCodeFromEmailChange = (e) => {
+    let codeFromEmail = e.target.value;
+    if (codeFromEmail === "123456") {
+      setIsCodeValid(true);
+      dispatch(clearMessage());
+    } else {
+      setIsCodeValid(false);
+      setNewPassword("");
+      setConfirmNewPassword("");
+      dispatch(
+        setMessage({
+          status: "WARN",
+          message: "Code from email is not valid",
+        })
+      );
+    }
+  };
 
   useEffect(() => {
     if (password.length >= 8 && password === confirmPassword) {
@@ -209,14 +226,29 @@ const Login = () => {
                   >
                     {!forgotToggle && (
                       <>
-                        <Label for="UserName">User name</Label>
-                        <Input
-                          style={myStyle}
-                          type="input"
-                          name="UserName"
-                          id="UserName"
-                          placeholder="User Name"
-                        />
+                        {loginRegisterToggle ? (
+                          <>
+                            <Label for="UserRegistrationName">User name</Label>
+                            <Input
+                              style={myStyle}
+                              type="input"
+                              name="UserRegistrationName"
+                              id="UserRegistrationName"
+                              placeholder="User Name"
+                            />
+                          </>
+                        ) : (
+                          <>
+                            <Label for="UserLoginName">User name</Label>
+                            <Input
+                              style={myStyle}
+                              type="input"
+                              name="UserLoginName"
+                              id="UserLoginName"
+                              placeholder="User Name"
+                            />
+                          </>
+                        )}
                       </>
                     )}
                   </div>
