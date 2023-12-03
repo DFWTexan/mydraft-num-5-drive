@@ -19,6 +19,7 @@ const Login = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
     useState(true);
+  const [isEmailSent, setIsEmailSent] = useState(false);
   const dispatch = useDispatch();
 
   const handlePasswordChange = (e) => {
@@ -105,9 +106,7 @@ const Login = () => {
       });
   };
 
-  const handleSendEmail = () => {
-
-  };
+  const handleSendEmail = () => {};
 
   useEffect(() => {
     if (password.length >= 8 && password === confirmPassword) {
