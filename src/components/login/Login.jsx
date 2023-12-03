@@ -20,6 +20,7 @@ const Login = () => {
   const [newPassword, setNewPassword] = useState("");
   const [isNewPasswordValidated, setIsNewPasswordValidated] = useState(false);
   const [confirmNewPassword, setConfirmNewPassword] = useState("");
+  const [codeFromEmail, setCodeFromEmail] = useState("");
   const [isCodeValid, setIsCodeValid] = useState(false);
   const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
     useState(true);
@@ -146,8 +147,8 @@ const Login = () => {
   };
 
   const handCodeFromEmailChange = (e) => {
-    let codeFromEmail = e.target.value;
-    if (codeFromEmail === "123456") {
+    let code = e.target.value;
+    if (code === codeFromEmail) {
       setIsCodeValid(true);
       dispatch(clearMessage());
     } else {
