@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
+import axios from "axios";
 
 import "./login.scss";
 import { login, register } from "../../slices/auth";
@@ -11,6 +12,8 @@ import { fetchActiveLeague } from "../../slices/league";
 
 const Login = () => {
   const [loginRegisterToggle, setLoginRegisterToggle] = useState(false);
+  // const [userLoginName, setUserLoginName] = useState("");
+  // const [loginPassword, setLoginPassword] = useState("");
   const [forgotToggle, setforgotToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { status, message } = useSelector((state) => state.message);
@@ -26,6 +29,7 @@ const Login = () => {
     useState(true);
   const [isResetPssWrdButtonDisabled, setIsResetPssWrdButtonDisabled] =
     useState(true);
+  const [forgotEmail, setForgotEmail] = useState("");
   const [isEmailSent, setIsEmailSent] = useState(false);
   const dispatch = useDispatch();
 
@@ -103,7 +107,7 @@ const Login = () => {
       .unwrap()
       .then(() => {
         dispatch(userInfoStatus());
-        dispatch(fetchActiveLeague(1));
+        dispatch(fetchActiveLeague());
       })
       .catch(() => {
         setIsLoading(false);
@@ -144,9 +148,77 @@ const Login = () => {
 
   const handleSendEmail = () => {
     setIsEmailSent(true);
+    dispatch(clearMessage());
+    let email = document.getElementById("ForgotEmail").value;
+    setForgotEmail(email);
+    dispatch(setMessage({ status: "INFO", message: "Sending email..." }));
+
+    
+    // dispatch(register({ email }))
+    //   .unwrap()
+    //   .then((response) => {
+    //     dispatch(clearMessage());
+    //     setCodeFromEmail(response.status);
+    //     dispatch(
+    //       setMessage({
+    //         status: "SUCCESS",
+    //         message: response.message,
+    //       })
+    //     );
+    //   })
+    //   .catch(() => {
+    //     setIsLoading(false);
+    //     setPassword("");
+    //     setConfirmPassword("");
+    //   });
+
+    axios
+      .post(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/ForgotPassword`, {email})
+      .then((response) => {
+        dispatch(clearMessage());
+        setCodeFromEmail(response.data.status);
+        dispatch(
+          setMessage({
+            status: "SUCCESS",
+            message: response.message,
+          })
+        );
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setPassword("");
+        setConfirmPassword("");
+      });
+
   };
 
-  const handCodeFromEmailChange = (e) => {
+const handleResetPassword = () => { 
+  // setIsLoading(true);
+  dispatch(clearMessage());
+  dispatch(setMessage({ status: "INFO", message: "Resetting password..." }));
+
+  axios
+    .post(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/Reset-Password`, {codeFromEmail, forgotEmail, newPassword})
+    .then((response) => {
+      dispatch(clearMessage());
+      setPassword(newPassword)
+      dispatch(userInfoStatus());
+      dispatch(fetchActiveLeague());
+      dispatch(
+        setMessage({
+          status: "SUCCESS",
+          message: response.message,
+        })
+      );
+    })
+    .catch(() => {
+      setIsLoading(false);
+      setPassword("");
+      setConfirmPassword("");
+    });
+};
+
+  const handleCodeFromEmailChange = (e) => {
     let code = e.target.value;
     if (code === codeFromEmail) {
       setIsCodeValid(true);
@@ -321,7 +393,7 @@ const Login = () => {
                               name="CodeFromEmail"
                               id="CodeFromEmail"
                               placeholder="Enter Code From Email"
-                              onChange={handCodeFromEmailChange}
+                              onChange={handleCodeFromEmailChange}
                             />
                           </div>
                           <div
@@ -503,7 +575,7 @@ const Login = () => {
                           id="btnSendEmail"
                           className="button-login"
                           disabled={isResetPssWrdButtonDisabled}
-                          onClick={handleSendEmail}
+                          onClick={handleResetPassword}
                         >
                           Reset Password
                         </Button>
