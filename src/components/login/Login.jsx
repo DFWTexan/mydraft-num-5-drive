@@ -614,7 +614,7 @@ const handleResetPassword = () => {
                 }}
                 onClick={() => setLoginRegisterToggle(!loginRegisterToggle)}
               >
-                {!loginRegisterToggle ? "Sign Up" : "Log In"}
+                {!loginRegisterToggle ? "Sign-Up" : "Log In"}
               </Button>
             </div>
           </div>
