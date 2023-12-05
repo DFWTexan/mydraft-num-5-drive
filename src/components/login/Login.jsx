@@ -117,8 +117,10 @@ const Login = () => {
   };
 
   const handleRegister = () => {
-    setIsLoading(true);
-    dispatch(setMessage({ status: "INFO", message: "Registration in progress..." }));
+    // setIsLoading(true);
+    dispatch(
+      setMessage({ status: "INFO", message: "Registration in progress..." })
+    );
 
     let username = document.getElementById("UserRegistrationName").value;
     let email = document.getElementById("Email").value;
@@ -134,7 +136,7 @@ const Login = () => {
             dispatch(fetchActiveLeague(1));
           })
           .catch(() => {
-            setIsLoading(false);
+            // setIsLoading(false);
             setPassword("");
             setConfirmPassword("");
           });
@@ -153,7 +155,6 @@ const Login = () => {
     setForgotEmail(email);
     dispatch(setMessage({ status: "INFO", message: "Sending email..." }));
 
-    
     // dispatch(register({ email }))
     //   .unwrap()
     //   .then((response) => {
@@ -173,7 +174,10 @@ const Login = () => {
     //   });
 
     axios
-      .post(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/ForgotPassword`, {email})
+      .post(
+        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/ForgotPassword`,
+        { email }
+      )
       .then((response) => {
         dispatch(clearMessage());
         setCodeFromEmail(response.data.status);
@@ -189,34 +193,36 @@ const Login = () => {
         setPassword("");
         setConfirmPassword("");
       });
-
   };
 
-const handleResetPassword = () => { 
-  // setIsLoading(true);
-  dispatch(clearMessage());
-  dispatch(setMessage({ status: "INFO", message: "Resetting password..." }));
+  const handleResetPassword = () => {
+    // setIsLoading(true);
+    dispatch(clearMessage());
+    dispatch(setMessage({ status: "INFO", message: "Resetting password..." }));
 
-  axios
-    .post(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/Reset-Password`, {codeFromEmail, forgotEmail, newPassword})
-    .then((response) => {
-      dispatch(clearMessage());
-      setPassword(newPassword)
-      dispatch(userInfoStatus());
-      dispatch(fetchActiveLeague());
-      dispatch(
-        setMessage({
-          status: "SUCCESS",
-          message: response.message,
-        })
-      );
-    })
-    .catch(() => {
-      setIsLoading(false);
-      setPassword("");
-      setConfirmPassword("");
-    });
-};
+    axios
+      .post(
+        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/Reset-Password`,
+        { codeFromEmail, forgotEmail, newPassword }
+      )
+      .then((response) => {
+        dispatch(clearMessage());
+        setPassword(newPassword);
+        dispatch(userInfoStatus());
+        dispatch(fetchActiveLeague());
+        dispatch(
+          setMessage({
+            status: "SUCCESS",
+            message: response.message,
+          })
+        );
+      })
+      .catch(() => {
+        setIsLoading(false);
+        setPassword("");
+        setConfirmPassword("");
+      });
+  };
 
   const handleCodeFromEmailChange = (e) => {
     let code = e.target.value;
