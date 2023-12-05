@@ -627,6 +627,8 @@ const handleResetPassword = () => {
             paddingTop: "2rem",
             display: "flex",
             justifyContent: "center",
+            padddingright: ".5rem",
+            padddingleft: ".5rem",
           }}
         >
           <div
