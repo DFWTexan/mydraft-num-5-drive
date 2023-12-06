@@ -10,6 +10,7 @@ import DraftSelections from "../draft-info/DraftSelections";
 import DraftedPositions from "../draft-info/DraftedPositions";
 import RosterCount from "../draft-info/RosterCount";
 import TeamSelections from "../draft-info/TeamSelections";
+import FanTeamNews from "../draft-info/FanTeamNews";
 import ProTeamDepthChart from "./ProTeamDepthChart";
 
 // const getTabBackgroundColor = (index) => {
@@ -183,7 +184,11 @@ const DraftInfo = () => {
               <TabPanel>
                 {" "}
                 {/* -- This is the tab panel for the fan team news -- */}
-                <p>ROSTER = News</p>
+                <FanTeamNews
+                  MyTeam={true}
+                  selectedTeam={selectedTeam}
+                  setSelectedTeam={handleFanTeamChange}
+                />
               </TabPanel>
               {/* </div> */}
             </Tabs>

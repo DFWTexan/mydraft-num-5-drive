@@ -10,7 +10,7 @@ import FanTeamSelect from "../../Common/fanTeamSelect";
 // import { API_URL } from "../../../config";
 
 
-const FanTeamRoseter = (props) => {
+const FanTeamRoster = (props) => {
   const activeLeague = useSelector((state) => state.activeLeague);
   const fanTeamRoster = useSelector((state) => state.fanTeamRoster);
   const dispatch = useDispatch();
@@ -84,4 +84,4 @@ const FanTeamRoseter = (props) => {
   );
 };
 
-export default FanTeamRoseter;
+export default FanTeamRoster;
