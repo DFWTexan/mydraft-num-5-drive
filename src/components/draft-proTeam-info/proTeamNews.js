@@ -8,6 +8,7 @@ const ProTeamNews = ({ teamID, width, height, color }) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
     axios
       .get(
         `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}ProTeam/News/${teamID}`
@@ -30,20 +31,33 @@ const ProTeamNews = ({ teamID, width, height, color }) => {
   };
 
   return teamID === 0 ? (
-    <div style={{ paddingTop: '2rem' }}>No Team Selected for News...</div>
+    <div style={{ paddingTop: "2rem" }}>No Team Selected for News...</div>
   ) : (
-    <div style={style}>
-      {data &&
-        data.map((item, index) => (
-          <div className="proTeamNewsItem" key={index}>
-            <div className="proTeamNewsItem__title">{item.title}</div>
-            <div className="proTeamNewsItem__date">{item.pubDate}</div>
-            <div className="proTeamNewsItem__description">
-              {item.newsDescription}
-            </div>
-          </div>
-        ))}
-    </div>
+    <>
+      {data.length > 0 ? (
+        <>
+          {Loading ? (
+            <div></div>
+          ) : (
+            <React.Fragment>
+              {data.map((item, index) => (
+                <div style={style} key={index}>
+                  <div className="proTeamNewsItem">
+                    <div className="proTeamNewsItem__title">{item.title}</div>
+                    <div className="proTeamNewsItem__date">{item.pubDate}</div>
+                    <div className="proTeamNewsItem__description">
+                      {item.newsDescription}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </React.Fragment>
+          )}
+        </>
+      ) : (
+        <div style={{ paddingTop: "2rem" }}>No News Found...</div>
+      )}
+    </>
   );
 };
-export default ProTeamNews; 
+export default ProTeamNews;
