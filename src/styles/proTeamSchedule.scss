@@ -1,0 +1,29 @@
+.proTeamScheduleItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  }
+
+  .proTeamScheduleItem__header {
+    display: flex;
+    justify-content: space-between; // This spreads out the child elements evenly
+    width: 100%;
+  }
+
+  .proTeamScheduleItem__game {
+    flex: 1;  // This ensures that each game item takes equal space
+    text-align: center; // Centering the text within each game item
+    padding: 0.25rem; // Optional, for some internal spacing
+  }
+}
