@@ -46,7 +46,7 @@ const ProTeamNews = ({ teamID, width, height, color }) => {
                     <div className="proTeamNewsItem">
                       <div className="proTeamNewsItem__title">{item.title}</div>
                       <div className="proTeamNewsItem__date">
-                        {item.pubDate}
+                        {item.dateString}
                       </div>
                       <div className="proTeamNewsItem__description">
                         {item.newsDescription}

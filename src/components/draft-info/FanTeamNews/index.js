@@ -55,9 +55,9 @@ const FanTeamNews = (props) => {
               <React.Fragment key={index}>
                 <div style={style}>
                   <div className="fanTeamNewsItem">
-                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div className="fanTeamNewsItem__header">
                     <div className="fanTeamNewsItem__playerName">{item.playerName}</div>
-                    <div className="fanTeamNewsItem__date">{item.pubDate}</div>
+                    <div className="fanTeamNewsItem__date">{item.dateString}</div>
                     </div>
                     
                     <div className="fanTeamNewsItem__description">
