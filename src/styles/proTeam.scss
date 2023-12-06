@@ -1,0 +1,43 @@
+// scss for proteam news item Title, date, and description
+
+.proTeamNewsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  }
+  .proTeamNewsItem__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+  .proTeamNewsItem__date {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+  .proTeamNewsItem__description {
+    justify-content: flex-start;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 0.5rem;
+  }
+}
+
+
+
+

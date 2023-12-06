@@ -134,6 +134,7 @@ const Login = () => {
           .then(() => {
             dispatch(userInfoStatus());
             dispatch(fetchActiveLeague(1));
+            setMessage({ status: "INFO", message: "Login Ready for use..." })
           })
           .catch(() => {
             // setIsLoading(false);
