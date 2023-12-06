@@ -11,9 +11,6 @@ const FanTeamNews = (props) => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-
-console.log('==> EMFTest (FanTeamNews) props.selectedTeam: ', props.selectedTeam);
-
     setLoading(true);
     axios
       .get(

@@ -31,7 +31,7 @@ const ProTeamNews = ({ teamID, width, height, color }) => {
   };
 
   return teamID === 0 ? (
-    <div style={{ paddingTop: "5rem", fontSize: '1.5rem' }}>No Team Selected for News</div>
+    <div style={{ paddingTop: "5rem", fontSize: '1.5rem' }}>No Team Selected</div>
   ) : (
     <>
       {data.length > 0 ? (
