@@ -54,9 +54,13 @@ const FanTeamNews = (props) => {
             newsData.map((item, index) => (
               <React.Fragment key={index}>
                 <div style={style}>
-                  <div className="proTeamNewsItem">
-                    <div className="proTeamNewsItem__date">{item.pubDate}</div>
-                    <div className="proTeamNewsItem__description">
+                  <div className="fanTeamNewsItem">
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <div className="fanTeamNewsItem__playerName">{item.playerName}</div>
+                    <div className="fanTeamNewsItem__date">{item.pubDate}</div>
+                    </div>
+                    
+                    <div className="fanTeamNewsItem__description">
                       {item.newsDescription}
                     </div>
                   </div>
