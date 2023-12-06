@@ -11,6 +11,9 @@ const FanTeamNews = (props) => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
+
+console.log('==> EMFTest (FanTeamNews) props.selectedTeam: ', props.selectedTeam);
+
     setLoading(true);
     axios
       .get(
@@ -44,28 +47,34 @@ const FanTeamNews = (props) => {
           setSelectedTeam={props.setSelectedTeam}
         />
       </div>
-      <div style={{ padding: ".3rem" }}>
-        {newsData.length > 0 ? (
-          newsData.map((item, index) => (
-            <React.Fragment key={index}>
-              <div style={style}>
-                <div className="proTeamNewsItem">
-                  <div className="proTeamNewsItem__date">{item.pubDate}</div>
-                  <div className="proTeamNewsItem__description">
-                    {item.newsDescription}
+      {props.selectedTeam === 0 ? (
+        <>
+          <div style={{ paddingTop: '1rem', fontSize: '1.5rem' }}>No Team Selected</div>
+        </>
+      ) : (
+        <div style={{ padding: ".3rem" }}>
+          {newsData.length > 0 ? (
+            newsData.map((item, index) => (
+              <React.Fragment key={index}>
+                <div style={style}>
+                  <div className="proTeamNewsItem">
+                    <div className="proTeamNewsItem__date">{item.pubDate}</div>
+                    <div className="proTeamNewsItem__description">
+                      {item.newsDescription}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </React.Fragment>
-          ))
-        ) : (
-          <div>
+              </React.Fragment>
+            ))
+          ) : (
             <div>
-              <div>No news available</div>
+              <div>
+                <div style={{ paddingTop: '1rem', fontSize: '1.5rem' }}>No news available</div>
+              </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </div>
   );
 };
