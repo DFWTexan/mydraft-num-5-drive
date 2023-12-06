@@ -41,15 +41,19 @@ const ProTeamNews = ({ teamID, width, height, color }) => {
           ) : (
             <React.Fragment>
               {data.map((item, index) => (
-                <div style={style} key={index}>
-                  <div className="proTeamNewsItem">
-                    <div className="proTeamNewsItem__title">{item.title}</div>
-                    <div className="proTeamNewsItem__date">{item.pubDate}</div>
-                    <div className="proTeamNewsItem__description">
-                      {item.newsDescription}
+                <React.Fragment key={index}>
+                  <div style={style}>
+                    <div className="proTeamNewsItem">
+                      <div className="proTeamNewsItem__title">{item.title}</div>
+                      <div className="proTeamNewsItem__date">
+                        {item.pubDate}
+                      </div>
+                      <div className="proTeamNewsItem__description">
+                        {item.newsDescription}
+                      </div>
                     </div>
                   </div>
-                </div>
+                </React.Fragment>
               ))}
             </React.Fragment>
           )}
