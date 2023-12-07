@@ -6,12 +6,12 @@ import "../../../styles/index.scss";
 import FanTeamSelect from "../../Common/fanTeamSelect";
 
 const FanTeamNews = (props) => {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const activeLeague = useSelector((state) => state.activeLeague);
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-    setLoading(true);
+    // setLoading(true);
     axios
       .get(
         `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/GetTeamNews/${props.selectedTeam}`
@@ -20,7 +20,7 @@ const FanTeamNews = (props) => {
         setNewsData([...response.data]);
       })
       .finally(() => {
-        setLoading(false);
+        // setLoading(false);
       });
   }, [props.selectedTeam]);
 

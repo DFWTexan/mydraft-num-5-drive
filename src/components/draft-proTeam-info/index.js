@@ -13,11 +13,14 @@ import ProTeamInjuries from "./proTeamInjuries";
 const ProTeamInfo = () => {
   const [data, setData] = useState([{ value: 0, label: "Loading..." }]);
   const [selectedItem, setSelectedItem] = useState(0);
+  const [selectedItemLabel, setSelectedItemLabel] = useState(0);
 
   useEffect(() => {
-    axios.get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/ProTeamList`).then((response) => {
-      setData([{ value: 0, label: "Select Team" }, ...response.data]);
-    });
+    axios
+      .get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/ProTeamList`)
+      .then((response) => {
+        setData([{ value: 0, label: "Select Team" }, ...response.data]);
+      });
   }, []);
 
   return (
@@ -39,17 +42,27 @@ const ProTeamInfo = () => {
                       labelId="proTeamSelect-label"
                       id="proTeamSelect"
                       value={selectedItem}
-                      onChange={(value) => {
-                        setSelectedItem(value.target.value);
+                      onChange={(event) => {
+                        const selectedValue = event.target.value;
+                        setSelectedItem(selectedValue);
+
+                        // Find the label from the data array
+                        const selectedLabel =
+                          data.find((option) => option.value === selectedValue)
+                            ?.label || "";
+                        setSelectedItemLabel(selectedLabel);
+
+                        // console.log(
+                        //   "EMFTest ==> (ProTeam-Info-index) - selectedLabel => \n",
+                        //   selectedLabel
+                        // );
                       }}
                     >
-                      {data.map((option, index) => {
-                        return (
-                          <MenuItem key={index} value={option.value}>
-                            {option.label}
-                          </MenuItem>
-                        );
-                      })}
+                      {data.map((option, index) => (
+                        <MenuItem key={index} value={option.value}>
+                          {option.label}
+                        </MenuItem>
+                      ))}
                     </Select>
                   </FormControl>
                 </div>
@@ -62,7 +75,7 @@ const ProTeamInfo = () => {
             <ProTeamNews teamID={selectedItem} />
           </TabPanel>
           <TabPanel>
-            <ProTeamSchedule teamID={selectedItem} />
+            <ProTeamSchedule teamID={selectedItem} teamNickname={selectedItemLabel} />
           </TabPanel>
           <TabPanel>
             <ProTeamInjuries teamID={selectedItem} />
