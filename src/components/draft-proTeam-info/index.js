@@ -66,13 +66,13 @@ const ProTeamInfo = () => {
         </div>
         <div className="detail-container">
           <TabPanel>
-            <ProTeamNews teamID={selectedItem} />
+            <ProTeamNews teamID={selectedItem} teamNickname={selectedItemLabel} />
           </TabPanel>
           <TabPanel>
             <ProTeamSchedule teamID={selectedItem} teamNickname={selectedItemLabel} />
           </TabPanel>
           <TabPanel>
-            <ProTeamInjuries teamID={selectedItem} />
+            <ProTeamInjuries teamID={selectedItem} teamNickname={selectedItemLabel} />
           </TabPanel>
         </div>
       </Tabs>

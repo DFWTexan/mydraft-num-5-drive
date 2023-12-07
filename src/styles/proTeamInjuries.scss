@@ -1,0 +1,153 @@
+.proTeamInjuryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  }
+
+  .proTeamInjuryItem__header {
+    display: flex;
+    justify-content: space-between; // This spreads out the child elements evenly
+    width: 100%;
+  }
+
+  .proTeamInjuryItem__player {
+    font-size: 1rem;
+    flex: 1; // This ensures that each game item takes equal space
+    text-align: left; // Centering the text within each game item
+    padding: 0.25rem; // Optional, for some internal spacing
+  }
+  
+  .proTeamInjuryItem__injury {
+    font-size: 0.95rem;
+    flex: 1; // This ensures that each game item takes equal space
+    text-align: left; // Centering the text within each game item
+    padding: 0.25rem; // Optional, for some internal spacing
+  }
+
+  .proTeamInjuryItem__status {
+    font-size: 0.9rem;
+    flex: 1; // This ensures that each game item takes equal space
+    text-align: right; // Centering the text within each game item
+    padding: 0.25rem; // Optional, for some internal spacing
+  }
+  
+}
+
+.proTeamIjuryPanel {
+  display: flex;
+  flex-direction: column; // This line ensures items are listed vertically
+  align-items: flex-start; // Align items to the start of the container
+  width: 100%;
+  height: auto; // Adjust height to "auto" for dynamic sizing
+  background-color: #f0f0f0;
+  padding: 0.5rem; // Add some padding around the container
+  overflow-y: auto; // Add vertical scroll if content overflows
+
+  &--cardinals {
+    background-color: #97233f;
+  } // Replace with actual color
+  &--falcons {
+    background-color: #a71930;
+  }
+  &--ravens {
+    background-color: #241773;
+  }
+  &--bills {
+    background-color: #00338d;
+  }
+  &--panthers {
+    background-color: #0085ca;
+  }
+  &--bears {
+    background-color: #c83803;
+  }
+  &--bengals {
+    background-color: #fb4f14;
+  }
+  &--browns {
+    background-color: #311d00;
+  }
+  &--cowboys {
+    background-color: #041e42;
+  }
+  &--broncos {
+    background-color: #fb4f14;
+  }
+  &--lions {
+    background-color: #0076b6;
+  }
+  &--packers {
+    background-color: #203731;
+  }
+  &--texans {
+    background-color: #03202f;
+  }
+  &--colts {
+    background-color: #002c5f;
+  }
+  &--jaguars {
+    background-color: #006778;
+  }
+  &--chiefs {
+    background-color: #e31837;
+  }
+  &--raiders {
+    background-color: #a5acaf;
+  }
+  &--chargers {
+    background-color: #002a5e;
+  }
+  &--rams {
+    background-color: #003594;
+  }
+  &--dolphins {
+    background-color: #008e97;
+  }
+  &--vikings {
+    background-color: #4f2683;
+  }
+  &--patriots {
+    background-color: #002244;
+  }
+  &--saints {
+    background-color: #d3bc8d;
+  }
+  &--giants {
+    background-color: #0b2265;
+  }
+  &--jets {
+    background-color: #125740;
+  }
+  &--eagles {
+    background-color: #004c54;
+  }
+  &--steelers {
+    background-color: #ffb612;
+  }
+  &--49ers {
+    background-color: #aa0000;
+  }
+  &--seahawks {
+    background-color: #002244;
+  }
+  &--buccaneers {
+    background-color: #d50a0a;
+  }
+  &--titans {
+    background-color: #0c2340;
+  }
+  &--washington {
+    background-color: #773141;
+  }
+}
