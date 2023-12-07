@@ -90,17 +90,6 @@ const ProTeamSchedule = ({ teamID, teamNickname, width, height, color }) => {
     setLoading(false);
   }, [teamID]);
 
-  // const style = {
-  //   display: "flex",
-  //   flexDirection: "column", // This line ensures items are listed vertically
-  //   alignItems: "flex-start", // Align items to the start of the container
-  //   width: width || "100%",
-  //   height: height || "auto", // Adjust height to "auto" for dynamic sizing
-  //   backgroundColor: color || "#f0f0f0",
-  //   padding: "0.5rem", // Add some padding around the container
-  //   overflowY: "auto", // Add vertical scroll if content overflows
-  // };
-
   const backgroundColorClass = getBackgroundColorClass(teamNickname);
 
   return teamID === 0 ? (
