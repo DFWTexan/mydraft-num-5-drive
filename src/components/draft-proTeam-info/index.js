@@ -46,16 +46,10 @@ const ProTeamInfo = () => {
                         const selectedValue = event.target.value;
                         setSelectedItem(selectedValue);
 
-                        // Find the label from the data array
                         const selectedLabel =
                           data.find((option) => option.value === selectedValue)
                             ?.label || "";
                         setSelectedItemLabel(selectedLabel);
-
-                        // console.log(
-                        //   "EMFTest ==> (ProTeam-Info-index) - selectedLabel => \n",
-                        //   selectedLabel
-                        // );
                       }}
                     >
                       {data.map((option, index) => (

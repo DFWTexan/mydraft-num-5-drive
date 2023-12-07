@@ -8,9 +8,6 @@ const ProTeamSchedule = ({ teamID, teamNickname, width, height, color }) => {
   const [data, setData] = useState([]);
 
   const getBackgroundColorClass = (proTeamNickname) => {
-
-console.log("EMFTest ==> (ProTeamSchedule:getBackgroundColorClass) - proTeamNickname => \n", proTeamNickname);
-
     switch (proTeamNickname) {
       case "Cardinals":
         return "proTeamSchedulePanel--cardinals";
