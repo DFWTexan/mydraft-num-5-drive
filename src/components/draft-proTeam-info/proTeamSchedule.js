@@ -10,69 +10,69 @@ const ProTeamSchedule = ({ teamID, teamNickname, width, height, color }) => {
   const getBackgroundColorClass = (proTeamNickname) => {
     switch (proTeamNickname) {
       case "Cardinals":
-        return "proTeamSchedulePanel--cardinals";
+        return "proTeamInfoPanel--cardinals";
       case "Falcons":
-        return "proTeamSchedulePanel--falcons";
+        return "proTeamInfoPanel--falcons";
       case "Ravens":
-        return "proTeamSchedulePanel--ravens";
+        return "proTeamInfoPanel--ravens";
       case "Bills":
-        return "proTeamSchedulePanel--bills";
+        return "proTeamInfoPanel--bills";
       case "Panthers":
-        return "proTeamSchedulePanel--panthers";
+        return "proTeamInfoPanel--panthers";
       case "Bears":
-        return "proTeamSchedulePanel--bears";
+        return "proTeamInfoPanel--bears";
       case "Bengals":
-        return "proTeamSchedulePanel--bengals";
+        return "proTeamInfoPanel--bengals";
       case "Browns":
-        return "proTeamSchedulePanel--browns";
+        return "proTeamInfoPanel--browns";
       case "Cowboys":
-        return "proTeamSchedulePanel--cowboys";
+        return "proTeamInfoPanel--cowboys";
       case "Broncos":
-        return "proTeamSchedulePanel--broncos";
+        return "proTeamInfoPanel--broncos";
       case "Lions":
-        return "proTeamSchedulePanel--lions";
+        return "proTeamInfoPanel--lions";
       case "Packers":
-        return "proTeamSchedulePanel--packers";
+        return "proTeamInfoPanel--packers";
       case "Texans":
-        return "proTeamSchedulePanel--texans";
+        return "proTeamInfoPanel--texans";
       case "Colts":
-        return "proTeamSchedulePanel--colts";
+        return "proTeamInfoPanel--colts";
       case "Jaguars":
-        return "proTeamSchedulePanel--jaguars";
+        return "proTeamInfoPanel--jaguars";
       case "Chiefs":
-        return "proTeamSchedulePanel--chiefs";
+        return "proTeamInfoPanel--chiefs";
       case "Chargers":
-        return "proTeamSchedulePanel--chargers";
+        return "proTeamInfoPanel--chargers";
       case "Rams":
-        return "proTeamSchedulePanel--rams";
+        return "proTeamInfoPanel--rams";
       case "Dolphins":
-        return "proTeamSchedulePanel--dolphins";
+        return "proTeamInfoPanel--dolphins";
       case "Vikings":
-        return "proTeamSchedulePanel--vikings";
+        return "proTeamInfoPanel--vikings";
       case "Patriots":
-        return "proTeamSchedulePanel--patriots";
+        return "proTeamInfoPanel--patriots";
       case "Saints":
-        return "proTeamSchedulePanel--saints";
+        return "proTeamInfoPanel--saints";
       case "Giants":
-        return "proTeamSchedulePanel--giants";
+        return "proTeamInfoPanel--giants";
       case "Jets":
-        return "proTeamSchedulePanel--jets";
+        return "proTeamInfoPanel--jets";
       case "Raiders":
-        return "proTeamSchedulePanel--raiders";
+        return "proTeamInfoPanel--raiders";
       case "Eagles":
-        return "proTeamSchedulePanel--eagles";
+        return "proTeamInfoPanel--eagles";
       case "Steelers":
-        return "proTeamSchedulePanel--steelers";
+        return "proTeamInfoPanel--steelers";
       case "49ers":
-        return "proTeamSchedulePanel--49ers";
+        return "proTeamInfoPanel--49ers";
       case "Seahawks":
-        return "proTeamSchedulePanel--seahawks";
+        return "proTeamInfoPanel--seahawks";
       case "Buccaneers":
-        return "proTeamSchedulePanel--buccaneers";
+        return "proTeamInfoPanel--buccaneers";
       case "Titans":
-        return "proTeamSchedulePanel--titans";
+        return "proTeamInfoPanel--titans";
       case "Redskins":
-        return "proTeamSchedulePanel--redskins";
+        return "proTeamInfoPanel--redskins";
       default:
         return ""; // Default or fallback class
     }
@@ -106,7 +106,7 @@ const ProTeamSchedule = ({ teamID, teamNickname, width, height, color }) => {
             <React.Fragment>
               {data.map((item, index) => (
                 <React.Fragment key={index}>
-                  <div className={`proTeamSchedulePanel ${backgroundColorClass}`}>
+                  <div className={`proTeamInfoPanel ${backgroundColorClass}`}>
                     <div className="proTeamScheduleItem">
                       <div className="proTeamScheduleItem__header">
                         <div className="proTeamScheduleItem__game">

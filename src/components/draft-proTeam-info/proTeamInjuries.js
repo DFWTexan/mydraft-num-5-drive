@@ -10,69 +10,69 @@ const ProTeamInjuries = ({ teamID, teamNickname, width, height, color }) => {
   const getBackgroundColorClass = (proTeamNickname) => {
     switch (proTeamNickname) {
       case "Cardinals":
-        return "proTeamIjuryPanel--cardinals";
+        return "proTeamInfoPanel--cardinals";
       case "Falcons":
-        return "proTeamIjuryPanel--falcons";
+        return "proTeamInfoPanel--falcons";
       case "Ravens":
-        return "proTeamIjuryPanel--ravens";
+        return "proTeamInfoPanel--ravens";
       case "Bills":
-        return "proTeamIjuryPanel--bills";
+        return "proTeamInfoPanel--bills";
       case "Panthers":
-        return "proTeamIjuryPanel--panthers";
+        return "proTeamInfoPanel--panthers";
       case "Bears":
-        return "proTeamIjuryPanel--bears";
+        return "proTeamInfoPanel--bears";
       case "Bengals":
-        return "proTeamIjuryPanel--bengals";
+        return "proTeamInfoPanel--bengals";
       case "Browns":
-        return "proTeamIjuryPanel--browns";
+        return "proTeamInfoPanel--browns";
       case "Cowboys":
-        return "proTeamIjuryPanel--cowboys";
+        return "proTeamInfoPanel--cowboys";
       case "Broncos":
-        return "proTeamIjuryPanel--broncos";
+        return "proTeamInfoPanel--broncos";
       case "Lions":
-        return "proTeamIjuryPanel--lions";
+        return "proTeamInfoPanel--lions";
       case "Packers":
-        return "proTeamIjuryPanel--packers";
+        return "proTeamInfoPanel--packers";
       case "Texans":
-        return "proTeamIjuryPanel--texans";
+        return "proTeamInfoPanel--texans";
       case "Colts":
-        return "proTeamIjuryPanel--colts";
+        return "proTeamInfoPanel--colts";
       case "Jaguars":
-        return "proTeamIjuryPanel--jaguars";
+        return "proTeamInfoPanel--jaguars";
       case "Chiefs":
-        return "proTeamIjuryPanel--chiefs";
+        return "proTeamInfoPanel--chiefs";
       case "Chargers":
-        return "proTeamIjuryPanel--chargers";
+        return "proTeamInfoPanel--chargers";
       case "Rams":
-        return "proTeamIjuryPanel--rams";
+        return "proTeamInfoPanel--rams";
       case "Dolphins":
-        return "proTeamIjuryPanel--dolphins";
+        return "proTeamInfoPanel--dolphins";
       case "Vikings":
-        return "proTeamIjuryPanel--vikings";
+        return "proTeamInfoPanel--vikings";
       case "Patriots":
-        return "proTeamIjuryPanel--patriots";
+        return "proTeamInfoPanel--patriots";
       case "Saints":
-        return "proTeamIjuryPanel--saints";
+        return "proTeamInfoPanel--saints";
       case "Giants":
-        return "proTeamIjuryPanel--giants";
+        return "proTeamInfoPanel--giants";
       case "Jets":
-        return "proTeamIjuryPanel--jets";
+        return "proTeamInfoPanel--jets";
       case "Raiders":
-        return "proTeamIjuryPanel--raiders";
+        return "proTeamInfoPanel--raiders";
       case "Eagles":
-        return "proTeamIjuryPanel--eagles";
+        return "proTeamInfoPanel--eagles";
       case "Steelers":
-        return "proTeamIjuryPanel--steelers";
+        return "proTeamInfoPanel--steelers";
       case "49ers":
-        return "proTeamIjuryPanel--49ers";
+        return "proTeamIjuproTeamInfoPanelryPanel--49ers";
       case "Seahawks":
-        return "proTeamIjuryPanel--seahawks";
+        return "proTeamInfoPanel--seahawks";
       case "Buccaneers":
-        return "proTeamIjuryPanel--buccaneers";
+        return "proTeamInfoPanel--buccaneers";
       case "Titans":
-        return "proTeamIjuryPanel--titans";
+        return "proTeamInfoPanel--titans";
       case "Redskins":
-        return "proTeamIjuryPanel--redskins";
+        return "proTeamInfoPanel--redskins";
       default:
         return ""; // Default or fallback class
     }
@@ -106,7 +106,7 @@ const ProTeamInjuries = ({ teamID, teamNickname, width, height, color }) => {
             <React.Fragment>
               {data.map((item, index) => (
                 <React.Fragment key={index}>
-                  <div className={`proTeamIjuryPanel ${backgroundColorClass}`}>
+                  <div className={`proTeamInfoPanel ${backgroundColorClass}`}>
                     <div className="proTeamInjuryItem">
                       <div className="proTeamInjuryItem__header">
                         <div className="proTeamInjuryItem__player">

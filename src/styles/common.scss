@@ -226,7 +226,16 @@ $base-def-background: #F4A460;
 //   @extend .base-shadow;
 // }
 
-.team-background {
+.proTeamInfoPanel {
+  display: flex;
+  flex-direction: column; // This line ensures items are listed vertically
+  align-items: flex-start; // Align items to the start of the container
+  width: 100%;
+  height: auto; // Adjust height to "auto" for dynamic sizing
+  background-color: #f0f0f0;
+  padding: 0.5rem; // Add some padding around the container
+  overflow-y: auto; // Add vertical scroll if content overflows
+
   &--cardinals { background-color: #97233F; } // Replace with actual color
   &--falcons { background-color: #A71930; }
   &--ravens { background-color: #241773; }

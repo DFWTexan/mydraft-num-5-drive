@@ -10,69 +10,69 @@ const ProTeamNews = ({ teamID, teamNickname, width, height, color }) => {
   const getBackgroundColorClass = (proTeamNickname) => {
     switch (proTeamNickname) {
       case "Cardinals":
-        return "proTeamNewsPanel--cardinals";
+        return "proTeamInfoPanel--cardinals";
       case "Falcons":
-        return "proTeamNewsPanel--falcons";
+        return "proTeamInfoPanel--falcons";
       case "Ravens":
-        return "proTeamNewsPanel--ravens";
+        return "proTeamInfoPanel--ravens";
       case "Bills":
-        return "proTeamNewsPanel--bills";
+        return "proTeamInfoPanel--bills";
       case "Panthers":
-        return "proTeamNewsPanel--panthers";
+        return "proTeamInfoPanel--panthers";
       case "Bears":
-        return "proTeamNewsPanel--bears";
+        return "proTeamInfoPanel--bears";
       case "Bengals":
-        return "proTeamNewsPanel--bengals";
+        return "proTeamInfoPanel--bengals";
       case "Browns":
-        return "proTeamNewsPanel--browns";
+        return "proTeamInfoPanel--browns";
       case "Cowboys":
-        return "proTeamNewsPanel--cowboys";
+        return "proTeamInfoPanel--cowboys";
       case "Broncos":
-        return "proTeamNewsPanel--broncos";
+        return "proTeamInfoPanel--broncos";
       case "Lions":
-        return "proTeamNewsPanel--lions";
+        return "proTeamInfoPanel--lions";
       case "Packers":
-        return "proTeamNewsPanel--packers";
+        return "proTeamInfoPanel--packers";
       case "Texans":
-        return "proTeamNewsPanel--texans";
+        return "proTeamInfoPanel--texans";
       case "Colts":
-        return "proTeamNewsPanel--colts";
+        return "proTeamInfoPanel--colts";
       case "Jaguars":
-        return "proTeamNewsPanel--jaguars";
+        return "proTeamInfoPanel--jaguars";
       case "Chiefs":
-        return "proTeamNewsPanel--chiefs";
+        return "proTeamInfoPanel--chiefs";
       case "Chargers":
-        return "proTeamNewsPanel--chargers";
+        return "proTeamInfoPanel--chargers";
       case "Rams":
-        return "proTeamNewsPanel--rams";
+        return "proTeamInfoPanel--rams";
       case "Dolphins":
-        return "proTeamNewsPanel--dolphins";
+        return "proTeamInfoPanel--dolphins";
       case "Vikings":
-        return "proTeamNewsPanel--vikings";
+        return "proTeamInfoPanel--vikings";
       case "Patriots":
-        return "proTeamNewsPanel--patriots";
+        return "proTeamInfoPanel--patriots";
       case "Saints":
-        return "proTeamNewsPanel--saints";
+        return "proTeamInfoPanel--saints";
       case "Giants":
-        return "proTeamNewsPanel--giants";
+        return "proTeamInfoPanel--giants";
       case "Jets":
-        return "proTeamNewsPanel--jets";
+        return "proTeamInfoPanel--jets";
       case "Raiders":
-        return "proTeamNewsPanel--raiders";
+        return "proTeamInfoPanel--raiders";
       case "Eagles":
-        return "proTeamNewsPanel--eagles";
+        return "proTeamInfoPanel--eagles";
       case "Steelers":
-        return "proTeamNewsPanel--steelers";
+        return "proTeamInfoPanel--steelers";
       case "49ers":
-        return "proTeamNewsPanel--49ers";
+        return "proTeamInfoPanel--49ers";
       case "Seahawks":
-        return "proTeamNewsPanel--seahawks";
+        return "proTeamInfoPanel--seahawks";
       case "Buccaneers":
-        return "proTeamNewsPanel--buccaneers";
+        return "proTeamInfoPanel--buccaneers";
       case "Titans":
-        return "proTeamNewsPanel--titans";
+        return "proTeamInfoPanel--titans";
       case "Redskins":
-        return "proTeamNewsPanel--redskins";
+        return "proTeamInfoPanel--redskins";
       default:
         return ""; // Default or fallback class
     }
@@ -104,7 +104,7 @@ const ProTeamNews = ({ teamID, teamNickname, width, height, color }) => {
             <React.Fragment>
               {data.map((item, index) => (
                 <React.Fragment key={index}>
-                  <div className={`proTeamNewsPanel ${backgroundColorClass}`}>
+                  <div className={`proTeamInfoPanel ${backgroundColorClass}`}>
                     <div className="proTeamNewsItem">
                       <div className="proTeamNewsItem__title">{item.title}</div>
                       <div className="proTeamNewsItem__date">
