@@ -76,7 +76,7 @@ $base-def-background: #F4A460;
   display: table;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem;
+  padding: 0 .25rem;
   height: 9.7rem;
   width: 100%;
   padding-top: 1rem;
@@ -84,7 +84,7 @@ $base-def-background: #F4A460;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
   border: 1px inset #e4e7ea;
-  border-top-style: inset;
+  // border-top-style: inset;
 }
 
 .detail-container {
