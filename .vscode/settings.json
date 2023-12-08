@@ -1,4 +1,8 @@
 {
-    "appService.defaultWebAppToDeploy": "undefined/subscriptions/77cb2c34-ebff-4cc3-a010-154cf1a365db/resourceGroups/appsvc_linux_centralus_basic/providers/Microsoft.Web/sites/num-5-drive",
-    "appService.deploySubpath": "."
+    "appService.defaultWebAppToDeploy": "/subscriptions/77cb2c34-ebff-4cc3-a010-154cf1a365db/resourceGroups/ErishMF-5-Drive/providers/Microsoft.Web/sites/ErishMF-5-Drive",
+    "appService.deploySubpath": ".",
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ]
 }
