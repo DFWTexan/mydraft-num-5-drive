@@ -105,18 +105,11 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
               {playerData.isDrafted ? "Drafted" : "Available"}
             </div>
           </div>
-
-          {/* {
-            <div
-              className={`draft-player-info-card__player-position ${getColorClass(
-                playerData.position
-              )}`}
-            >
-              {playerData.position}
-            </div>
-          } */}
           <div className="draft-player-info-card__player-ranking-container">
-            Rank: Player Rank
+            <div className="draft-player-info-card__player-ranking"><span style={{ background: 'whitesmoke', padding: '.5rem', paddingBottom: '.1rem'}}>POINTS</span><span>223.4</span></div>
+            <div className="draft-player-info-card__player-ranking"><span style={{ background: 'whitesmoke', padding: '.5rem', paddingBottom: '.1rem'}}>AVV</span><span>23</span></div>
+            <div className="draft-player-info-card__player-ranking"><span style={{ background: 'whitesmoke', padding: '.5rem', paddingBottom: '.1rem'}}>ADP</span><span>0</span></div>
+            
           </div>
         </div>
         ({playerData.id}) - {playerData.firstName + " " + playerData.lastName}

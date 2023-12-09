@@ -7,7 +7,7 @@
   margin-bottom: 8px;
   display: flex; /* Add flex container */
   align-items: flex-start; /* Center items vertically */
-  border: #333 1px solid;
+  // border: #333 1px solid;
 
   .draft-player-info-card__image {
     width: 75px; /* Adjust the width as needed */
@@ -19,13 +19,13 @@
   .draft-player-info-card__player-info {
     flex: 1; /* Take up remaining space */
   }
+
   .draft-player-info-card__name {
     display: flex; /* Use flex to align items inline */
     align-items: center; /* Center items vertically */
 
     margin-top: 1rem;
     font-size: larger;
-    // margin-bottom: .2rem;
   }
 
   .draft-player-info-card__team {
@@ -33,23 +33,29 @@
   }
 
   .draft-player-info-card__player-position {
-    // display: flex-end;
-    // padding-left: 1rem;
-    // margin-top: 1rem;
-    // text-align: right;
-    // padding-right: 1rem;
-    // font-size: large;
-    // font-weight: 800;
-
     margin-left: 0.5rem; /* Add some space between name and position */
     font-size: large;
     font-weight: 800;
   }
 
   .draft-player-info-card__player-ranking-container {
+    width: 40%;
     display: flex;
     justify-content: space-between;
-    border: #333 1px solid;
-    color: #f44336;
+    margin: 1rem 0;
+    margin-right: 2rem;
+    padding: 0 1rem;
+    // border: #333 1px solid;
+  }
+
+  .draft-player-info-card__player-ranking {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+    border: #DCDCDC 1px solid;
+    border-radius: .5rem;
   }
 }
