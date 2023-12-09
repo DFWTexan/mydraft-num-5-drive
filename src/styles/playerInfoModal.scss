@@ -1,10 +1,13 @@
 .draft-player-info-card__title {
+  display: flex;
+  width: 100%;
   font-size: 16px;
   font-weight: 500;
   color: #333;
   margin-bottom: 8px;
   display: flex; /* Add flex container */
   align-items: flex-start; /* Center items vertically */
+  border: #333 1px solid;
 
   .draft-player-info-card__image {
     width: 75px; /* Adjust the width as needed */
@@ -17,6 +20,9 @@
     flex: 1; /* Take up remaining space */
   }
   .draft-player-info-card__name {
+    display: flex; /* Use flex to align items inline */
+    align-items: center; /* Center items vertically */
+
     margin-top: 1rem;
     font-size: larger;
     // margin-bottom: .2rem;
@@ -27,12 +33,23 @@
   }
 
   .draft-player-info-card__player-position {
-    display: flex-end;
-    padding-left: 1rem;
-    margin-top: 1rem;
-    text-align: right;
-    padding-right: 1rem;
+    // display: flex-end;
+    // padding-left: 1rem;
+    // margin-top: 1rem;
+    // text-align: right;
+    // padding-right: 1rem;
+    // font-size: large;
+    // font-weight: 800;
+
+    margin-left: 0.5rem; /* Add some space between name and position */
     font-size: large;
     font-weight: 800;
+  }
+
+  .draft-player-info-card__player-ranking-container {
+    display: flex;
+    justify-content: space-between;
+    border: #333 1px solid;
+    color: #f44336;
   }
 }

@@ -42,7 +42,9 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
 
   useEffect(() => {
     axios
-      .get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Player/GetPlayerByID/${props.player_ID}`)
+      .get(
+        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Player/GetPlayerByID/${props.player_ID}`
+      )
       .then((response) => {
         setPlayerData(response.data);
       });
@@ -86,6 +88,15 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
           <div className="draft-player-info-card__player-info">
             <div className="draft-player-info-card__name">
               {playerData.firstName} {playerData.lastName}
+              {
+                <div
+                  className={`draft-player-info-card__player-position ${getColorClass(
+                    playerData.position
+                  )}`}
+                >
+                  {playerData.position}
+                </div>
+              }
             </div>
             <div className="draft-player-info-card__team">
               {playerData.proTeamName}
@@ -95,7 +106,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
             </div>
           </div>
 
-          {
+          {/* {
             <div
               className={`draft-player-info-card__player-position ${getColorClass(
                 playerData.position
@@ -103,7 +114,10 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
             >
               {playerData.position}
             </div>
-          }
+          } */}
+          <div className="draft-player-info-card__player-ranking-container">
+            Rank: Player Rank
+          </div>
         </div>
         ({playerData.id}) - {playerData.firstName + " " + playerData.lastName}
       </ModalHeader>
