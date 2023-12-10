@@ -46,7 +46,9 @@ const FanTeamNews = (props) => {
       </div>
       {props.selectedTeam === 0 ? (
         <>
-          <div style={{ paddingTop: '1rem', fontSize: '1.5rem' }}>No Team Selected</div>
+          <div style={{ paddingTop: "1rem", fontSize: "1.5rem" }}>
+            No Team Selected
+          </div>
         </>
       ) : (
         <div style={{ padding: ".3rem" }}>
@@ -56,10 +58,13 @@ const FanTeamNews = (props) => {
                 <div style={style}>
                   <div className="fanTeamNewsItem">
                     <div className="fanTeamNewsItem__header">
-                    <div className="fanTeamNewsItem__playerName">{item.playerName}</div>
-                    <div className="fanTeamNewsItem__date">{item.dateString}</div>
+                      <div className="fanTeamNewsItem__playerName">
+                        {item.playerName}
+                      </div>
+                      <div className="fanTeamNewsItem__date">
+                        {item.dateString}
+                      </div>
                     </div>
-                    
                     <div className="fanTeamNewsItem__description">
                       {item.newsDescription}
                     </div>
@@ -70,7 +75,9 @@ const FanTeamNews = (props) => {
           ) : (
             <div>
               <div>
-                <div style={{ paddingTop: '1rem', fontSize: '1.5rem' }}>No news available</div>
+                <div style={{ paddingTop: "1rem", fontSize: "1.5rem" }}>
+                  No news available
+                </div>
               </div>
             </div>
           )}

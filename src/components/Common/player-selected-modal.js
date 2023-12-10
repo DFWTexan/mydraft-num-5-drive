@@ -32,7 +32,10 @@ const getColorClass = (position) => {
 const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
   const draftStatus = useSelector((state) => state.draftStatus);
   const [modal, setModal] = useState(props.isOpen);
-  const [playerData, setPlayerData] = useState({});
+  const [playerData, setPlayerData] = useState({
+    depthChart: [],
+    playerNews: [],
+  });
   const dispatch = useDispatch();
 
   const runDispatch = () => {
@@ -46,6 +49,11 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
         `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Player/GetPlayerByID/${props.player_ID}`
       )
       .then((response) => {
+        console.log(
+          "==> EMFTest (Player-selected-Modal) - response.data",
+          response.data
+        );
+
         setPlayerData(response.data);
       });
   }, [props.player_ID]);
@@ -66,6 +74,17 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
   const handleClose = () => {
     setModal(!modal);
     handleCloseModal();
+  };
+
+  const style = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    width: props.width || "100%",
+    height: props.height || "auto",
+    backgroundColor: props.color || "#f0f0f0",
+    padding: "1rem",
+    overflowY: "auto",
   };
 
   return (
@@ -106,10 +125,42 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
             </div>
           </div>
           <div className="draft-player-info-card__player-ranking-container">
-            <div className="draft-player-info-card__player-ranking"><span style={{ background: 'whitesmoke', padding: '.5rem', paddingBottom: '.1rem'}}>POINTS</span><span>223.4</span></div>
-            <div className="draft-player-info-card__player-ranking"><span style={{ background: 'whitesmoke', padding: '.5rem', paddingBottom: '.1rem'}}>AVV</span><span>23</span></div>
-            <div className="draft-player-info-card__player-ranking"><span style={{ background: 'whitesmoke', padding: '.5rem', paddingBottom: '.1rem'}}>ADP</span><span>0</span></div>
-            
+            <div className="draft-player-info-card__player-ranking">
+              <span
+                style={{
+                  background: "whitesmoke",
+                  padding: ".5rem",
+                  paddingBottom: ".1rem",
+                }}
+              >
+                POINTS
+              </span>
+              <span>223.4</span>
+            </div>
+            <div className="draft-player-info-card__player-ranking">
+              <span
+                style={{
+                  background: "whitesmoke",
+                  padding: ".5rem",
+                  paddingBottom: ".1rem",
+                }}
+              >
+                AVV
+              </span>
+              <span>23</span>
+            </div>
+            <div className="draft-player-info-card__player-ranking">
+              <span
+                style={{
+                  background: "whitesmoke",
+                  padding: ".5rem",
+                  paddingBottom: ".1rem",
+                }}
+              >
+                ADP
+              </span>
+              <span>0</span>
+            </div>
           </div>
         </div>
         ({playerData.id}) - {playerData.firstName + " " + playerData.lastName}
@@ -117,18 +168,53 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
       <ModalBody>
         <Tabs forceRenderTabPanel defaultIndex={0}>
           <TabList>
-            <Tab>SUMMARY</Tab>
+            <Tab>DEPTH CHART</Tab>
             <Tab>NEWS</Tab>
             <Tab>SCHEDULE</Tab>
           </TabList>
-          <TabPanel>
-            <div>
-              <div>Projections...</div>
-              <div>{playerData.position} DEPTH CHART</div>
-            </div>
-          </TabPanel>
-          <TabPanel>PANEL: News</TabPanel>
-          <TabPanel>PANEL: Schedule</TabPanel>
+          <div style={{ overflow: 'auto', height: '20rem' }}>
+            <TabPanel>
+              <div className="proTeamInfoPanel">
+                {playerData.depthChart.map((item, index) => {
+                  return (
+                    <div key={index}>
+                      {item.rank} - {item.playerName}
+                    </div>
+                  );
+                })}
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className="proTeamInfoPanel">
+                <div>
+                  {playerData.playerNews.map((item, index) => {
+                    return (<React.Fragment key={index}>
+                      <div style={style}>
+                        <div className="fanTeamNewsItem">
+                          <div className="fanTeamNewsItem__header">
+                            <div className="fanTeamNewsItem__playerName">
+                              {item.playerName}
+                            </div>
+                            <div className="fanTeamNewsItem__date">
+                              {item.dateString}
+                            </div>
+                          </div>
+                          <div className="fanTeamNewsItem__description">
+                            {item.newsDescription}
+                          </div>
+                        </div>
+                      </div>
+                    </React.Fragment>);
+                  })}
+                </div>
+              </div>
+            </TabPanel>
+            <TabPanel>
+              <div className="proTeamInfoPanel">
+              PANEL: Schedule
+              </div>
+              </TabPanel>
+          </div>
         </Tabs>{" "}
       </ModalBody>
       <ModalFooter>

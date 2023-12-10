@@ -7,7 +7,6 @@
   margin-bottom: 8px;
   display: flex; /* Add flex container */
   align-items: flex-start; /* Center items vertically */
-  // border: #333 1px solid;
 
   .draft-player-info-card__image {
     width: 75px; /* Adjust the width as needed */
@@ -45,7 +44,6 @@
     margin: 1rem 0;
     margin-right: 2rem;
     padding: 0 1rem;
-    // border: #333 1px solid;
   }
 
   .draft-player-info-card__player-ranking {
@@ -55,7 +53,74 @@
     justify-content: center;
     font-size: 1.5rem;
     font-weight: 800;
-    border: #DCDCDC 1px solid;
-    border-radius: .5rem;
+    border: #dcdcdc 1px solid;
+    border-radius: 0.5rem;
+  }
+
+  .draft-player-info-card__detail_container {
+    // overflow: auto;
+    // height: 20rem;
+    // padding: 1rem;
+    // background-color: aqua;
+
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+    font-size: 12px;
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: white;
+    height: 50rem;
+    width: 100%;
+    border-style: ridge;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+  }
+}
+
+// SCSS for fanTeam news item Title, date, and description
+
+.playerNewsItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  }
+
+  .playerNewsItem__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .playerNewsItem__playerName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+  }
+
+  .playerNewsItem__date {
+    font-size: 0.8rem;
+    font-weight: lighter;
+    color: #000;
+  }
+
+  .playerNewsItem__description {
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 0.5rem;
   }
 }
