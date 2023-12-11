@@ -8,7 +8,7 @@ const Home = () => {
             <p>Explore our cutting-edge web application, crafted with a blend of modern technologies and innovative design patterns. Our project showcases a comprehensive skill set in full stack development, particularly emphasizing ReactJS and .NET Core.</p>
         </div>
         <div class="skills-section">
-            <h2>Demo Technical Proficiencies</h2>
+            <h2>MyDraft Demo Technical Proficiencies</h2>
 
             <h3 class="skill-category">Development Platforms</h3>
             <ul>

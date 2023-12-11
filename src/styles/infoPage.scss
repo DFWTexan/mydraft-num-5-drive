@@ -5,6 +5,7 @@
     display: flex;
     align-Items: center;
     justify-Content: center;
+    border-radius: 1rem;
     height: 100vh;
     padding: 20px; /* Optional padding for inner spacing */
     margin-top: 1rem;
@@ -15,8 +16,8 @@
 
   .intro, .skills-section {
     padding: 20px;
-    background-color: #fff;
-    margin-top: 20px;
+    background-color: #F0F8FF;
+    margin-top: 5px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
