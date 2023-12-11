@@ -3,42 +3,57 @@ import "../styles/infoPage.scss";
 const Home = () => {
   return (
     <div className="info-container">
-      <div class="intro">
-            <h1>Welcome to my demo Full Stack React JS Project</h1>
-            <p>Explore our cutting-edge web application, crafted with a blend of modern technologies and innovative design patterns. Our project showcases a comprehensive skill set in full stack development, particularly emphasizing ReactJS and .NET Core.</p>
+      <div>
+        {/* <img src="https://i.imgur.com/8Z1zZ9V.png" alt="MyDraft Logo" /> */}
+
+        <div className="intro">
+          <h1>Welcome to my demo Full Stack React JS Project</h1>
+          <p>
+            Explore MyDraft Fantasy Demo web application, crafted with a blend of
+            modern technologies and innovative design patterns. The project
+            showcases a comprehensive skill set in full stack development,
+            particularly emphasizing ReactJS and .NET Core.
+          </p>
+          <br />
+          <p><span style={{ fontWeight: '700', paddingRight: '0.5rem' }}>NOTE:</span> 
+            Demo functions as an opportunity to demonstrate technical discpline. Utilized data
+            from 2017 Windows Universal App, MyDraft Fantasy, to populate.
+          </p>
         </div>
-        <div class="skills-section">
-            <h2>MyDraft Demo Technical Proficiencies</h2>
+      </div>
+      <div className="skills-section">
+        <h2>MyDraft Demo Technical Proficiencies</h2>
 
-            <h3 class="skill-category">Development Platforms</h3>
-            <ul>
-                <li>.NET Core Development Environment</li>
-                <li>Microsoft Azure</li>
-            </ul>
+        <h3 className="skill-category">Development Platforms</h3>
+        <ul>
+          <li>.NET Core Development Environment</li>
+          <li>Microsoft Azure</li>
+        </ul>
 
-            <h3 class="skill-category">Programming</h3>
-            <ul>
-                <li>ReactJS and Redux Toolkit</li>
-                <li>NodeJS</li>
-                <li>Microsoft SQL and Transact SQL</li>
-                <li>LINQ and Entity Framework</li>
-                <li>C#</li>
-                <li>HTML, CSS, and Bootstrap</li>
-                <li>JavaScript</li>
-                <li>JSON and .NET Core API</li>
-                <li>SQLite</li>
-                <li>ADO.NET</li>
-                <li>XAML</li>
-                <li>PowerShell</li>
-                <li>AZURE Cloud Services</li>
-            </ul>
+        <h3 className="skill-category">Programming</h3>
+        <ul>
+          <li>ReactJS and Redux Toolkit</li>
+          <li>NodeJS</li>
+          <li>Microsoft SQL and Transact SQL</li>
+          <li>LINQ and Entity Framework - Code First</li>
+          <li>C#</li>
+          <li>HTML, CSS, and Bootstrap</li>
+          <li>JavaScript</li>
+          <li>JSON and .NET Core API</li>
+          <li>SQLite</li>
+          <li>ADO.NET</li>
+          <li>SQL Server Integration Service</li>
+          <li>XAML</li>
+          <li>PowerShell</li>
+          <li>AZURE Cloud Services</li>
+        </ul>
 
-            <h3 class="skill-category">Tools</h3>
-            <ul>
-                <li>Git</li>
-                <li>Microsoft Word</li>
-            </ul>
-        </div>
+        <h3 className="skill-category">Tools</h3>
+        <ul>
+          <li>Git</li>
+          <li>Microsoft Word</li>
+        </ul>
+      </div>
     </div>
   );
 };
