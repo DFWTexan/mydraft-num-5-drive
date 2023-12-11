@@ -3,21 +3,24 @@ import "../styles/infoPage.scss";
 const Home = () => {
   return (
     <div className="info-container">
-      <div>
+      <div style={{ marginRight: '0.5rem' }}>
         {/* <img src="https://i.imgur.com/8Z1zZ9V.png" alt="MyDraft Logo" /> */}
-
         <div className="intro">
           <h1>Welcome to my demo Full Stack React JS Project</h1>
           <p>
-            Explore MyDraft Fantasy Demo web application, crafted with a blend of
-            modern technologies and innovative design patterns. The project
+            Explore MyDraft Fantasy Demo web application, crafted with a blend
+            of modern technologies and innovative design patterns. The project
             showcases a comprehensive skill set in full stack development,
             particularly emphasizing ReactJS and .NET Core.
           </p>
           <br />
-          <p><span style={{ fontWeight: '700', paddingRight: '0.5rem' }}>NOTE:</span> 
-            Demo functions as an opportunity to demonstrate technical discpline. Utilized data
-            from 2017 Windows Universal App, MyDraft Fantasy, to populate.
+          <p>
+            <span style={{ fontWeight: "700", paddingRight: "0.5rem" }}>
+              NOTE:
+            </span>
+            Demo functions as an opportunity to demonstrate technical discpline.
+            Utilized data from 2017 Windows Universal App, MyDraft Fantasy, to
+            populate.
           </p>
         </div>
       </div>
