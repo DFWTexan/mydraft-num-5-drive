@@ -55,7 +55,6 @@ const Home = () => {
         <h3 className="skill-category">Tools</h3>
         <ul>
           <li>Git</li>
-          <li>Microsoft Word</li>
         </ul>
       </div>
     </div>
