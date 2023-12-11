@@ -19,8 +19,8 @@ const Home = () => {
               NOTE:
             </span>
             Demo functions as an opportunity to demonstrate technical discpline.
-            Utilized data from 2017 Windows Universal App, MyDraft Fantasy, to
-            populate.
+            Utilizes outdated data from Windows Universal App, MyDraft Fantasy published in the
+            Windows app store in 2017.
           </p>
         </div>
       </div>
