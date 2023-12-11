@@ -640,7 +640,9 @@ const Login = () => {
         >
           <div
             className={
+              status === "Error" ||
               status === "ERROR" ||
+              status === "Failed" ||
               status === "FAILED" ||
               status === 400 ||
               status === 401 ||
