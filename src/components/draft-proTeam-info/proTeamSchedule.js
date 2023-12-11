@@ -110,13 +110,19 @@ const ProTeamSchedule = ({ teamID, teamNickname, width, height, color }) => {
                     <div className="proTeamScheduleItem">
                       <div className="proTeamScheduleItem__header">
                         <div className="proTeamScheduleItem__game">
-                          {item.value.week === 0 ? <span>BYE</span> : "Week " + item.value.week}
+                          {item.value.week === 0 ? (
+                            <span>BYE</span>
+                          ) : (
+                            "Week " + item.value.week
+                          )}
                         </div>
                         <div className="proTeamScheduleItem__game">
                           {item.value.designation}
                         </div>
                         <div className="proTeamScheduleItem__game">
-                          {item.value.designation === "VS" ? item.value.awayTeamName : item.value.homeTeamName}
+                          {item.value.designation === "VS"
+                            ? item.value.awayTeamName
+                            : item.value.homeTeamName}
                         </div>
                       </div>
                     </div>
