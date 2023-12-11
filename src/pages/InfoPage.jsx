@@ -40,6 +40,7 @@ const Home = () => {
           <li>Microsoft SQL and Transact SQL</li>
           <li>LINQ and Entity Framework - Code First</li>
           <li>C#</li>
+          <li>ASP.NET Core Identity Framework</li>
           <li>HTML, CSS, and Bootstrap</li>
           <li>JavaScript</li>
           <li>JSON and .NET Core API</li>
