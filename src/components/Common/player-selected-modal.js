@@ -35,8 +35,80 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
   const [playerData, setPlayerData] = useState({
     depthChart: [],
     playerNews: [],
+    playerSchedule: [],
   });
   const dispatch = useDispatch();
+
+  const getBackgroundColorClass = (proTeamNickname) => {
+    switch (proTeamNickname) {
+      case "Cardinals":
+        return "proTeamInfoPanel--cardinals";
+      case "Falcons":
+        return "proTeamInfoPanel--falcons";
+      case "Ravens":
+        return "proTeamInfoPanel--ravens";
+      case "Bills":
+        return "proTeamInfoPanel--bills";
+      case "Panthers":
+        return "proTeamInfoPanel--panthers";
+      case "Bears":
+        return "proTeamInfoPanel--bears";
+      case "Bengals":
+        return "proTeamInfoPanel--bengals";
+      case "Browns":
+        return "proTeamInfoPanel--browns";
+      case "Cowboys":
+        return "proTeamInfoPanel--cowboys";
+      case "Broncos":
+        return "proTeamInfoPanel--broncos";
+      case "Lions":
+        return "proTeamInfoPanel--lions";
+      case "Packers":
+        return "proTeamInfoPanel--packers";
+      case "Texans":
+        return "proTeamInfoPanel--texans";
+      case "Colts":
+        return "proTeamInfoPanel--colts";
+      case "Jaguars":
+        return "proTeamInfoPanel--jaguars";
+      case "Chiefs":
+        return "proTeamInfoPanel--chiefs";
+      case "Chargers":
+        return "proTeamInfoPanel--chargers";
+      case "Rams":
+        return "proTeamInfoPanel--rams";
+      case "Dolphins":
+        return "proTeamInfoPanel--dolphins";
+      case "Vikings":
+        return "proTeamInfoPanel--vikings";
+      case "Patriots":
+        return "proTeamInfoPanel--patriots";
+      case "Saints":
+        return "proTeamInfoPanel--saints";
+      case "Giants":
+        return "proTeamInfoPanel--giants";
+      case "Jets":
+        return "proTeamInfoPanel--jets";
+      case "Raiders":
+        return "proTeamInfoPanel--raiders";
+      case "Eagles":
+        return "proTeamInfoPanel--eagles";
+      case "Steelers":
+        return "proTeamInfoPanel--steelers";
+      case "49ers":
+        return "proTeamInfoPanel--49ers";
+      case "Seahawks":
+        return "proTeamInfoPanel--seahawks";
+      case "Buccaneers":
+        return "proTeamInfoPanel--buccaneers";
+      case "Titans":
+        return "proTeamInfoPanel--titans";
+      case "Redskins":
+        return "proTeamInfoPanel--redskins";
+      default:
+        return ""; // Default or fallback class
+    }
+  };
 
   const runDispatch = () => {
     dispatch(fetchDraftStatus());
@@ -49,11 +121,6 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
         `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Player/GetPlayerByID/${props.player_ID}`
       )
       .then((response) => {
-        console.log(
-          "==> EMFTest (Player-selected-Modal) - response.data",
-          response.data
-        );
-
         setPlayerData(response.data);
       });
   }, [props.player_ID]);
@@ -83,9 +150,13 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
     width: props.width || "100%",
     height: props.height || "auto",
     backgroundColor: props.color || "#f0f0f0",
-    padding: "1rem",
+    padding: "0.2rem",
     overflowY: "auto",
   };
+
+  const backgroundColorClass = getBackgroundColorClass(
+    playerData.proTeamNickname
+  );
 
   return (
     <Modal
@@ -172,48 +243,78 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
             <Tab>NEWS</Tab>
             <Tab>SCHEDULE</Tab>
           </TabList>
-          <div style={{ overflow: 'auto', height: '20rem' }}>
+          <div style={{ overflow: "auto", height: "20rem" }}>
             <TabPanel>
-              <div className="proTeamInfoPanel">
+              <div className={`proTeamInfoPanel ${backgroundColorClass}`}>
                 {playerData.depthChart.map((item, index) => {
                   return (
-                    <div key={index}>
-                      {item.rank} - {item.playerName}
-                    </div>
+                    <React.Fragment key={index}>
+                      <div className="playerDepthCharItem">
+                        <div>
+                          {item.rank} - {item.playerName}
+                        </div>
+                      </div>
+                    </React.Fragment>
                   );
                 })}
               </div>
             </TabPanel>
             <TabPanel>
-              <div className="proTeamInfoPanel">
-                <div>
-                  {playerData.playerNews.map((item, index) => {
-                    return (<React.Fragment key={index}>
-                      <div style={style}>
-                        <div className="fanTeamNewsItem">
-                          <div className="fanTeamNewsItem__header">
-                            <div className="fanTeamNewsItem__playerName">
-                              {item.playerName}
+              {playerData.playerNews.length === 0 ? (
+                <div style={{ padding: "1rem" }}>No News for Player</div>
+              ) : (
+                playerData.playerNews.map((item, index) => {
+                  return (
+                    <React.Fragment key={index}>
+                      <div className={`proTeamInfoPanel ${backgroundColorClass}`}>
+                        <div style={style}>
+                          <div className="playerNewsItem">
+                            <div className="playerNewsItem__header">
+                              <div className="playerNewsItem__playerName">
+                                {/* {item.pubDate} */}
+                              </div>
+                              <div className="playerNewsItem__date">
+                                {item.pubDate}
+                              </div>
                             </div>
-                            <div className="fanTeamNewsItem__date">
-                              {item.dateString}
+                            <div className="playerNewsItem__description">
+                              {item.newsDescription}
                             </div>
-                          </div>
-                          <div className="fanTeamNewsItem__description">
-                            {item.newsDescription}
                           </div>
                         </div>
                       </div>
-                    </React.Fragment>);
-                  })}
-                </div>
-              </div>
+                    </React.Fragment>
+                  );
+                })
+              )}
             </TabPanel>
             <TabPanel>
-              <div className="proTeamInfoPanel">
-              PANEL: Schedule
-              </div>
-              </TabPanel>
+              {playerData.playerSchedule.map((item, index) => (
+                <React.Fragment key={index}>
+                  <div className={`proTeamInfoPanel ${backgroundColorClass}`}>
+                    <div className="proTeamScheduleItem">
+                      <div className="proTeamScheduleItem__header">
+                        <div className="proTeamScheduleItem__game">
+                          {item.week === 0 ? (
+                            <span>BYE</span>
+                          ) : (
+                            "Week " + item.week
+                          )}
+                        </div>
+                        <div className="proTeamScheduleItem__game">
+                          {item.designation}
+                        </div>
+                        <div className="proTeamScheduleItem__game">
+                          {item.designation === "VS"
+                            ? item.awayTeamName
+                            : item.homeTeamName}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </React.Fragment>
+              ))}
+            </TabPanel>
           </div>
         </Tabs>{" "}
       </ModalBody>

@@ -79,6 +79,36 @@
   }
 }
 
+.playerDepthCharItem {
+  display: flex;
+  // flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);
+  }
+
+  .playerDepthCharItem__header {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .playerDepthCharItem__playerName {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #000;
+  }
+}
 // SCSS for fanTeam news item Title, date, and description
 
 .playerNewsItem {
