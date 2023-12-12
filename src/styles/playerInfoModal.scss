@@ -1,3 +1,205 @@
+
+.modal-open {
+  overflow: hidden;
+}
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  outline: 0;
+}
+.modal-open .modal {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.modal-dialog {
+  position: relative;
+  width: auto;
+  margin: 0.5rem;
+  pointer-events: none;
+}
+.modal.fade .modal-dialog {
+  transition: transform 0.3s ease-out;
+  transform: translate(0, -25%);
+}
+@media screen and (prefers-reduced-motion: reduce) {
+  .modal.fade .modal-dialog {
+    transition: none;
+  }
+}
+.modal.show .modal-dialog {
+  transform: translate(0, 0);
+}
+.modal-dialog-centered {
+  margin: auto;
+  width: 50%;
+  display: flex;
+  align-items: center;
+  min-height: calc(100% - (0.5rem * 2));
+}
+.modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  pointer-events: auto;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+}
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
+}
+.modal-backdrop.fade {
+  opacity: 0;
+}
+.modal-backdrop.show {
+  opacity: 0.5;
+}
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1rem;
+  border-bottom: 1px solid #e4e7ea;
+  border-top-left-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
+  width: 100%;
+  // border: #4dbd74 1px solid;
+}
+.modal-header .close {
+  padding: 1rem;
+  margin: -1rem -1rem -1rem auto;
+}
+.modal-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+  width: 100%;
+}
+.modal-body {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 1rem;
+  // overflow: auto;
+  // height: 20rem;
+}
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 1rem;
+  border-top: 1px solid #e4e7ea;
+}
+.modal-footer > :not(:first-child) {
+  margin-left: 0.25rem;
+}
+.modal-footer > :not(:last-child) {
+  margin-right: 0.25rem;
+}
+.modal-scrollbar-measure {
+  position: absolute;
+  top: -9999px;
+  width: 50px;
+  height: 50px;
+  overflow: scroll;
+}
+
+/* Tab Container */
+.Tabs {
+  width: 80%;
+  height: auto;
+  min-height: 400px;
+  background: white;
+  padding: 2rem 1rem;
+  color: #e8f0f2;
+  border-radius: 1rem;
+}
+
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+  // position: relative; /* Added if overlay is needed */
+}
+
+.react-tabs__tab-list {
+  width: 90%;
+  margin: 0 auto 0.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border: 1px solid #dcdcdc;
+  border-radius: 1rem;
+  padding-left: 0pxz;
+  margin-top: 0.75rem;
+  font-size: medium;
+  background-color: white;
+  height: 2.5rem;
+  align-content: center;
+}
+
+.react-tabs__tab,
+.react-tabs__tab--selected {
+  width: 100%;
+  padding: 0.8rem;
+  // list-style: none;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.7s;
+  // font-size: medium;
+  // height: 2.85rem;
+}
+
+.react-tabs__tab--selected {
+  background: #308efe;
+  color: #ffff;
+  // font-size: 1rem;
+  // font-weight: 800;
+  // font-size: large;
+  // height: 2.5rem;
+}
+
+.react-tabs__tab--disabled {
+  color: GrayText;
+  cursor: default;
+}
+
+.react-tabs__tab:hover {
+  background: #f0f8ff;
+  border-radius: 1rem;
+}
+
+.react-tabs__tab:first-child {
+  border-bottom-left-radius: 1rem;
+  border-top-left-radius: 1rem;
+}
+
+.react-tabs__tab:last-child {
+  border-bottom-right-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
 .draft-player-info-card__title {
   display: flex;
   width: 100%;
@@ -57,11 +259,6 @@
   }
 
   .draft-player-info-card__detail_container {
-    // overflow: auto;
-    // height: 20rem;
-    // padding: 1rem;
-    // background-color: aqua;
-
     display: inline-block;
     *display: inline;
     zoom: 1;
@@ -80,7 +277,6 @@
 
 .playerDepthCharItem {
   display: flex;
-  // flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
@@ -90,6 +286,7 @@
   background-color: #fff;
   box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease-in-out;
+  margin-bottom: 0.5rem;
 
   &:hover {
     box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.2);

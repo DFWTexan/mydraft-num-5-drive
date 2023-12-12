@@ -9,11 +9,13 @@ import "../../../styles/index.scss";
 const ProTeamDepthChart = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [displayData, setDisplayData] = useState([]);
-  
+
   useEffect(() => {
     setIsLoading(true);
     axios
-      .get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/GetPositionDepthChart/${props.positionDisplay}`)
+      .get(
+        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/GetPositionDepthChart/${props.positionDisplay}`
+      )
       .then((response) => {
         setDisplayData(response.data);
         setIsLoading(false);
@@ -48,7 +50,11 @@ const ProTeamDepthChart = (props) => {
                     <td
                       key={playerIndex}
                       className={`player_col ${
-                        player.isDrafted ? "drafted" : ""
+                        player.isDrafted
+                          ? player.isOnMyTeam
+                            ? "drafted-MyTeam"
+                            : "drafted"
+                          : ""
                       }`}
                     >
                       {player.name}

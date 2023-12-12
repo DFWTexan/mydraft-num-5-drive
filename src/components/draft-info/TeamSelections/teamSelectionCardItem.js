@@ -8,7 +8,7 @@ const CardInfo = ({ draftPick }) => (
       <tbody>
         <tr>
           <td>
-            <table>
+            <table style={{ width: '3.5rem'}}>
               <tbody>
                 <tr>
                   <td className="over-all-pick">{draftPick.overallPick}</td>

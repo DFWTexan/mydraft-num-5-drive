@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
-import "../../styles/index.scss";
+import "../../styles/draftInfo.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
 import { fetchFanTeamRosterCount } from "../../slices/fanTeamRosterCount";
 import FanTeamRoster from "./FanTeamRoster";
