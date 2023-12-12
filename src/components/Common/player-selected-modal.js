@@ -234,7 +234,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
             </div>
           </div>
         </div>
-        ({playerData.id}) - {playerData.firstName + " " + playerData.lastName}
+        {/* ({playerData.id}) - {playerData.firstName + " " + playerData.lastName} */}
       </ModalHeader>
       <ModalBody>
         <Tabs forceRenderTabPanel defaultIndex={0}>
