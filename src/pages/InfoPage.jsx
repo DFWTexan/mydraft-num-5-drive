@@ -1,10 +1,11 @@
 import "../styles/infoPage.scss";
+import screenshot from "../static/img/Screenshot-MyDraft-Demo.png";
 
 const Home = () => {
   return (
     <div className="info-container">
       <div style={{ marginRight: '0.5rem' }}>
-        {/* <img src="https://i.imgur.com/8Z1zZ9V.png" alt="MyDraft Logo" /> */}
+        <img src={screenshot} height={500} alt="MyDraft Logo" />
         <div className="intro">
           <h1>Welcome to my demo Full Stack React JS Project</h1>
           <p>

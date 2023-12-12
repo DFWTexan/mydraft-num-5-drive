@@ -1,6 +1,7 @@
 import React from "react";
 
 import "../../styles/index.scss";
+import Placeholder from "../../static/img/no-image.png";  
 
 const getColorClass = (position) => {
   switch (position) {
@@ -26,7 +27,7 @@ const CardInfo = ({ player }) => (
     <div style={{ margin: "1rem" }}>
       <img
         className="draft-selection-card__image"
-        src={player.photoURL}
+        src={player.photoURL ? player.photoURL : Placeholder}
         alt=""
       />
     </div>

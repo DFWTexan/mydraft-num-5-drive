@@ -9,6 +9,7 @@ import "../../styles/index.scss";
 // import { API_URL } from "../../config";
 import { fetchDraftStatus } from "../../slices/draftStatus";
 // import { fetchPlayers } from "../../slices/players";
+import Placeholder from "../../static/img/no-image.png";
 
 const getColorClass = (position) => {
   switch (position) {
@@ -171,7 +172,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
           <div style={{ margin: "1rem" }}>
             <img
               className="draft-player-info-card__image"
-              src={playerData.photoURL}
+              src={playerData.photoURL ? playerData.photoURL : Placeholder}
               alt=""
             />
           </div>
