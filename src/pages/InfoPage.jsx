@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="info-container">
       <div style={{ marginRight: '0.5rem' }}>
-        <img src={screenshot} height={500} alt="MyDraft Logo" />
+        <img className="draft-player-info-card__image" src={screenshot} height={500} style={{ border: '' }}  alt="MyDraft Logo" />
         <div className="intro">
           <h1>Welcome to my demo Full Stack React JS Project</h1>
           <p>
