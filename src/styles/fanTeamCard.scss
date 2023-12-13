@@ -1,17 +1,37 @@
-.fan-team-card {
+.fan-team-panel {
     display: flex;
-    padding: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
     width: 100%;
+    height: 100%;
     border-radius: 0.5rem;
-    background-color: #F5F5F5;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     font: 1.5em sans-serif;
+}
 
-    .fan-team-card__name {
-        font-weight: bold;
-    }
+.fan-team-card {
+    display: flex;
+    align-items: center; /* This will vertically center the items */
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: #F0FFFF;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+    font: 1em sans-serif;
+    // padding: 0.5rem; /* Add padding for some space inside the card */
+}
 
-    .fan-team-card__description {
-        font-style: italic;
-    }
+.fan-team-card__image {
+    margin-left: 0.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.fan-team-card__name {
+    font-weight: bold;
+    margin-left: 1rem; /* Add margin to separate from image */
+}
+
+.fan-team-card__description {
+    font-style: italic;
 }

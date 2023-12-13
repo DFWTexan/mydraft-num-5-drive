@@ -6,9 +6,8 @@ import { ListItem, ListSubheader, List } from "@mui/material";
 import "../../../styles/index.scss";
 import { fetchFanTeamRoster } from "../../../slices/fanTeamRoster";
 import FanPickCardItem from "./FanPickCardItem";
-import FanTeamSelect from "../../Common/fanTeamSelect";   
+import FanTeamSelect from "../../Common/fanTeamSelect";
 // import { API_URL } from "../../../config";
-
 
 const FanTeamRoster = (props) => {
   const activeLeague = useSelector((state) => state.activeLeague);
@@ -38,7 +37,7 @@ const FanTeamRoster = (props) => {
           setSelectedTeam={props.setSelectedTeam}
         />
       </div>
-      <div style={{ padding: '.3rem' }}> 
+      <div style={{ padding: ".3rem" }}>
         <List
           sx={{
             width: "100%",
@@ -63,7 +62,9 @@ const FanTeamRoster = (props) => {
                         {element.positionGroup}
                       </ListSubheader>
                       <ListItem>
-                        <FanPickCardItem draftPick={element} />
+                        <div className="fan-team-panel">
+                          <FanPickCardItem draftPick={element} />
+                        </div>
                       </ListItem>
                     </React.Fragment>
                   );
@@ -71,7 +72,9 @@ const FanTeamRoster = (props) => {
                   return (
                     <React.Fragment key={index}>
                       <ListItem>
+                      <div className="fan-team-panel">
                         <FanPickCardItem draftPick={element} />
+                        </div>
                       </ListItem>
                     </React.Fragment>
                   );
