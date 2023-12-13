@@ -49,7 +49,7 @@
 
   .draft-player-list-card__news-icon {
     // filter: grayscale(60%) brightness(1.2); /* Example filter to change color to a shade of gray */
-    fill: #A9A9A9; /* This only works if your image is inline SVG */
+    fill: #a9a9a9; /* This only works if your image is inline SVG */
     /* Ensure the image comes first */
     width: 1rem; /* Adjust the width as needed */
     height: 1rem; /* Adjust the height as needed */
@@ -69,7 +69,7 @@
     padding-left: 1rem auto;
     /* No need for margin-left: auto; or flex-flow: row-reverse; since we want the image at the start */
   }
-  
+
   .draft-player-list-card__rankings-value {
     text-align: center;
     font-size: smaller;

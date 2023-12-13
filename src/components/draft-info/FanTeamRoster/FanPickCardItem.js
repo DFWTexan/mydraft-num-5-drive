@@ -3,8 +3,8 @@ import React from "react";
 import "../../../styles/index.scss";
 
 const CardInfo = ({ draftPick }) => (
-  <div className="fan-team-card ">
-    <strong>{draftPick.int}</strong>  {draftPick && ("   " + draftPick.playerName)}
+  <div className={draftPick.playerName === '' ? "" : "fan-team-card"}>
+    <span>{draftPick.int}</span> <span style={{ paddingLeft: '1rem', fontWeight: 'bold', fontSize: 'larger' }}>{draftPick && ("   " + draftPick.playerName)}</span> 
   </div>
 );
 

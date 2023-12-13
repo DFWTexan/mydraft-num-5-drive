@@ -1,3 +1,17 @@
 .fan-team-card {
+    display: flex;
+    padding: 1em;
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: #F5F5F5;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     font: 1.5em sans-serif;
+
+    .fan-team-card__name {
+        font-weight: bold;
+    }
+
+    .fan-team-card__description {
+        font-style: italic;
+    }
 }
