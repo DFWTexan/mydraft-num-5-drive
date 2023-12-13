@@ -1,6 +1,7 @@
 import React from "react";
 
-import "../../../styles/index.scss";
+import "../../../styles/draftPickCard.scss";
+import "../../../styles/draftSelection.scss";
 
 const getColorClass = (position) => {
   switch (position) {
@@ -22,6 +23,14 @@ const getColorClass = (position) => {
 };
 
 const CardInfo = ({ draftPick, otcID, currentPick }) => {
+  const pickOverAllClass = draftPick.isMyTeamPick
+    ? "draft-selection-pick-info__overall_my_team_pick"
+    : draftPick.teamID === otcID
+    ? draftPick.overallPick === currentPick
+      ? "draft-selection-pick-info__overall_otc"
+      : "draft-selection-pick-info__overall"
+    : "draft-selection-pick-info__overall";
+
   const className = draftPick.isMyTeamPick
     ? "draft-selection-card-my-team-pick"
     : draftPick.teamID === otcID
@@ -32,9 +41,15 @@ const CardInfo = ({ draftPick, otcID, currentPick }) => {
 
   return (
     <div className={className}>
-      <span style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
+      {/* <span style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
         {draftPick.round + "." + draftPick.pickInRound}
-      </span>
+      </span> */}
+      <div className="draft-selection-pick-info">
+        <span className={pickOverAllClass}>{draftPick.overallPick}</span>
+        <span className="draft-selection-pick-info__round">
+          {draftPick.round + "." + draftPick.pickInRound}
+        </span>
+      </div>
       <div className="draft-selection-card__title">
         {draftPick.player ? (
           <div>
@@ -44,15 +59,12 @@ const CardInfo = ({ draftPick, otcID, currentPick }) => {
                 draftPick.player.lastName +
                 " - "}
             </span>
-            <span  className={` ${getColorClass(
-                draftPick.player.position
-              )}`}>{draftPick.player.position}</span>
+            <span className={` ${getColorClass(draftPick.player.position)}`}>
+              {draftPick.player.position}
+            </span>
           </div>
         ) : draftPick.overallPick === currentPick ? (
-          <div>
-            <span style={{ color: "#FF0000", fontWeight: "lighter" }}>
-              On the Clock:
-            </span>
+          <div className="draft-selection__otc-item">
             <span
               style={{
                 paddingLeft: ".5rem",
@@ -62,6 +74,7 @@ const CardInfo = ({ draftPick, otcID, currentPick }) => {
             >
               {draftPick.fanTeamName}
             </span>
+            <span className="material-symbols-outlined">alarm</span>
           </div>
         ) : (
           <span style={{ color: "#778899" }}>{draftPick.fanTeamName}</span>
