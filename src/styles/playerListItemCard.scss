@@ -25,10 +25,6 @@
     margin-bottom: 8px;
   }
 
-  // .draft-player-list-card__player-details {
-  //   // justify-Content: space-between;
-  // }
-
   .draft-player-list-card__team {
     font-size: medium;
   }
@@ -52,12 +48,8 @@
   }
 
   .draft-player-list-card__news-icon {
-    // color: #008000;
-    // width: 1rem; /* Adjust the width as needed */
-    // height: 1rem; /* Adjust the height as needed */
-    // object-fit: cover;
-    // margin-right: 0.1rem; /* Add margin for spacing */
-    // border: none;
+    // filter: grayscale(60%) brightness(1.2); /* Example filter to change color to a shade of gray */
+    fill: #A9A9A9; /* This only works if your image is inline SVG */
     /* Ensure the image comes first */
     width: 1rem; /* Adjust the width as needed */
     height: 1rem; /* Adjust the height as needed */
@@ -66,14 +58,6 @@
   }
 
   .draft-player-list-card__player-position {
-    // justify-content: space-between;
-    // display: flex-end;
-    // flex-flow: row-reverse;
-    // text-align: right;
-    // padding-right: 1rem;
-    // font-size: large;
-    // font-weight: 800;
-    // margin-left: auto;
     display: flex; /* Use flexbox for layout */
     align-items: center; /* Center items vertically */
     justify-content: space-between; /* Align children to the start of the container */
@@ -90,10 +74,3 @@
     color: #708090;
   }
 }
-
-// .news-icon {
-//   width: 0.45rem;
-//   height: 0.45rem;
-//   margin-left: 0.5rem;
-//   margin-right: 0.5rem;
-// }
