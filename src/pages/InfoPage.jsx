@@ -9,7 +9,7 @@ const Home = () => {
         <div className="intro">
           <h1>Welcome to my demo Full Stack React JS Project</h1>
           <p>
-            Explore MyDraft Fantasy Demo web application, crafted with a blend
+            Explore MyDraft Fantasy Demo single-page web application, crafted with a blend
             of modern technologies and innovative design patterns. The project
             showcases a comprehensive skill set in full stack development,
             particularly emphasizing ReactJS and .NET Core.
@@ -19,9 +19,11 @@ const Home = () => {
             <span style={{ fontWeight: "700", paddingRight: "0.5rem" }}>
               NOTE:
             </span>
-            Demo functions as an opportunity to demonstrate technical discpline.
-            Utilizes outdated data from Windows Universal App, MyDraft Fantasy published in the
-            Windows app store in 2017.
+            The demo serves as a platform to showcase technical discipline. It leverages legacy 
+            data from the Windows Universal App, 'MyDraft Fantasy,' which was released on the 
+            Windows App Store in 2017. This demonstration is strategically designed to adopt a 
+            Software as a Service (SaaS) model, illustrating how outdated resources can be 
+            repurposed within modern service-oriented architectures.
           </p>
         </div>
       </div>
