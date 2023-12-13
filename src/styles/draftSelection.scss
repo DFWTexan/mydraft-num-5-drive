@@ -23,10 +23,13 @@
   }
 
   // Nested elements
-  &__title,
-  &__description,
-  &__price,
-  &__button {
+  &__title
+//   &__description
+//   &__price,
+//   &__button 
+  {
+    flex: 1;
+    justify-content: space-between;
     margin-left: 0.5rem;
     font-size: 16px;
     color: #333;
@@ -34,31 +37,31 @@
     font-weight: 500;
   }
 
-  &__description {
-    font-size: 14px;
-    color: #666;
-  }
+//   &__description {
+//     font-size: 14px;
+//     color: #666;
+//   }
 
-  &__image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 1px;
-  }
+//   &__image {
+//     width: 100%;
+//     height: 200px;
+//     object-fit: cover;
+//     margin-bottom: 1px;
+//   }
 
-  &__button {
-    width: 100%;
-    height: 40px;
-    border-radius: 4px;
-    background-color: #f5f5f5;
-    border: 1px solid #e0e0e0;
-    font-size: 14px;
-    cursor: pointer;
+//   &__button {
+//     width: 100%;
+//     height: 40px;
+//     border-radius: 4px;
+//     background-color: #f5f5f5;
+//     border: 1px solid #e0e0e0;
+//     font-size: 14px;
+//     cursor: pointer;
 
-    &:hover {
-      background-color: #e0e0e0;
-    }
-  }
+//     &:hover {
+//       background-color: #e0e0e0;
+//     }
+//   }
 }
 
 // Modifier classes for different states
@@ -126,14 +129,26 @@
     width: 100%; // Ensure it takes the full width
     box-sizing: border-box; // Include padding and border in the width calculation
     padding-right: 0.5rem; // Apply padding as needed
-    margin-right: 2rem;
+    margin-right: 1rem;
   }
 
-  &__otc_clock {
+  &__player_item {
     flex: 6 0 auto;
     display: flex; // Ensure it's a flex container
-    justify-content: flex-end; // This will put space between the items
+    justify-content: space-between; // This will put space between the items
+    align-items: center; // This will vertically center items in the container
     width: 100%; // Ensure it takes the full width
+    box-sizing: border-box; // Include padding and border in the width calculation
     padding-right: 0.5rem; // Apply padding as needed
+    margin-right: 1rem;
   }
+
+  &__player_position {
+    font-size: larger;
 }
+}
+
+.clock-icon {
+    color: #ff0000; /* This is the color for delete-trash */
+    // padding-left: .5rem;
+  }

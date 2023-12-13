@@ -14,22 +14,7 @@ const DraftSelections = (props) => {
     isOpen: false,
     player_ID: null,
   });
-
-  // Create a sorted array with the current pick at the top
-  // const sortedDraftPicks = useMemo(() => {
-  //   const currentPickIndex = props.draftPicks.findIndex(
-  //     (pick) => pick.overallPick === draftStatus.currentPick
-  //   );
-  //   if (currentPickIndex === -1) return props.draftPicks; // Return original array if current pick not found
-
-  //   const currentPick = props.draftPicks[currentPickIndex];
-  //   return [
-  //     currentPick,
-  //     ...props.draftPicks.slice(0, currentPickIndex),
-  //     ...props.draftPicks.slice(currentPickIndex + 1),
-  //   ];
-  // }, [props.draftPicks, draftStatus.currentPick]);
-
+  
   const handlePlayerSelected_OpenModal = (player) => {
     setOpenModalPlayerSelected({
       isOpen: true,

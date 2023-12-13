@@ -52,16 +52,33 @@ const CardInfo = ({ draftPick, otcID, currentPick }) => {
       </div>
       <div className="draft-selection-card__title">
         {draftPick.player ? (
-          <div>
-            <span>
-              {draftPick.player.firstName +
-                " " +
-                draftPick.player.lastName +
-                " - "}
-            </span>
-            <span className={` ${getColorClass(draftPick.player.position)}`}>
-              {draftPick.player.position}
-            </span>
+          <div className="draft-selection-pick-info__player_item">
+            <div>
+              <span
+                style={{
+                  display: "block",
+                  fontSize: "large",
+                }}
+              >
+                {draftPick.player.firstName + " " + draftPick.player.lastName}
+              </span>
+              <span style={{ display: "block", color: "#A9A9A9" }}>{draftPick.fanTeamName}</span>
+            </div>
+            <div>
+              <span style={{ color: "#A9A9A9" }}>
+                {draftPick.player.teamAbbr}
+              </span>
+              <span style={{ paddingLeft: "0.5rem", paddingRight: "0.5rem" }}>
+                |
+              </span>
+              <span
+                className={`draft-selection-pick-info__player_position ${getColorClass(
+                  draftPick.player.position
+                )}`}
+              >
+                {draftPick.player.position}
+              </span>
+            </div>
           </div>
         ) : draftPick.overallPick === currentPick ? (
           <React.Fragment>
@@ -75,9 +92,9 @@ const CardInfo = ({ draftPick, otcID, currentPick }) => {
               >
                 {draftPick.fanTeamName}
               </span>
-            </div>
-            <div className="draft-selection-pick-info__otc_clock">
-              <span className="material-symbols-outlined">alarm</span>
+              <span className="material-symbols-outlined clock-icon">
+                alarm
+              </span>
             </div>
           </React.Fragment>
         ) : (
