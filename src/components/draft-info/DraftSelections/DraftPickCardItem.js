@@ -41,9 +41,6 @@ const CardInfo = ({ draftPick, otcID, currentPick }) => {
 
   return (
     <div className={className}>
-      {/* <span style={{ fontSize: "1.2rem", fontWeight: "bold" }}>
-        {draftPick.round + "." + draftPick.pickInRound}
-      </span> */}
       <div className="draft-selection-pick-info">
         <span className={pickOverAllClass}>{draftPick.overallPick}</span>
         <span className="draft-selection-pick-info__round">
