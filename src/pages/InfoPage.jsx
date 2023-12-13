@@ -22,8 +22,9 @@ const Home = () => {
             The demo serves as a platform to showcase technical discipline. It leverages legacy 
             data from the Windows Universal App, 'MyDraft Fantasy,' which was released on the 
             Windows App Store in 2017. This demonstration is strategically designed to adopt a 
-            Software as a Service (SaaS) model, illustrating how outdated resources can be 
-            repurposed within modern service-oriented architectures.
+            Software as a Service (SaaS) model. The data is dated from the time period MyDraft 
+            Fantazy was published.
+            
           </p>
         </div>
       </div>
