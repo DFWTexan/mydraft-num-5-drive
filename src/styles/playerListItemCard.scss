@@ -55,6 +55,7 @@
     height: 1rem; /* Adjust the height as needed */
     order: -1; /* This will place the image before all other flex items */
     margin-right: 8px; /* Adjust the spacing to the right of the image */
+    // padding-left: .1rem;
   }
 
   .draft-player-list-card__player-position {
@@ -68,6 +69,7 @@
     padding-left: 1rem auto;
     /* No need for margin-left: auto; or flex-flow: row-reverse; since we want the image at the start */
   }
+  
   .draft-player-list-card__rankings-value {
     text-align: center;
     font-size: smaller;
