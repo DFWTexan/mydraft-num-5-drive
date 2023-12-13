@@ -1,4 +1,8 @@
-.draft-selection-card__title {
+.draft-player-list-card {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+}
+.draft-player-list-card__title {
   font-size: 16px;
   font-weight: 500;
   color: #333;
@@ -6,45 +10,90 @@
   display: flex; /* Add flex container */
   align-items: center; /* Center items vertically */
 
-  .draft-selection-card__image {
+  .draft-player-list-card__image {
     width: 50px; /* Adjust the width as needed */
     height: 50px; /* Adjust the height as needed */
     object-fit: cover;
     margin-right: 0.1rem; /* Add margin for spacing */
   }
 
-  .draft-selection-card__player-info {
+  .draft-player-list-card__player-info {
     flex: 1; /* Take up remaining space */
   }
-  .draft-selection-card__name {
+  .draft-player-list-card__name {
     font-size: larger;
     margin-bottom: 8px;
   }
 
-  .draft-selection-card__team {
+  // .draft-player-list-card__player-details {
+  //   // justify-Content: space-between;
+  // }
+
+  .draft-player-list-card__team {
     font-size: medium;
   }
 
-  .draft-selection-card__rankings {
+  .draft-player-list-card__rankings {
     font-size: medium;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Space out the news icon and the player position */
   }
 
-  .draft-selection-card__rankings-table .draft-selection-card__rankings-header {
+  .draft-player-list-card__rankings-table
+    .draft-player-list-card__rankings-header {
     width: 3.5rem;
     text-align: center;
     font-size: small;
   }
-  .draft-selection-card__player-position {
-    display: flex-end;
-    flex-flow: row-reverse;
-    text-align: right;
-    padding-right: 1rem;
+
+  .draft-player-list-card__rankings-table {
+    width: 100%;
+  }
+
+  .draft-player-list-card__news-icon {
+    // color: #008000;
+    // width: 1rem; /* Adjust the width as needed */
+    // height: 1rem; /* Adjust the height as needed */
+    // object-fit: cover;
+    // margin-right: 0.1rem; /* Add margin for spacing */
+    // border: none;
+    /* Ensure the image comes first */
+    width: 1rem; /* Adjust the width as needed */
+    height: 1rem; /* Adjust the height as needed */
+    order: -1; /* This will place the image before all other flex items */
+    margin-right: 8px; /* Adjust the spacing to the right of the image */
+  }
+
+  .draft-player-list-card__player-position {
+    // justify-content: space-between;
+    // display: flex-end;
+    // flex-flow: row-reverse;
+    // text-align: right;
+    // padding-right: 1rem;
+    // font-size: large;
+    // font-weight: 800;
+    // margin-left: auto;
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    justify-content: space-between; /* Align children to the start of the container */
+    text-align: left;
     font-size: large;
     font-weight: 800;
+    padding-right: 1rem;
+    padding-left: 1rem auto;
+    /* No need for margin-left: auto; or flex-flow: row-reverse; since we want the image at the start */
   }
-  .draft-selection-card__rankings-value {
+  .draft-player-list-card__rankings-value {
     text-align: center;
     font-size: smaller;
     color: #708090;
   }
 }
+
+// .news-icon {
+//   width: 0.45rem;
+//   height: 0.45rem;
+//   margin-left: 0.5rem;
+//   margin-right: 0.5rem;
+// }
