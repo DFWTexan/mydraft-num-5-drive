@@ -23,7 +23,7 @@ const Home = () => {
             data from the Windows Universal App, 'MyDraft Fantasy,' which was released on the 
             Windows App Store in 2017. This demonstration is strategically designed to adopt a 
             Software as a Service (SaaS) model. The data is dated from the time period MyDraft 
-            Fantazy was published.
+            Fantasy app was published in Windows app store.
             
           </p>
         </div>
