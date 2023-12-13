@@ -1,7 +1,8 @@
+// Base card class
 .draft-selection-card {
   background-color: #f0f3f5;
   border-radius: 4px;
-  box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.1rem 0.1rem 0 rgba(0, 0, 0, 0.1);
   padding: 1rem;
   margin-bottom: 0.1rem;
   display: flex;
@@ -12,242 +13,135 @@
   transition: all 0.2s ease-in-out;
   width: 100%;
   font-size: medium;
+
   &:hover {
-    box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
   }
+
   &.selected {
     background-color: #f5f5f5;
-    box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.1);
   }
-  .draft-selection-card__title {
+
+  // Nested elements
+  &__title,
+  &__description,
+  &__price,
+  &__button {
     margin-left: 0.5rem;
-    justify-content: start;
     font-size: 16px;
-    font-weight: 500;
     color: #333;
     margin-bottom: 8px;
+    font-weight: 500;
   }
-  .draft-selection-card__description {
+
+  &__description {
     font-size: 14px;
     color: #666;
-    margin-bottom: 8px;
   }
-  .draft-selection-card__image {
+
+  &__image {
     width: 100%;
     height: 200px;
     object-fit: cover;
     margin-bottom: 1px;
   }
-  .draft-selection-card__price {
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  .draft-selection-card__button {
+
+  &__button {
     width: 100%;
     height: 40px;
     border-radius: 4px;
     background-color: #f5f5f5;
     border: 1px solid #e0e0e0;
-    color: #333;
     font-size: 14px;
-    font-weight: 500;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+
     &:hover {
       background-color: #e0e0e0;
     }
   }
 }
 
+// Modifier classes for different states
 .draft-selection-card-my-team-pick {
-  background-color: #f0f8ff;
-  border-radius: 4px;
-  box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  margin-bottom: 0.1rem;
+  flex: 1;
   display: flex;
-  flex-direction: row;
-  justify-content: safe flex-start;
-  text-align: left;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  width: 100%;
-  font-size: medium;
+  padding: 1rem;
+  background-color: #f0f8ff;
   border: 1px solid #1e90ff;
-  &:hover {
-    box-shadow: 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.1);
-  }
-  &.selected {
-    background-color: #f5f5f5;
-    box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.1);
-  }
-  .draft-selection-card__title {
-    margin-left: 0.5rem;
-    justify-content: start;
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  .draft-selection-card__description {
-    font-size: 14px;
-    color: #666;
-    margin-bottom: 8px;
-  }
-  .draft-selection-card__image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 1px;
-  }
-  // .draft-selection-card__price {
-  //     font-size: 16px;
-  //     font-weight: 500;
-  //     color: #333;
-  //     margin-bottom: 8px;
-  // }
-  .draft-selection-card__button {
-    width: 100%;
-    height: 40px;
-    border-radius: 4px;
-    background-color: #f5f5f5;
-    border: 1px solid #e0e0e0;
-    color: #333;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    &:hover {
-      background-color: #e0e0e0;
-    }
-  }
 }
 
 .draft-selection-card-on-the-clock {
-  background-color: #98fb98;
-  border-radius: 4px;
-  box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  margin-bottom: 0.1rem;
+  flex: 1;
   display: flex;
-  flex-direction: row;
-  justify-content: safe flex-start;
-  text-align: left;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  width: 100%;
-  font-size: medium;
+  padding: 1rem;
+  background-color: #98fb98;
   border: 1px solid #ff0000;
-  &:hover {
-    box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.1);
-  }
-  &.selected {
-    background-color: #f5f5f5;
-    box-shadow: 0 0.1rem 0.2rem 0 rgba(0, 0, 0, 0.1);
-  }
-  .draft-selection-card__title {
-    margin-left: 0.5rem;
-    justify-content: start;
-    font-size: 16px;
-    font-weight: 500;
-    color: #333;
-    margin-bottom: 8px;
-  }
-  // .draft-selection-card__description {
-  //     font-size: large;
-  //     color: #666;
-  //     // margin-bottom: 8px;
-  // }
-  .draft-selection-card__image {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    margin-bottom: 1px;
-  }
-  .draft-selection__otc-item {
-    flex: 1;
-    //   display: flex;
-    justify-content: space-between; // This spreads out the child elements evenly
-      width: 100%;
-    border: 1px solid black;
-  }
-  // .draft-selection-card__price {
-  //     font-size: 16px;
-  //     font-weight: 500;
-  //     color: #333;
-  //     margin-bottom: 8px;
-  // }
-  .draft-selection-card__button {
-    width: 100%;
-    height: 40px;
-    border-radius: 4px;
-    background-color: #f5f5f5;
-    border: 1px solid #e0e0e0;
-    color: #333;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-    &:hover {
-      background-color: #e0e0e0;
-    }
-  }
 }
 
+// Additional specific classes for information elements
 .draft-selection-pick-info {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 10%;
   margin-left: 0.5rem;
-  .draft-selection-pick-info__overall {
+
+  &__overall,
+  &__overall_otc,
+  &__overall_my_team_pick {
     font-size: large;
     font-weight: 500;
     text-align: center;
-    // margin-bottom: 8px;
+    color: white;
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+  }
+
+  &__overall {
     background-color: black;
-    color: white;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
   }
-  .draft-selection-pick-info__overall_otc {
-    font-size: large;
-    font-weight: 500;
-    text-align: center;
-    // margin-bottom: 8px;
+
+  &__overall_otc {
     background-color: #ff0000;
-    color: white;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
   }
-  .draft-selection-pick-info__overall_my_team_pick {
-    font-size: large;
-    font-weight: 500;
-    text-align: center;
-    // margin-bottom: 8px;
+
+  &__overall_my_team_pick {
     background-color: #1e90ff;
-    color: white;
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
   }
-  .draft-selection-pick-info__round {
+
+  &__round {
     font-size: large;
-    font-weight: 500;
     text-align: center;
-    // margin-bottom: 8px;
     background-color: white;
     border-bottom-left-radius: 0.25rem;
     border-bottom-right-radius: 0.25rem;
     border: 1px solid gray;
   }
+
+  &__otc_item {
+    flex: 6 0 auto;
+    display: flex; // Ensure it's a flex container
+    justify-content: space-between; // This will put space between the items
+    align-items: center; // This will vertically center items in the container
+    width: 100%; // Ensure it takes the full width
+    box-sizing: border-box; // Include padding and border in the width calculation
+    // flex: 1; // This will allow it to grow and fill the available space
+    // padding-left: 0.5rem; // Apply padding as needed
+    padding-right: 0.5rem; // Apply padding as needed
+    margin-right: 2rem;
+    // border: 1px solid black;
+  }
+
+  &__otc_clock {
+    flex: 6 0 auto;
+    display: flex; // Ensure it's a flex container
+    justify-content: flex-end; // This will put space between the items
+    // align-items: center; // This will vertically center items in the container
+    width: 100%; // Ensure it takes the full width
+    // box-sizing: border-box; // Include padding and border in the width calculation
+    // flex: 1; // This will allow it to grow and fill the available space
+    // padding-left: 0.5rem; // Apply padding as needed
+    padding-right: 0.5rem; // Apply padding as needed
+    // border: 1px solid black;
+  }
 }
-// .material-symbols-outlined {
-// //    color: #FF0000;
-//     font-variation-settings:
-//     'FILL' 0,
-//     'wght' 400,
-//     'GRAD' 0,
-//     'opsz' 24
-//   }

@@ -64,18 +64,22 @@ const CardInfo = ({ draftPick, otcID, currentPick }) => {
             </span>
           </div>
         ) : draftPick.overallPick === currentPick ? (
-          <div className="draft-selection__otc-item">
-            <span
-              style={{
-                paddingLeft: ".5rem",
-                fontSize: "1.3rem",
-                fontWeight: "600",
-              }}
-            >
-              {draftPick.fanTeamName}
-            </span>
-            <span className="material-symbols-outlined">alarm</span>
-          </div>
+          <React.Fragment>
+            <div className="draft-selection-pick-info__otc_item">
+              <span
+                style={{
+                  paddingLeft: ".5rem",
+                  fontSize: "1.3rem",
+                  fontWeight: "600",
+                }}
+              >
+                {draftPick.fanTeamName}
+              </span>
+            </div>
+            <div className="draft-selection-pick-info__otc_clock">
+              <span className="material-symbols-outlined">alarm</span>
+            </div>
+          </React.Fragment>
         ) : (
           <span style={{ color: "#778899" }}>{draftPick.fanTeamName}</span>
         )}
