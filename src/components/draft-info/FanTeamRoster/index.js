@@ -30,7 +30,14 @@ const FanTeamRoster = (props) => {
 
   return (
     <div className="detail-container">
-      <div style={{ position: 'sticky', top: '0', zIndex: '10', background: 'white' }}>
+      <div
+        style={{
+          position: "sticky",
+          top: "0",
+          zIndex: "10",
+          background: "white",
+        }}
+      >
         <FanTeamSelect
           teams={activeLeague.teams}
           selectedTeam={props.selectedTeam}
@@ -72,8 +79,8 @@ const FanTeamRoster = (props) => {
                   return (
                     <React.Fragment key={index}>
                       <ListItem>
-                      <div className="fan-team-panel">
-                        <FanPickCardItem draftPick={element} />
+                        <div className="fan-team-panel">
+                          <FanPickCardItem draftPick={element} />
                         </div>
                       </ListItem>
                     </React.Fragment>

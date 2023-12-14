@@ -21,7 +21,14 @@ const TeamSelections = (props) => {
 
   return (
     <div className="detail-container">
-      <div style={{ position: 'sticky', top: '0', zIndex: '10', background: 'white' }}>
+      <div
+        style={{
+          position: "sticky",
+          top: "0",
+          zIndex: "10",
+          background: "white",
+        }}
+      >
         <FanTeamSelect
           teams={activeLeague.teams}
           selectedTeam={props.selectedTeam}
@@ -29,7 +36,7 @@ const TeamSelections = (props) => {
         />
       </div>
       {teamSelections.length === 0 ? (
-        <div style={{ fontSize: '1rem', paddingTop: '2rem' }}>
+        <div style={{ fontSize: "1rem", paddingTop: "2rem" }}>
           <p>Select a Team to see Draft Results.</p>
         </div>
       ) : (

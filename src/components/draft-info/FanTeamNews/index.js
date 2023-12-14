@@ -37,7 +37,14 @@ const FanTeamNews = (props) => {
 
   return (
     <div className="detail-container">
-      <div style={{ position: 'sticky', top: '0', zIndex: '10', background: 'white' }}>
+      <div
+        style={{
+          position: "sticky",
+          top: "0",
+          zIndex: "10",
+          background: "white",
+        }}
+      >
         <FanTeamSelect
           teams={activeLeague.teams}
           selectedTeam={props.selectedTeam}
