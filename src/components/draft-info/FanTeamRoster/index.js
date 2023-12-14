@@ -30,7 +30,7 @@ const FanTeamRoster = (props) => {
 
   return (
     <div className="detail-container">
-      <div>
+      <div style={{ position: 'sticky', top: '0', zIndex: '10', background: 'white' }}>
         <FanTeamSelect
           teams={activeLeague.teams}
           selectedTeam={props.selectedTeam}
@@ -43,7 +43,7 @@ const FanTeamRoster = (props) => {
             width: "100%",
             bgcolor: "background.paper",
             position: "relative",
-            overflow: "auto",
+            // overflow: "auto",
             maxHeight: 800,
             "& ul": { padding: 0 },
           }}
