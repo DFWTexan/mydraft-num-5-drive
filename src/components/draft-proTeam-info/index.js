@@ -35,29 +35,40 @@ const ProTeamInfo = () => {
           <div className="proteam-filter-content">
             <div className="display-proteam-info-filter">
               <React.Fragment>
-                <div style={{ width: "100%" }}>
+                <div
+                  style={{
+                    width: "100%",
+                    background: "black",
+                    opacity: "0.7",
+                    borderRadius: ".5rem",
+                    border: "1px solid #DCDCDC",
+                  }}
+                >
                   {/* <InputLabel id="playerFilterSelect-label">{label}</InputLabel> */}
                   <FormControl sx={{ minWidth: 200 }} size={"small"}>
-                    <Select
-                      labelId="proTeamSelect-label"
-                      id="proTeamSelect"
-                      value={selectedItem}
-                      onChange={(event) => {
-                        const selectedValue = event.target.value;
-                        setSelectedItem(selectedValue);
+                    <div style={{ width: "100%", background: "white" }}>
+                      <Select
+                        labelId="proTeamSelect-label"
+                        id="proTeamSelect"
+                        value={selectedItem}
+                        onChange={(event) => {
+                          const selectedValue = event.target.value;
+                          setSelectedItem(selectedValue);
 
-                        const selectedLabel =
-                          data.find((option) => option.value === selectedValue)
-                            ?.label || "";
-                        setSelectedItemLabel(selectedLabel);
-                      }}
-                    >
-                      {data.map((option, index) => (
-                        <MenuItem key={index} value={option.value}>
-                          {option.label}
-                        </MenuItem>
-                      ))}
-                    </Select>
+                          const selectedLabel =
+                            data.find(
+                              (option) => option.value === selectedValue
+                            )?.label || "";
+                          setSelectedItemLabel(selectedLabel);
+                        }}
+                      >
+                        {data.map((option, index) => (
+                          <MenuItem key={index} value={option.value}>
+                            {option.label}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </div>
                   </FormControl>
                 </div>
               </React.Fragment>
@@ -66,13 +77,22 @@ const ProTeamInfo = () => {
         </div>
         <div className="detail-container">
           <TabPanel>
-            <ProTeamNews teamID={selectedItem} teamNickname={selectedItemLabel} />
+            <ProTeamNews
+              teamID={selectedItem}
+              teamNickname={selectedItemLabel}
+            />
           </TabPanel>
           <TabPanel>
-            <ProTeamSchedule teamID={selectedItem} teamNickname={selectedItemLabel} />
+            <ProTeamSchedule
+              teamID={selectedItem}
+              teamNickname={selectedItemLabel}
+            />
           </TabPanel>
           <TabPanel>
-            <ProTeamInjuries teamID={selectedItem} teamNickname={selectedItemLabel} />
+            <ProTeamInjuries
+              teamID={selectedItem}
+              teamNickname={selectedItemLabel}
+            />
           </TabPanel>
         </div>
       </Tabs>
