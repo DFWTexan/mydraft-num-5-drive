@@ -13,6 +13,7 @@
   transition: all 0.2s ease-in-out;
   width: 100%;
   font-size: medium;
+  border-radius: 1rem;
 
   &:hover {
     box-shadow: 0 0.1rem 0.1rem rgba(0, 0, 0, 0.1);
@@ -41,6 +42,7 @@
   padding: 1rem;
   background-color: #f0f8ff;
   border: 1px solid #1e90ff;
+  border-radius: 1rem;
 }
 
 .draft-selection-card-on-the-clock {
@@ -49,6 +51,7 @@
   padding: 1rem;
   background-color: #98fb98;
   border: 1px solid #ff0000;
+  border-radius: 1rem;
 }
 
 // Additional specific classes for information elements
