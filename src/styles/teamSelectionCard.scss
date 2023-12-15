@@ -1,4 +1,20 @@
+.d-flex {
+  display: flex;
+}
+
+.justify-content-start {
+  justify-content: flex-start; /* Aligns children of a flex container at the start of the container's main axis. */
+}
+
+.flex-column {
+  flex-direction: column; /* Stacks flex items vertically. */
+}
+
 .player-select-card {
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-between;
+  align-items: center; /* Centers items vertically within the container. */
   padding: 15px;
   margin-left: 2px;
   margin-right: 5px;
@@ -8,9 +24,30 @@
   background-color: whitesmoke;
   border-radius: 10px;
   width: 100%;
-  height: 40px;
+  height: 3.5rem;
   font-size: small;
 }
+
+.over-all-pick,
+.pick-round {
+  /* You may want to center the text and add some padding */
+  text-align: center;
+  padding: 4px;
+  /* Add any other styles that were originally applied to the <td> elements */
+}
+
+// .player-select-card > span {
+//   /* Add any specific styles for the spans inside the player-select-card */
+//   margin-right: 4px; /* Add margin to separate the spans if needed */
+// }
+
+/* Ensure that the flex items do not grow or shrink */
+// .over-all-pick,
+// .pick-round,
+// .player-select-card {
+//   flex: 0 0 auto;
+// }
+
 
 .over-all-pick {
   font-size: 15px;
@@ -25,4 +62,11 @@
   background-color: black;
   padding: 5px;
   border-radius: 5px;
+}
+
+.playerposition {
+  padding-left: 1rem;
+  font-size: larger;
+  font-weight: bold;
+  color: #000000;
 }
