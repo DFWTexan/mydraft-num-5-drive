@@ -51,8 +51,28 @@
   text-align: center;
 }
 
-.react-tabs__tab,
-.react-tabs__tab--selected {
+// .react-tabs__tab,
+// .react-tabs__tab--selected {
+//   width: 100%;
+//   padding: 0.8rem;
+//   // list-style: none;
+//   text-align: center;
+//   cursor: pointer;
+//   transition: all 0.7s;
+// }
+.react-tabs__tab {
+  padding: 0.8rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent; /* Example style */
+  margin-right: 4px; /* Add some space between tabs */
+  // background-color: #f0f0f0; /* Light grey background for non-selected tabs */
+  border-radius: 4px; /* Rounded corners for the tabs */
+}
+
+/* Add more specific styles for non-selected tabs if needed */
+.react-tabs__tab:not(.react-tabs__tab--selected) {
   width: 100%;
   padding: 0.8rem;
   // list-style: none;
@@ -62,9 +82,10 @@
 }
 
 .react-tabs__tab--selected {
-  background: #308efe;
-  height: 2.5rem;
+  font-weight: 700;
+  height: 2.4rem;
   color: #ffff;
+  border-radius: .5rem;
 }
 
 .react-tabs__tab--disabled {
@@ -97,33 +118,40 @@
   text-align: center;
 }
 
+// .selected-tab {
+//   font-weight: 700;
+//   height: 2.4rem;
+//   color: #ffff;
+//   border-radius: .5rem;
+// }
+
 //  Position Colors
-.qb-background {
+.react-tabs__tab--selected.qb-background {
   background-color: #ff0000; /* Red for QB */
   // background-color: qb-background;
 }
 
-.rb-background {
+.react-tabs__tab--selected.rb-background {
   background-color: #0000ff; /* Green for RB */
   // background-color: rb-background;
 }
 
-.wr-background {
+.react-tabs__tab--selected.wr-background {
   background-color: #f4a460; /* Blue for WR */
   // background-color: wr-background;
 }
 
-.te-background {
+.react-tabs__tab--selected.te-background {
   background-color: #2e8b57; /* Yellow for TE */
   // background-color: te-background;
 }
 
-.k-background {
+.react-tabs__tab--selected.k-background {
   background-color: #708090; /* Cyan for K */
   // background-color: k-background;
 }
 
-.def-background {
+.react-tabs__tab--selected.def-background {
   background-color: #6a5acd; /* Magenta for DEF */
   // background-color: def-background;
 }

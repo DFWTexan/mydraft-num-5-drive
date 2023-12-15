@@ -94,7 +94,7 @@ const DraftInfo = () => {
   };
 
   const getTabClassName = (index) => {
-    return depthChartIndex === index ? getTabBackgroundColor(index) + ' selected-tab' : '';
+    return depthChartIndex === index ? getTabBackgroundColor(index) + ' react-tabs__tab--selected' : 'react-tabs__tab';
   };
 
   return (
@@ -228,10 +228,10 @@ const DraftInfo = () => {
                     <Tab style={{ backgroundColor: getTabBackgroundColor(3) }}>TE</Tab>
                     <Tab style={{ backgroundColor: getTabBackgroundColor(4) }}>PK</Tab> */}
                     <Tab className={getTabClassName(0)}>QB</Tab>
-                    <Tab>RB</Tab>
-                    <Tab>WR</Tab>
-                    <Tab>TE</Tab>
-                    <Tab>PK</Tab>
+                    <Tab className={getTabClassName(1)}>RB</Tab>
+                    <Tab className={getTabClassName(2)}>WR</Tab>
+                    <Tab className={getTabClassName(3)}>TE</Tab>
+                    <Tab className={getTabClassName(4)}>PK</Tab>
                   </TabList>
                 </div>
               </div>
