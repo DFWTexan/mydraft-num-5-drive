@@ -53,11 +53,11 @@ const DraftSelections = (props) => {
         sx={{
           width: "100%",
           padding: ".5rem",
-          bgcolor: "background.paper",
+          // bgcolor: "background.paper",
           position: "relative",
         }}
         subheader={
-          <ListSubheader style={{ background: "#2f353a", color: "white" }}>
+          <ListSubheader style={{ background: "#2f353a", color: "white", borderRadius: '.5rem', opacity: ".9" }}>
             Round 1
           </ListSubheader>
         }
@@ -77,7 +77,7 @@ const DraftSelections = (props) => {
                 return (
                   <React.Fragment key={index}>
                     <ListSubheader
-                      style={{ background: "#2f353a", color: "white" }}
+                      style={{ background: "#2f353a", color: "white", borderRadius: '.5rem', opacity: ".9" }}
                     >
                       Round {rnd}
                     </ListSubheader>
