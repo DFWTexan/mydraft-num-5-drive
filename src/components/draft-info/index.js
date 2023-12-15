@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 
 import "../../styles/draftInfo.scss";
+import "../../styles/index.scss";
 import { fetchDraftedPlayers } from "../../slices/draft";
 import { fetchFanTeamRosterCount } from "../../slices/fanTeamRosterCount";
 import FanTeamRoster from "./FanTeamRoster";
@@ -13,22 +14,25 @@ import TeamSelections from "../draft-info/TeamSelections";
 import FanTeamNews from "../draft-info/FanTeamNews";
 import ProTeamDepthChart from "./ProTeamDepthChart";
 
-// const getTabBackgroundColor = (index) => {
-//   switch (index) {
-//     case 0:
-//       return background-color-qb;
-//     case 1:
-//       return background-color-rb;
-//     case 2:
-//       return background-color-wr;
-//     case 3:
-//       return background-color-te;
-//     case 4:
-//       return background-color-k;
-//     default:
-//       return background-color-def;
-//   }
-// };
+const getTabBackgroundColor = (index) => {
+
+console.log("==> EMFTest (TeamSelection) - getTabBackgroundColor index: ", index);
+
+  switch (index) {
+    case 0:
+      return "qb-background";
+    case 1:
+      return "rb-background";
+    case 2:
+      return "wr-background";
+    case 3:
+      return "te-background";
+    case 4:
+      return "k-background";
+    default:
+      return "def-background";
+  }
+};
 
 const DraftInfo = () => {
   const [selectedTeam, setSelectedTeam] = useState(0);
@@ -87,6 +91,10 @@ const DraftInfo = () => {
         break;
       }
     }
+  };
+
+  const getTabClassName = (index) => {
+    return depthChartIndex === index ? getTabBackgroundColor(index) + ' selected-tab' : '';
   };
 
   return (
@@ -219,7 +227,7 @@ const DraftInfo = () => {
                     <Tab style={{ backgroundColor: getTabBackgroundColor(2) }}>WR</Tab>
                     <Tab style={{ backgroundColor: getTabBackgroundColor(3) }}>TE</Tab>
                     <Tab style={{ backgroundColor: getTabBackgroundColor(4) }}>PK</Tab> */}
-                    <Tab>QB</Tab>
+                    <Tab className={getTabClassName(0)}>QB</Tab>
                     <Tab>RB</Tab>
                     <Tab>WR</Tab>
                     <Tab>TE</Tab>
