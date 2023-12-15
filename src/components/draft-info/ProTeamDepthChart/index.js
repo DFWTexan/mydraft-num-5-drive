@@ -6,6 +6,25 @@ import Box from "@mui/material/Box";
 import "../../../styles/index.scss";
 // import { API_URL } from "../../../config";
 
+const getTabBackgroundColor = (pos) => {
+  switch (pos) {
+    case "QB":
+      return "qb-background";
+    case "RB":
+      return "rb-background";
+    case "WR":
+      return "wr-background";
+    case "TE":
+      return "te-background";
+    case "PK":
+      return "k-background";
+    // case "DEF":
+    //   return "k-background";
+    default:
+      return "";
+  }
+};
+
 const ProTeamDepthChart = (props) => {
   const [isLoading, setIsLoading] = useState(true);
   const [displayData, setDisplayData] = useState([]);
@@ -43,7 +62,7 @@ const ProTeamDepthChart = (props) => {
             <tbody>
               {displayData.map((item, index) => (
                 <tr key={index}>
-                  <td className="team_col">
+                  <td className={`team_col ${getTabBackgroundColor(props.positionDisplay)}`}>
                     <strong>{item.key}</strong>
                   </td>
                   {item.value.map((player, playerIndex) => (

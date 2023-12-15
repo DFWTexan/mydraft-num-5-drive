@@ -1,10 +1,11 @@
+@import 'common.scss';
+
 .tab_Container_draftInfo {
   width: 100%;
   background-color: whitesmoke;
   padding-top: 0.1rem;
   border-top-left-radius: 0.5rem;
   border-top-right-radius: 0.5rem;
-  // border-top-style: solid;
 }
 
 .panel_draftInfo {
@@ -30,10 +31,10 @@
   border-radius: 1rem;
 }
 
-// .react-tabs {
-//   -webkit-tap-highlight-color: transparent;
-//   // position: relative; /* Added if overlay is needed */
-// }
+.react-tabs {
+  -webkit-tap-highlight-color: transparent;
+  // position: relative; /* Added if overlay is needed */
+}
 
 .react-tabs__tab-list {
   width: 90%;
@@ -51,34 +52,15 @@
   text-align: center;
 }
 
-// .react-tabs__tab,
-// .react-tabs__tab--selected {
-//   width: 100%;
-//   padding: 0.8rem;
-//   // list-style: none;
-//   text-align: center;
-//   cursor: pointer;
-//   transition: all 0.7s;
-// }
 .react-tabs__tab {
   padding: 0.8rem;
   text-align: center;
+  align-items: center;
   cursor: pointer;
   transition: all 0.3s ease;
   border: 1px solid transparent; /* Example style */
   margin-right: 4px; /* Add some space between tabs */
-  // background-color: #f0f0f0; /* Light grey background for non-selected tabs */
   border-radius: 4px; /* Rounded corners for the tabs */
-}
-
-/* Add more specific styles for non-selected tabs if needed */
-.react-tabs__tab:not(.react-tabs__tab--selected) {
-  width: 100%;
-  padding: 0.8rem;
-  // list-style: none;
-  text-align: center;
-  cursor: pointer;
-  transition: all 0.7s;
 }
 
 .react-tabs__tab--selected {
@@ -118,40 +100,32 @@
   text-align: center;
 }
 
-// .selected-tab {
-//   font-weight: 700;
-//   height: 2.4rem;
-//   color: #ffff;
-//   border-radius: .5rem;
-// }
-
-//  Position Colors
 .react-tabs__tab--selected.qb-background {
-  background-color: #ff0000; /* Red for QB */
-  // background-color: qb-background;
+  // background-color: #ff0000; /* Red for QB */
+  background-color: qb-background;
 }
 
 .react-tabs__tab--selected.rb-background {
-  background-color: #0000ff; /* Green for RB */
-  // background-color: rb-background;
+  // background-color: #0000ff; /* Green for RB */
+  background-color: rb-background;
 }
 
 .react-tabs__tab--selected.wr-background {
-  background-color: #f4a460; /* Blue for WR */
-  // background-color: wr-background;
+  // background-color: #f4a460; /* Blue for WR */
+  background-color: wr-background;
 }
 
 .react-tabs__tab--selected.te-background {
-  background-color: #2e8b57; /* Yellow for TE */
-  // background-color: te-background;
+  // background-color: #2e8b57; /* Yellow for TE */
+  background-color: te-background;
 }
 
 .react-tabs__tab--selected.k-background {
-  background-color: #708090; /* Cyan for K */
-  // background-color: k-background;
+  // background-color: #708090; /* Cyan for K */
+  background-color: k-background;
 }
 
 .react-tabs__tab--selected.def-background {
-  background-color: #6a5acd; /* Magenta for DEF */
-  // background-color: def-background;
+  // background-color: #6a5acd; /* Magenta for DEF */
+  background-color: def-background;
 }

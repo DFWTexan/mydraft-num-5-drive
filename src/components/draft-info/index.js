@@ -15,9 +15,6 @@ import FanTeamNews from "../draft-info/FanTeamNews";
 import ProTeamDepthChart from "./ProTeamDepthChart";
 
 const getTabBackgroundColor = (index) => {
-
-console.log("==> EMFTest (TeamSelection) - getTabBackgroundColor index: ", index);
-
   switch (index) {
     case 0:
       return "qb-background";
