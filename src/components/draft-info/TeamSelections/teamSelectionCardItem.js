@@ -2,37 +2,26 @@ import React from "react";
 
 import "../../../styles/index.scss";
 
+const getColorClass = (position) => {
+  switch (position) {
+    case "QB":
+      return "qb-color";
+    case "RB":
+      return "rb-color";
+    case "WR":
+      return "wr-color";
+    case "TE":
+      return "te-color";
+    case "K":
+      return "k-color";
+    case "DEF":
+      return "def-color";
+    default:
+      return ""; // Default or fallback class
+  }
+};
+
 const CardInfo = ({ draftPick }) => (
-  // <div className="d-flex justify-content-start">
-  //   <table style={{ width: "100%" }}>
-  //     <tbody>
-  //       <tr>
-  //         <td>
-  //           <table style={{ width: '3.5rem'}}>
-  //             <tbody>
-  //               <tr>
-  //                 <td className="over-all-pick">{draftPick.overallPick}</td>
-  //               </tr>
-  //               <tr>
-  //                 <td className="pick-round">{draftPick.round + "." + draftPick.pickInRound}</td>
-  //               </tr>
-  //             </tbody>
-  //           </table>
-  //         </td>
-  //         <td className="player-select-card">
-  //           <span>
-  //           {(draftPick.player == null ? "N/A" : draftPick.player.firstName) +
-  //             " " +
-  //             (draftPick.player == null ? "" : draftPick.player.lastName)}
-  //           </span>
-  //           <span>
-  //             {draftPick.player == null ? "" : draftPick.player.position}
-  //           </span>
-  //         </td>
-  //       </tr>
-  //     </tbody>
-  //   </table>
-  // </div>
   <div className="d-flex justify-content-start" style={{ width: "100%" }}>
     <div className="d-flex flex-column" style={{ width: "3.5rem" }}>
       <div className="over-all-pick">{draftPick.overallPick}</div>
@@ -51,7 +40,9 @@ const CardInfo = ({ draftPick }) => (
           {draftPick.player == null ? "" : draftPick.player.teamAbbr}
         </span>
         |
-        <span className="playerposition">
+        <span className={`playerposition ${getColorClass(
+                  draftPick.player == null ? "" : draftPick.player.position
+                )}`}>
           {draftPick.player == null ? "" : draftPick.player.position}
         </span>
       </div>
