@@ -1,42 +1,27 @@
-import http from "../api/http-common";
+import http from '../api/http-common';
 
-const get = data => {
-  return http.put("Player/GetPlayers", data);
+const getToken = () => {
+  let userObject = JSON.parse(localStorage.getItem('user'));
+  return userObject ? `Bearer ${userObject.token}` : null;
 };
 
-// const get = id => {
-//   return http.get(`/tutorials/${id}`);
-// };
+const fetch = (payload) => {
+  // Ensure token is up-to-date
+  const token = getToken();
+  if (!token) {
+    throw new Error('No token found');
+  }
 
-// const create = data => {
-//   return http.post("/tutorials", data);
-// };
-
-// const update = (id, data) => {
-//   return http.put(`/tutorials/${id}`, data);
-// };
-
-// const remove = id => {
-//   return http.delete(`/tutorials/${id}`);
-// };
-
-// const removeAll = () => {
-//   return http.delete(`/tutorials`);
-// };
-
-const findByTitle = title => {
-  return http.get(`tutorials?title=${title}`);
+  return http.put('Player/GetPlayers', payload, {
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: token,
+    },
+  });
 };
 
-const PlayerService
- = {
-  get,
-  // get,
-  // create,
-  // update,
-  // remove,
-  // removeAll,
-  findByTitle
+const PlayerService = {
+  fetch,
 };
 
 export default PlayerService;
