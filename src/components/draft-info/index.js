@@ -115,6 +115,7 @@ const DraftInfo = () => {
                     width: "80%",
                     display: "flex",
                     justifyContent: "center",
+                    paddingBottom: "1.5rem"
                   }}
                 >
                   <TabList>
@@ -156,6 +157,7 @@ const DraftInfo = () => {
                     width: "80%",
                     display: "flex",
                     justifyContent: "center",
+                    paddingBottom: "1.5rem"
                   }}
                 >
                   <TabList>
@@ -214,6 +216,7 @@ const DraftInfo = () => {
                     width: "80%",
                     display: "flex",
                     justifyContent: "center",
+                    paddingBottom: "1.5rem"
                   }}
                 >
                   <TabList>

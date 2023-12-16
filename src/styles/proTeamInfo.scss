@@ -1,20 +1,21 @@
 .proteam-filter-content {
+  margin-top: 1.5rem;
     padding: .3rem;
     display: flex;
     justify-content: center;
-    align-items: center;
+    // align-items: center;
     text-align: center;
     background-color: #f2f2f2;
     border-radius: .5rem;
-    border: 1px solid #e6e6e6;
     margin-left: 0.35rem;
     margin-right: 0.35rem;
+    border: 1px solid #e6e6e6;
   }
 
   .display-proteam-info-filter {
     width: 80%;
     border-radius: 5px;
-    padding: .1rem;
+    // padding: .1rem;
     text-align: center;
     color: white;
     background-color: white;

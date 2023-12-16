@@ -9,14 +9,14 @@
 }
 
 .left, .middle, .right {
-  margin-top: .1rem;
+  // margin-top: .1rem;
   display: inline-block; 
   *display: inline; /* Hack for older IE browsers */
-  border-bottom: 1px solid #e4e7ea;
+  // border-bottom: 1px solid #e4e7ea;
   vertical-align: top; 
   font-size: smaller;
   box-sizing: border-box; /* Include padding and border in the element's width and height */
-  margin-bottom: 1rem;
+  // margin-bottom: 1rem;
 }
 
 .left {
