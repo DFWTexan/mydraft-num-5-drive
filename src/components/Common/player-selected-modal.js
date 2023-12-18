@@ -11,6 +11,11 @@ import { fetchDraftStatus } from "../../slices/draftStatus";
 // import { fetchPlayers } from "../../slices/players";
 import Placeholder from "../../static/img/no-image.png";
 
+const getToken = () => {
+  let userObject = JSON.parse(localStorage.getItem("user"));
+  return userObject ? `Bearer ${userObject.token}` : null;
+};
+
 const getColorClass = (position) => {
   switch (position) {
     case "QB":
@@ -117,12 +122,28 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
   };
 
   useEffect(() => {
+    // Ensure token is up-to-date
+    const token = getToken();
+    if (!token) {
+      throw new Error("No token found");
+    }
+
     axios
       .get(
-        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Player/GetPlayerByID/${props.player_ID}`
+        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Player/GetPlayerByID/${props.player_ID}`,
+        {
+          headers: {
+            'Authorization': token,
+            'Content-Type': 'application/json',
+          }
+        }
       )
       .then((response) => {
         setPlayerData(response.data);
+      })
+      .catch((error) => {
+        console.error("Error fetching player data", error);
+        // Handle errors here, such as updating the UI accordingly
       });
   }, [props.player_ID]);
 
@@ -267,7 +288,9 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
                 playerData.playerNews.map((item, index) => {
                   return (
                     <React.Fragment key={index}>
-                      <div className={`proTeamInfoPanel ${backgroundColorClass}`}>
+                      <div
+                        className={`proTeamInfoPanel ${backgroundColorClass}`}
+                      >
                         <div style={style}>
                           <div className="playerNewsItem">
                             <div className="playerNewsItem__header">

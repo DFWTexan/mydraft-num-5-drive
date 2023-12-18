@@ -1,7 +1,18 @@
 import http from "../api/http-common";
 
+const getToken = () => {
+  let userObject = JSON.parse(localStorage.getItem("user"));
+  return userObject ? `Bearer ${userObject.token}` : null;
+};
+
 const getActiveLeague = () => {
-  return http.get("League/GetActiveLeague/");   
+  // Ensure token is up-to-date
+  const token = getToken();
+  if (!token) {
+    throw new Error("No token found");
+  }
+
+  return http.get("League/GetActiveLeague/");
 };
 
 // const get = id => {
@@ -28,8 +39,7 @@ const getActiveLeague = () => {
 //   return http.get(`/tutorials?title=${title}`);
 // };
 
-const LeagueService
- = {
+const LeagueService = {
   getActiveLeague,
   // get,
   // create,
