@@ -15,6 +15,9 @@ const FanTeamRoster = (props) => {
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
+    if (props.selectedTeam === 0) {
+      return;
+    }
     dispatch(fetchFanTeamRoster(props.selectedTeam));
   }, [dispatch, props.selectedTeam]);
 
