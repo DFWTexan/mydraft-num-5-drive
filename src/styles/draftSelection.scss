@@ -58,8 +58,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 10%;
-  margin-left: 0.5rem;
+  width: 12%;
+  // margin-left: 0.5rem;
 
   &__overall,
   &__overall_otc,
@@ -74,6 +74,8 @@
 
   &__overall {
     background-color: black;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
   }
 
   &__overall_otc {
@@ -85,7 +87,10 @@
   }
 
   &__round {
-    font-size: large;
+    // padding: 0.1rem;
+    padding-left: 0.3rem;
+    padding-right: 0.3rem;
+    font-size: medium;
     text-align: center;
     background-color: white;
     border-bottom-left-radius: 0.25rem;
