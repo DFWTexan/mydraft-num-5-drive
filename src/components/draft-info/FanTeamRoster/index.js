@@ -68,7 +68,7 @@ const FanTeamRoster = (props) => {
                   return (
                     <React.Fragment key={index}>
                       <ListSubheader
-                        style={{ background: "#2f353a", color: "white" }}
+                        style={{ background: "#2f353a", color: "white", borderRadius: "0.5rem" }}
                       >
                         {element.positionGroup}
                       </ListSubheader>
