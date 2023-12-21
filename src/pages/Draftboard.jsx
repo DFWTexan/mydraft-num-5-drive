@@ -65,7 +65,7 @@ const Draftboard = () => {
             posVal = "TE";
             break;
           case 5:
-            posVal = "K";
+            posVal = "PK";
             break;
           case 6:
             posVal = "DEF";

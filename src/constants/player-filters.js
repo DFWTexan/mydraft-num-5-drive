@@ -10,7 +10,7 @@ export const posValues = [
   {value: 2, label: 'RB'},
   {value: 3, label: 'WR'},
   {value: 4, label: 'TE'},
-  {value: 5, label: 'K'},
+  {value: 5, label: 'PK'},
   {value: 6, label: 'DEF'},
   {value: 7, label: 'KR/PR'},
 ];

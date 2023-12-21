@@ -28,9 +28,6 @@ const DraftedByPositions = () => {
   let keyRound = "";
 
   const getBackgroundColorClass = (positionGroup) => {
-
-console.log("EMFTest (DraftedPositions) - positionGroup: ", positionGroup);
-
     switch (positionGroup) {
       case "QB":
         return "qb-background";
