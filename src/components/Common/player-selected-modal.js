@@ -265,7 +265,7 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
             <Tab>NEWS</Tab>
             <Tab>SCHEDULE</Tab>
           </TabList>
-          <div style={{ overflow: "auto", height: "20rem" }}>
+          <div style={{ overflow: "auto", height: "20rem", borderRadius: '0.5rem' }}>
             <TabPanel>
               <div className={`proTeamInfoPanel ${backgroundColorClass}`}>
                 {playerData.depthChart.map((item, index) => {

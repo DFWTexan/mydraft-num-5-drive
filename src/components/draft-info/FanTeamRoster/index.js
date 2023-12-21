@@ -12,6 +12,7 @@ import FanTeamSelect from "../../Common/fanTeamSelect";
 const FanTeamRoster = (props) => {
   const activeLeague = useSelector((state) => state.activeLeague);
   const fanTeamRoster = useSelector((state) => state.fanTeamRoster);
+  const onTheClock = useSelector((state) => state.draftStatus.onTheClock);
   const dispatch = useDispatch();
 
   const initFetch = useCallback(() => {
@@ -29,7 +30,7 @@ const FanTeamRoster = (props) => {
 
   useEffect(() => {
     initFetch();
-  }, [initFetch]);
+  }, [initFetch, onTheClock]);
 
   return (
     <div className="detail-container">

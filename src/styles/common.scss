@@ -69,7 +69,7 @@ $base-def-background: #9400D3;
 }
 /* Define a base background color class */
 .base-background {
-  background-color: #fff; /* Default background color */
+  color: #fff; /* Default background color */
 }
 
 .header-container {
@@ -235,6 +235,7 @@ $base-def-background: #9400D3;
   background-color: #f0f0f0;
   padding: 0.5rem; // Add some padding around the container
   overflow-y: auto; // Add vertical scroll if content overflows
+  border-radius: .5rem;
 
   &--cardinals { background-color: #97233F; } // Replace with actual color
   &--falcons { background-color: #A71930; }

@@ -28,11 +28,14 @@ const DraftedByPositions = () => {
   let keyRound = "";
 
   const getBackgroundColorClass = (positionGroup) => {
+
+console.log("EMFTest (DraftedPositions) - positionGroup: ", positionGroup);
+
     switch (positionGroup) {
       case "QB":
-        return "background-color-1";
+        return "qb-background";
       case "RB":
-        return "background-color-2";
+        return "rb-background";
       case "WR":
         return "background-color-3";
       case "TE":
