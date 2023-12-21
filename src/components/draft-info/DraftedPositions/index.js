@@ -74,7 +74,7 @@ const DraftedByPositions = () => {
                       return (
                         <React.Fragment key={roundIndex}>
                           <ListSubheader
-                            style={{ background: "#2f353a", color: "white" }}
+                            style={{ background: "#2f353a", color: "white", borderRadius: '.5rem', opacity: ".9" }}
                           >
                             ROUND {round}
                           </ListSubheader>
