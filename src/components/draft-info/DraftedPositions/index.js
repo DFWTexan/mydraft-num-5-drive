@@ -37,7 +37,7 @@ const DraftedByPositions = () => {
         return "background-color-3";
       case "TE":
         return "background-color-4";
-      case "K":
+      case "PK":
         return "background-color-5";
       case "DEF":
         return "background-color-6";
