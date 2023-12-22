@@ -13,7 +13,7 @@ const RosterCount = (props) => {
             <th className="position-header">RB</th>
             <th className="position-header">WR</th>
             <th className="position-header">TE</th>
-            <th className="position-header">K</th>
+            <th className="position-header">PK</th>
             <th className="position-header">DEF</th>
           </tr>
         </thead>
@@ -25,7 +25,7 @@ const RosterCount = (props) => {
               <td className="cnt-cell">{item.value.RB}</td>
               <td className="cnt-cell">{item.value.WR}</td>
               <td className="cnt-cell">{item.value.TE}</td>
-              <td className="cnt-cell">{item.value.K}</td>
+              <td className="cnt-cell">{item.value.PK}</td>
               <td className="cnt-cell">{item.value.DEF}</td>
             </tr>
           ))}
