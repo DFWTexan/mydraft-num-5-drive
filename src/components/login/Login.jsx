@@ -31,6 +31,8 @@ const Login = () => {
     useState(true);
   const [forgotEmail, setForgotEmail] = useState("");
   const [isEmailSent, setIsEmailSent] = useState(false);
+  const [registerEmail, setRegisterEmail] = useState("");
+  const [isEmailValidated, setIsEmailValidated] = useState(false);
   const dispatch = useDispatch();
 
   const handlePasswordChange = (e) => {
@@ -53,6 +55,29 @@ const Login = () => {
 
   const handleConfirmNewPasswordChange = (e) => {
     setConfirmNewPassword(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {  
+    setRegisterEmail(e.target.value);
+    handleEmailValidation(e);
+  };
+
+  // email validation
+  const handleEmailValidation = (e) => {
+    let email = e.target.value;
+    let emailRegex = /^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+/;
+    if (emailRegex.test(email)) {
+      setIsEmailValidated(true);
+      dispatch(clearMessage());
+    } else {
+      setIsEmailValidated(false);
+      dispatch(
+        setMessage({
+          status: "WARN",
+          message: "Email is not valid",
+        })
+      );
+    }
   };
 
   useEffect(() => {
@@ -346,7 +371,9 @@ const Login = () => {
                         type="email"
                         name="Email"
                         id="Email"
-                        placeholder="Email"
+                        value={registerEmail}
+                        placeholder="Enter Registration Email"
+                        onChange={handleEmailChange}
                       />
                     </div>
                   )}
@@ -459,6 +486,7 @@ const Login = () => {
                       >
                         <Label for="RegistrationPassword">Password</Label>
                         <Input
+                          disabled={!isEmailValidated}
                           style={myStyle}
                           type="password"
                           name="RegistrationPassword"
