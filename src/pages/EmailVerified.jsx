@@ -10,16 +10,24 @@ const EmailVerified = () => {
   //   const token = new URLSearchParams(location.search).get("token");
   //   const email = new URLSearchParams(location.search).get("email");
 
-  //   axios.post(
-  //     `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/ConfirmEmail`,
-  //     { token, email }
-  //   )
-  //   .then(() => {
-  //     navigate("/");
-  //   })
-  //   .catch((error) => {
-  //     console.log("==> EMFTest (EmailVerified) - error: ", error);
-  //   })
+    axios.post(
+      `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/ConfirmEmail`,
+      { token, email }
+      // {
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //     // "Access-Control-Allow-Origin": "*",
+      //     // "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH,OPTIONS",
+      //     // "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token",
+      //   },
+      // }
+    )
+    .then(() => {
+      navigate("/");
+    })
+    .catch((error) => {
+      console.log("==> EMFTest (EmailVerified) - error: ", error);
+    })
 
   //   // console.log("Email verified successfully!", response.data);
 
