@@ -10,9 +10,6 @@ const EmailVerified = () => {
     const token = new URLSearchParams(location.search).get("token");
     const email = new URLSearchParams(location.search).get("email");
 
-    // const verifyEmail = async () => {
-    //   try {
-    //     const response = await
     axios.post(
       `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/ConfirmEmail`,
       { token, email }
