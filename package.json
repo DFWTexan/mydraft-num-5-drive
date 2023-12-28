@@ -58,6 +58,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "babel-jest": "^29.7.0",
     "gh-pages": "^5.0.0",
     "jest": "^27.5.1"
   }
