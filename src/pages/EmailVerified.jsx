@@ -6,9 +6,9 @@ const EmailVerified = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // useEffect(() => {
-  //   const token = new URLSearchParams(location.search).get("token");
-  //   const email = new URLSearchParams(location.search).get("email");
+  useEffect(() => {
+    const token = new URLSearchParams(location.search).get("token");
+    const email = new URLSearchParams(location.search).get("email");
 
     axios.post(
       `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/ConfirmEmail`,
@@ -29,25 +29,25 @@ const EmailVerified = () => {
       console.log("==> EMFTest (EmailVerified) - error: ", error);
     })
 
-  //   // console.log("Email verified successfully!", response.data);
+    // console.log("Email verified successfully!", response.data);
 
-  //   // Redirect the user to a success page or perform other actions
+    // Redirect the user to a success page or perform other actions
     
-  //   // } catch (error) {
-  //   //   console.error("Failed to verify email:", error);
+    // } catch (error) {
+    //   console.error("Failed to verify email:", error);
 
-  //   //   // Redirect the user to an error page or perform other actions
-  //   //   // navigate('/verification-error');
-  //   // }
-  //   // };
+    //   // Redirect the user to an error page or perform other actions
+    //   // navigate('/verification-error');
+    // }
+    // };
 
-  //   // if (token) {
-  //   //   verifyEmail();
-  //   // } else {
-  //   //   console.error("Email verification token not found!");
-  //   //   // navigate('/verification-error');
-  //   // }
-  // }, [navigate, location.search]);
+    // if (token) {
+    //   verifyEmail();
+    // } else {
+    //   console.error("Email verification token not found!");
+    //   // navigate('/verification-error');
+    // }
+  }, [navigate, location.search]);
 
   return (
     <div
