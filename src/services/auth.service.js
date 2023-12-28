@@ -1,6 +1,6 @@
-import axios from "axios";
-
+// import axios from "axios";
 // import { API_URL } from "../config";
+const axios = require("axios");
 
 const register = (username, email, password) => {
   return axios
