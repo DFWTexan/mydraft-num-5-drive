@@ -18,8 +18,8 @@ function App() {
             <Route path="/draftboard" element={<Draftboard />} />
             <Route path="/fantasyteams" element={<FantasyTeams />} />
             <Route path="/setup" element={<DraftSetup />} />
+            <Route path="/emailverified" element={<EmailVerified />} />
           </Route>
-          <Route path="/emailverified" element={<EmailVerified />} />
         </Routes>
       </BrowserRouter>
     );
