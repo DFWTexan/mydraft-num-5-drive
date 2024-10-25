@@ -399,8 +399,10 @@ const LoginV2 = () => {
                               <Input
                                 style={{
                                   ...myStyle,
-                                  width: "80px",
+                                  width: "100px",
                                   textAlign: "center",
+                                  fontSize: "1.5rem",
+                                  fontWeight: 500,
                                 }}
                                 type="text"
                                 name="CodeFromEmail"
