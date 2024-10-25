@@ -1,0 +1,66 @@
+.sidebar___btn {
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    // border: 3px solid #2b5880;
+    // padding: 1px;
+  }
+  
+  // .input-text {
+  //   font-size: ".3rem";
+  //   padding: ".5rem";
+  
+  //   &:disabled {
+  //     background-color: #cccccc;
+  //     color: #666666;
+  //     cursor: not-allowed;
+  //   }
+  
+  //   &:not(:disabled) {
+  //     background-color: #4caf50;
+  //     color: white;
+  //     cursor: pointer;
+  
+  //     &:hover {
+  //       background-color: #45a049;
+  //     }
+  //   }
+  // }
+  
+  /* Base alert styling */
+  .alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: rem;
+  }
+  
+  /* Alert Success */
+  .alert-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+  }
+  
+  /* Alert Warning */
+  .alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+  }
+  
+  /* Alert Danger */
+  .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+  }
+  
+  /* Alert Info */
+  .alert-info {
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+  }
+  
