@@ -399,7 +399,7 @@ const LoginV2 = () => {
                               <Input
                                 style={{
                                   ...myStyle,
-                                  width: "100px",
+                                  width: "130px",
                                   textAlign: "center",
                                   fontSize: "1.5rem",
                                   fontWeight: 500,
@@ -408,7 +408,7 @@ const LoginV2 = () => {
                                 name="CodeFromEmail"
                                 id="CodeFromEmail"
                                 value={codeFromEmail}
-                                placeholder="Enter Code from Email"
+                                placeholder="Code"
                                 onChange={handleCodeFromEmailChange}
                               />
                             </div>
