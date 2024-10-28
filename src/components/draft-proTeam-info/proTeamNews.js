@@ -80,13 +80,13 @@ const ProTeamNews = ({ teamID, teamNickname, width, height, color }) => {
 
   useEffect(() => {
     setLoading(true);
-    axios
-      .get(
-        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}ProTeam/News/${teamID}`
-      )
-      .then((response) => {
-        setData([...response.data]);
-      });
+    // axios
+    //   .get(
+    //     `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}ProTeam/News/${teamID}`
+    //   )
+    //   .then((response) => {
+    //     setData([...response.data]);
+    //   });
     setLoading(false);
   }, [teamID]);
 
