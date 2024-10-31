@@ -11,7 +11,6 @@ const FanTeamNews = (props) => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-    // setLoading(true);
     axios
       .get(
         `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/GetTeamNews/${props.selectedTeam}`

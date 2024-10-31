@@ -4,7 +4,8 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import Sidebar from "../sidebar/Sidebar";
-import Login from "../login/Login";
+// import Login from "../login/Login";
+import Login from "../login-v2/loginV2";
 
 const AppLayout = () => {
   // const authUser = useSelector((state) => state.auth);
