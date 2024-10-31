@@ -11,16 +11,16 @@ const FanTeamNews = (props) => {
   const [newsData, setNewsData] = useState([]);
 
   useEffect(() => {
-    // axios
-    //   .get(
-    //     `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/GetTeamNews/${props.selectedTeam}`
-    //   )
-    //   .then((response) => {
-    //     setNewsData([...response.data]);
-    //   })
-    //   .finally(() => {
-    //     // setLoading(false);
-    //   });
+    axios
+      .get(
+        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Draft/GetTeamNews/${props.selectedTeam}`
+      )
+      .then((response) => {
+        setNewsData([...response.data]);
+      })
+      .finally(() => {
+        // setLoading(false);
+      });
   }, [props.selectedTeam]);
 
   const style = {

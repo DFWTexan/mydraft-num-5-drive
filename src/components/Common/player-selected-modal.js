@@ -261,15 +261,15 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
       <ModalBody>
         <Tabs forceRenderTabPanel defaultIndex={0}>
           <TabList>
-            <Tab>DEPTH CHART</Tab>
-            <Tab>NEWS</Tab>
-            <Tab>SCHEDULE</Tab>
+            <Tab class="mb-3">DEPTH CHART</Tab>
+            <Tab class="mb-3">NEWS</Tab>
+            <Tab class="mb-3">SCHEDULE</Tab>
           </TabList>
           <div style={{ overflow: "auto", height: "20rem", borderRadius: '0.5rem' }}>
             <TabPanel>
               <div className={`proTeamInfoPanel ${backgroundColorClass}`}>
-                {playerData.depthChart.map((item, index) => {
-                  return (
+              {playerData && playerData.depthChart ? (
+                  playerData.depthChart.map((item, index) => (
                     <React.Fragment key={index}>
                       <div className="playerDepthCharItem">
                         <div>
@@ -277,8 +277,10 @@ const PlayerSelectedModal = ({ props, handleCloseModal, filterSortPlayer }) => {
                         </div>
                       </div>
                     </React.Fragment>
-                  );
-                })}
+                  ))
+                ) : (
+                  <div>No Depth Chart Data Available</div>
+                )}
               </div>
             </TabPanel>
             <TabPanel>
