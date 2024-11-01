@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, FormGroup, Label, Button, Input } from "reactstrap";
-import axios from "axios";
+// import axios from "axios";
 
 import "./login-V2.scss";
 import { loginV2, registerV2, emailCodeConfirmation } from "../../slices/auth";
@@ -11,52 +11,52 @@ import { userInfoStatus } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
 
 const LoginV2 = () => {
-  const [loginRegisterToggle, setLoginRegisterToggle] = useState(true);
+  // const [loginRegisterToggle, setLoginRegisterToggle] = useState(true);
   // const [userLoginName, setUserLoginName] = useState("");
   // const [loginPassword, setLoginPassword] = useState("");
-  const [forgotToggle, setforgotToggle] = useState(false);
+  // const [forgotToggle, setforgotToggle] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const { status, message } = useSelector((state) => state.message);
-  const [password, setPassword] = useState("");
-  const [isPasswordValidated, setIsPasswordValidated] = useState(false);
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [isNewPasswordValidated, setIsNewPasswordValidated] = useState(false);
-  const [confirmNewPassword, setConfirmNewPassword] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [isPasswordValidated, setIsPasswordValidated] = useState(false);
+  // const [confirmPassword, setConfirmPassword] = useState("");
+  // const [newPassword, setNewPassword] = useState("");
+  // const [isNewPasswordValidated, setIsNewPasswordValidated] = useState(false);
+  // const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [codeFromEmail, setCodeFromEmail] = useState("");
-  const [isCodeValid, setIsCodeValid] = useState(false);
-  const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
-    useState(false);
-  const [isResetPssWrdButtonDisabled, setIsResetPssWrdButtonDisabled] =
+  // const [isCodeValid, setIsCodeValid] = useState(false);
+  // const [isRegisterButtonDisabled, setIsRegisterButtonDisabled] =
+    // useState(false);
+  // const [isResetPssWrdButtonDisabled, setIsResetPssWrdButtonDisabled] =
     useState(true);
-  const [forgotEmail, setForgotEmail] = useState("");
+  // const [forgotEmail, setForgotEmail] = useState("");
   const [isEmailSent, setIsEmailSent] = useState(false);
   const [registerEmail, setRegisterEmail] = useState("");
   const [isEmailValidated, setIsEmailValidated] = useState(false);
   const [isCodedEntered, setIsCodeEntered] = useState(false);
   const dispatch = useDispatch();
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+  // const handlePasswordChange = (e) => {
+  //   setPassword(e.target.value);
+  // };
 
-  const handleNewPasswordChange = (e) => {
-    setNewPassword(e.target.value);
-    handleNewPasswordValidation(e);
-  };
+  // const handleNewPasswordChange = (e) => {
+  //   setNewPassword(e.target.value);
+  //   handleNewPasswordValidation(e);
+  // };
 
-  const handleRegistrationPasswordChange = (e) => {
-    setPassword(e.target.value);
-    handleRegistrationPasswordValidation(e);
-  };
+  // const handleRegistrationPasswordChange = (e) => {
+  //   setPassword(e.target.value);
+  //   handleRegistrationPasswordValidation(e);
+  // };
 
-  const handleConfirmPasswordChange = (e) => {
-    setConfirmPassword(e.target.value);
-  };
+  // const handleConfirmPasswordChange = (e) => {
+  //   setConfirmPassword(e.target.value);
+  // };
 
-  const handleConfirmNewPasswordChange = (e) => {
-    setConfirmNewPassword(e.target.value);
-  };
+  // const handleConfirmNewPasswordChange = (e) => {
+  //   setConfirmNewPassword(e.target.value);
+  // };
 
   const handleEmailChange = (e) => {
     setRegisterEmail(e.target.value);
@@ -90,63 +90,63 @@ const LoginV2 = () => {
     dispatch(clearMessage());
   }, [dispatch]);
 
-  const handleRegistrationPasswordValidation = (e) => {
-    let password = e.target.value;
-    let passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    if (passwordRegex.test(password)) {
-      setIsPasswordValidated(true);
-      dispatch(clearMessage());
-    } else {
-      setIsPasswordValidated(false);
-      dispatch(
-        setMessage({
-          status: "WARN",
-          message:
-            "Password must be at least 8 characters with 1 number and 1 special character",
-        })
-      );
-    }
-  };
+  // const handleRegistrationPasswordValidation = (e) => {
+  //   let password = e.target.value;
+  //   let passwordRegex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  //   if (passwordRegex.test(password)) {
+  //     setIsPasswordValidated(true);
+  //     dispatch(clearMessage());
+  //   } else {
+  //     setIsPasswordValidated(false);
+  //     dispatch(
+  //       setMessage({
+  //         status: "WARN",
+  //         message:
+  //           "Password must be at least 8 characters with 1 number and 1 special character",
+  //       })
+  //     );
+  //   }
+  // };
 
-  const handleNewPasswordValidation = (e) => {
-    let newPassword = e.target.value;
-    let newPasswordRegex =
-      /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-    if (newPasswordRegex.test(newPassword)) {
-      setIsNewPasswordValidated(true);
-      dispatch(clearMessage());
-    } else {
-      setIsNewPasswordValidated(false);
-      dispatch(
-        setMessage({
-          status: "WARN",
-          message:
-            "New Password must be at least 8 characters with 1 number and 1 special character",
-        })
-      );
-    }
-  };
+  // const handleNewPasswordValidation = (e) => {
+  //   let newPassword = e.target.value;
+  //   let newPasswordRegex =
+  //     /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+  //   if (newPasswordRegex.test(newPassword)) {
+  //     setIsNewPasswordValidated(true);
+  //     dispatch(clearMessage());
+  //   } else {
+  //     setIsNewPasswordValidated(false);
+  //     dispatch(
+  //       setMessage({
+  //         status: "WARN",
+  //         message:
+  //           "New Password must be at least 8 characters with 1 number and 1 special character",
+  //       })
+  //     );
+  //   }
+  // };
 
-  const handleLogin = () => {
-    setIsLoading(true);
-    dispatch(setMessage({ status: "INFO", message: "Logging in..." }));
+  // const handleLogin = () => {
+  //   setIsLoading(true);
+  //   dispatch(setMessage({ status: "INFO", message: "Logging in..." }));
 
-    // let username = document.getElementById("UserLoginName").value;
-    let password = null;
-    let email = document.getElementById("Email").value;
+  //   // let username = document.getElementById("UserLoginName").value;
+  //   let password = null;
+  //   let email = document.getElementById("Email").value;
 
-    dispatch(loginV2({ email, password }))
-      .unwrap()
-      .then(() => {
-        dispatch(userInfoStatus());
-        dispatch(fetchActiveLeague());
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setPassword("");
-        setConfirmPassword("");
-      });
-  };
+  //   dispatch(loginV2({ email, password }))
+  //     .unwrap()
+  //     .then(() => {
+  //       dispatch(userInfoStatus());
+  //       dispatch(fetchActiveLeague());
+  //     })
+  //     .catch(() => {
+  //       setIsLoading(false);
+  //       setPassword("");
+  //       setConfirmPassword("");
+  //     });
+  // };
 
   const handleRegister = () => {
     // setIsLoading(true);
@@ -171,92 +171,92 @@ const LoginV2 = () => {
           })
           .catch(() => {
             // setIsLoading(false);
-            setPassword("");
-            setConfirmPassword("");
+            // setPassword("");
+            // setConfirmPassword("");
           });
       })
       .catch(() => {
         setIsLoading(false);
-        setPassword("");
-        setConfirmPassword("");
+        // setPassword("");
+        // setConfirmPassword("");
       });
   };
 
-  const handleSendEmail = () => {
-    setIsEmailSent(true);
-    dispatch(clearMessage());
-    let email = document.getElementById("ForgotEmail").value;
-    setForgotEmail(email);
-    dispatch(setMessage({ status: "INFO", message: "Sending email..." }));
+  // const handleSendEmail = () => {
+  //   setIsEmailSent(true);
+  //   dispatch(clearMessage());
+  //   let email = document.getElementById("ForgotEmail").value;
+  //   setForgotEmail(email);
+  //   dispatch(setMessage({ status: "INFO", message: "Sending email..." }));
 
-    // dispatch(register({ email }))
-    //   .unwrap()
-    //   .then((response) => {
-    //     dispatch(clearMessage());
-    //     setCodeFromEmail(response.status);
-    //     dispatch(
-    //       setMessage({
-    //         status: "SUCCESS",
-    //         message: response.message,
-    //       })
-    //     );
-    //   })
-    //   .catch(() => {
-    //     setIsLoading(false);
-    //     setPassword("");
-    //     setConfirmPassword("");
-    //   });
+  //   // dispatch(register({ email }))
+  //   //   .unwrap()
+  //   //   .then((response) => {
+  //   //     dispatch(clearMessage());
+  //   //     setCodeFromEmail(response.status);
+  //   //     dispatch(
+  //   //       setMessage({
+  //   //         status: "SUCCESS",
+  //   //         message: response.message,
+  //   //       })
+  //   //     );
+  //   //   })
+  //   //   .catch(() => {
+  //   //     setIsLoading(false);
+  //   //     setPassword("");
+  //   //     setConfirmPassword("");
+  //   //   });
 
-    axios
-      .post(
-        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/ForgotPassword`,
-        { email }
-      )
-      .then((response) => {
-        dispatch(clearMessage());
-        setCodeFromEmail(response.data.status);
-        dispatch(
-          setMessage({
-            status: "SUCCESS",
-            message: response.message,
-          })
-        );
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setPassword("");
-        setConfirmPassword("");
-      });
-  };
+  //   axios
+  //     .post(
+  //       `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/ForgotPassword`,
+  //       { email }
+  //     )
+  //     .then((response) => {
+  //       dispatch(clearMessage());
+  //       setCodeFromEmail(response.data.status);
+  //       dispatch(
+  //         setMessage({
+  //           status: "SUCCESS",
+  //           message: response.message,
+  //         })
+  //       );
+  //     })
+  //     .catch(() => {
+  //       setIsLoading(false);
+  //       setPassword("");
+  //       setConfirmPassword("");
+  //     });
+  // };
 
-  const handleResetPassword = () => {
-    // setIsLoading(true);
-    dispatch(clearMessage());
-    dispatch(setMessage({ status: "INFO", message: "Resetting password..." }));
+  // const handleResetPassword = () => {
+  //   // setIsLoading(true);
+  //   dispatch(clearMessage());
+  //   dispatch(setMessage({ status: "INFO", message: "Resetting password..." }));
 
-    axios
-      .post(
-        `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/Reset-Password`,
-        { codeFromEmail, forgotEmail, newPassword }
-      )
-      .then((response) => {
-        dispatch(clearMessage());
-        setPassword(newPassword);
-        dispatch(userInfoStatus());
-        dispatch(fetchActiveLeague());
-        dispatch(
-          setMessage({
-            status: "SUCCESS",
-            message: response.message,
-          })
-        );
-      })
-      .catch(() => {
-        setIsLoading(false);
-        setPassword("");
-        setConfirmPassword("");
-      });
-  };
+  //   axios
+  //     .post(
+  //       `${process.env.REACT_APP_MYDRAFT_API_BASE_URL}Authenticate/Reset-Password`,
+  //       { codeFromEmail, forgotEmail, newPassword }
+  //     )
+  //     .then((response) => {
+  //       dispatch(clearMessage());
+  //       setPassword(newPassword);
+  //       dispatch(userInfoStatus());
+  //       dispatch(fetchActiveLeague());
+  //       dispatch(
+  //         setMessage({
+  //           status: "SUCCESS",
+  //           message: response.message,
+  //         })
+  //       );
+  //     })
+  //     .catch(() => {
+  //       setIsLoading(false);
+  //       setPassword("");
+  //       setConfirmPassword("");
+  //     });
+  // };
 
   const handleCodeFromEmailChange = (e) => {
     setCodeFromEmail(e.target.value.toUpperCase());
@@ -297,18 +297,18 @@ const LoginV2 = () => {
       })
       .catch(() => {
         setIsLoading(false);
-        setPassword("");
-        setConfirmPassword("");
+        // setPassword("");
+        // setConfirmPassword("");
       });
   };
 
-  useEffect(() => {
-    if (newPassword.length >= 8 && newPassword === confirmNewPassword) {
-      setIsResetPssWrdButtonDisabled(false);
-    } else {
-      setIsResetPssWrdButtonDisabled(true);
-    }
-  }, [newPassword, confirmNewPassword]);
+  // useEffect(() => {
+  //   if (newPassword.length >= 8 && newPassword === confirmNewPassword) {
+  //     setIsResetPssWrdButtonDisabled(false);
+  //   } else {
+  //     setIsResetPssWrdButtonDisabled(true);
+  //   }
+  // }, [newPassword, confirmNewPassword]);
 
   const myStyle = {
     fontSize: ".8rem",
@@ -372,7 +372,7 @@ const LoginV2 = () => {
               </Form>
             </div>
             <div>
-              {loginRegisterToggle && !isEmailSent ? (
+              {!isEmailSent ? (
                 <Button
                   id="btnRegister"
                   className="button-login"
