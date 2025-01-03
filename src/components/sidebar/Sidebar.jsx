@@ -5,7 +5,7 @@ import { Button } from "reactstrap";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
-// import axios from "axios";
+import axios from "axios";
 
 import "./sidebar.scss";
 // import { API_URL } from "../../config";
@@ -14,7 +14,7 @@ import { userInfoStatus } from "../../slices/user";
 import { fetchActiveLeague } from "../../slices/league";
 import { fetchDraftStatus } from "../../slices/draftStatus";
 
-const axios = require("axios").default;
+// const axios = require("axios").default;
 
 const sidebarNavItems = [
   {
@@ -80,6 +80,9 @@ const Sidebar = () => {
   };
 
   const handleAddLeague = () => {
+
+console.log("EMFTEST (Sidebar.jsx) handleAddLeague");
+
     setIsLoading(true);
     axios
       .get(`${process.env.REACT_APP_MYDRAFT_API_BASE_URL}League/CreateLeague/`)
